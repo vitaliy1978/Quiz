@@ -100,6 +100,12 @@ public class Level1 extends AppCompatActivity {
         });
         //Кнопка Назад - Конец
 
+        //Маммив для прогресса игры - Начало
+        final int[] progress ={
+                R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
+                R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
+        //Массив для прогресса игры - Конец
+
         //Подключаем анимацию - начало
         final Animation a = AnimationUtils.loadAnimation(Level1.this,R.anim.alpha);
         //Подключаем анимацию - конец
@@ -126,11 +132,61 @@ public class Level1 extends AppCompatActivity {
                     img_right.setEnabled(false);  //блокируем правую картинку
                     if (numLeft>numRight){
                         img_left.setImageResource(R.drawable.img_true);
+
                     } else {
                         img_left.setImageResource(R.drawable.img_false);
                     }
                 } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
+                    if (numLeft>numRight){
+                        img_left.setImageResource(R.drawable.img_true);
+                        if (count<20){
+                            count=count+1;
+                        }
+                        for (int i=0;i<20;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points);
+                        }
+                        for (int i=0;i<count;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    } else {
+                        if (count>0){
+                            if (count==1){
+                                count=0;
+                            }else{
+                                count=count-2;
+                            }
 
+                        }
+                        for (int i=0;i<19;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points);
+                        }
+                        for (int i=0;i<count;i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    }
+                    if (count==20){  //Выход из уровня
+
+                    }else {
+                        numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
+                        text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
+
+                        numRight=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        //Цикл проверяющий равенство чисел - Начало
+                        while(numLeft==numRight){
+                            numRight=random.nextInt(10);
+                        }
+                        //Цикл проверяющий равенство чисел - Конец
+                        img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
+                        text_right.setText(array.texts1[numRight]);  //достаем из массива текст
+                        img_right.setEnabled(true);  //разблокируем правую картинку
+                    }
                 }
                 //Условие для касания картинки - конец
 
