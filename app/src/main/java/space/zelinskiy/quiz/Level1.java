@@ -194,6 +194,77 @@ public class Level1 extends AppCompatActivity {
             }
         });
         //Обрабатываем нажатие на левую картинку - Конец
+        //Обрабатываем нажатие на правую картинку - Начало
+        img_right.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                //Условие для касания картинки - начало
+                if (event.getAction()==MotionEvent.ACTION_DOWN){  //если коснулся пальцем
+                    img_left.setEnabled(false);  //блокируем левую картинку
+                    if (numRight>numLeft){
+                        img_right.setImageResource(R.drawable.img_true);
+
+                    } else {
+                        img_right.setImageResource(R.drawable.img_false);
+                    }
+                } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
+                    if (numRight>numLeft){
+                        img_right.setImageResource(R.drawable.img_true);
+                        if (count<20){
+                            count=count+1;
+                        }
+                        for (int i=0;i<20;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points);
+                        }
+                        for (int i=0;i<count;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    } else {
+                        if (count>0){
+                            if (count==1){
+                                count=0;
+                            }else{
+                                count=count-2;
+                            }
+
+                        }
+                        for (int i=0;i<19;i++){
+                            TextView tv =findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points);
+                        }
+                        for (int i=0;i<count;i++) {
+                            TextView tv = findViewById(progress[i]);
+                            tv.setBackgroundResource(R.drawable.style_points_green);
+                        }
+                    }
+                    if (count==20){  //Выход из уровня
+
+                    }else {
+                        numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
+                        text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
+
+                        numRight=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        //Цикл проверяющий равенство чисел - Начало
+                        while(numLeft==numRight){
+                            numRight=random.nextInt(10);
+                        }
+                        //Цикл проверяющий равенство чисел - Конец
+                        img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
+                        text_right.setText(array.texts1[numRight]);  //достаем из массива текст
+                        img_left.setEnabled(true);  //разблокируем левую картинку
+                    }
+                }
+                //Условие для касания картинки - конец
+
+                return true;
+            }
+        });
+        //Обрабатываем нажатие на правую картинку - Конец
     }
     //системная кнопка Назад - начало
     @Override
