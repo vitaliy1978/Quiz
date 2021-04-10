@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -116,6 +117,27 @@ public class Level1 extends AppCompatActivity {
         img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
         text_right.setText(array.texts1[numRight]);  //достаем из массива текст
 
+        //Обрабатываем нажатие на левую картинку - Начало
+        img_left.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                //Условие для касания картинки - начало
+                if (event.getAction()==MotionEvent.ACTION_DOWN){  //если коснулся пальцем
+                    img_right.setEnabled(false);  //блокируем правую картинку
+                    if (numLeft>numRight){
+                        img_left.setImageResource(R.drawable.img_true);
+                    } else {
+                        img_left.setImageResource(R.drawable.img_false);
+                    }
+                } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
+
+                }
+                //Условие для касания картинки - конец
+
+                return true;
+            }
+        });
+        //Обрабатываем нажатие на левую картинку - Конец
     }
     //системная кнопка Назад - начало
     @Override
