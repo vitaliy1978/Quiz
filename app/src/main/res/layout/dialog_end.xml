@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/dialog_fon"
     android:background="@drawable/preview_background_one"
@@ -19,29 +19,27 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/button_close"
-            android:text="&#60;"
+            android:text="X"
             android:textStyle="bold"
             android:gravity="center"
             android:background="@drawable/button_stroke_black95_press_white"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/preview_img"
-            android:src="@drawable/preview_img_one"
-            android:layout_weight="50"
-            android:layout_marginTop="10dp"/>
-        <TextView
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:id="@+id/text_description"
-            android:text="@string/levelone"
-            android:layout_weight="40"
-            android:textColor="@color/black95"
-            android:gravity="top|center_horizontal"
-            android:textSize="24sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_weight="90"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/text_description_end"
+                android:text="@string/leveloneEnd"
+                android:textColor="@color/black95"
+                android:textSize="24sp"
+                />
+        </ScrollView>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="0dp"

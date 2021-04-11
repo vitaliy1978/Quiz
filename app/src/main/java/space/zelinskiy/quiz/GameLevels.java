@@ -48,6 +48,23 @@ public class GameLevels extends AppCompatActivity {
             }
         });
         //кнопка для перехона 1-й уровень - Конец
+
+        //кнопка для перехона 2-й уровень - Начало
+        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(GameLevels.this,Level2.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехона 2-й уровень - Конец
+
     }
 
     //системная кнопка Назад - начало
