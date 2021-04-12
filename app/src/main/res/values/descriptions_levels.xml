@@ -5,5 +5,5 @@
     <string name="levelthree">Выбери букву, которая стоит дальше в английском алфавите.</string>
     <string name="leveloneEnd">" Поздравляю! \nУровень пройден."</string>
     <string name="leveltwoEnd">" Поздравляю! \nУровень пройден."</string>
-    <string name="levelthreeEnd">" Поздравляю! \nУровень пройден."</string>
+    <string name="levelthreeEnd">" Поздравляю! \nУровень пройден!"</string>
 </resources>
