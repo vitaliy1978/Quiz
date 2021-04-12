@@ -2,5 +2,8 @@
 <resources>
     <string name="levelone">Лёгкая разминка на скорость.\nВыбери цифру, которая больше.\nВопросы могут повторяться.</string>
     <string name="leveltwo">Выбери римскую цифру, которая больше.\nВопросы могут повторяться.</string>
-    <string name="leveloneEnd">\n" Поздравляю! \n\nУровень пройден."\n\n\n\n\n\n\n\n</string>
+    <string name="levelthree">Выбери букву, которая стоит дальше в английском алфавите.</string>
+    <string name="leveloneEnd">" Поздравляю! \nУровень пройден."</string>
+    <string name="leveltwoEnd">" Поздравляю! \nУровень пройден."</string>
+    <string name="levelthreeEnd">" Поздравляю! \nУровень пройден."</string>
 </resources>

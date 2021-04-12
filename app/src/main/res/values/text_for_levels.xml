@@ -7,7 +7,33 @@
     <string name="lvl1text4">Четыре</string>
     <string name="lvl1text5">Пять</string>
     <string name="lvl1text6">Шесть</string>
-    <string name="lvl1text7">Сель</string>
+    <string name="lvl1text7">Семь</string>
     <string name="lvl1text8">Восемь</string>
     <string name="lvl1text9">Девять</string>
+
+    <string name="lvl2text1">I</string>
+    <string name="lvl2text2">II</string>
+    <string name="lvl2text3">III</string>
+    <string name="lvl2text4">IV</string>
+    <string name="lvl2text5">V</string>
+    <string name="lvl2text6">VI</string>
+    <string name="lvl2text7">VII</string>
+    <string name="lvl2text8">VIII</string>
+    <string name="lvl2text9">IX</string>
+    <string name="lvl2text10">X</string>
+
+    <string name="lvl3textA">a</string>
+    <string name="lvl3textB">b</string>
+    <string name="lvl3textC">c</string>
+    <string name="lvl3textD">d</string>
+    <string name="lvl3textE">e</string>
+    <string name="lvl3textF">f</string>
+    <string name="lvl3textG">g</string>
+    <string name="lvl3textH">h</string>
+    <string name="lvl3textI">i</string>
+    <string name="lvl3textJ">j</string>
+    <string name="lvl3textK">k</string>
+    <string name="lvl3textL">l</string>
+    <string name="lvl3textM">m</string>
+    <string name="lvl3textN">n</string>
 </resources>
