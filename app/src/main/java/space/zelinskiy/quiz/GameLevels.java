@@ -1,11 +1,13 @@
 package space.zelinskiy.quiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,10 @@ public class GameLevels extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gamelevels);
+
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        final int level = save.getInt("Level", 1);
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -39,9 +45,12 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    if (level>=1){
                     Intent intent = new Intent(GameLevels.this,Level1.class);
                     startActivity(intent);
-                    finish();
+                    finish();}else {
+                        //пусто
+                    }
                 }catch (Exception e){
 
                 }
@@ -55,9 +64,12 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    if (level>=2){
                     Intent intent = new Intent(GameLevels.this,Level2.class);
                     startActivity(intent);
-                    finish();
+                    finish();}else {
+                        //пусто
+                    }
                 }catch (Exception e){
 
                 }
@@ -71,9 +83,12 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    if (level>=3){
                     Intent intent = new Intent(GameLevels.this,Level3.class);
                     startActivity(intent);
-                    finish();
+                    finish();}else {
+                        //пусто
+                    }
                 }catch (Exception e){
 
                 }
@@ -87,9 +102,12 @@ public class GameLevels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    if (level>=4){
                     Intent intent = new Intent(GameLevels.this,Level4.class);
                     startActivity(intent);
-                    finish();
+                    finish();}else {
+                        //пусто
+                    }
                 }catch (Exception e){
 
                 }
@@ -97,8 +115,18 @@ public class GameLevels extends AppCompatActivity {
         });
         //кнопка для перехона 4-й уровень - Конец
 
-    }
+        final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4};
+        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4};
+        for (int i=0;i<level;i++){
+            TextView tv = findViewById(count[i]);
+            ImageView im = findViewById(lock[i]);
+           // tv.setText(""+(i+1));
+            tv.setVisibility(View.VISIBLE);
+            tv.setText("20.00");
+            im.setVisibility(View.GONE);
+        }
 
+    }
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){

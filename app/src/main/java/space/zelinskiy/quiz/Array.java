@@ -118,49 +118,17 @@ public class Array {
 
     //Массив для четвертого уровня - Начало
     final int[] images4 = {
-            R.drawable.level4_edible1,
-            R.drawable.level4_inedible1,
-            R.drawable.level4_edible2,
-            R.drawable.level4_inedible2,
-            R.drawable.level4_edible3,
-            R.drawable.level4_inedible3,
-            R.drawable.level4_edible4,
-            R.drawable.level4_inedible4,
-            R.drawable.level4_edible5,
-            R.drawable.level4_inedible5,
-            R.drawable.level4_edible6,
-            R.drawable.level4_inedible6,
-            R.drawable.level4_edible7,
-            R.drawable.level4_inedible7,
-            R.drawable.level4_edible8,
-            R.drawable.level4_inedible8,
-            R.drawable.level4_edible9,
-            R.drawable.level4_inedible9,
-            R.drawable.level4_edible10,
-            R.drawable.level4_inedible10,
+            R.drawable.level4_clok1,            R.drawable.level4_clok2,            R.drawable.level4_clok3,            R.drawable.level4_clok4,
+            R.drawable.level4_clok5,            R.drawable.level4_clok6,            R.drawable.level4_clok7,            R.drawable.level4_clok8,
+            R.drawable.level4_clok9,            R.drawable.level4_clok10,            R.drawable.level4_clok11,            R.drawable.level4_clok12,
+            R.drawable.level4_clok13,            R.drawable.level4_clok14,            R.drawable.level4_clok15,            R.drawable.level4_clok16,
+            R.drawable.level4_clok17,            R.drawable.level4_clok18,            R.drawable.level4_clok19,            R.drawable.level4_clok20,
     };
     final int[] texts4 ={
             R.string.lvl4text1,
-            R.string.lvl4text2,
-            R.string.lvl4text3,
-            R.string.lvl4text4,
-            R.string.lvl4text5,
-            R.string.lvl4text6,
-            R.string.lvl4text7,
-            R.string.lvl4text8,
-            R.string.lvl4text9,
-            R.string.lvl4text10,
-            R.string.lvl4text11,
-            R.string.lvl4text12,
-            R.string.lvl4text13,
-            R.string.lvl4text14,
-            R.string.lvl4text15,
-            R.string.lvl4text16,
-            R.string.lvl4text17,
-            R.string.lvl4text18,
-            R.string.lvl4text19,
-            R.string.lvl4text20,
-    };
-    final int[] strong={1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0};
+            R.string.lvl4text2,            R.string.lvl4text3,            R.string.lvl4text4,            R.string.lvl4text5,            R.string.lvl4text6,            R.string.lvl4text7,            R.string.lvl4text8,
+            R.string.lvl4text9,            R.string.lvl4text10,            R.string.lvl4text11,            R.string.lvl4text12,            R.string.lvl4text13,            R.string.lvl4text14,            R.string.lvl4text15,
+            R.string.lvl4text16,            R.string.lvl4text17,            R.string.lvl4text18,            R.string.lvl4text19,            R.string.lvl4text20,    };
     //Массив для четвертого уровня - Конец
+
 }

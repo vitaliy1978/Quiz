@@ -2,6 +2,7 @@ package space.zelinskiy.quiz;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -65,7 +66,7 @@ public class Level4 extends AppCompatActivity {
 
         //Устанавливаем описание задания - Начало
         TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
-        text_description.setText(R.string.level4);
+        text_description.setText(R.string.levelfour);
         //Устанавливаем описание задания - Конец
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -175,7 +176,7 @@ public class Level4 extends AppCompatActivity {
 
         numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
         //Цикл проверяющий равенство чисел - Начало
-        while(array.strong[numLeft]==array.strong[numRight]){
+        while(numLeft==numRight){
             numRight=random.nextInt(20);
         }
         //Цикл проверяющий равенство чисел - Конец
@@ -189,14 +190,14 @@ public class Level4 extends AppCompatActivity {
                 //Условие для касания картинки - начало
                 if (event.getAction()==MotionEvent.ACTION_DOWN){  //если коснулся пальцем
                     img_right.setEnabled(false);  //блокируем правую картинку
-                    if (array.strong[numLeft]>array.strong[numRight]){
+                    if (numLeft>numRight){
                         img_left.setImageResource(R.drawable.img_true);
 
                     } else {
                         img_left.setImageResource(R.drawable.img_false);
                     }
                 } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
-                    if (array.strong[numLeft]>array.strong[numRight]){
+                    if (numLeft>numRight){
                         img_left.setImageResource(R.drawable.img_true);
                         if (count<20){
                             count=count+1;
@@ -228,6 +229,15 @@ public class Level4 extends AppCompatActivity {
                         }
                     }
                     if (count==20){  //Выход из уровня
+                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+                        final int level = save.getInt("Level", 1);
+                        if (level>4){
+                            //пусто
+                        }else {
+                            SharedPreferences.Editor editor = save.edit();
+                            editor.putInt("Level", 5);
+                            editor.commit();
+                        }
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
@@ -236,11 +246,12 @@ public class Level4 extends AppCompatActivity {
 
                         numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
-                        while(array.strong[numLeft]==array.strong[numRight]){
+                        while(numLeft==numRight){
                             numRight=random.nextInt(20);
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
                         text_right.setText(array.texts4[numRight]);  //достаем из массива текст
                         img_right.setEnabled(true);  //разблокируем правую картинку
                     }
@@ -259,14 +270,14 @@ public class Level4 extends AppCompatActivity {
                 //Условие для касания картинки - начало
                 if (event.getAction()==MotionEvent.ACTION_DOWN){  //если коснулся пальцем
                     img_left.setEnabled(false);  //блокируем левую картинку
-                    if (array.strong[numLeft]<array.strong[numRight]){
+                    if (numRight>numLeft){
                         img_right.setImageResource(R.drawable.img_true);
 
                     } else {
                         img_right.setImageResource(R.drawable.img_false);
                     }
                 } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
-                    if (array.strong[numLeft]<array.strong[numRight]){
+                    if (numRight>numLeft){
                         img_right.setImageResource(R.drawable.img_true);
                         if (count<20){
                             count=count+1;
@@ -298,6 +309,16 @@ public class Level4 extends AppCompatActivity {
                         }
                     }
                     if (count==20){  //Выход из уровня
+                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+                        final int level = save.getInt("Level", 1);
+                        //final int level = save.getInt("Level", defValue: 1);
+                        if (level>4){
+                            //пусто
+                        }else {
+                            SharedPreferences.Editor editor = save.edit();
+                            editor.putInt("Level", 5);
+                            editor.commit();
+                        }
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
@@ -306,11 +327,12 @@ public class Level4 extends AppCompatActivity {
 
                         numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
-                        while(array.strong[numLeft]==array.strong[numRight]){
+                        while(numRight==numLeft){
                             numRight=random.nextInt(20);
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
                         text_right.setText(array.texts4[numRight]);  //достаем из массива текст
                         img_left.setEnabled(true);  //разблокируем левую картинку
                     }
