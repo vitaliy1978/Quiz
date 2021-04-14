@@ -208,16 +208,17 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_test" />
+                    android:src="@drawable/twolevel_eight" />
+
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
                     android:layout_height="320dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="5dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/style_img_universal"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:background="@drawable/style_img_universal"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/img_test" />
             </LinearLayout>
 

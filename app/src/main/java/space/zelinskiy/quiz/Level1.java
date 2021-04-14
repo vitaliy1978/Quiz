@@ -56,6 +56,12 @@ public class Level1 extends AppCompatActivity {
         dialog.setContentView(R.layout.preview_dialog); //Путь к макету диалогового окна
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //Прозрачный фон диалогового окна
         dialog.setCancelable(false);  //окно нельзя открыть кнопкой назад
+
+        //Устанавливаем описание задания - Начало
+        TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
+        text_description.setText(R.string.levelone);
+        //Устанавливаем описание задания - Конец
+
         // Кнопка которая закрывает диалоговое окно - Начало
         TextView button_close = (TextView) dialog.findViewById(R.id.button_close);
         button_close.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +149,7 @@ public class Level1 extends AppCompatActivity {
         });
         //Кнопка Назад - Конец
 
-        //Маммив для прогресса игры - Начало
+        //Маccив для прогресса игры - Начало
         final int[] progress ={
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
                 R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};

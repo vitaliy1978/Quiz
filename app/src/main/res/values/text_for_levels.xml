@@ -36,4 +36,37 @@
     <string name="lvl3textL">l</string>
     <string name="lvl3textM">m</string>
     <string name="lvl3textN">n</string>
+    <string name="lvl3textO">o</string>
+    <string name="lvl3textP">p</string>
+    <string name="lvl3textQ">q</string>
+    <string name="lvl3textR">r</string>
+    <string name="lvl3textS">s</string>
+    <string name="lvl3textT">t</string>
+    <string name="lvl3textU">u</string>
+    <string name="lvl3textV">v</string>
+    <string name="lvl3textW">w</string>
+    <string name="lvl3textX">x</string>
+    <string name="lvl3textY">y</string>
+    <string name="lvl3textZ">z</string>
+
+    <string name="lvl4text1">Лимон</string>
+    <string name="lvl4text2">Колесо</string>
+    <string name="lvl4text3">Картошка</string>
+    <string name="lvl4text4">Алмаз</string>
+    <string name="lvl4text5">Дуриан</string>
+    <string name="lvl4text6">Алмаз</string>
+    <string name="lvl4text7">Хлеб</string>
+    <string name="lvl4text8">Алмаз</string>
+    <string name="lvl4text9">Бублик</string>
+    <string name="lvl4text10">Алмаз</string>
+    <string name="lvl4text11">Манты</string>
+    <string name="lvl4text12">Алмаз</string>
+    <string name="lvl4text13">Шашлык</string>
+    <string name="lvl4text14">Алмаз</string>
+    <string name="lvl4text15">Мороженое</string>
+    <string name="lvl4text16">Алмаз</string>
+    <string name="lvl4text17">Мороженое</string>
+    <string name="lvl4text18">Алмаз</string>
+    <string name="lvl4text19">Мороженое</string>
+    <string name="lvl4text20">Алмаз</string>
 </resources>
