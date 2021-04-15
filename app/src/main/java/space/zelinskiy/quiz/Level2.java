@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -46,6 +47,12 @@ public class Level2 extends AppCompatActivity {
 
         final TextView text_left = findViewById(R.id.text_left);  //Путь к левой TextView
         final TextView text_right = findViewById(R.id.text_right);  //Путь к правой TextView
+        final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
+        final Button button_back = (Button)findViewById(R.id.button_back);
+
+        img_left.setEnabled(false);
+        img_right.setEnabled(false);
+        button_back.setEnabled(false);
 
         //Развернуть игру на весь экран - Начало
         Window w = getWindow();
@@ -91,6 +98,28 @@ public class Level2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();  //закрываем диалоговое окно
+
+                CountDownTimer myTimer = new CountDownTimer(3010, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished)
+                    {
+                        if (millisUntilFinished<4000)
+                        {
+                            text_otschet.setText(Long.toString(millisUntilFinished / 1000));
+                        }
+                    }
+
+                    @Override
+                    public void onFinish()
+                    {
+                        text_otschet.setText("Поехали");
+                        img_left.setEnabled(true);
+                        img_right.setEnabled(true);
+                        button_back.setEnabled(true);
+                    }
+                };
+                myTimer.start();
+
             }
         });
         //Кнопка Продолжит - Конец
@@ -144,7 +173,6 @@ public class Level2 extends AppCompatActivity {
         //__________________________
 
         //Кнопка Назад - Начало
-        Button button_back = (Button)findViewById(R.id.button_back);
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
