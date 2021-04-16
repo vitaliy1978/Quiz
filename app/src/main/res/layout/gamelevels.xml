@@ -51,8 +51,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="60"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:background="@drawable/button_stroke_white_press_blue_small"
+                android:layout_marginBottom="50dp">
 
                 <LinearLayout
                     android:id="@+id/container4"
@@ -68,7 +73,7 @@
 
                         <TextView
                             android:id="@+id/textView1"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
                             android:paddingLeft="10dp"

@@ -208,7 +208,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/twolevel_eight" />
+                    android:src="@drawable/twolevel8" />
 
                 <ImageView
                     android:id="@+id/img_right"
