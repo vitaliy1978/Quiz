@@ -202,7 +202,7 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="200dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:scaleType="centerCrop"
@@ -212,7 +212,7 @@
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="200dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="5dp"
                     android:scaleType="centerCrop"

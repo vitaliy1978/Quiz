@@ -115,8 +115,27 @@ public class GameLevels extends AppCompatActivity {
         });
         //кнопка для перехона 4-й уровень - Конец
 
-        final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4};
-        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4};
+        //кнопка для перехона 5-й уровень - Начало
+        TextView textView5 = (TextView) findViewById(R.id.textView5);
+        textView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=5){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехона 5-й уровень - Конец
+
+        final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6};
+        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6};
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);

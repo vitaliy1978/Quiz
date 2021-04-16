@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
-public class Level4 extends AppCompatActivity {
+public class Level5 extends AppCompatActivity {
 
     Dialog dialog;
     Dialog dialogEnd;
@@ -38,7 +38,7 @@ public class Level4 extends AppCompatActivity {
         setContentView(R.layout.universal);
 
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
-        text_levels.setText(R.string.level4);
+        text_levels.setText(R.string.level5);
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
         final ImageView img_right = (ImageView) findViewById(R.id.img_right);
@@ -68,12 +68,12 @@ public class Level4 extends AppCompatActivity {
 
         //Устанавливаем картинку в диалоговое окно - Начало
         ImageView preview_img =(ImageView)dialog.findViewById(R.id.preview_img);
-        preview_img.setImageResource(R.drawable.preview_img4);
+        preview_img.setImageResource(R.drawable.preview_img5);
         //Устанавливаем картинку в диалоговое окно - Конец
 
         //Устанавливаем описание задания - Начало
         TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
-        text_description.setText(R.string.levelfour);
+        text_description.setText(R.string.levelfive);
         //Устанавливаем описание задания - Конец
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -82,7 +82,7 @@ public class Level4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Level4.this,GameLevels.class);
+                    Intent intent = new Intent(Level5.this,GameLevels.class);
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
@@ -143,7 +143,7 @@ public class Level4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Level4.this,GameLevels.class);
+                    Intent intent = new Intent(Level5.this,GameLevels.class);
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
@@ -160,7 +160,7 @@ public class Level4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent =new Intent(Level4.this, Level5.class);
+                    Intent intent =new Intent(Level5.this, Level5.class);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -177,7 +177,7 @@ public class Level4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Level4.this,GameLevels.class);
+                    Intent intent = new Intent(Level5.this,GameLevels.class);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -194,7 +194,7 @@ public class Level4 extends AppCompatActivity {
         //Массив для прогресса игры - Конец
 
         //Подключаем анимацию - начало
-        final Animation a = AnimationUtils.loadAnimation(Level4.this,R.anim.alpha);
+        final Animation a = AnimationUtils.loadAnimation(Level5.this,R.anim.alpha);
         //Подключаем анимацию - конец
 
         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
@@ -258,11 +258,11 @@ public class Level4 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
-                        if (level>4){
+                        if (level>5){
                             //пусто
                         }else {
                             SharedPreferences.Editor editor = save.edit();
-                            editor.putInt("Level", 5);
+                            editor.putInt("Level", 6);
                             editor.commit();
                         }
                         dialogEnd.show();
@@ -339,11 +339,11 @@ public class Level4 extends AppCompatActivity {
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         //final int level = save.getInt("Level", defValue: 1);
-                        if (level>4){
+                        if (level>5){
                             //пусто
                         }else {
                             SharedPreferences.Editor editor = save.edit();
-                            editor.putInt("Level", 5);
+                            editor.putInt("Level", 6);
                             editor.commit();
                         }
                         dialogEnd.show();
@@ -375,7 +375,7 @@ public class Level4 extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         try {
-            Intent intent = new Intent(Level4.this,GameLevels.class);
+            Intent intent = new Intent(Level5.this,GameLevels.class);
             startActivity(intent);
             finish();
         }catch (Exception e){

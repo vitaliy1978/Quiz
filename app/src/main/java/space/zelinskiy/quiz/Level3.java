@@ -256,6 +256,7 @@ public class Level3 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
+                        //final int level = save.getInt("Level", defValue: 1);
                         if (level>3){
                             //пусто
                         }else {
