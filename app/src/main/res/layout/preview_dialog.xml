@@ -16,11 +16,12 @@
         android:gravity="center"
         >
         <TextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/button_close"
             android:text="&#60;"
             android:textStyle="bold"
+            android:textSize="26sp"
             android:gravity="center"
             android:background="@drawable/button_stroke_black95_press_white"
             android:layout_gravity="start"

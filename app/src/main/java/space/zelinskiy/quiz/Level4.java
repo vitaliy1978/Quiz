@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -31,6 +32,7 @@ public class Level4 extends AppCompatActivity {
     Array array = new Array(); //Создали новый оъект из класса Array
     Random random = new Random(); //для генерации случайных чисел
     public int count =0;  //Счетчик правильных ответов
+    MediaPlayer musicfon, musicotschet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class Level4 extends AppCompatActivity {
         final TextView text_right = findViewById(R.id.text_right);  //Путь к правой TextView
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final Button button_back = (Button)findViewById(R.id.button_back);
+        musicfon = MediaPlayer.create(this, R.raw.musicfon);
+        musicotschet = MediaPlayer.create(this,R.raw.musicotschet);
 
         img_left.setEnabled(false);
         img_right.setEnabled(false);
@@ -93,6 +97,11 @@ public class Level4 extends AppCompatActivity {
         });
         // Кнопка которая закрывает диалоговое окно - Конец
 
+        //Подключаем анимацию - начало
+        final Animation a = AnimationUtils.loadAnimation(Level4.this,R.anim.alpha);
+        final Animation a2 = AnimationUtils.loadAnimation(Level4.this,R.anim.alpha2);
+        //Подключаем анимацию - конец
+
         //Кнопка Продолжить - Начало
         Button btn_continue = (Button)dialog.findViewById(R.id.btn_continue);
         btn_continue.setOnClickListener(new View.OnClickListener() {
@@ -103,16 +112,21 @@ public class Level4 extends AppCompatActivity {
                     @Override
                     public void onTick(long millisUntilFinished)
                     {
+                        text_otschet.setVisibility(View.VISIBLE);
+                        musicotschet.start();
                         if (millisUntilFinished<4000)
                         {
                             text_otschet.setText(Long.toString(millisUntilFinished / 1000));
+                            text_otschet.startAnimation(a2);
                         }
                     }
 
                     @Override
                     public void onFinish()
                     {
-                        text_otschet.setText("Поехали");
+                        musicotschet.stop();
+                        musicfon.start();
+                        text_otschet.setVisibility(View.GONE);
                         img_left.setEnabled(true);
                         img_right.setEnabled(true);
                         button_back.setEnabled(true);
@@ -177,6 +191,7 @@ public class Level4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    musicfon.stop();
                     Intent intent = new Intent(Level4.this,GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -192,10 +207,6 @@ public class Level4 extends AppCompatActivity {
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
                 R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
         //Массив для прогресса игры - Конец
-
-        //Подключаем анимацию - начало
-        final Animation a = AnimationUtils.loadAnimation(Level4.this,R.anim.alpha);
-        //Подключаем анимацию - конец
 
         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
         img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
@@ -256,6 +267,7 @@ public class Level4 extends AppCompatActivity {
                         }
                     }
                     if (count==20){  //Выход из уровня
+                        musicfon.stop();
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         if (level>4){
@@ -269,6 +281,7 @@ public class Level4 extends AppCompatActivity {
                     }else {
                         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
                         img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
                         text_left.setText(array.texts4[numLeft]);  //достаем из массива текст
 
                         numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
@@ -278,7 +291,7 @@ public class Level4 extends AppCompatActivity {
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
-                        img_left.startAnimation(a);
+                        img_right.startAnimation(a);
                         text_right.setText(array.texts4[numRight]);  //достаем из массива текст
                         img_right.setEnabled(true);  //разблокируем правую картинку
                     }
@@ -336,6 +349,7 @@ public class Level4 extends AppCompatActivity {
                         }
                     }
                     if (count==20){  //Выход из уровня
+                        musicfon.stop();
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         //final int level = save.getInt("Level", defValue: 1);
@@ -350,6 +364,7 @@ public class Level4 extends AppCompatActivity {
                     }else {
                         numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
                         img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
+                        img_left.startAnimation(a);
                         text_left.setText(array.texts4[numLeft]);  //достаем из массива текст
 
                         numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
@@ -359,7 +374,7 @@ public class Level4 extends AppCompatActivity {
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
-                        img_left.startAnimation(a);
+                        img_right.startAnimation(a);
                         text_right.setText(array.texts4[numRight]);  //достаем из массива текст
                         img_left.setEnabled(true);  //разблокируем левую картинку
                     }
@@ -374,12 +389,18 @@ public class Level4 extends AppCompatActivity {
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
-        try {
-            Intent intent = new Intent(Level4.this,GameLevels.class);
-            startActivity(intent);
-            finish();
-        }catch (Exception e){
+        if (!musicotschet.isPlaying())
+        {
+            try
+            {
+                musicfon.stop();
+                Intent intent = new Intent(Level4.this, GameLevels.class);
+                startActivity(intent);
+                finish();
+            } catch (Exception e)
+            {
 
+            }
         }
     }
     //системная кнопка Назад - конец

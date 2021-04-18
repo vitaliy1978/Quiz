@@ -259,7 +259,7 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/text_otschet"
+                    android:id="@+id/text_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -273,5 +273,15 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/text_otschet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="3"
+        android:textColor="@color/black95"
+        android:textSize="60sp"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom|center_horizontal"
+        />
 
 </RelativeLayout>

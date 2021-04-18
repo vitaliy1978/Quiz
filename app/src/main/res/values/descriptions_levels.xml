@@ -5,8 +5,9 @@
     <string name="levelthree">Выбери букву, которая стоит дальше в английском алфавите.</string>
     <string name="levelfour">Выбери часы, которые показывают большее время.</string>
     <string name="levelfive">Выбери цвет, который темнее.</string>
-    <string name="leveloneEnd">" Поздравляю! \nУровень пройден."</string>
-    <string name="leveltwoEnd">" Поздравляю! \nУровень пройден."</string>
-    <string name="levelthreeEnd">" Поздравляю! \nУровень пройден!"</string>
-    <string name="level4End">" Поздравляю! \nУровень пройден!"</string>
+    <string name="leveloneEnd">"Поздравляю! \nУровень пройден."</string>
+    <string name="leveltwoEnd">"Поздравляю! \nУровень пройден."</string>
+    <string name="levelthreeEnd">"Поздравляю! \nУровень пройден!"</string>
+    <string name="level4End">"Поздравляю! \nУровень пройден!"</string>
+    <string name="level5End">"Поздравляю! \nУровень пройден!"</string>
 </resources>

@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GameLevels extends AppCompatActivity {
 
+    Array array = new Array(); //Создали новый оъект из класса Array
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,9 @@ public class GameLevels extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
+
+        SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
+        array.rezult[0] = save2.getInt("array.rezult[0]",1);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -38,7 +43,6 @@ public class GameLevels extends AppCompatActivity {
                 }
             }
         });
-
         //кнопка для перехона 1-й уровень - Начало
         TextView textView1 = (TextView) findViewById(R.id.textView1);
        textView1.setOnClickListener(new View.OnClickListener() {
@@ -141,10 +145,11 @@ public class GameLevels extends AppCompatActivity {
             ImageView im = findViewById(lock[i]);
            // tv.setText(""+(i+1));
             tv.setVisibility(View.VISIBLE);
-            tv.setText("20.00");
+           // tv.setText(sek[i]);
             im.setVisibility(View.GONE);
         }
-
+        TextView textViewlock1 =findViewById(R.id.textViewlock1);
+        textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
     }
     //системная кнопка Назад - начало
     @Override

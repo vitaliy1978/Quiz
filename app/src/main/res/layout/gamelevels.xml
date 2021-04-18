@@ -98,7 +98,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:text="20.36"
                             android:textColor="@color/black95"
                             android:textSize="24sp"/>
@@ -136,7 +136,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
@@ -174,7 +174,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
@@ -211,7 +211,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
@@ -247,7 +247,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
@@ -285,7 +285,7 @@
                             android:background="@drawable/flash"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:gravity="center_vertical"
+                            android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
@@ -316,6 +316,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock7"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -342,6 +354,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock8"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -368,6 +392,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock9"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -394,6 +430,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock10"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -420,6 +468,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock11"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -446,6 +506,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock12"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -472,6 +544,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock13"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -498,6 +582,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock14"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -524,6 +620,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock15"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -550,6 +658,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock16"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -576,6 +696,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock17"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -602,6 +734,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock18"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -628,6 +772,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock19"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -654,6 +810,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock20"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -680,6 +848,19 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock21"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
+
 
                     </LinearLayout>
                     <LinearLayout
@@ -706,6 +887,18 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
+                        <TextView
+                            android:id="@+id/textViewlock22"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/flash"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text=""
+                            android:textColor="@color/black95"
+                            android:textSize="24sp"/>
 
                     </LinearLayout>
 

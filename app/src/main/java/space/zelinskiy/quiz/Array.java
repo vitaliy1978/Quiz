@@ -2,6 +2,10 @@ package space.zelinskiy.quiz;
 
 public class Array {
 
+    //Массив для результатов - Начало
+    public int[] rezult = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    //Массив для результатов - Конец
+
     //Массив для первого уровня - Начало
     final int[] images1 = {
             R.drawable.onelevel0,            R.drawable.onelevel1,            R.drawable.onelevel2,            R.drawable.onelevel3,            R.drawable.onelevel4,
@@ -74,6 +78,22 @@ public class Array {
             R.string.lvl4text2,            R.string.lvl4text3,            R.string.lvl4text4,            R.string.lvl4text5,            R.string.lvl4text6,            R.string.lvl4text7,            R.string.lvl4text8,
             R.string.lvl4text9,            R.string.lvl4text10,            R.string.lvl4text11,            R.string.lvl4text12,            R.string.lvl4text13,            R.string.lvl4text14,            R.string.lvl4text15,
             R.string.lvl4text16,            R.string.lvl4text17,            R.string.lvl4text18,            R.string.lvl4text19,            R.string.lvl4text20,    };
+    //Массив для четвертого уровня - Конец
+
+    //Массив для пятого уровня - Начало
+    final int[] images5 = {
+            R.drawable.fivelevel1,            R.drawable.fivelevel2,            R.drawable.fivelevel3,            R.drawable.fivelevel4,            R.drawable.fivelevel5,
+            R.drawable.fivelevel6,            R.drawable.fivelevel7,            R.drawable.fivelevel8,            R.drawable.fivelevel9,            R.drawable.fivelevel10,
+            R.drawable.fivelevel11,            R.drawable.fivelevel12,            R.drawable.fivelevel13,            R.drawable.fivelevel14,            R.drawable.fivelevel15,
+            R.drawable.fivelevel16,
+
+    };
+    final int[] texts5 ={
+            R.string.lvl5text1,            R.string.lvl5text2,            R.string.lvl5text3,            R.string.lvl5text4,            R.string.lvl5text5,
+            R.string.lvl5text6,            R.string.lvl5text7,            R.string.lvl5text8,            R.string.lvl5text9,            R.string.lvl5text10,
+            R.string.lvl5text11,            R.string.lvl5text12,            R.string.lvl5text13,            R.string.lvl5text14,            R.string.lvl5text15,
+            R.string.lvl5text16,
+    };
     //Массив для четвертого уровня - Конец
 
 }

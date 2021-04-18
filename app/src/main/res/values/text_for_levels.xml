@@ -70,5 +70,21 @@
     <string name="lvl4text19">Время</string>
     <string name="lvl4text20">Время</string>
 
+    <string name="lvl5text1">Желтый</string>
+    <string name="lvl5text2">Голубой</string>
+    <string name="lvl5text3">Зеленый</string>
+    <string name="lvl5text4">Бирюзовый</string>
+    <string name="lvl5text5">Розовый</string>
+    <string name="lvl5text6">Охра</string>
+    <string name="lvl5text7">Фуксия</string>
+    <string name="lvl5text8">Красный</string>
+    <string name="lvl5text9">Коралловый</string>
+    <string name="lvl5text10">Бордовый</string>
+    <string name="lvl5text11">Фиолетовый</string>
+    <string name="lvl5text12">Коричневый</string>
+    <string name="lvl5text13">Темно зеленый</string>
+    <string name="lvl5text14">Ультрамарин</string>
+    <string name="lvl5text15">Кофейный</string>
+    <string name="lvl5text16">Черный</string>
 
 </resources>
