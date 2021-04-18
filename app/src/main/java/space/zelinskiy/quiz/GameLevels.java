@@ -27,6 +27,9 @@ public class GameLevels extends AppCompatActivity {
         SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
         array.rezult[0] = save2.getInt("array.rezult[0]",1);
 
+        SharedPreferences save3 = getSharedPreferences("Save3",MODE_PRIVATE);
+        array.rezult[1] = save3.getInt("array.rezult[1]",1);
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -146,10 +149,15 @@ public class GameLevels extends AppCompatActivity {
            // tv.setText(""+(i+1));
             tv.setVisibility(View.VISIBLE);
            // tv.setText(sek[i]);
+            if (array.rezult[i]<=0){
+                tv.setText("");
+            }else {
+                tv.setText(String.format("%d.%02d", array.rezult[i] / 100, (array.rezult[i] % 100)));
+            }
             im.setVisibility(View.GONE);
         }
-        TextView textViewlock1 =findViewById(R.id.textViewlock1);
-        textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
+      //  TextView textViewlock1 =findViewById(R.id.textViewlock1);
+      //  textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
     }
     //системная кнопка Назад - начало
     @Override

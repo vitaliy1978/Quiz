@@ -29,11 +29,11 @@ public class Level1 extends AppCompatActivity {
 
     public int numLeft;  //Переменная для левой картинки + текст
     public int numRight;  //Переменная для правой картинки + текст
-    public Array array = new Array(); //Создали новый оъект из класса Array
+    Array array = new Array(); //Создали новый оъект из класса Array
     Random random = new Random(); //для генерации случайных чисел
     public int count =0;  //Счетчик правильных ответов
     MediaPlayer musicfon, musicotschet;
-    public int sek=0;
+    public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class Level1 extends AppCompatActivity {
         final TextView text_right = findViewById(R.id.text_right);  //Путь к правой TextView
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
-        final Button button_back = (Button)findViewById(R.id.button_back);
+        final Button button_back = (Button)findViewById(R.id.button_back); //Путь к кнопке Назад
         musicfon = MediaPlayer.create(this, R.raw.musicfon);
         musicotschet = MediaPlayer.create(this,R.raw.musicotschet);
 
@@ -74,7 +74,9 @@ public class Level1 extends AppCompatActivity {
 
         //Устанавливаем описание задания - Начало
         TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
+        TextView text_description2 = (TextView)dialog.findViewById(R.id.text_description2);
         text_description.setText(R.string.levelone);
+        text_description2.setText(R.string.levelone2);
         //Устанавливаем описание задания - Конец
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -152,6 +154,7 @@ public class Level1 extends AppCompatActivity {
             public void onClick(View v) {
 
                 dialog.dismiss();  //закрываем диалоговое окно
+
                 CountDownTimer myTimer = new CountDownTimer(3010, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished)
@@ -178,28 +181,29 @@ public class Level1 extends AppCompatActivity {
                 };
                 myTimer.start();
 
-            final CountDownTimer myTimer2 = new CountDownTimer(183000, 10) {
-                @Override
-                public void onTick(long millisUntilFinished)
-                {
-                    if (millisUntilFinished<180000)
-                    {
-                        sek++;
-                        text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
-                        if (count>=20){
-                            textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100)));
-                            cancel();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while ((!Thread.interrupted()) && (sekost < 10000)) {
+                            if (musicfon.isPlaying()) {
+                                sek++;
+                                sekost++;
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
+                                    }
+                                });
+                                try {
+                                    Thread.sleep(10);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                    break;
+                                }
+                            }
                         }
                     }
-                }
-
-                @Override
-                public void onFinish()
-                {
-
-                }
-            };
-            myTimer2.start();
+                }).start();
 
             }
         });
@@ -207,13 +211,14 @@ public class Level1 extends AppCompatActivity {
 
         dialog.show();  //показать диалоговое окно
 
-         //Кнопка Назад - Начало.
+         //Кнопка Назад - Начало
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     musicfon.stop();
+                    sekost=50001;
                     Intent intent = new Intent(Level1.this,GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -290,6 +295,10 @@ public class Level1 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        array.rezult[0]=sek;
+                        sekost=50001;
+                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
+
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         if (level>1){
@@ -299,7 +308,6 @@ public class Level1 extends AppCompatActivity {
                             editor.putInt("Level", 2);
                             editor.commit();
                         }
-                        array.rezult[0]=sek;
                         SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
                         array.rezult[0] = save2.getInt("array.rezult[0]",1);
                         SharedPreferences.Editor editor2 = save2.edit();
@@ -378,6 +386,10 @@ public class Level1 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        array.rezult[0]=sek;
+                        sekost=50001;
+                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
+
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         //final int level = save.getInt("Level", defValue: 1);
@@ -431,6 +443,7 @@ public class Level1 extends AppCompatActivity {
             try
             {
                 musicfon.stop();
+                sekost=50001;
                 Intent intent = new Intent(Level1.this, GameLevels.class);
                 startActivity(intent);
                 finish();
@@ -441,4 +454,10 @@ public class Level1 extends AppCompatActivity {
         }
     }
     //системная кнопка Назад - конец
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sekost=50001;
+    }
 }

@@ -33,6 +33,7 @@ public class Level2 extends AppCompatActivity {
     Random random = new Random(); //для генерации случайных чисел
     public int count =0;  //Счетчик правильных ответов
     MediaPlayer musicfon, musicotschet;
+    public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,8 @@ public class Level2 extends AppCompatActivity {
         final TextView text_left = findViewById(R.id.text_left);  //Путь к левой TextView
         final TextView text_right = findViewById(R.id.text_right);  //Путь к правой TextView
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
-        final Button button_back = (Button)findViewById(R.id.button_back);
+        final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
+        final Button button_back = (Button)findViewById(R.id.button_back);  //Путь к кнопке Назад
         musicfon = MediaPlayer.create(this, R.raw.musicfon);
         musicotschet = MediaPlayer.create(this,R.raw.musicotschet);
 
@@ -76,7 +78,9 @@ public class Level2 extends AppCompatActivity {
 
         //Устанавливаем описание задания - Начало
         TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
+        TextView text_description2 = (TextView)dialog.findViewById(R.id.text_description2);
         text_description.setText(R.string.leveltwo);
+        text_description2.setText(R.string.leveltwo2);
         //Устанавливаем описание задания - Конец
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -134,6 +138,30 @@ public class Level2 extends AppCompatActivity {
                 };
                 myTimer.start();
 
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while ((!Thread.interrupted()) && (sekost < 10000)) {
+                            if (musicfon.isPlaying()) {
+                                sek++;
+                                sekost++;
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
+                                    }
+                                });
+                                try {
+                                    Thread.sleep(10);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }).start();
+
             }
         });
         //Кнопка Продолжит - Конец
@@ -148,7 +176,7 @@ public class Level2 extends AppCompatActivity {
         dialogEnd.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT);
         dialogEnd.setCancelable(false);  //окно нельзя открыть кнопкой назад
 
-        TextView textdescribtionEnd = (TextView)dialogEnd.findViewById(R.id.text_description_end);
+        final TextView textdescribtionEnd = (TextView)dialogEnd.findViewById(R.id.text_description_end);
         textdescribtionEnd.setText(R.string.leveltwoEnd);
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -192,6 +220,7 @@ public class Level2 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     musicfon.stop();
+                    sekost=50001;
                     Intent intent = new Intent(Level2.this,GameLevels.class);
                     startActivity(intent);
                     finish();
@@ -272,6 +301,10 @@ public class Level2 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        array.rezult[1]=sek;
+                        sekost=50001;
+                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100)));
+
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         if (level>2){
@@ -281,6 +314,11 @@ public class Level2 extends AppCompatActivity {
                             editor.putInt("Level", 3);
                             editor.commit();
                         }
+                        SharedPreferences save3 = getSharedPreferences("Save3",MODE_PRIVATE);
+                        array.rezult[1] = save3.getInt("array.rezult[1]",1);
+                        SharedPreferences.Editor editor3 = save3.edit();
+                        editor3.putInt("array.rezult[1]", sek);
+                        editor3.commit();
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
@@ -353,6 +391,10 @@ public class Level2 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        array.rezult[1]=sek;
+                        sekost=50001;
+                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100)));
+
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                         final int level = save.getInt("Level", 1);
                         //final int level = save.getInt("Level", defValue: 1);
@@ -363,6 +405,11 @@ public class Level2 extends AppCompatActivity {
                             editor.putInt("Level", 3);
                             editor.commit();
                         }
+                        SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
+                        array.rezult[1] = save2.getInt("array.rezult[1]",1);
+                        SharedPreferences.Editor editor2 = save2.edit();
+                        editor2.putInt("array.rezult[1]", sek);
+                        editor2.commit();
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9

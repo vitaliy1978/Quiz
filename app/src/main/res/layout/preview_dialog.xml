@@ -32,19 +32,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="40"
+            android:layout_weight="50"
             android:src="@drawable/preview_img_one" />
 
         <TextView
             android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="top"
+            android:text="@string/levelone"
+            android:textColor="@color/black95"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/text_description2"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="50"
-            android:gravity="top|center_horizontal"
-            android:text="@string/level4"
+            android:layout_weight="40"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="top"
+            android:text="@string/levelone2"
             android:textColor="@color/black95"
-            android:textSize="24sp" />
+            android:textSize="22sp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="0dp"
