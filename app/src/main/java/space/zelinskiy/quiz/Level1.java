@@ -207,7 +207,7 @@ public class Level1 extends AppCompatActivity {
 
         dialog.show();  //показать диалоговое окно
 
-         //Кнопка Назад - Начало
+         //Кнопка Назад - Начало.
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
