@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+         TextView buttonOption = (TextView) findViewById(R.id.buttonOption);
+        buttonOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(MainActivity.this,OptionHelp.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+
+                }
+            }
+        });
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -52,4 +67,5 @@ public class MainActivity extends AppCompatActivity {
         backPressedTime=System.currentTimeMillis();
     }
     //системная кнопка Назад - конец
+
 }

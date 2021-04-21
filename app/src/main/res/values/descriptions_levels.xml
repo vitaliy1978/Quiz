@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="option_head">"Быстрый выбор"</string>
-    <string name="option_description">Игра на знание и скорость реакции.\nЗа правильный ответ +1 балл\nЗа не правильный -1 балла\n
-        Время на один уровень ограничено тремя минутами.</string>
+    <string name="option_description">Игра на знание и скорость реакции.\nЗа правильный ответ +1 балл.\nЗа неправильный -2 балла.
+        \nВремя ограничено тремя минутами.</string>
+    <string name="swithMusic">Выключить музыку</string>
+    <string name="swithMusic2">Включить музыку</string>
+    <string name="swithVoice">Выключить звуки</string>
+    <string name="swithVoice2">Включить звуки</string>
+    <string name="option_liders">Перейти к списоку лидеров</string>
+    <string name="option_mark">Поставить оценку игре</string>
+    <string name="option_share">Поделиться игрой</string>
     <string name="levelEnd">Время истекло.\nПопробуйте еще раз.\nНужно уложится в 3 минуты.</string>
     <string name="leveloneEnd">"Поздравляю! \nУровень пройден."</string>
     <string name="levelone">"Лёгкая разминка на скорость."</string>

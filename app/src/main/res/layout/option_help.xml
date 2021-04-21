@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/main_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_background2" />
+
+
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/dialog_fon"
-    android:background="@drawable/preview_background_one"
     android:layout_gravity="center"
     android:scaleType="centerCrop"
     android:layout_margin="10dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:layout_weight="30"
+        android:padding="10dp"
         android:gravity="center"
         >
         <TextView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/button_close"
+            android:id="@+id/button_close_from_option"
             android:text="&#60;"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -35,7 +50,7 @@
             android:gravity="top|center_horizontal"
             android:text="@string/option_head"
             android:textColor="@color/black95"
-            android:textSize="22sp" />
+            android:textSize="24sp" />
         <TextView
             android:id="@+id/text_opt_description"
             android:layout_width="match_parent"
@@ -45,39 +60,157 @@
             android:gravity="top"
             android:text="@string/option_description"
             android:textColor="@color/black95"
-            android:textSize="22sp" />
-        <TextView
-            android:id="@+id/text_description2"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="40"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:gravity="top"
-            android:text="@string/levelone2"
-            android:textColor="@color/black95"
+            android:layout_marginBottom="0dp"
             android:textSize="22sp" />
 
-        <ImageView
-            android:id="@+id/preview_img"
+
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:background="@drawable/separator_line"
+        android:layout_height="3dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_weight="20"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_opt_muz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center_vertical"
+                android:text="@string/swithMusic"
+                android:textColor="@color/black95"
+                android:layout_weight="70"
+                android:textSize="22sp" />
+
+            <Switch
+                android:id="@+id/switchMuz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:paddingLeft="20dp"
+                android:checked="true"
+                android:gravity="center_vertical"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:theme="@style/SwitchTheme"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="48"
-            android:src="@drawable/preview_img_one" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/btn_continue"
-            android:background="@drawable/button_stroke_black95_press_white"
-            android:layout_weight="12"
-            android:text="@string/text_continue"
-            android:textColor="@color/black95"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textAllCaps="true"
-            android:textSize="24sp"
-            android:layout_marginTop="10dp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_opt_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center_vertical"
+                android:text="@string/swithVoice"
+                android:textColor="@color/black95"
+                android:layout_weight="70"
+                android:textSize="22sp" />
+
+            <Switch
+                android:id="@+id/switchVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:paddingLeft="20dp"
+                android:checked="true"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:gravity="center_vertical"
+                android:theme="@style/SwitchTheme"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:background="@drawable/separator_line"
+        android:layout_height="3dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="50"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/texOpt_liders"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_gamelevels"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_weight="1"
+                android:text="@string/option_liders"
+                android:textColor="@color/white"
+                android:textSize="22sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textOpt_mark"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_gamelevels"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_weight="1"
+                android:text="@string/option_mark"
+                android:textColor="@color/white"
+                android:textSize="22sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textOpt_share"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_gamelevels"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_weight="1"
+                android:text="@string/option_share"
+                android:textColor="@color/white"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
+</RelativeLayout>

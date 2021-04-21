@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/button_option"
+            android:id="@+id/buttonOption"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/button_stroke_black95_press_white"
