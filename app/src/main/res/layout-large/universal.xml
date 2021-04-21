@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
 
@@ -201,7 +202,7 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="310dp"
+                    android:layout_height="330dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:scaleType="centerCrop"
@@ -211,7 +212,7 @@
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="310dp"
+                    android:layout_height="330dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="5dp"
                     android:scaleType="centerCrop"
@@ -262,11 +263,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/black95"
+                    android:textColor="@color/black80"
                     android:textSize="42sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     />
             </LinearLayout>
@@ -278,8 +280,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center_horizontal"
-        android:text="3"
-        android:textColor="@color/black95"
+        android:text=""
+        android:textColor="@color/black80"
         android:textSize="180sp" />
 
 </RelativeLayout>

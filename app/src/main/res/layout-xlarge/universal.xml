@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_marginBottom="40dp"
             android:orientation="vertical">
 
 
@@ -201,7 +202,7 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="540dp"
+                    android:layout_height="640dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="10dp"
                     android:scaleType="centerCrop"
@@ -211,7 +212,7 @@
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="540dp"
+                    android:layout_height="640dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="5dp"
                     android:scaleType="centerCrop"
@@ -262,11 +263,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/black95"
+                    android:textColor="@color/black80"
                     android:textSize="60sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
                     />
             </LinearLayout>
@@ -276,8 +278,8 @@
         android:id="@+id/text_otschet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="3"
-        android:textColor="@color/black95"
+        android:text=""
+        android:textColor="@color/black80"
         android:textSize="260sp"
         android:layout_marginBottom="30dp"
         android:gravity="bottom|center_horizontal"

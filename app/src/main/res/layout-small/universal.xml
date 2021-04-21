@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_marginBottom="0dp"
             android:orientation="vertical">
 
 
@@ -263,11 +264,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/black95"
+                    android:textColor="@color/black80"
                     android:textSize="24sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="0dp"
                     android:gravity="center"
                     />
             </LinearLayout>
@@ -277,8 +279,8 @@
         android:id="@+id/text_otschet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="3"
-        android:textColor="@color/black95"
+        android:text=""
+        android:textColor="@color/black80"
         android:textSize="60sp"
         android:layout_marginBottom="20dp"
         android:gravity="bottom|center_horizontal"

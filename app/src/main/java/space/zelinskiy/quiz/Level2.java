@@ -40,7 +40,7 @@ public class Level2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
-        TextView text_levels = (TextView)findViewById(R.id.text_levels);
+        final TextView text_levels = (TextView)findViewById(R.id.text_levels);
         text_levels.setText(R.string.level2);
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -105,22 +105,72 @@ public class Level2 extends AppCompatActivity {
         final Animation a2 = AnimationUtils.loadAnimation(Level2.this,R.anim.alpha2);
         //Подключаем анимацию - конец
 
+        //__________________________
+        dialogEnd = new Dialog(this); //Создам новое диалоговое окно в конце игры
+        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE);  //Скрываем заголовок у диалогового окна
+        dialogEnd.setContentView(R.layout.dialog_end); //Путь к макету диалогового окна
+        dialogEnd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //Прозрачный фон диалогового окна
+        dialogEnd.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT);
+        dialogEnd.setCancelable(false);  //окно нельзя открыть кнопкой назад
+
+        final TextView textdescribtionEnd = (TextView)dialogEnd.findViewById(R.id.text_description_end);
+        textdescribtionEnd.setText(R.string.leveloneEnd);
+        final ImageView preview_img_viktory = (ImageView)dialogEnd.findViewById(R.id.preview_img_viktory);
+        final ImageView main_img_lose = (ImageView)dialogEnd.findViewById(R.id.main_img_lose);
+
+        // Кнопка которая закрывает диалоговое окно - Начало
+        TextView button_close2 = (TextView) dialogEnd.findViewById(R.id.button_close);
+        button_close2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Level2.this,GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception e) {
+
+                }
+                dialog.dismiss();  //закрываем диалоговое окно
+            }
+        });
+        // Кнопка которая закрывает диалоговое окно - Конец
+
         //Кнопка Продолжить - Начало
-        Button btn_continue = (Button)dialog.findViewById(R.id.btn_continue);
+        final Button btn_continue2 = (Button)dialogEnd.findViewById(R.id.btn_continue_next);
+        btn_continue2.setVisibility(View.VISIBLE);
+
+        btn_continue2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent =new Intent(Level2.this,Level3.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+
+                }
+                dialogEnd.dismiss();  //закрываем диалоговое окно
+            }
+        });
+        //Кнопка Продолжить - Конец
+        //__________________________
+
+        //Кнопка Продолжить - Начало
+        final Button btn_continue = (Button)dialog.findViewById(R.id.btn_continue);
         btn_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();  //закрываем диалоговое окно
 
-                CountDownTimer myTimer = new CountDownTimer(3010, 1000) {
+                CountDownTimer myTimer = new CountDownTimer(3010, 900) {
                     @Override
                     public void onTick(long millisUntilFinished)
                     {
                         text_otschet.setVisibility(View.VISIBLE);
                         musicotschet.start();
-                        if (millisUntilFinished<4000)
+                        if (millisUntilFinished<=3100)
                         {
-                            text_otschet.setText(Long.toString(millisUntilFinished / 1000));
+                            text_otschet.setText(Long.toString(millisUntilFinished / 900));
                             text_otschet.startAnimation(a2);
                         }
                     }
@@ -141,7 +191,7 @@ public class Level2 extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while ((!Thread.interrupted()) && (sekost < 10000)) {
+                        while ((!Thread.interrupted()) && (sekost < 2000)) {
                             if (musicfon.isPlaying()) {
                                 sek++;
                                 sekost++;
@@ -149,6 +199,14 @@ public class Level2 extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
+                                        if (sekost >= 2000 && sekost<3000) {
+                                            musicfon.stop();
+                                            preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
+                                            main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик
+                                            textdescribtionEnd.setText(R.string.levelEnd);
+                                            btn_continue2.setVisibility(View.INVISIBLE);
+                                            dialogEnd.show();  //Выводим окно окончания игры
+                                        }
                                     }
                                 });
                                 try {
@@ -168,52 +226,6 @@ public class Level2 extends AppCompatActivity {
 
         dialog.show();  //показать диалоговое окно
 
-        //__________________________
-        dialogEnd = new Dialog(this); //Создам новое диалоговое окно в конце игры
-        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE);  //Скрываем заголовок у диалогового окна
-        dialogEnd.setContentView(R.layout.dialog_end); //Путь к макету диалогового окна
-        dialogEnd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //Прозрачный фон диалогового окна
-        dialogEnd.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT);
-        dialogEnd.setCancelable(false);  //окно нельзя открыть кнопкой назад
-
-        final TextView textdescribtionEnd = (TextView)dialogEnd.findViewById(R.id.text_description_end);
-        textdescribtionEnd.setText(R.string.leveltwoEnd);
-
-        // Кнопка которая закрывает диалоговое окно - Начало
-        TextView button_close2 = (TextView) dialogEnd.findViewById(R.id.button_close);
-        button_close2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(Level2.this,GameLevels.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e) {
-
-                }
-                dialog.dismiss();  //закрываем диалоговое окно
-            }
-        });
-        // Кнопка которая закрывает диалоговое окно - Конец
-
-        //Кнопка Продолжить - Начало
-        Button btn_continue2 = (Button)dialogEnd.findViewById(R.id.btn_continue);
-        btn_continue2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent intent =new Intent(Level2.this,Level3.class);
-                    startActivity(intent);
-                    finish();
-                }catch (Exception e){
-
-                }
-                dialogEnd.dismiss();  //закрываем диалоговое окно
-            }
-        });
-        //Кнопка Продолжить - Конец
-        //__________________________
-
         //Кнопка Назад - Начало
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,15 +243,11 @@ public class Level2 extends AppCompatActivity {
         });
         //Кнопка Назад - Конец
 
-        //Маммив для прогресса игры - Начало
+        //Массив для прогресса игры - Начало
         final int[] progress ={
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10,
                 R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
         //Массив для прогресса игры - Конец
-
-        //Подключаем анимацию - начало
-        //final Animation a = AnimationUtils.loadAnimation(Level2.this,R.anim.alpha);
-        //Подключаем анимацию - конец
 
         numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
         img_left.setImageResource(array.images2[numLeft]);  //достаем из массива картинку
@@ -301,11 +309,24 @@ public class Level2 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
-                        array.rezult[1]=sek;
-                        sekost=50001;
-                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100)));
+                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
+                        array.rezult[1] = save.getInt("array.rezult[1]",0);
+                        if (array.rezult[1]>0 && array.rezult[1]<sek)
+                        {
+                            textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                        }else{
+                            array.rezult[1]=sek;
+                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100))+"\nЭто новый рекорд!");
 
-                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+                            array.rezult[1] = save.getInt("array.rezult[1]",1);
+                            SharedPreferences.Editor editor3 = save.edit();
+                            editor3.putInt("array.rezult[1]", sek);
+                            editor3.commit();
+                        }
+                        sekost=50001;
+                        preview_img_viktory.setVisibility(View.VISIBLE); //Выводим радостный смайлик
+                        main_img_lose.setVisibility(View.GONE);   //Прячем грустный смайлик
+
                         final int level = save.getInt("Level", 1);
                         if (level>2){
                             //пусто
@@ -314,11 +335,7 @@ public class Level2 extends AppCompatActivity {
                             editor.putInt("Level", 3);
                             editor.commit();
                         }
-                        SharedPreferences save3 = getSharedPreferences("Save3",MODE_PRIVATE);
-                        array.rezult[1] = save3.getInt("array.rezult[1]",1);
-                        SharedPreferences.Editor editor3 = save3.edit();
-                        editor3.putInt("array.rezult[1]", sek);
-                        editor3.commit();
+
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
@@ -391,13 +408,25 @@ public class Level2 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
-                        array.rezult[1]=sek;
-                        sekost=50001;
-                        textdescribtionEnd.append("\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100)));
+                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
+                        array.rezult[1] = save.getInt("array.rezult[1]",0);
+                        if (array.rezult[1]>0 && array.rezult[1]<sek)
+                        {
+                            textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                        }else{
+                            array.rezult[1]=sek;
+                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[1] / 100, (array.rezult[1] % 100))+"\nЭто новый рекорд!");
 
-                        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+                            array.rezult[1] = save.getInt("array.rezult[1]",1);
+                            SharedPreferences.Editor editor3 = save.edit();
+                            editor3.putInt("array.rezult[1]", sek);
+                            editor3.commit();
+                        }
+                        sekost=50001;
+                        preview_img_viktory.setVisibility(View.VISIBLE); //Выводим радостный смайлик
+                        main_img_lose.setVisibility(View.GONE);   //Прячем грустный смайлик
+
                         final int level = save.getInt("Level", 1);
-                        //final int level = save.getInt("Level", defValue: 1);
                         if (level>2){
                             //пусто
                         }else {
@@ -405,11 +434,7 @@ public class Level2 extends AppCompatActivity {
                             editor.putInt("Level", 3);
                             editor.commit();
                         }
-                        SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
-                        array.rezult[1] = save2.getInt("array.rezult[1]",1);
-                        SharedPreferences.Editor editor2 = save2.edit();
-                        editor2.putInt("array.rezult[1]", sek);
-                        editor2.commit();
+
                         dialogEnd.show();
                     }else {
                         numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
@@ -444,6 +469,7 @@ public class Level2 extends AppCompatActivity {
             try
             {
                 musicfon.stop();
+                sekost=50001;
                 Intent intent = new Intent(Level2.this, GameLevels.class);
                 startActivity(intent);
                 finish();
@@ -454,4 +480,11 @@ public class Level2 extends AppCompatActivity {
         }
     }
     //системная кнопка Назад - конец
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        musicfon.stop();
+        sekost=50001;
+    }
 }

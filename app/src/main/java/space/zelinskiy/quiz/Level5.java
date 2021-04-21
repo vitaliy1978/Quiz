@@ -151,7 +151,7 @@ public class Level5 extends AppCompatActivity {
         dialogEnd.setCancelable(false);  //окно нельзя открыть кнопкой назад
 
         TextView textdescribtionEnd = (TextView)dialogEnd.findViewById(R.id.text_description_end);
-        textdescribtionEnd.setText(R.string.level5End);
+        textdescribtionEnd.setText(R.string.leveloneEnd);
 
         // Кнопка которая закрывает диалоговое окно - Начало
         TextView button_close2 = (TextView) dialogEnd.findViewById(R.id.button_close);

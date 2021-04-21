@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
 
@@ -202,18 +203,18 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="260dp"
+                    android:layout_height="280dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/level4_clok4" />
+                    android:src="@drawable/onelevel0" />
 
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="260dp"
+                    android:layout_height="280dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
@@ -264,10 +265,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ioioioi"
-                    android:textColor="@color/black95"
+                    android:textColor="@color/black80"
                     android:textSize="42sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     />
@@ -280,7 +282,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="3"
-        android:textColor="@color/black95"
+        android:textColor="@color/black80"
         android:layout_marginBottom="0dp"
         android:gravity="bottom|center_horizontal"
         android:textSize="160sp"

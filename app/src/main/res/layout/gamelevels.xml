@@ -96,12 +96,12 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
-                            android:text="20.36"
+                            android:text="205.36"
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
 
@@ -134,13 +134,13 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
+                            android:text="205.36"
                             android:visibility="gone"
-                            android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line3"

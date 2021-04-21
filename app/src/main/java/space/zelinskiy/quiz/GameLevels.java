@@ -21,14 +21,13 @@ public class GameLevels extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gamelevels);
 
-        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
 
-        SharedPreferences save2 = getSharedPreferences("Save2",MODE_PRIVATE);
-        array.rezult[0] = save2.getInt("array.rezult[0]",1);
-
-        SharedPreferences save3 = getSharedPreferences("Save3",MODE_PRIVATE);
-        array.rezult[1] = save3.getInt("array.rezult[1]",1);
+        array.rezult[0] = save.getInt("array.rezult[0]",0);
+        array.rezult[1] = save.getInt("array.rezult[1]",0);
+        array.rezult[2] = save.getInt("array.rezult[2]",0);
+        array.rezult[3] = save.getInt("array.rezult[3]",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

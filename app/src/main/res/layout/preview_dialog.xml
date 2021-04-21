@@ -21,7 +21,7 @@
             android:id="@+id/button_close"
             android:text="&#60;"
             android:textStyle="bold"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:gravity="center"
             android:background="@drawable/button_stroke_black95_press_white"
             android:layout_gravity="start"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="50"
+            android:layout_weight="48"
             android:src="@drawable/preview_img_one" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="0dp"
             android:id="@+id/btn_continue"
             android:background="@drawable/button_stroke_black95_press_white"
-            android:layout_weight="10"
+            android:layout_weight="12"
             android:text="@string/text_continue"
             android:textColor="@color/black95"
             android:paddingLeft="10dp"

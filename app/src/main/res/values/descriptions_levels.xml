@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="option_head">"Быстрый выбор"</string>
+    <string name="option_description">Игра на знание и скорость реакции.\nЗа правильный ответ +1 балл\nЗа не правильный -1 балла\n
+        Время на один уровень ограничено тремя минутами.</string>
+    <string name="levelEnd">Время истекло.\nПопробуйте еще раз.\nНужно уложится в 3 минуты.</string>
+    <string name="leveloneEnd">"Поздравляю! \nУровень пройден."</string>
     <string name="levelone">"Лёгкая разминка на скорость."</string>
     <string name="levelone2">"Выбери цифру, которая больше.\nВопросы могут повторяться, пока не наберется 20 очков."</string>
     <string name="leveltwo">Выбери римскую цифру, которая больше.</string>
-    <string name="leveltwo2">За правильный ответ +1 балл, за неправильный ответ -2 балла.</string>
+    <string name="leveltwo2">За правильный ответ +1 балл,\nза неправильный ответ -2 балла.</string>
     <string name="levelthree">Выбери букву, которая стоит дальше в английском алфавите.</string>
-    <string name="levelfour">Выбери часы, которые показывают большее время.</string>
-    <string name="levelfive">Выбери цвет, который темнее.</string>
-    <string name="leveloneEnd">"Поздравляю! \nУровень пройден."</string>
-    <string name="leveltwoEnd">"Поздравляю! \nУровень пройден."</string>
-    <string name="levelthreeEnd">"Поздравляю! \nУровень пройден!"</string>
-    <string name="level4End">"Поздравляю! \nУровень пройден!"</string>
-    <string name="level5End">"Поздравляю! \nУровень пройден!"</string>
+    <string name="levelthree2">Постарайся успеть за 3 минуты.</string>
+    <string name="levelfour">Ещё одно лёгкое задание.</string>
+    <string name="levelfour2">Выбери часы, которые показывают большее время.</string>
+    <string name="levelfive">Приглядись.</string>
+    <string name="levelfive2">Выбери цвет, который темнее.</string>
 </resources>
