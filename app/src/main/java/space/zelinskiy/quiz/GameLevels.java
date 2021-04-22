@@ -27,7 +27,8 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[0] = save.getInt("array.rezult[0]",0);
         array.rezult[1] = save.getInt("array.rezult[1]",0);
         array.rezult[2] = save.getInt("array.rezult[2]",0);
-        array.rezult[3] = save.getInt("array.rezult[3]",0);
+        array.rezult[3] = save.getInt("arrayRezult 3",0);
+        array.rezult[4] = save.getInt("arrayRezult 4",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -110,6 +111,7 @@ public class GameLevels extends AppCompatActivity {
                 try {
                     if (level>=4){
                     Intent intent = new Intent(GameLevels.this,Level4.class);
+                        intent.putExtra("numlev",4);
                     startActivity(intent);
                     finish();}else {
                         //пусто
@@ -129,6 +131,7 @@ public class GameLevels extends AppCompatActivity {
                 try {
                     if (level>=5){
                         Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",5);
                         startActivity(intent);
                         finish();}else {
                         //пусто

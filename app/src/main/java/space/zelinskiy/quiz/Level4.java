@@ -34,14 +34,53 @@ public class Level4 extends AppCompatActivity {
     public int count =0;  //Счетчик правильных ответов
     MediaPlayer musicfon, musicotschet;
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
+    public int numlev;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
+//        TextView text_levels = (TextView)findViewById(R.id.text_levels);
+//        text_levels.setText(R.string.level4);
+
+        Intent intent =getIntent();  //получить intent
+        numlev  = intent.getIntExtra("numlev",1);  //метод getStringExtra читает строку
+
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
-        text_levels.setText(R.string.level4);
+        text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
+
+        final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,R.drawable.preview_img5};
+        final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,R.string.levelfive,};
+        final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,R.string.levelfour2,R.string.levelfive2,};
+        final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
+                array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
+                {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
+                        array.images2[6],array.images2[7],array.images2[8],array.images2[9]},
+               {array.images3[0],array.images3[1],array.images3[2],array.images3[3],array.images3[4],array.images3[5],
+                        array.images3[6],array.images3[7],array.images3[8],array.images3[9],array.images3[10],array.images3[11],array.images3[12],
+                        array.images3[13],array.images3[14],array.images3[15],array.images3[16],array.images3[17],array.images3[18],array.images3[19],
+                       array.images3[20],array.images3[21],array.images3[22],array.images3[23],array.images3[24],array.images3[25]},
+                {array.images4[0],array.images4[1],array.images4[2],array.images4[3],array.images4[4],array.images4[5],array.images4[6],
+                        array.images4[7],array.images4[8],array.images4[9],array.images4[10],array.images4[11],array.images4[12],array.images4[13],
+                        array.images4[14],array.images4[15],array.images4[16],array.images4[17],array.images4[18],array.images4[19]},
+                {array.images5[0],array.images5[1],array.images5[2],array.images5[3],array.images5[4],array.images5[5],array.images5[6],
+                        array.images5[7],array.images5[8],array.images5[9],array.images5[10],array.images5[11],array.images5[12],array.images5[13],
+                        array.images5[14],array.images5[15]}};
+        final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
+                array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
+                {array.texts2[0],array.texts2[1],array.texts2[2],array.texts2[3],array.texts2[4],array.texts2[5],
+                        array.texts2[6],array.texts2[7],array.texts2[8],array.texts2[9]},
+                {array.texts3[0],array.texts3[1],array.texts3[2],array.texts3[3],array.texts3[4],array.texts3[5],
+                        array.texts3[6],array.texts3[7],array.texts3[8],array.texts3[9],array.texts3[10],array.texts3[11],array.texts3[12],
+                        array.texts3[13],array.texts3[14],array.texts3[15],array.texts3[16],array.texts3[17],array.texts3[18],array.texts3[19],
+                        array.texts3[20],array.texts3[21],array.texts3[22],array.texts3[23],array.texts3[24],array.texts3[25]},
+                {array.texts4[0],array.texts4[1],array.texts4[2],array.texts4[3],array.texts4[4],array.texts4[5],array.texts4[6],
+                        array.texts4[7],array.texts4[8],array.texts4[9],array.texts4[10],array.texts4[11],array.texts4[12],array.texts4[13],
+                        array.texts4[14],array.texts4[15],array.texts4[16],array.texts4[17],array.texts4[18],array.texts4[19]},
+                {array.texts5[0],array.texts5[1],array.texts5[2],array.texts5[3],array.texts5[4],array.texts5[5],array.texts5[6],
+                        array.texts5[7],array.texts5[8],array.texts5[9],array.texts5[10],array.texts5[11],array.texts5[12],array.texts5[13],
+                        array.texts5[14],array.texts5[15]}};
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
         final ImageView img_right = (ImageView) findViewById(R.id.img_right);
@@ -74,14 +113,14 @@ public class Level4 extends AppCompatActivity {
 
         //Устанавливаем картинку в диалоговое окно - Начало
         ImageView preview_img =(ImageView)dialog.findViewById(R.id.preview_img);
-        preview_img.setImageResource(R.drawable.preview_img4);
+        preview_img.setImageResource(prevImg[numlev-1]);
         //Устанавливаем картинку в диалоговое окно - Конец
 
         //Устанавливаем описание задания - Начало
         TextView text_description = (TextView)dialog.findViewById(R.id.text_description);
         TextView text_description2 = (TextView)dialog.findViewById(R.id.text_description2);
-        text_description.setText(R.string.levelfour);
-        text_description2.setText(R.string.levelfour2);
+        text_description.setText(descrip1[numlev-1]);
+        text_description2.setText(descrip2[numlev-1]);
         //Устанавливаем описание задания - Конец
 
         // Кнопка которая закрывает диалоговое окно - Начало
@@ -250,18 +289,18 @@ public class Level4 extends AppCompatActivity {
                 R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
         //Массив для прогресса игры - Конец
 
-        numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
-        img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
-        text_left.setText(array.texts4[numLeft]);  //достаем из массива текст
+        numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
+        img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
+        text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-        numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
+        numRight=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
         //Цикл проверяющий равенство чисел - Начало
         while(numLeft==numRight){
-            numRight=random.nextInt(20);
+            numRight=random.nextInt(masOfImgMas[numlev-1].length);
         }
         //Цикл проверяющий равенство чисел - Конец
-        img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
-        text_right.setText(array.texts4[numRight]);  //достаем из массива текст
+        img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
+        text_right.setText(masOfTextMas[numlev-1][numRight]);  //достаем из массива текст
 
         //Обрабатываем нажатие на левую картинку - Начало
         img_left.setOnTouchListener(new View.OnTouchListener() {
@@ -311,17 +350,18 @@ public class Level4 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
-                        array.rezult[3] = save.getInt("array.rezult[3]",0);
-                        if (array.rezult[3]>0 && array.rezult[3]<sek)
+                        String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
+                        array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
+                        if (array.rezult[numlev-1]>0 && array.rezult[numlev-1]<sek)
                         {
                             textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
                         }else{
-                            array.rezult[3]=sek;
-                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[3] / 100, (array.rezult[3] % 100))+"\nЭто новый рекорд!");
+                            array.rezult[numlev-1]=sek;
+                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
 
-                            array.rezult[3] = save.getInt("array.rezult[3]",1);
+                            array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),1);
                             SharedPreferences.Editor editor4 = save.edit();
-                            editor4.putInt("array.rezult[3]", sek);
+                            editor4.putInt(arrayRezult.toString(), sek);
                             editor4.commit();
                         }
                         sekost=50001;
@@ -329,29 +369,29 @@ public class Level4 extends AppCompatActivity {
                         main_img_lose.setVisibility(View.GONE);   //Прячем грустный смайлик
 
                         final int level = save.getInt("Level", 1);
-                        if (level>4){
+                        if (level>numlev){
                             //пусто
                         }else {
                             SharedPreferences.Editor editor = save.edit();
-                            editor.putInt("Level", 5);
+                            editor.putInt("Level", numlev+1);
                             editor.commit();
                         }
                         dialogEnd.show();
                     }else {
-                        numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
-                        img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
+                        numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
+                        img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
                         img_left.startAnimation(a);
-                        text_left.setText(array.texts4[numLeft]);  //достаем из массива текст
+                        text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
+                        numRight=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
                         while(numLeft==numRight){
-                            numRight=random.nextInt(20);
+                            numRight=random.nextInt(masOfImgMas[numlev-1].length);
                         }
                         //Цикл проверяющий равенство чисел - Конец
-                        img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
+                        img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
                         img_right.startAnimation(a);
-                        text_right.setText(array.texts4[numRight]);  //достаем из массива текст
+                        text_right.setText(masOfTextMas[numlev-1][numRight]);  //достаем из массива текст
                         img_right.setEnabled(true);  //разблокируем правую картинку
                     }
                 }
@@ -410,17 +450,18 @@ public class Level4 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
-                        array.rezult[3] = save.getInt("array.rezult[3]",0);
-                        if (array.rezult[3]>0 && array.rezult[3]<sek)
+                        String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
+                        array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
+                        if (array.rezult[numlev-1]>0 && array.rezult[numlev-1]<sek)
                         {
                             textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
                         }else{
-                            array.rezult[3]=sek;
-                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[3] / 100, (array.rezult[3] % 100))+"\nЭто новый рекорд!");
+                            array.rezult[numlev-1]=sek;
+                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
 
-                            array.rezult[3] = save.getInt("array.rezult[3]",1);
+                            array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),1);
                             SharedPreferences.Editor editor4 = save.edit();
-                            editor4.putInt("array.rezult[3]", sek);
+                            editor4.putInt(arrayRezult.toString(), sek);
                             editor4.commit();
                         }
                         sekost=50001;
@@ -428,29 +469,29 @@ public class Level4 extends AppCompatActivity {
                         main_img_lose.setVisibility(View.GONE);   //Прячем грустный смайлик
 
                         final int level = save.getInt("Level", 1);
-                        if (level>4){
+                        if (level>numlev){
                             //пусто
                         }else {
                             SharedPreferences.Editor editor = save.edit();
-                            editor.putInt("Level", 5);
+                            editor.putInt("Level", numlev+1);
                             editor.commit();
                         }
                         dialogEnd.show();
                     }else {
-                        numLeft=random.nextInt(20); //генерируем случайное число от 0 до 9
-                        img_left.setImageResource(array.images4[numLeft]);  //достаем из массива картинку
+                        numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
+                        img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
                         img_left.startAnimation(a);
-                        text_left.setText(array.texts4[numLeft]);  //достаем из массива текст
+                        text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        numRight=random.nextInt(20); //генерируем случайное число от 0 до 9
+                        numRight=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
                         while(numRight==numLeft){
-                            numRight=random.nextInt(20);
+                            numRight=random.nextInt(masOfImgMas[numlev-1].length);
                         }
                         //Цикл проверяющий равенство чисел - Конец
-                        img_right.setImageResource(array.images4[numRight]);  //достаем из массива картинку
+                        img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
                         img_right.startAnimation(a);
-                        text_right.setText(array.texts4[numRight]);  //достаем из массива текст
+                        text_right.setText(masOfTextMas[numlev-1][numRight]);  //достаем из массива текст
                         img_left.setEnabled(true);  //разблокируем левую картинку
                     }
                 }

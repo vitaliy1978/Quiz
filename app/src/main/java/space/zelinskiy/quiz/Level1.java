@@ -250,14 +250,14 @@ public class Level1 extends AppCompatActivity {
                 R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
         //Массив для прогресса игры - Конец
 
-        numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
+        numLeft=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
         img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
         text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
 
-        numRight=random.nextInt(10); //генерируем случайное число от 0 до 9
+        numRight=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
         //Цикл проверяющий равенство чисел - Начало
         while(numLeft==numRight){
-            numRight=random.nextInt(10);
+            numRight=random.nextInt(array.images1.length);
         }
         //Цикл проверяющий равенство чисел - Конец
         img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
@@ -338,15 +338,15 @@ public class Level1 extends AppCompatActivity {
                         }
                            dialogEnd.show();
                     }else {
-                        numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        numLeft=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
                         img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
                         img_left.startAnimation(a);
                         text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
 
-                        numRight=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        numRight=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
                         while(numLeft==numRight){
-                            numRight=random.nextInt(10);
+                            numRight=random.nextInt(array.images1.length);
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
@@ -438,15 +438,15 @@ public class Level1 extends AppCompatActivity {
 
                         dialogEnd.show();
                     }else {
-                        numLeft=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        numLeft=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
                         img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
                         img_left.startAnimation(a);
                         text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
 
-                        numRight=random.nextInt(10); //генерируем случайное число от 0 до 9
+                        numRight=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
                         //Цикл проверяющий равенство чисел - Начало
                         while(numLeft==numRight){
-                            numRight=random.nextInt(10);
+                            numRight=random.nextInt(array.images1.length);
                         }
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(array.images1[numRight]);  //достаем из массива картинку
