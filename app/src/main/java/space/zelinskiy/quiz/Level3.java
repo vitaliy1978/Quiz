@@ -191,7 +191,7 @@ public class Level3 extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while ((!Thread.interrupted()) && (sekost < 3000)) {
+                        while ((!Thread.interrupted()) && (sekost < 4000)) {
                             if (musicfon.isPlaying()) {
                                 sek++;
                                 sekost++;
@@ -199,7 +199,7 @@ public class Level3 extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
-                                        if (sekost >= 3000 && sekost<4000) {
+                                        if (sekost >= 4000 && sekost<4500) {
                                             musicfon.stop();
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
                                             main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик

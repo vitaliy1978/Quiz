@@ -202,23 +202,26 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="340dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_height="360dp"
                     android:layout_marginLeft="10dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/style_img_universal"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:src="@drawable/level4_clok4" />
+                    android:background="@drawable/style_img_universal"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/level4_clok3" />
+
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="340dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="360dp"
                     android:layout_marginLeft="5dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/style_img_universal"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/img_test" />
+                    android:background="@drawable/style_img_universal"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/level4_clok3" />
             </LinearLayout>
 
             <LinearLayout

@@ -203,24 +203,25 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="270dp"
+                    android:layout_height="290dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/onelevel0" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/level4_clok3" />
 
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="270dp"
+                    android:layout_height="290dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
                     android:background="@drawable/style_img_universal"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/fivelevel15" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/level4_clok3" />
             </LinearLayout>
 
             <LinearLayout
