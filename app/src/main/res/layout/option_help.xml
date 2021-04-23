@@ -26,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="30"
+        android:layout_weight="20"
         android:padding="10dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         >
         <TextView
             android:layout_width="50dp"
@@ -83,28 +83,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/text_opt_muz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:gravity="center_vertical"
-                android:text="@string/swithMusic"
-                android:textColor="@color/black95"
-                android:layout_weight="70"
-                android:textSize="22sp" />
 
             <Switch
                 android:id="@+id/switchMuz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:paddingLeft="20dp"
                 android:checked="true"
+                android:minWidth="280dp"
+                android:textOn="@string/swithMusic"
+                android:textOff="@string/swithMusic2"
+                android:paddingLeft="20dp"
                 android:gravity="center_vertical"
-                android:scaleX="1.1"
-                android:scaleY="1.1"
+                android:layout_weight="1"
+                android:text="@string/swithMusic"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@color/black95"
                 android:theme="@style/SwitchTheme"
                 />
         </LinearLayout>
@@ -113,28 +107,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/text_opt_voice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:gravity="center_vertical"
-                android:text="@string/swithVoice"
-                android:textColor="@color/black95"
-                android:layout_weight="70"
-                android:textSize="22sp" />
-
             <Switch
                 android:id="@+id/switchVoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:paddingLeft="20dp"
+                android:minWidth="280dp"
                 android:checked="true"
-                android:scaleX="1.1"
-                android:scaleY="1.1"
+                android:textOn="@string/swithVoice"
+                android:textOff="@string/swithVoice2"
+                android:paddingLeft="20dp"
                 android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/swithVoice"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@color/black95"
                 android:theme="@style/SwitchTheme"
                 />
         </LinearLayout>
@@ -148,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="50"
+        android:layout_weight="60"
         android:gravity="center"
         android:layout_marginTop="0dp"
         android:orientation="vertical">

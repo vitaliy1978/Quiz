@@ -34,12 +34,17 @@ public class Level5 extends AppCompatActivity {
     public int count =0;  //Счетчик правильных ответов
     MediaPlayer musicfon, musicotschet;
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
-    public int numlev;
+    public int numlev, start=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
+
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
+        final boolean muzof = save.getBoolean("muzof", false);
+        final boolean voiceof = save.getBoolean("voiceof", false);
 
         Intent intent =getIntent();  //получить intent
         numlev  = intent.getIntExtra("numlev",1);  //метод getStringExtra читает строку
@@ -47,9 +52,12 @@ public class Level5 extends AppCompatActivity {
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
         text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
 
-        final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8};
-        final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight};
-        final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2};
+        final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,
+                R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img8};
+        final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,
+                R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.leveleight};
+        final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,
+                R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,R.string.leveleight2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -73,15 +81,9 @@ public class Level5 extends AppCompatActivity {
                         array.images7[13]},
                 {array.images8[0],array.images8[1],array.images8[2],array.images8[3],array.images8[4],array.images8[5],array.images8[6],
                         array.images8[7], array.images8[8],  array.images8[9],  array.images8[10], array.images8[11], array.images8[12],
-                        array.images8[13],array.images8[14],array.images8[15],
-                        array.images8[16],
-                        array.images8[17],
-                        array.images8[18],
-                        array.images8[19],
-                        array.images8[20],
-                        array.images8[21],
-                        array.images8[22],
-                        array.images8[23]}
+                        array.images8[13],array.images8[14],array.images8[15],array.images8[16],array.images8[17],array.images8[18],
+                        array.images8[19],array.images8[20],array.images8[21],array.images8[22], array.images8[23]}
+
         };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
@@ -104,15 +106,8 @@ public class Level5 extends AppCompatActivity {
                         array.texts7[7],array.texts7[8],array.texts7[9],array.texts7[10],array.texts7[11],array.texts7[12],array.texts7[13]},
                 {array.texts8[0],array.texts8[1],array.texts8[2],array.texts8[3],array.texts8[4],array.texts8[5],array.texts8[6],
                         array.texts8[7],array.texts8[8],array.texts8[9],array.texts8[10],array.texts8[11],array.texts8[12],
-                        array.texts8[13],array.texts8[14],array.texts8[15],
-                        array.texts8[16],
-                        array.texts8[17],
-                        array.texts8[18],
-                        array.texts8[19],
-                        array.texts8[20],
-                        array.texts8[21],
-                        array.texts8[22],
-                        array.texts8[23]}
+                        array.texts8[13],array.texts8[14],array.texts8[15],array.texts8[16],array.texts8[17],array.texts8[18],
+                        array.texts8[19],array.texts8[20],array.texts8[21],array.texts8[22],array.texts8[23]}
         };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -245,7 +240,9 @@ public class Level5 extends AppCompatActivity {
                     public void onTick(long millisUntilFinished)
                     {
                         text_otschet.setVisibility(View.VISIBLE);
-                        musicotschet.start();
+                        if (voiceof==false) {
+                            musicotschet.start();
+                        }
                         if (millisUntilFinished<=3100)
                         {
                             text_otschet.setText(Long.toString(millisUntilFinished / 900));
@@ -257,7 +254,10 @@ public class Level5 extends AppCompatActivity {
                     public void onFinish()
                     {
                         musicotschet.stop();
-                        musicfon.start();
+                        start=1;
+                        if (muzof==false) {
+                            musicfon.start();
+                        }
                         text_otschet.setVisibility(View.GONE);
                         img_left.setEnabled(true);
                         img_right.setEnabled(true);
@@ -270,7 +270,7 @@ public class Level5 extends AppCompatActivity {
                     @Override
                     public void run() {
                         while ((!Thread.interrupted()) && (sekost < 6000)) {
-                            if (musicfon.isPlaying()) {
+                            if (start==1) {
                                 sek++;
                                 sekost++;
                                 runOnUiThread(new Runnable() {
@@ -279,6 +279,7 @@ public class Level5 extends AppCompatActivity {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
                                         if (sekost >= 6000 && sekost<7000) {
                                             musicfon.stop();
+                                            start=0;
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
                                             main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик
                                             textdescribtionEnd.setText(R.string.levelEnd);
@@ -310,6 +311,7 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     musicfon.stop();
+                    start=0;
                     sekost=50001;
                     Intent intent = new Intent(Level5.this,GameLevels.class);
                     startActivity(intent);
@@ -387,6 +389,7 @@ public class Level5 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        start=0;
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
@@ -487,6 +490,7 @@ public class Level5 extends AppCompatActivity {
                     }
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
+                        start=0;
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
@@ -546,6 +550,7 @@ public class Level5 extends AppCompatActivity {
         if (!musicotschet.isPlaying()) {
             try {
                 musicfon.stop();
+                start=0;
                 sekost=50001;
                 Intent intent = new Intent(Level5.this, GameLevels.class);
                 startActivity(intent);
@@ -560,6 +565,7 @@ public class Level5 extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         musicfon.stop();
+        start=0;
         sekost=50001;
     }
 }

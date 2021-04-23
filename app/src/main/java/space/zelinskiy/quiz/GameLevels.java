@@ -32,6 +32,7 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[5] = save.getInt("arrayRezult 5",0);
         array.rezult[6] = save.getInt("arrayRezult 6",0);
         array.rezult[7] = save.getInt("arrayRezult 7",0);
+        array.rezult[8] = save.getInt("arrayRezult 8",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -56,7 +57,8 @@ public class GameLevels extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if (level>=1){
-                    Intent intent = new Intent(GameLevels.this,Level1.class);
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",1 );
                     startActivity(intent);
                     finish();}else {
                         //пусто
@@ -75,7 +77,8 @@ public class GameLevels extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if (level>=2){
-                    Intent intent = new Intent(GameLevels.this,Level2.class);
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",2);
                     startActivity(intent);
                     finish();}else {
                         //пусто
@@ -94,7 +97,8 @@ public class GameLevels extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if (level>=3){
-                    Intent intent = new Intent(GameLevels.this,Level3.class);
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",3);
                     startActivity(intent);
                     finish();}else {
                         //пусто
@@ -113,7 +117,7 @@ public class GameLevels extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if (level>=4){
-                    Intent intent = new Intent(GameLevels.this,Level4.class);
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
                         intent.putExtra("numlev",4);
                     startActivity(intent);
                     finish();}else {
@@ -207,8 +211,8 @@ public class GameLevels extends AppCompatActivity {
         //кнопка для перехона 7-й уровень - Конец
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
-                R.id.textViewlock7,R.id.textViewlock8};
-        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8};
+                R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9};
+        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,R.id.img_lock9};
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);
