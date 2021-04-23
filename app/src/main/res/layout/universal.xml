@@ -25,7 +25,7 @@
             android:id="@+id/container2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -34,6 +34,8 @@
                 android:id="@+id/line1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -67,6 +69,8 @@
                 android:id="@+id/line2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -204,8 +208,8 @@
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
                     android:layout_height="290dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="fitCenter"
@@ -215,8 +219,8 @@
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
                     android:layout_height="290dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:background="@drawable/style_img_universal"

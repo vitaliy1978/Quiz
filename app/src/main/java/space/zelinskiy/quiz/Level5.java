@@ -221,7 +221,7 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent =new Intent(Level5.this,Level5.class);
-                    //intent.putExtra("numlev",numlev+1);
+                    intent.putExtra("numlev",numlev+1);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){

@@ -50,10 +50,10 @@
             android:gravity="top|center_horizontal"
             android:text="@string/option_head"
             android:textColor="@color/black95"
-            android:textSize="24sp" />
+            android:textSize="23sp" />
         <TextView
             android:id="@+id/text_opt_description"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed-medium"
@@ -61,7 +61,7 @@
             android:text="@string/option_description"
             android:textColor="@color/black95"
             android:layout_marginBottom="0dp"
-            android:textSize="22sp" />
+            android:textSize="21sp" />
 
 
     </LinearLayout>
@@ -150,7 +150,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="50"
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,12 +169,12 @@
                 android:layout_weight="1"
                 android:text="@string/option_liders"
                 android:textColor="@color/white"
-                android:textSize="22sp"/>
+                android:textSize="21sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/textOpt_mark"
@@ -188,12 +188,12 @@
                 android:layout_weight="1"
                 android:text="@string/option_mark"
                 android:textColor="@color/white"
-                android:textSize="22sp"/>
+                android:textSize="21sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/textOpt_share"
@@ -207,7 +207,7 @@
                 android:layout_weight="1"
                 android:text="@string/option_share"
                 android:textColor="@color/white"
-                android:textSize="22sp"/>
+                android:textSize="21sp"/>
         </LinearLayout>
 
     </LinearLayout>

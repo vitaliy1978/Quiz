@@ -144,6 +144,7 @@ public class Level2 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent =new Intent(Level2.this,Level3.class);
+                    intent.putExtra("numlev",3);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){

@@ -83,7 +83,7 @@
                             android:layout_weight="1"
                             android:text="@string/btn1"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                         <ImageView
                             android:id="@+id/imglock1"
@@ -123,10 +123,11 @@
                             android:layout_weight="1"
                             android:text="@string/btn2"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/imglock2"
                             android:layout_width="80dp"
+                            android:paddingLeft="5dp"
                             android:layout_height="50dp"
                             android:src="@drawable/lock" />
                         <TextView
@@ -160,25 +161,26 @@
                             android:paddingRight="10dp"
                             android:text="@string/btn3"
                             android:textColor="@color/white"
-                            android:textSize="24sp" />
+                            android:textSize="22sp" />
 
                         <ImageView
                             android:id="@+id/imglock3"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock3"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line4"
@@ -198,24 +200,25 @@
                             android:gravity="center_vertical"
                             android:text="@string/btn4"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/imglock4"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock4"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line5"
@@ -234,24 +237,25 @@
                             android:gravity="center_vertical"
                             android:text="@string/btn5"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/imglock5"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock5"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -272,24 +276,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn6"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock6"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock6"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -310,24 +315,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn7"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock7"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock7"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -348,24 +354,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn8"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock8"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock8"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -386,24 +393,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn9"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock9"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock9"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -424,24 +432,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn10"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock10"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock10"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -462,24 +471,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn11"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock11"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock11"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -500,24 +510,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn12"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock12"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock12"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -538,24 +549,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn13"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock13"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock13"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -576,24 +588,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn14"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock14"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock14"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -614,24 +627,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn15"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock15"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock15"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -652,24 +666,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn16"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock16"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock16"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -690,24 +705,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn17"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock17"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock17"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -728,24 +744,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn18"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock18"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock18"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -766,24 +783,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn19"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock19"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock19"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -804,24 +822,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn20"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock20"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock20"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -842,24 +861,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn21"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock21"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock21"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
 
                     </LinearLayout>
@@ -881,24 +901,25 @@
                             android:layout_weight="1"
                             android:text="@string/btn22"
                             android:textColor="@color/white"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
                         <ImageView
                             android:id="@+id/img_lock22"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
+                            android:paddingLeft="5dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock22"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:background="@drawable/flash"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="0dp"
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="24sp"/>
+                            android:textSize="22sp"/>
 
                     </LinearLayout>
 
