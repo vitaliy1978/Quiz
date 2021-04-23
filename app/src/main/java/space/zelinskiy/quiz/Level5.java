@@ -47,9 +47,9 @@ public class Level5 extends AppCompatActivity {
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
         text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
 
-        final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,R.drawable.preview_img5};
-        final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,R.string.levelfive,};
-        final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,R.string.levelfour2,R.string.levelfive2,};
+        final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8};
+        final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight};
+        final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -63,7 +63,26 @@ public class Level5 extends AppCompatActivity {
                         array.images4[14],array.images4[15],array.images4[16],array.images4[17],array.images4[18],array.images4[19]},
                 {array.images5[0],array.images5[1],array.images5[2],array.images5[3],array.images5[4],array.images5[5],array.images5[6],
                         array.images5[7],array.images5[8],array.images5[9],array.images5[10],array.images5[11],array.images5[12],array.images5[13],
-                        array.images5[14],array.images5[15]}};
+                        array.images5[14],array.images5[15]},
+                {array.images6[0],array.images6[1],array.images6[2],array.images6[3],array.images6[4],array.images6[5],array.images6[6],
+                        array.images6[7],array.images6[8],array.images6[9],array.images6[10],array.images6[11],array.images6[12],
+                        array.images6[13], array.images6[14], array.images6[15], array.images6[16], array.images6[17], array.images6[18],
+                        array.images6[19], array.images6[20]},
+                {array.images7[0],array.images7[1],array.images7[2],array.images7[3],array.images7[4],array.images7[5],array.images7[6],
+                        array.images7[7], array.images7[8],  array.images7[9],  array.images7[10], array.images7[11], array.images7[12],
+                        array.images7[13]},
+                {array.images8[0],array.images8[1],array.images8[2],array.images8[3],array.images8[4],array.images8[5],array.images8[6],
+                        array.images8[7], array.images8[8],  array.images8[9],  array.images8[10], array.images8[11], array.images8[12],
+                        array.images8[13],array.images8[14],array.images8[15],
+                        array.images8[16],
+                        array.images8[17],
+                        array.images8[18],
+                        array.images8[19],
+                        array.images8[20],
+                        array.images8[21],
+                        array.images8[22],
+                        array.images8[23]}
+        };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
                 {array.texts2[0],array.texts2[1],array.texts2[2],array.texts2[3],array.texts2[4],array.texts2[5],
@@ -77,7 +96,24 @@ public class Level5 extends AppCompatActivity {
                         array.texts4[14],array.texts4[15],array.texts4[16],array.texts4[17],array.texts4[18],array.texts4[19]},
                 {array.texts5[0],array.texts5[1],array.texts5[2],array.texts5[3],array.texts5[4],array.texts5[5],array.texts5[6],
                         array.texts5[7],array.texts5[8],array.texts5[9],array.texts5[10],array.texts5[11],array.texts5[12],array.texts5[13],
-                        array.texts5[14],array.texts5[15]}};
+                        array.texts5[14],array.texts5[15]},
+                {array.texts6[0],array.texts6[1],array.texts6[2],array.texts6[3],array.texts6[4],array.texts6[5],array.texts6[6],
+                        array.texts6[7],array.texts6[8],array.texts6[9],array.texts6[10],array.texts6[11],array.texts6[12],array.texts6[13],
+                        array.texts6[14],array.texts6[15],array.texts6[16],array.texts6[17],array.texts6[18],array.texts6[19],array.texts6[20]},
+                {array.texts7[0],array.texts7[1],array.texts7[2],array.texts7[3],array.texts7[4],array.texts7[5],array.texts7[6],
+                        array.texts7[7],array.texts7[8],array.texts7[9],array.texts7[10],array.texts7[11],array.texts7[12],array.texts7[13]},
+                {array.texts8[0],array.texts8[1],array.texts8[2],array.texts8[3],array.texts8[4],array.texts8[5],array.texts8[6],
+                        array.texts8[7],array.texts8[8],array.texts8[9],array.texts8[10],array.texts8[11],array.texts8[12],
+                        array.texts8[13],array.texts8[14],array.texts8[15],
+                        array.texts8[16],
+                        array.texts8[17],
+                        array.texts8[18],
+                        array.texts8[19],
+                        array.texts8[20],
+                        array.texts8[21],
+                        array.texts8[22],
+                        array.texts8[23]}
+        };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
         final ImageView img_right = (ImageView) findViewById(R.id.img_right);
@@ -89,7 +125,7 @@ public class Level5 extends AppCompatActivity {
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button)findViewById(R.id.button_back); //Путь к кнопке Назад
-        if (numlev==5) {
+        if (numlev==5||numlev==6||numlev==7||numlev==8) {
             text_left.setTextSize((float) (text_left.getTextSize() * 0.25));  //Уменьшаем шрифт подписей картинок
             text_right.setTextSize((float) (text_right.getTextSize() * 0.25));  //Уменьшаем шрифт подписей картинок
         }
@@ -185,6 +221,7 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent =new Intent(Level5.this,Level5.class);
+                    //intent.putExtra("numlev",numlev+1);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -232,7 +269,7 @@ public class Level5 extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while ((!Thread.interrupted()) && (sekost < 3000)) {
+                        while ((!Thread.interrupted()) && (sekost < 6000)) {
                             if (musicfon.isPlaying()) {
                                 sek++;
                                 sekost++;
@@ -240,7 +277,7 @@ public class Level5 extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
-                                        if (sekost >= 3000 && sekost<4000) {
+                                        if (sekost >= 6000 && sekost<7000) {
                                             musicfon.stop();
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
                                             main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик

@@ -22,4 +22,10 @@
     <string name="levelfour2">Выбери часы, которые показывают большее время.</string>
     <string name="levelfive">Приглядись.</string>
     <string name="levelfive2">Выбери цвет, который темнее.</string>
+    <string name="levelsix">Что тяжелее?</string>
+    <string name="levelsix2"></string>
+    <string name="levelseven">Грузоподъёмность.</string>
+    <string name="levelseven2">Кто из них увезет больше?</string>
+    <string name="leveleight">Кто быстрее?</string>
+    <string name="leveleight2"></string>
 </resources>

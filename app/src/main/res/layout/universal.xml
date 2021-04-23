@@ -234,7 +234,7 @@
                     android:id="@+id/text_left"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Text Left"
+                    android:text="@string/lvl7text13"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:layout_marginRight="5dp"
