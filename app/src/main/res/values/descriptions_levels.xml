@@ -24,8 +24,8 @@
     <string name="levelfive2">Выбери цвет, который темнее.</string>
     <string name="levelsix">Что тяжелее?</string>
     <string name="levelsix2"></string>
-    <string name="levelseven">Грузоподъёмность.</string>
-    <string name="levelseven2">Кто из них увезет больше?</string>
-    <string name="leveleight">Кто быстрее?</string>
-    <string name="leveleight2"></string>
+    <string name="levelseven"></string>
+    <string name="levelseven2">У кого больше\nгрузоподъёмность?</string>
+    <string name="leveleight"></string>
+    <string name="leveleight2">Кто быстрее?</string>
 </resources>

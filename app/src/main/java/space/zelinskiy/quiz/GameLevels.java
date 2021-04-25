@@ -24,9 +24,9 @@ public class GameLevels extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
 
-        array.rezult[0] = save.getInt("array.rezult[0]",0);
-        array.rezult[1] = save.getInt("array.rezult[1]",0);
-        array.rezult[2] = save.getInt("array.rezult[2]",0);
+        array.rezult[0] = save.getInt("arrayRezult 0",0);
+        array.rezult[1] = save.getInt("arrayRezult 1",0);
+        array.rezult[2] = save.getInt("arrayRezult 2",0);
         array.rezult[3] = save.getInt("arrayRezult 3",0);
         array.rezult[4] = save.getInt("arrayRezult 4",0);
         array.rezult[5] = save.getInt("arrayRezult 5",0);
