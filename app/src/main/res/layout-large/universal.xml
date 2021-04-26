@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     android:orientation="vertical">
 
-    <ImageView
+ <!--   <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/level1" />
+        android:src="@drawable/level1" />  -->
 
     <LinearLayout
         android:id="@+id/container1"
@@ -206,7 +207,7 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="360dp"
+                    android:layout_height="400dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="3dp"
                     android:layout_weight="1"
@@ -218,7 +219,7 @@
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="360dp"
+                    android:layout_height="400dp"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -270,7 +271,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/black80"
+                    android:textColor="@color/dark_background"
                     android:textSize="42sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"

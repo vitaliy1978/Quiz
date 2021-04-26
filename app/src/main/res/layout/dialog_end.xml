@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/dialog_fon"
-    android:background="@drawable/preview_background_one"
+    android:background="@color/light_background"
     android:layout_gravity="center"
     android:scaleType="centerCrop"
     android:layout_margin="10dp">
@@ -31,16 +31,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="60"
+            android:layout_weight="64"
             android:src="@drawable/main_img_viktory" />
         <ImageView
             android:id="@+id/main_img_lose"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="60"
+            android:layout_weight="64"
             android:visibility="gone"
-            android:src="@drawable/main_img" />
+            android:src="@drawable/main_img_blue" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:gravity="top|center_horizontal"
                 android:textColor="@color/black95"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:layout_weight="40"
+                android:layout_weight="30"
                 android:textSize="22sp"
                 android:lineSpacingExtra="4dp"
                 />
@@ -67,6 +67,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textAllCaps="true"
+            android:layout_weight="6"
             android:textSize="24sp"
             android:layout_marginTop="10dp"/>
     </LinearLayout>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_background"
     tools:context=".MainActivity">
-    <ImageView
+  <!--  <ImageView
         android:id="@+id/main_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/main_background2" />
+        android:src="@drawable/main_background2" /> -->
 
 
 <LinearLayout
@@ -20,14 +21,17 @@
     android:id="@+id/dialog_fon"
     android:layout_gravity="center"
     android:scaleType="centerCrop"
-    android:layout_margin="10dp">
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="20"
-        android:padding="10dp"
+        android:layout_weight="16"
+        android:paddingTop="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
         android:gravity="center_horizontal"
         >
         <TextView
@@ -41,21 +45,43 @@
             android:background="@drawable/button_stroke_black95_press_white"
             android:layout_gravity="start"
             />
-        <TextView
-            android:id="@+id/text_opt_head"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:gravity="top|center_horizontal"
-            android:text="@string/option_head"
-            android:textColor="@color/black95"
-            android:textSize="22sp" />
+            android:orientation="vertical"
+            android:paddingTop="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:id="@+id/text_opt_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="top|center_horizontal"
+                android:text="@string/option_head"
+                android:textColor="@color/black95"
+                android:textSize="22sp" />
+            <TextView
+                android:id="@+id/text_opt_head2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="top|right"
+                android:text="@string/option_head2"
+                android:textColor="@color/black95"
+                android:textSize="13sp" />
+        </LinearLayout>
         <TextView
             android:id="@+id/text_opt_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="top"
             android:text="@string/option_description"
@@ -73,11 +99,11 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="0dp"
-        android:layout_weight="20"
+        android:layout_weight="12"
         android:gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <Switch
                 android:id="@+id/switchVoice"
@@ -135,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="60"
+        android:layout_weight="76"
         android:gravity="center"
         android:layout_marginTop="0dp"
         android:orientation="vertical">

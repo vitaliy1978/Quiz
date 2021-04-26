@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/dialog_fon"
-    android:background="@drawable/preview_background_one"
+    android:background="@color/light_background"
     android:layout_gravity="center"
     android:scaleType="centerCrop"
     android:layout_margin="10dp">

@@ -269,7 +269,7 @@ public class Level5 extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while ((!Thread.interrupted()) && (sekost < 6000)) {
+                        while ((!Thread.interrupted()) && (sekost < 12000)) {
                             if (start==1) {
                                 sek++;
                                 sekost++;
@@ -277,7 +277,7 @@ public class Level5 extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
-                                        if (sekost >= 6000 && sekost<7000) {
+                                        if (sekost >= 12000 && sekost<12500) {
                                             musicfon.stop();
                                             start=0;
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик

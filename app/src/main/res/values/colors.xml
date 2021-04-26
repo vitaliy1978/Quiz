@@ -12,5 +12,14 @@
     <color name="red">#DA6969</color>
     <color name="forImage">#34F9FDFF</color>
     <color name="darkblue">#036F93</color>
+    <color name="main_background">#41a9cc</color>
+    <color name="light_background">#70c8e5</color>
+    <color name="verylight_background">#90d0e5</color>
+    <color name="dark_background">#156985</color>
+    <color name="dark_background2">#4b8699</color>
+    <color name="orange">#FFCA4B</color>
+    <color name="light_orange">#D3FBEECD</color>
+    <color name="dark_orange">#a67c18</color>
+    <color name="dark_red">#a62e18</color>
 
 </resources>

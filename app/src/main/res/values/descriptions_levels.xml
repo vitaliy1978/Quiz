@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="option_head">"Быстрый выбор"</string>
+    <string name="option_head2">"Версия 1.1"</string>
     <string name="option_description">Игра на знание и скорость реакции.\nЗа правильный ответ +1 балл.\nЗа неправильный -2 балла.
         \nВремя ограничено тремя минутами.</string>
     <string name="swithMusic">Отключить музыку</string>
