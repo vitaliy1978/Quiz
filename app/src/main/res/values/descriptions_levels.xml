@@ -15,17 +15,17 @@
     <string name="levelone">"Лёгкая разминка на скорость."</string>
     <string name="levelone2">"Выбери цифру, которая больше.\nВопросы могут повторяться,\nпока не наберется 20 очков."</string>
     <string name="leveltwo">Выбери римскую цифру,\nкоторая больше.</string>
-    <string name="leveltwo2">За правильный ответ +1 балл,\nза неправильный ответ -2 балла.</string>
+    <string name="leveltwo2">За правильный ответ\n+1 балл,\nза неправильный ответ\n-2 балла.</string>
     <string name="levelthree">Выбери букву, которая\nстоит дальше в английском алфавите.</string>
-    <string name="levelthree2">Постарайся успеть за 3 минуты.</string>
+    <string name="levelthree2">Постарайся успеть\nза 2 минуты.</string>
     <string name="levelfour">Ещё одно лёгкое задание.</string>
-    <string name="levelfour2">Выбери часы, которые\nпоказывают большее время.</string>
+    <string name="levelfour2">Выбери часы, которые\nпоказывают большее\nвремя.</string>
     <string name="levelfive">Приглядись.</string>
-    <string name="levelfive2">Выбери цвет, который темнее.</string>
-    <string name="levelsix">Что тяжелее?</string>
-    <string name="levelsix2"></string>
-    <string name="levelseven"></string>
+    <string name="levelfive2">Выбери тот цвет,\nкоторый темнее.</string>
+    <string name="levelsix">Определи</string>
+    <string name="levelsix2">что тяжелее?</string>
+    <string name="levelseven">Выбери.</string>
     <string name="levelseven2">У кого больше\nгрузоподъёмность?</string>
     <string name="leveleight"></string>
-    <string name="leveleight2">Кто быстрее?</string>
+    <string name="leveleight2">Кто из них быстрее?</string>
 </resources>

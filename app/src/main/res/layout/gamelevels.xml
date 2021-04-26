@@ -18,14 +18,16 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/container2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="0dp">
 
             <LinearLayout
                 android:id="@+id/container3"
@@ -77,13 +79,13 @@
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn1"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                         <ImageView
                             android:id="@+id/imglock1"
@@ -101,7 +103,7 @@
                             android:gravity="center"
                             android:text="205.36"
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
 
@@ -117,13 +119,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn2"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock2"
                             android:layout_width="80dp"
@@ -141,7 +143,7 @@
                             android:text="205.36"
                             android:visibility="gone"
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line3"
@@ -157,11 +159,11 @@
                             android:layout_weight="1"
                             android:background="@drawable/button_gamelevels"
                             android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:text="@string/btn3"
                             android:textColor="@color/white"
-                            android:textSize="22sp" />
+                            android:textSize="21sp" />
 
                         <ImageView
                             android:id="@+id/imglock3"
@@ -180,7 +182,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line4"
@@ -195,12 +197,12 @@
                             android:layout_height="50dp"
                             android:layout_weight="1"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/btn4"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock4"
                             android:layout_width="80dp"
@@ -218,7 +220,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/line5"
@@ -232,12 +234,12 @@
                             android:layout_height="50dp"
                             android:layout_weight="1"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/btn5"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock5"
                             android:layout_width="80dp"
@@ -255,7 +257,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -270,13 +272,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn6"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock6"
                             android:layout_width="80dp"
@@ -294,7 +296,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -309,13 +311,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn7"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock7"
                             android:layout_width="80dp"
@@ -333,7 +335,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -348,13 +350,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn8"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock8"
                             android:layout_width="80dp"
@@ -372,7 +374,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -387,13 +389,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn9"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock9"
                             android:layout_width="80dp"
@@ -411,7 +413,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -426,13 +428,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn10"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock10"
                             android:layout_width="80dp"
@@ -450,7 +452,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -465,13 +467,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn11"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock11"
                             android:layout_width="80dp"
@@ -489,7 +491,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -504,13 +506,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn12"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock12"
                             android:layout_width="80dp"
@@ -528,7 +530,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -543,13 +545,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn13"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock13"
                             android:layout_width="80dp"
@@ -567,7 +569,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -582,13 +584,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn14"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock14"
                             android:layout_width="80dp"
@@ -606,7 +608,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -621,13 +623,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn15"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock15"
                             android:layout_width="80dp"
@@ -645,7 +647,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -660,13 +662,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn16"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock16"
                             android:layout_width="80dp"
@@ -684,7 +686,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -699,13 +701,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn17"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock17"
                             android:layout_width="80dp"
@@ -723,7 +725,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -738,13 +740,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn18"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock18"
                             android:layout_width="80dp"
@@ -762,7 +764,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -777,13 +779,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn19"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock19"
                             android:layout_width="80dp"
@@ -801,7 +803,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -816,13 +818,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn20"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock20"
                             android:layout_width="80dp"
@@ -840,7 +842,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -855,13 +857,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn21"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock21"
                             android:layout_width="80dp"
@@ -879,7 +881,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
 
                     </LinearLayout>
@@ -895,13 +897,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn22"
                             android:textColor="@color/white"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock22"
                             android:layout_width="80dp"
@@ -919,7 +921,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
-                            android:textSize="22sp"/>
+                            android:textSize="21sp"/>
 
                     </LinearLayout>
 

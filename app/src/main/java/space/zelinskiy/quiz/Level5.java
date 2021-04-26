@@ -43,8 +43,8 @@ public class Level5 extends AppCompatActivity {
         setContentView(R.layout.universal);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
-        final boolean muzof = save.getBoolean("muzof", false);
-        final boolean voiceof = save.getBoolean("voiceof", false);
+        final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
+        final boolean voiceof = save.getBoolean("voiceof", false);  //юерем данные о включенности звуков
 
         Intent intent =getIntent();  //получить intent
         numlev  = intent.getIntExtra("numlev",1);  //метод getStringExtra читает строку
