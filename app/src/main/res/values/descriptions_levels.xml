@@ -29,4 +29,10 @@
     <string name="levelseven2">У кого больше\nгрузоподъёмность?</string>
     <string name="leveleight"></string>
     <string name="leveleight2">Кто из них быстрее?</string>
+    <string name="levelnine">Кто из них</string>
+    <string name="levelnine2">громче шумит?</string>
+    <string name="levelten">Определи размер</string>
+    <string name="levelten2">Кто из них больше?</string>
+    <string name="leveleleven">Определи цену</string>
+    <string name="leveleleven2">Что дороже?</string>
 </resources>

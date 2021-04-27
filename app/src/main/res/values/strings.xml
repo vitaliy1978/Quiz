@@ -20,10 +20,10 @@
     <string name="btn6">Вес</string>
     <string name="btn7">Грузоподъёмность</string>
     <string name="btn8">Скорость</string>
-    <string name="btn9">Размер</string>
-    <string name="btn10">Цена</string>
-    <string name="btn11">Высота</string>
-    <string name="btn12">Звук</string>
+    <string name="btn9">Звук</string>
+    <string name="btn10">Размер</string>
+    <string name="btn11">Цена</string>
+    <string name="btn12">Высота</string>
     <string name="btn13">Слух</string>
     <string name="btn14">Холод</string>
     <string name="btn15">Интеллект</string>

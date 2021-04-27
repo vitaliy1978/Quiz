@@ -33,6 +33,9 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[6] = save.getInt("arrayRezult 6",0);
         array.rezult[7] = save.getInt("arrayRezult 7",0);
         array.rezult[8] = save.getInt("arrayRezult 8",0);
+        array.rezult[9] = save.getInt("arrayRezult 9",0);
+        array.rezult[10] = save.getInt("arrayRezult 10",0);
+        array.rezult[11] = save.getInt("arrayRezult 11",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -208,11 +211,69 @@ public class GameLevels extends AppCompatActivity {
                 }
             }
         });
-        //кнопка для перехона 7-й уровень - Конец
+        //кнопка для перехона 8-й уровень - Конец
+        //кнопка для перехона 9-й уровень - Начало
+        TextView textView9 = (TextView) findViewById(R.id.textView9);
+        textView9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=9){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",9);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехона 9-й уровень - Конец
+        //кнопка для перехона 10-й уровень - Начало
+        TextView textView10 = (TextView) findViewById(R.id.textView10);
+        textView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=10){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",10);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехона 10-й уровень - Конец
+        //кнопка для перехона 11-й уровень - Начало
+        TextView textView11 = (TextView) findViewById(R.id.textView11);
+        textView11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=11){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",11);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехона 11-й уровень - Конец
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
-                R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9};
-        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,R.id.img_lock9};
+                R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9,R.id.textViewlock10,R.id.textViewlock11,R.id.textViewlock12};
+        final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,
+                R.id.img_lock9,R.id.img_lock10,R.id.img_lock11,R.id.img_lock12};
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);

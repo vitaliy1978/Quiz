@@ -149,22 +149,61 @@ public class Array {
             R.string.lvl8text21,            R.string.lvl8text22,            R.string.lvl8text23,            R.string.lvl8text24,
     };
     //Массив для восьмого уровня - Конец
+
+    //Массив для девятого уровня - Начало
     final int[] images9 = {
-            R.drawable.a8level1,            R.drawable.a8level2,            R.drawable.a8level3,             R.drawable.a8level4,
-            R.drawable.a8level5,            R.drawable.a8level6,            R.drawable.a8level7,            R.drawable.a8level8,
-            R.drawable.a8level9,            R.drawable.a8level10,            R.drawable.a8level11,            R.drawable.a8level12,
-            R.drawable.a8level13,            R.drawable.a8level14,            R.drawable.a8level15,            R.drawable.a8level16,
-            R.drawable.a8level17,            R.drawable.a8level18,            R.drawable.a8level19,            R.drawable.a8level20,
-            R.drawable.a8level21,            R.drawable.a8level22,            R.drawable.a8level23,            R.drawable.a8level24,
+            R.drawable.a9level1,            R.drawable.a9level2,            R.drawable.a9level3,            R.drawable.a9level4,
+            R.drawable.a9level5,            R.drawable.a9level6,            R.drawable.a9level7,            R.drawable.a9level8,
+            R.drawable.a9level9,            R.drawable.a9level10,            R.drawable.a9level11,            R.drawable.a9level12,
+            R.drawable.a9level13,            R.drawable.a9level14,            R.drawable.a9level15,            R.drawable.a9level16,
+            R.drawable.a9level17,            R.drawable.a9level18,            R.drawable.a9level19,
     };
     final int[] texts9 ={
-            R.string.lvl8text1,            R.string.lvl8text2,            R.string.lvl8text3,            R.string.lvl8text4,
-            R.string.lvl8text5,            R.string.lvl8text6,            R.string.lvl8text7,            R.string.lvl8text8,
-            R.string.lvl8text9,            R.string.lvl8text10,            R.string.lvl8text11,            R.string.lvl8text12,
-            R.string.lvl8text13,            R.string.lvl8text14,            R.string.lvl8text15,            R.string.lvl8text16,
-            R.string.lvl8text17,            R.string.lvl8text18,            R.string.lvl8text19,            R.string.lvl8text20,
-            R.string.lvl8text21,            R.string.lvl8text22,            R.string.lvl8text23,            R.string.lvl8text24,
+            R.string.lvl9text1,            R.string.lvl9text2,            R.string.lvl9text3,            R.string.lvl9text4,
+            R.string.lvl9text5,            R.string.lvl9text6,            R.string.lvl9text7,            R.string.lvl9text8,
+            R.string.lvl9text9,            R.string.lvl9text10,            R.string.lvl9text11,            R.string.lvl9text12,
+            R.string.lvl9text13,            R.string.lvl9text14,            R.string.lvl9text15,            R.string.lvl9text16,
+            R.string.lvl9text17,            R.string.lvl9text18,            R.string.lvl9text19,
     };
-    //Массив для восьмого уровня - Конец
+    //Массив для девятого уровня - Конец
+
+    //Массив для десятого уровня - начало
+    final int[] images10 = {
+            R.drawable.a10level1,            R.drawable.a10level2,            R.drawable.a10level3,            R.drawable.a10level4,
+            R.drawable.a10level5,            R.drawable.a10level6,            R.drawable.a10level7,            R.drawable.a10level8,
+            R.drawable.a10level9,            R.drawable.a10level10,            R.drawable.a10level11,            R.drawable.a10level12,
+            R.drawable.a10level13,            R.drawable.a10level14,            R.drawable.a10level15,            R.drawable.a10level16,
+            R.drawable.a10level17,            R.drawable.a10level18,            R.drawable.a10level19,            R.drawable.a10level20,
+            R.drawable.a10level21,
+    };
+    final int[] texts10 ={
+            R.string.lvl10text1,              R.string.lvl10text2,             R.string.lvl10text3,             R.string.lvl10text4,
+            R.string.lvl10text5,              R.string.lvl10text6,                R.string.lvl10text7,           R.string.lvl10text8,
+            R.string.lvl10text9,             R.string.lvl10text10,              R.string.lvl10text11,           R.string.lvl10text12,
+            R.string.lvl10text13,            R.string.lvl10text14,              R.string.lvl10text15,            R.string.lvl10text16,
+            R.string.lvl10text17,             R.string.lvl10text18,             R.string.lvl10text19,          R.string.lvl10text20,
+            R.string.lvl10text21,
+    };
+    //Массив для десятогоо уровня - Конец
+    //Массив для одинадцатого уровня - начало
+    final int[] images11 = {
+            R.drawable.a11level1,            R.drawable.a11level2,            R.drawable.a11level3,            R.drawable.a11level4,
+            R.drawable.a11level5,            R.drawable.a11level6,            R.drawable.a11level7,            R.drawable.a11level8,
+            R.drawable.a11level9,            R.drawable.a11level10,            R.drawable.a11level11,            R.drawable.a11level12,
+            R.drawable.a11level13,            R.drawable.a11level14,            R.drawable.a11level15,            R.drawable.a11level16,
+            R.drawable.a11level17,            R.drawable.a11level18,            R.drawable.a11level19,            R.drawable.a11level20,
+            R.drawable.a11level21,              R.drawable.a11level22,          R.drawable.a11level23,            R.drawable.a11level24,
+            R.drawable.a11level25
+    };
+    final int[] texts11 ={
+            R.string.lvl11text1,              R.string.lvl11text2,             R.string.lvl11text3,             R.string.lvl11text4,
+            R.string.lvl11text5,              R.string.lvl11text6,              R.string.lvl11text7,           R.string.lvl11text8,
+            R.string.lvl11text9,             R.string.lvl11text10,              R.string.lvl11text11,           R.string.lvl11text12,
+            R.string.lvl11text13,            R.string.lvl11text14,              R.string.lvl11text15,            R.string.lvl11text16,
+            R.string.lvl11text17,             R.string.lvl11text18,             R.string.lvl11text19,          R.string.lvl11text20,
+            R.string.lvl11text21,              R.string.lvl11text22,            R.string.lvl11text23,           R.string.lvl11text24,
+            R.string.lvl11text25,
+    };
+    //Массив для одинадцатого уровня - Конец
 
 }

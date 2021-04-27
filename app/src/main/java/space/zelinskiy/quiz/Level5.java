@@ -53,11 +53,13 @@ public class Level5 extends AppCompatActivity {
         text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
 
         final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,
-                R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img8};
+                R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img9,
+                R.drawable.preview_img10,R.drawable.preview_img11};
         final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,
-                R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.leveleight};
+                R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.levelnine,R.string.levelten,R.string.leveleleven};
         final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,
-                R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,R.string.leveleight2};
+                R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,
+                R.string.levelnine2,R.string.levelten2,R.string.leveleleven2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -82,8 +84,18 @@ public class Level5 extends AppCompatActivity {
                 {array.images8[0],array.images8[1],array.images8[2],array.images8[3],array.images8[4],array.images8[5],array.images8[6],
                         array.images8[7], array.images8[8],  array.images8[9],  array.images8[10], array.images8[11], array.images8[12],
                         array.images8[13],array.images8[14],array.images8[15],array.images8[16],array.images8[17],array.images8[18],
-                        array.images8[19],array.images8[20],array.images8[21],array.images8[22], array.images8[23]}
-
+                        array.images8[19],array.images8[20],array.images8[21],array.images8[22], array.images8[23]},
+                {array.images9[0],array.images9[1],array.images9[2],array.images9[3],array.images9[4],array.images9[5],array.images9[6],
+                        array.images9[7], array.images9[8],  array.images9[9],  array.images9[10], array.images9[11], array.images9[12],
+                        array.images9[13],array.images9[14],array.images9[15],array.images9[16],array.images9[17],array.images9[18]},
+                {array.images10[0],array.images10[1],array.images10[2],array.images10[3],array.images10[4],array.images10[5],array.images10[6],
+                        array.images10[7], array.images10[8],  array.images10[9],  array.images10[10], array.images10[11], array.images10[12],
+                        array.images10[13],array.images10[14],array.images10[15],array.images10[16],array.images10[17],array.images10[18],
+                        array.images10[19],array.images10[20]},
+                {array.images11[0],array.images11[1],array.images11[2],array.images11[3],array.images11[4],array.images11[5],array.images11[6],
+                        array.images11[7], array.images11[8],  array.images11[9],  array.images11[10], array.images11[11], array.images11[12],
+                        array.images11[13],array.images11[14],array.images11[15],array.images11[16],array.images11[17],array.images11[18],
+                        array.images11[19],array.images11[20],array.images11[21],array.images11[22],array.images11[23],array.images11[24]}
         };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
@@ -107,7 +119,18 @@ public class Level5 extends AppCompatActivity {
                 {array.texts8[0],array.texts8[1],array.texts8[2],array.texts8[3],array.texts8[4],array.texts8[5],array.texts8[6],
                         array.texts8[7],array.texts8[8],array.texts8[9],array.texts8[10],array.texts8[11],array.texts8[12],
                         array.texts8[13],array.texts8[14],array.texts8[15],array.texts8[16],array.texts8[17],array.texts8[18],
-                        array.texts8[19],array.texts8[20],array.texts8[21],array.texts8[22],array.texts8[23]}
+                        array.texts8[19],array.texts8[20],array.texts8[21],array.texts8[22],array.texts8[23]},
+                {array.texts9[0],array.texts9[1],array.texts9[2],array.texts9[3],array.texts9[4],array.texts9[5],array.texts9[6],
+                        array.texts9[7],array.texts9[8],array.texts9[9],array.texts9[10],array.texts9[11],array.texts9[12],
+                        array.texts9[13],array.texts9[14],array.texts9[15],array.texts9[16],array.texts9[17],array.texts9[18]},
+                {array.texts10[0],array.texts10[1],array.texts10[2],array.texts10[3],array.texts10[4],array.texts10[5],array.texts10[6],
+                        array.texts10[7],array.texts10[8],array.texts10[9],array.texts10[10],array.texts10[11],array.texts10[12],
+                        array.texts10[13],array.texts10[14],array.texts10[15],array.texts10[16],array.texts10[17],array.texts10[18],
+                        array.texts10[19],array.texts10[20]},
+                {array.texts11[0],array.texts11[1],array.texts11[2],array.texts11[3],array.texts11[4],array.texts11[5],array.texts11[6],
+                        array.texts11[7],array.texts11[8],array.texts11[9],array.texts11[10],array.texts11[11],array.texts11[12],
+                        array.texts11[13],array.texts11[14],array.texts11[15],array.texts11[16],array.texts11[17],array.texts11[18],
+                        array.texts11[19],array.texts11[20],array.texts11[21],array.texts11[22],array.texts11[23],array.texts11[24]}
         };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -120,9 +143,9 @@ public class Level5 extends AppCompatActivity {
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button)findViewById(R.id.button_back); //Путь к кнопке Назад
-        if (numlev==5||numlev==6||numlev==7||numlev==8) {
-            text_left.setTextSize((float) (text_left.getTextSize() * 0.25));  //Уменьшаем шрифт подписей картинок
-            text_right.setTextSize((float) (text_right.getTextSize() * 0.25));  //Уменьшаем шрифт подписей картинок
+        if (numlev==5||numlev==6||numlev==7||numlev==8||numlev==9||numlev==10||numlev==11) {
+            text_left.setTextSize((float) (text_left.getTextSize() * 0.23));  //Уменьшаем шрифт подписей картинок
+            text_right.setTextSize((float) (text_right.getTextSize() * 0.23));  //Уменьшаем шрифт подписей картинок
         }
             musicfon = MediaPlayer.create(this, R.raw.musicfon);
             musicotschet = MediaPlayer.create(this, R.raw.musicotschet);
@@ -351,11 +374,14 @@ public class Level5 extends AppCompatActivity {
                     img_right.setEnabled(false);  //блокируем правую картинку
                     if (numLeft>numRight){
                         img_left.setImageResource(R.drawable.img_true);
+                        img_left.setBackgroundResource(R.drawable.style_img_universal_green);
 
                     } else {
-                        img_left.setImageResource(R.drawable.img_false);
+                        img_left.setImageResource(R.drawable.img_false2);
+                        img_left.setBackgroundResource(R.drawable.style_img_universal_red);
                     }
                 } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
+                    img_left.setBackgroundResource(R.drawable.style_img_universal);
                     if (numLeft>numRight){
                         img_left.setImageResource(R.drawable.img_true);
                         if (count<20){
@@ -370,6 +396,7 @@ public class Level5 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_green);
                         }
                     } else {
+                        img_left.setBackgroundResource(R.drawable.style_img_universal);
                         if (count>0){
                             if (count==1){
                                 count=0;
@@ -390,6 +417,7 @@ public class Level5 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
+                        img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
@@ -452,11 +480,14 @@ public class Level5 extends AppCompatActivity {
                     img_left.setEnabled(false);  //блокируем левую картинку
                     if (numRight>numLeft){
                         img_right.setImageResource(R.drawable.img_true);
+                        img_right.setBackgroundResource(R.drawable.style_img_universal_green);
 
                     } else {
                         img_right.setImageResource(R.drawable.img_false);
+                        img_right.setBackgroundResource(R.drawable.style_img_universal_red);
                     }
                 } else if(event.getAction()==MotionEvent.ACTION_UP){   //если убрал палец
+                    img_right.setBackgroundResource(R.drawable.style_img_universal);
                     if (numRight>numLeft){
                         img_right.setImageResource(R.drawable.img_true);
                         if (count<20){
@@ -471,6 +502,7 @@ public class Level5 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_green);
                         }
                     } else {
+                        img_right.setBackgroundResource(R.drawable.style_img_universal);
                         if (count>0){
                             if (count==1){
                                 count=0;
@@ -491,6 +523,7 @@ public class Level5 extends AppCompatActivity {
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
+                        img_right.setImageResource(masOfImgMas[numlev-1][numLeft]);
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
