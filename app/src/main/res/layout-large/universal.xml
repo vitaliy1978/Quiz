@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    android:background="@color/main_background3"
     android:orientation="vertical">
 
  <!--   <ImageView
@@ -43,13 +43,13 @@
                     android:id="@+id/button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_stroke_white_press_blue"
+                    android:background="@drawable/button_stroke_black95_press_white"
                     android:layout_marginEnd="10dp"
                     android:text="@string/back"
                     android:textSize="40sp"
                     android:padding="10dp"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     />
 
                 <TextView
@@ -59,7 +59,7 @@
                     android:layout_weight="1"
                     android:text="@string/wordlevel"
                     android:textSize="40sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:gravity="right"
                     android:padding="10dp"
                     />
@@ -207,7 +207,7 @@
                 <ImageView
                     android:id="@+id/img_left"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="420dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="3dp"
                     android:layout_weight="1"
@@ -219,7 +219,7 @@
                 <ImageView
                     android:id="@+id/img_right"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="420dp"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -240,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Text Left"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:textSize="40sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Text Right"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:textSize="40sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -271,8 +271,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/dark_background"
-                    android:textSize="42sp"
+                    android:textColor="@color/dark_blue80"
+                    android:textSize="36sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
@@ -289,7 +289,7 @@
         android:layout_height="match_parent"
         android:gravity="bottom|center_horizontal"
         android:text=""
-        android:textColor="@color/black80"
-        android:textSize="180sp" />
+        android:textColor="@color/dark_blue80"
+        android:textSize="160sp" />
 
 </RelativeLayout>

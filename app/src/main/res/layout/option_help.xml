@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_background"
+    android:background="@color/main_background3"
     tools:context=".MainActivity">
   <!--  <ImageView
         android:id="@+id/main_background"
@@ -40,8 +40,9 @@
             android:id="@+id/button_close_from_option"
             android:text="&#60;"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:gravity="center"
+            android:textColor="@color/dark_blue"
             android:background="@drawable/button_stroke_black95_press_white"
             android:layout_gravity="start"
             />
@@ -63,7 +64,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="top|center_horizontal"
                 android:text="@string/option_head"
-                android:textColor="@color/black95"
+                android:textColor="@color/dark_blue"
                 android:textSize="22sp" />
             <TextView
                 android:id="@+id/text_opt_head2"
@@ -73,7 +74,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="top|right"
                 android:text="@string/option_head2"
-                android:textColor="@color/black95"
+                android:textColor="@color/dark_blue"
                 android:textSize="13sp" />
         </LinearLayout>
         <TextView
@@ -85,16 +86,16 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="top"
             android:text="@string/option_description"
-            android:textColor="@color/black95"
+            android:textColor="@color/dark_blue"
             android:layout_marginBottom="0dp"
             android:textSize="21sp" />
 
 
     </LinearLayout>
     <View
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:background="@drawable/separator_line"
-        android:layout_height="3dp" />
+        android:layout_height="2dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -124,7 +125,7 @@
                 android:text="@string/swithMusic"
                 android:textSize="21sp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:textColor="@color/black95"
+                android:textColor="@color/dark_blue"
                 android:theme="@style/SwitchTheme"
                 />
         </LinearLayout>
@@ -148,16 +149,16 @@
                 android:text="@string/swithVoice"
                 android:textSize="21sp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:textColor="@color/black95"
+                android:textColor="@color/dark_blue"
                 android:theme="@style/SwitchTheme"
                 />
         </LinearLayout>
 
     </LinearLayout>
     <View
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:background="@drawable/separator_line"
-        android:layout_height="3dp" />
+        android:layout_height="2dp" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -182,7 +183,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
                 android:text="@string/option_liders"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>
         </LinearLayout>
         <LinearLayout
@@ -201,7 +202,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
                 android:text="@string/option_mark"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>
         </LinearLayout>
         <LinearLayout
@@ -220,7 +221,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
                 android:text="@string/option_share"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>
         </LinearLayout>
 

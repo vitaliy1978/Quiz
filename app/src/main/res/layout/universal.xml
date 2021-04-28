@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    android:background="@color/main_background3"
     android:orientation="vertical">
 
   <!--  <ImageView
@@ -43,14 +43,14 @@
                     android:id="@+id/button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_stroke_white_press_blue"
+                    android:background="@drawable/button_stroke_black95_press_white"
                     android:layout_marginRight="10dp"
                     android:text="@string/back"
                     android:textSize="24sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     />
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:layout_weight="1"
                     android:text="@string/wordlevel"
                     android:textSize="24sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:gravity="right"
                     android:padding="10dp"
                     />
@@ -240,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/lvl7text13"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:textSize="30sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Text Right"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_blue"
                     android:textSize="30sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
@@ -271,8 +271,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ioioioi"
-                    android:textColor="@color/dark_background"
-                    android:textSize="42sp"
+                    android:textColor="@color/dark_blue80"
+                    android:textSize="30sp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
@@ -288,10 +288,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="3"
-        android:textColor="@color/black80"
+        android:textColor="@color/dark_blue80"
         android:layout_marginBottom="0dp"
         android:gravity="bottom|center_horizontal"
-        android:textSize="160sp"
+        android:textSize="140sp"
 
         />
 
