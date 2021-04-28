@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    android:background="@drawable/style_gamelevels"
     android:orientation="vertical">
 
  <!--   <ImageView
@@ -19,60 +19,64 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:background="@drawable/button_stroke_black95_press_white"
+            android:textSize="24sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/dark_blue"
+            android:textAllCaps="false"/>
+
 
         <LinearLayout
             android:id="@+id/container2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical"
             android:padding="0dp">
 
-            <LinearLayout
-                android:id="@+id/container3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="10dp"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/back"
-                    android:background="@drawable/button_stroke_white_press_blue"
-                    android:textSize="24sp"
-                    android:paddingRight="5dp"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/white"
-                    android:textAllCaps="false"/>
-            </LinearLayout>
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:requiresFadingEdge="vertical"
                 android:layout_weight="60"
-                android:paddingTop="6dp"
+                android:paddingTop="0dp"
                 android:paddingBottom="6dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:layout_marginTop="10dp"
+                android:paddingRight="6dp"
+                android:layout_marginTop="16dp"
                 android:scrollbars="none"
-                android:background="@drawable/button_stroke_white_press_blue_small"
+                android:background="@drawable/style_scroll"
                 android:layout_marginBottom="50dp">
 
                 <LinearLayout
                     android:id="@+id/container4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
                     android:orientation="vertical" >
-
                     <LinearLayout
                         android:id="@+id/line1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -85,7 +89,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                         <ImageView
@@ -103,7 +107,7 @@
                             android:paddingRight="0dp"
                             android:gravity="center"
                             android:text="205.36"
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -113,7 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/textView2"
@@ -125,7 +129,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn2"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock2"
@@ -143,15 +147,16 @@
                             android:gravity="center"
                             android:text="205.36"
                             android:visibility="gone"
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/line3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/textView3"
@@ -163,7 +168,7 @@
                             android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:text="@string/btn3"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp" />
 
                         <ImageView
@@ -182,7 +187,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -190,7 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/textView4"
@@ -202,7 +207,7 @@
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/btn4"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock4"
@@ -220,7 +225,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -228,7 +233,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
                         <TextView
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
@@ -239,7 +244,7 @@
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/btn5"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock5"
@@ -257,7 +262,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -266,7 +271,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/textView6"
@@ -278,7 +283,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn6"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock6"
@@ -296,7 +301,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -304,7 +309,7 @@
                         android:id="@+id/line7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -317,7 +322,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn7"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock7"
@@ -335,7 +340,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -343,7 +348,7 @@
                         android:id="@+id/line8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -356,7 +361,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn8"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock8"
@@ -374,7 +379,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -382,7 +387,7 @@
                         android:id="@+id/line9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -395,7 +400,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn9"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock9"
@@ -413,7 +418,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -421,7 +426,7 @@
                         android:id="@+id/line10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -434,7 +439,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn10"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock10"
@@ -452,7 +457,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -460,7 +465,7 @@
                         android:id="@+id/line11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -473,7 +478,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn11"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock11"
@@ -491,7 +496,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -499,7 +504,7 @@
                         android:id="@+id/line12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -512,7 +517,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn12"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock12"
@@ -530,7 +535,7 @@
                             android:gravity="center"
                             android:visibility="gone"
                             android:text=""
-                            android:textColor="@color/black95"
+                            android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
                     </LinearLayout>

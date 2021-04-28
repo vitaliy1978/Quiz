@@ -22,4 +22,14 @@
     <color name="dark_orange">#a67c18</color>
     <color name="dark_red">#a62e18</color>
 
+    <color name="main_background3">#eaf5fb</color>
+    <color name="dark_blue">#1c517d</color>
+    <color name="grey_blue">#4c85a3</color>
+    <color name="worm_white">#fffaed</color>
+    <color name="grey">#adbfc8</color>
+    <color name="grey_shadow">#A2B4BD</color>
+    <color name="grad_btn">#d5e6f0</color>
+    <color name="dark_blue80">#B224547C</color>
+
+
 </resources>
