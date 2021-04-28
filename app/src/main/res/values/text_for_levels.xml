@@ -105,7 +105,7 @@
     <string name="lvl6text16">Самолет\n</string>
     <string name="lvl6text17">Слон\n</string>
     <string name="lvl6text18">Грузовик\n</string>
-    <string name="lvl6text19">Эксковатор\n</string>
+    <string name="lvl6text19">Экскаватор\n</string>
     <string name="lvl6text20">Синий кит\n</string>
     <string name="lvl6text21">Боинг 747\n</string>
 
@@ -216,4 +216,25 @@
     <string name="lvl11text23">Одномоторный\nсамолет</string>
     <string name="lvl11text24">Болид F1\n</string>
     <string name="lvl11text25">Картина\nЧерный квадрат</string>
+
+    <string name="lvl12text1"></string>
+    <string name="lvl12text2"></string>
+    <string name="lvl12text3"></string>
+    <string name="lvl12text4"></string>
+    <string name="lvl12text5"></string>
+    <string name="lvl12text6"></string>
+    <string name="lvl12text7"></string>
+    <string name="lvl12text8"></string>
+    <string name="lvl12text9"></string>
+    <string name="lvl12text10"></string>
+    <string name="lvl12text11"></string>
+    <string name="lvl12text12"></string>
+    <string name="lvl12text13"></string>
+    <string name="lvl12text14"></string>
+    <string name="lvl12text15"></string>
+    <string name="lvl12text16"></string>
+    <string name="lvl12text17"></string>
+    <string name="lvl12text18"></string>
+    <string name="lvl12text19"></string>
+    <string name="lvl12text20"></string>
 </resources>

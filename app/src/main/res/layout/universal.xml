@@ -214,7 +214,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/level4_clok3" />
+                    android:src="@drawable/a12level1" />
 
                 <ImageView
                     android:id="@+id/img_right"
@@ -226,7 +226,7 @@
                     android:adjustViewBounds="true"
                     android:background="@drawable/style_img_universal"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/img_false" />
+                    android:src="@drawable/a12level2" />
             </LinearLayout>
 
             <LinearLayout

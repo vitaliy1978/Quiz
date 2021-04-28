@@ -205,5 +205,22 @@ public class Array {
             R.string.lvl11text25,
     };
     //Массив для одинадцатого уровня - Конец
+    //Массив для двенадцатого уровня - начало
+    final int[] images12 = {
+            R.drawable.a12level1,            R.drawable.a12level2,            R.drawable.a12level3,            R.drawable.a12level4,
+            R.drawable.a12level5,            R.drawable.a12level6,            R.drawable.a12level7,            R.drawable.a12level8,
+            R.drawable.a12level9,            R.drawable.a12level10,            R.drawable.a12level11,            R.drawable.a12level12,
+            R.drawable.a12level13,            R.drawable.a12level14,            R.drawable.a12level15,            R.drawable.a12level16,
+            R.drawable.a12level17,            R.drawable.a12level18,            R.drawable.a12level19,            R.drawable.a12level20,
+    };
+    final int[] texts12 ={
+            R.string.lvl12text1,              R.string.lvl12text2,             R.string.lvl12text3,             R.string.lvl12text4,
+            R.string.lvl12text5,              R.string.lvl12text6,              R.string.lvl12text7,           R.string.lvl12text8,
+            R.string.lvl12text9,             R.string.lvl12text10,              R.string.lvl12text11,           R.string.lvl12text12,
+            R.string.lvl12text13,            R.string.lvl12text14,              R.string.lvl12text15,            R.string.lvl12text16,
+            R.string.lvl12text17,             R.string.lvl12text18,             R.string.lvl12text19,          R.string.lvl12text20,
+    };
+    //Массив для двенадцатого уровня - Конец
+
 
 }
