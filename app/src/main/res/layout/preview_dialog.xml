@@ -21,7 +21,7 @@
             android:id="@+id/button_close"
             android:text="&#60;"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="21sp"
             android:gravity="center"
             android:textColor="@color/dark_blue"
             android:background="@drawable/button_stroke_black95_press_white"
@@ -41,22 +41,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:fontFamily="sans-serif"
             android:gravity="top|center_horizontal"
             android:text="@string/levelone"
             android:textColor="@color/dark_blue"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/text_description2"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_weight="40"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:fontFamily="sans-serif"
             android:gravity="top"
             android:text="@string/levelone2"
             android:textColor="@color/dark_blue"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -68,7 +69,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:textAllCaps="true"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:elevation="2dp"
             android:stateListAnimator="@null"
             android:layout_marginTop="10dp"/>

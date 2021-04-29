@@ -154,8 +154,8 @@ public class Level5 extends AppCompatActivity {
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button)findViewById(R.id.button_back); //Путь к кнопке Назад
         if (numlev==5||numlev==6||numlev==7||numlev==8||numlev==9||numlev==10||numlev==11) {
-            text_left.setTextSize((float) (text_left.getTextSize() * 0.23));  //Уменьшаем шрифт подписей картинок
-            text_right.setTextSize((float) (text_right.getTextSize() * 0.23));  //Уменьшаем шрифт подписей картинок
+            text_left.setTextSize((float) (text_left.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
+            text_right.setTextSize((float) (text_right.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
         }
             musicfon = MediaPlayer.create(this, R.raw.musicfon);
             musicotschet = MediaPlayer.create(this, R.raw.musicotschet);
