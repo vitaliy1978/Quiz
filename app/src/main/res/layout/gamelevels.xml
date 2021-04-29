@@ -45,8 +45,8 @@
             android:id="@+id/container2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:orientation="vertical"
             android:padding="0dp">
 
@@ -59,8 +59,8 @@
                 android:layout_weight="60"
                 android:paddingTop="0dp"
                 android:paddingBottom="6dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="6dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
                 android:layout_marginTop="16dp"
                 android:scrollbars="none"
                 android:background="@drawable/style_scroll"
@@ -81,14 +81,16 @@
 
                         <TextView
                             android:id="@+id/textView1"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/button_gamelevels"
-                            android:paddingLeft="15dp"
+                            android:paddingLeft="25dp"
                             android:paddingRight="10dp"
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn1"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
@@ -97,6 +99,7 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:visibility="gone"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock1"
@@ -107,6 +110,7 @@
                             android:paddingRight="0dp"
                             android:gravity="center"
                             android:text="205.36"
+                            android:layout_margin="6dp"
                             android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
 
@@ -117,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="0dp">
 
                         <TextView
                             android:id="@+id/textView2"
@@ -130,12 +134,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn2"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock2"
                             android:layout_width="80dp"
                             android:paddingLeft="5dp"
                             android:layout_height="50dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock2"
@@ -147,6 +154,7 @@
                             android:gravity="center"
                             android:text="205.36"
                             android:visibility="gone"
+                            android:layout_margin="6dp"
                             android:textColor="@color/dark_blue"
                             android:textSize="21sp"/>
                     </LinearLayout>
@@ -156,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="0dp">
 
                         <TextView
                             android:id="@+id/textView3"
@@ -168,6 +176,8 @@
                             android:paddingLeft="15dp"
                             android:paddingRight="10dp"
                             android:text="@string/btn3"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textColor="@color/dark_blue"
                             android:textSize="21sp" />
 
@@ -176,6 +186,7 @@
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock3"
@@ -188,6 +199,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -195,7 +207,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="0dp">
 
                         <TextView
                             android:id="@+id/textView4"
@@ -208,12 +220,15 @@
                             android:gravity="center_vertical"
                             android:text="@string/btn4"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock4"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock4"
@@ -226,6 +241,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -233,7 +249,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="0dp">
                         <TextView
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
@@ -245,12 +261,15 @@
                             android:gravity="center_vertical"
                             android:text="@string/btn5"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock5"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock5"
@@ -263,6 +282,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -271,7 +291,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="0dp">
 
                         <TextView
                             android:id="@+id/textView6"
@@ -284,12 +304,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn6"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock6"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock6"
@@ -302,6 +325,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -309,7 +333,7 @@
                         android:id="@+id/line7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -323,12 +347,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn7"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock7"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock7"
@@ -341,6 +368,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -348,7 +376,7 @@
                         android:id="@+id/line8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -362,12 +390,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn8"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock8"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock8"
@@ -380,6 +411,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -387,7 +419,7 @@
                         android:id="@+id/line9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -401,12 +433,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn9"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock9"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock9"
@@ -419,6 +454,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -426,7 +462,7 @@
                         android:id="@+id/line10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -440,12 +476,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn10"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock10"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock10"
@@ -458,6 +497,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -465,7 +505,7 @@
                         android:id="@+id/line11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -479,12 +519,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn11"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock11"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock11"
@@ -497,6 +540,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -504,7 +548,7 @@
                         android:id="@+id/line12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -518,12 +562,15 @@
                             android:layout_weight="1"
                             android:text="@string/btn12"
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock12"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock12"
@@ -536,6 +583,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -543,7 +591,7 @@
                         android:id="@+id/line13"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -556,13 +604,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn13"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock13"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock13"
@@ -575,6 +626,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -582,7 +634,7 @@
                         android:id="@+id/line14"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -595,13 +647,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn14"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock14"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock14"
@@ -614,6 +669,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -621,7 +677,7 @@
                         android:id="@+id/line15"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -634,13 +690,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn15"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock15"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock15"
@@ -653,6 +712,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -660,7 +720,7 @@
                         android:id="@+id/line16"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -673,13 +733,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn16"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock16"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock16"
@@ -692,6 +755,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -699,7 +763,7 @@
                         android:id="@+id/line17"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -712,13 +776,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn17"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock17"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock17"
@@ -731,6 +798,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -738,7 +806,7 @@
                         android:id="@+id/line18"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -751,13 +819,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn18"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock18"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock18"
@@ -770,6 +841,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -777,7 +849,7 @@
                         android:id="@+id/line19"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -790,13 +862,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn19"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock19"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock19"
@@ -809,6 +884,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -816,7 +892,7 @@
                         android:id="@+id/line20"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -829,13 +905,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn20"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock20"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock20"
@@ -848,6 +927,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>
@@ -855,7 +935,7 @@
                         android:id="@+id/line21"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -868,13 +948,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn21"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock21"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock21"
@@ -887,6 +970,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
 
@@ -895,7 +979,7 @@
                         android:id="@+id/line22"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -908,13 +992,16 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/btn22"
-                            android:textColor="@color/white"
+                            android:textColor="@color/dark_blue"
+                            android:layout_margin="6dp"
+                            android:elevation="4dp"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock22"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:paddingLeft="5dp"
+                            android:layout_margin="6dp"
                             android:src="@drawable/lock" />
                         <TextView
                             android:id="@+id/textViewlock22"
@@ -927,6 +1014,7 @@
                             android:visibility="gone"
                             android:text=""
                             android:textColor="@color/black95"
+                            android:layout_margin="6dp"
                             android:textSize="21sp"/>
 
                     </LinearLayout>

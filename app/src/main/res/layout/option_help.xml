@@ -182,6 +182,8 @@
                 android:gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:elevation="2dp"
                 android:text="@string/option_liders"
                 android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>
@@ -201,6 +203,8 @@
                 android:gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:elevation="2dp"
                 android:text="@string/option_mark"
                 android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>
@@ -220,6 +224,8 @@
                 android:gravity="center"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:elevation="2dp"
                 android:text="@string/option_share"
                 android:textColor="@color/dark_blue"
                 android:textSize="21sp"/>

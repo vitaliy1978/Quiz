@@ -31,6 +31,8 @@
             android:textSize="24sp"
             android:gravity="center"
             android:textColor="@color/dark_blue"
+            android:elevation="2dp"
+            android:stateListAnimator="@null"
             android:layout_gravity="right"
             />
 
@@ -103,6 +105,8 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="10dp"
                 android:text="@string/start"
+                android:elevation="2dp"
+                android:stateListAnimator="@null"
                 android:textColor="@color/dark_blue"
                 android:textSize="26sp" />
         </LinearLayout>
