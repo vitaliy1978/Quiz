@@ -42,14 +42,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_stroke_black95_press_white"
-                    android:layout_marginRight="10dp"
+                    android:fontFamily="sans-serif"
                     android:text="@string/back"
-                    android:textSize="16sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
                     android:textAllCaps="false"
                     android:textColor="@color/dark_blue"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/text_levels"

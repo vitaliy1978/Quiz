@@ -33,7 +33,7 @@ public class Level5 extends AppCompatActivity {
     Array array = new Array(); //Создали новый оъект из класса Array
     Random random = new Random(); //для генерации случайных чисел
     public int count =0;  //Счетчик правильных ответов
-    MediaPlayer musicfon, musicotschet;
+    MediaPlayer musicfon, musicotschet, fanfary1, fanfary2, timeend;
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
     public int numlev, start=0;
     int min=0, max=0;  //для диапазона в котором будет генерироваться случайное число.
@@ -153,13 +153,16 @@ public class Level5 extends AppCompatActivity {
         final TextView text_right = findViewById(R.id.text_right);  //Путь к правой TextView
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
-        final Button button_back = (Button)findViewById(R.id.button_back); //Путь к кнопке Назад
-        if (numlev==5||numlev==6||numlev==7||numlev==8||numlev==9||numlev==10||numlev==11) {
+        final Button button_back = (Button) findViewById(R.id.button_back); //Путь к кнопке Назад
+        if (numlev == 5 || numlev == 6 || numlev == 7 || numlev == 8 || numlev == 9 || numlev == 10 || numlev == 11) {
             text_left.setTextSize((float) (text_left.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
             text_right.setTextSize((float) (text_right.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
         }
-            musicfon = MediaPlayer.create(this, R.raw.musicfon);
-            musicotschet = MediaPlayer.create(this, R.raw.musicotschet);
+        musicfon = MediaPlayer.create(this, R.raw.musicfon);
+        musicotschet = MediaPlayer.create(this, R.raw.musicotschet);
+        fanfary1 = MediaPlayer.create(this, R.raw.fanfary1);
+        fanfary2 = MediaPlayer.create(this, R.raw.fanfary2);
+        timeend = MediaPlayer.create(this, R.raw.time_end);
 
         img_left.setEnabled(false);
         img_right.setEnabled(false);
@@ -313,6 +316,9 @@ public class Level5 extends AppCompatActivity {
                                         text_time.setText(String.format("%d.%02d", sek / 100, (sek % 100)));
                                         if (sekost >= 12000 && sekost<12500) {
                                             musicfon.stop();
+                                            if (voiceof==false) {
+                                                timeend.start();
+                                            }
                                             start=0;
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
                                             main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик
@@ -345,6 +351,9 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     musicfon.stop();
+                    fanfary1.stop();
+                    fanfary2.stop();
+                    timeend.stop();
                     start=0;
                     sekost=50001;
                     Intent intent = new Intent(Level5.this,GameLevels.class);
@@ -461,8 +470,14 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
                         if (array.rezult[numlev-1]>0 && array.rezult[numlev-1]<sek)
                         {
+                            if (voiceof==false) {
+                                fanfary1.start();
+                            }
                             textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
                         }else{
+                            if (voiceof==false) {
+                                fanfary2.start();
+                            }
                             array.rezult[numlev-1]=sek;
                             textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
 
@@ -596,8 +611,10 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
                         if (array.rezult[numlev-1]>0 && array.rezult[numlev-1]<sek)
                         {
+                            fanfary1.start();
                             textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
                         }else{
+                            fanfary2.start();
                             array.rezult[numlev-1]=sek;
                             textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
 
@@ -679,6 +696,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
         if (!musicotschet.isPlaying()) {
             try {
                 musicfon.stop();
+                fanfary1.stop();
+                fanfary2.stop();
+                timeend.stop();
                 start=0;
                 sekost=50001;
                 Intent intent = new Intent(Level5.this, GameLevels.class);
@@ -694,6 +714,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
     protected void onDestroy() {
         super.onDestroy();
         musicfon.stop();
+        fanfary1.stop();
+        fanfary2.stop();
+        timeend.stop();
         start=0;
         sekost=50001;
     }

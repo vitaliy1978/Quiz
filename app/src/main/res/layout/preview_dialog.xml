@@ -52,9 +52,12 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="40"
             android:fontFamily="sans-serif"
             android:gravity="top"
+            android:layout_gravity="center"
             android:text="@string/levelone2"
             android:textColor="@color/dark_blue"
             android:textSize="20sp" />
