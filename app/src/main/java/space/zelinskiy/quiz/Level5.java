@@ -366,7 +366,7 @@ public class Level5 extends AppCompatActivity {
         numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
         img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
-if (numlev!=1||numlev!=2||numlev!=3) {
+if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
     if (numLeft <= 3) {
         min = 0;
         max = 6;
@@ -490,7 +490,7 @@ if (numlev!=1||numlev!=2||numlev!=3) {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        if (numlev!=1||numlev!=2||numlev!=3) {
+                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                             if (numLeft <= 3) {
                                 min = 0;
                                 max = 6;
@@ -625,7 +625,7 @@ if (numlev!=1||numlev!=2||numlev!=3) {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        if (numlev!=1||numlev!=2||numlev!=3) {
+                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                             if (numLeft <= 3) {
                                 min = 0;
                                 max = 6;
