@@ -35,6 +35,7 @@ public class Level1 extends AppCompatActivity {
     MediaPlayer musicfon, musicotschet;
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -255,7 +256,7 @@ public class Level1 extends AppCompatActivity {
         img_left.setImageResource(array.images1[numLeft]);  //достаем из массива картинку
         text_left.setText(array.texts1[numLeft]);  //достаем из массива текст
 
-        numRight=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
+             numRight=random.nextInt(array.images1.length); //генерируем случайное число от 0 до 9
         //Цикл проверяющий равенство чисел - Начало
         while(numLeft==numRight){
             numRight=random.nextInt(array.images1.length);

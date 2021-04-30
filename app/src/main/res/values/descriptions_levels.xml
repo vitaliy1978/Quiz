@@ -2,8 +2,9 @@
 <resources>
     <string name="option_head">"Быстрый выбор"</string>
     <string name="option_head2">"Версия 1.1"</string>
-    <string name="option_description">Игра на знание и скорость реакции.\nЗа правильный ответ +1 балл.\nЗа неправильный -2 балла.
-        \nВремя ограничено двумя минутами.</string>
+    <string name="option_description">Игра на знание и скорость реакции.</string>
+    <string name="option_description2">За правильный ответ +1 балл.\nЗа неправильный -2 балла.</string>
+    <string name="option_description3">Время ограничено двумя минутами.</string>
     <string name="swithMusic">Отключить музыку</string>
     <string name="swithMusic2">Включить музыку</string>
     <string name="swithVoice">Отключить звуки</string>
