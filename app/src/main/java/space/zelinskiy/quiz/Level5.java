@@ -366,39 +366,39 @@ public class Level5 extends AppCompatActivity {
         numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
         img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
-//if (numlev==1||numlev==2) {
-//    if (numLeft <= 1) {
-//        min = 0;
-//        max = 5;
-//        numRight = random.nextInt(max);
-//        while (numLeft == numRight) {
-//            numRight = random.nextInt(max);
-//        }
-//    }
-//    if (numLeft >= masOfImgMas[numlev - 1].length - 2) {
-//        min = masOfImgMas[numlev-1].length - 4;
-//        max = masOfImgMas[numlev - 1].length - 1;
-//        numRight = min + random.nextInt(max - min);
-//        while (numLeft == numRight) {
-//            numRight = random.nextInt(max);
-//        }
-//    }
-//    if (numLeft > 1 && numLeft < masOfImgMas[numlev - 1].length - 2) {
-//        min = numLeft - 3;
-//        max = numLeft + 3;
-//        numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//        //Цикл проверяющий равенство чисел - Начало
-//        while (numLeft == numRight) {
-//            numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//        }
-//    }
-//}else{
+if (numlev!=1||numlev!=2||numlev!=3) {
+    if (numLeft <= 3) {
+        min = 0;
+        max = 6;
+        numRight = random.nextInt(max);
+        while (numLeft == numRight) {
+            numRight = random.nextInt(max);
+        }
+    }
+    if (numLeft >= masOfImgMas[numlev - 1].length - 3) {
+        min = masOfImgMas[numlev-1].length - 6;
+        max = masOfImgMas[numlev - 1].length;
+        numRight = random.nextInt(max - min)+min;
+        while (numLeft == numRight) {
+            numRight = random.nextInt(max);
+       }
+    }
+    if (numLeft > 3 && numLeft < masOfImgMas[numlev - 1].length - 3) {
+        min = numLeft - 4;
+        max = numLeft + 4;
+        numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
+        //Цикл проверяющий равенство чисел - Начало
+        while (numLeft == numRight) {
+          numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
+       }
+    }
+}else{
     numRight = random.nextInt(masOfImgMas[numlev - 1].length); //генерируем случайное число от 0 до 9
     //Цикл проверяющий равенство чисел - Начало
     while (numLeft == numRight) {
         numRight = random.nextInt(masOfImgMas[numlev - 1].length);
     }
-//}
+}
          //Цикл проверяющий равенство чисел - Конец
         img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
         text_right.setText(masOfTextMas[numlev-1][numRight]);  //достаем из массива текст
@@ -490,40 +490,39 @@ public class Level5 extends AppCompatActivity {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-//                        if (numlev==1||numlev==2) {
-//                            if (numLeft <= 1) {
-//                                min = 0;
-//                                max = 5;
-//                                numRight = random.nextInt(max);
-//                                while (numLeft == numRight) {
-//                                    numRight = random.nextInt(max);
-//                                }
-//                            }
-//                            if (numLeft >= masOfImgMas[numlev - 1].length - 2) {
-//                                min = masOfImgMas[numlev-1].length - 4;
-//                                max = masOfImgMas[numlev - 1].length - 1;
-//                                numRight = min + random.nextInt(max - min);
-//                                while (numLeft == numRight) {
-//                                    numRight = random.nextInt(max);
-//                                }
-//
-//                            }
-//                            if (numLeft > 1 && numLeft < masOfImgMas[numlev - 1].length - 2) {
-//                                min = numLeft - 3;
-//                                max = numLeft + 3;
-//                                numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//                                //Цикл проверяющий равенство чисел - Начало
-//                                while (numLeft == numRight) {
-//                                    numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//                                }
-//                            }
-//                        }else{
+                        if (numlev!=1||numlev!=2||numlev!=3) {
+                            if (numLeft <= 3) {
+                                min = 0;
+                                max = 6;
+                                numRight = random.nextInt(max);
+                                while (numLeft == numRight) {
+                                    numRight = random.nextInt(max);
+                                }
+                            }
+                            if (numLeft >= masOfImgMas[numlev - 1].length - 3) {
+                                min = masOfImgMas[numlev-1].length - 6;
+                                max = masOfImgMas[numlev - 1].length;
+                                numRight = random.nextInt(max - min)+min;
+                                while (numLeft == numRight) {
+                                    numRight = random.nextInt(max);
+                                }
+                            }
+                            if (numLeft > 3 && numLeft < masOfImgMas[numlev - 1].length - 3) {
+                                min = numLeft - 4;
+                                max = numLeft + 4;
+                                numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
+                                //Цикл проверяющий равенство чисел - Начало
+                                while (numLeft == numRight) {
+                                    numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
+                                }
+                            }
+                        }else{
                             numRight = random.nextInt(masOfImgMas[numlev - 1].length); //генерируем случайное число от 0 до 9
                             //Цикл проверяющий равенство чисел - Начало
                             while (numLeft == numRight) {
                                 numRight = random.nextInt(masOfImgMas[numlev - 1].length);
                             }
-//                        }
+                        }
 
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
@@ -626,40 +625,39 @@ public class Level5 extends AppCompatActivity {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-//                        if (numlev==1||numlev==2) {
-//                            if (numLeft <= 1) {
-//                                min = 0;
-//                                max = 5;
-//                                numRight = random.nextInt(max);
-//                                while (numLeft == numRight) {
-//                                    numRight = random.nextInt(max);
-//                                }
-//                            }
-//                            if (numLeft >= masOfImgMas[numlev - 1].length - 2) {
-//                                min = masOfImgMas[numlev-1].length - 4;
-//                                max = masOfImgMas[numlev - 1].length - 1;
-//                                numRight = min + random.nextInt(max - min);
-//                                while (numLeft == numRight) {
-//                                    numRight = random.nextInt(max);
-//                                }
-//
-//                            }
-//                            if (numLeft > 1 && numLeft < masOfImgMas[numlev - 1].length - 2) {
-//                                min = numLeft - 3;
-//                                max = numLeft + 3;
-//                                numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//                                //Цикл проверяющий равенство чисел - Начало
-//                                while (numLeft == numRight) {
-//                                    numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
-//                                }
-//                            }
-//                        }else{
+                        if (numlev!=1||numlev!=2||numlev!=3) {
+                            if (numLeft <= 3) {
+                                min = 0;
+                                max = 6;
+                                numRight = random.nextInt(max);
+                                while (numLeft == numRight) {
+                                    numRight = random.nextInt(max);
+                                }
+                            }
+                            if (numLeft >= masOfImgMas[numlev - 1].length - 3) {
+                                min = masOfImgMas[numlev-1].length - 6;
+                                max = masOfImgMas[numlev - 1].length;
+                                numRight = random.nextInt(max - min)+min;
+                                while (numLeft == numRight) {
+                                    numRight = random.nextInt(max);
+                                }
+                            }
+                            if (numLeft > 3 && numLeft < masOfImgMas[numlev - 1].length - 3) {
+                                min = numLeft - 4;
+                                max = numLeft + 4;
+                                numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
+                                //Цикл проверяющий равенство чисел - Начало
+                                while (numLeft == numRight) {
+                                    numRight = min+random.nextInt(max-min); //генерируем случайное число от 0 до 9
+                                }
+                            }
+                        }else{
                             numRight = random.nextInt(masOfImgMas[numlev - 1].length); //генерируем случайное число от 0 до 9
                             //Цикл проверяющий равенство чисел - Начало
                             while (numLeft == numRight) {
                                 numRight = random.nextInt(masOfImgMas[numlev - 1].length);
                             }
-                    //    }
+                        }
 
                         //Цикл проверяющий равенство чисел - Конец
                         img_right.setImageResource(masOfImgMas[numlev-1][numRight]);  //достаем из массива картинку
