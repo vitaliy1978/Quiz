@@ -237,4 +237,54 @@
     <string name="lvl12text18"></string>
     <string name="lvl12text19"></string>
     <string name="lvl12text20"></string>
+
+    <string name="lvl13text1">пешка\n</string>
+    <string name="lvl13text2">две пешки\n</string>
+    <string name="lvl13text3">конь\n</string>
+    <string name="lvl13text4">слон</string>
+    <string name="lvl13text5">конь с пешкой\n</string>
+    <string name="lvl13text6">слон с пешкой\n</string>
+    <string name="lvl13text7">ладья\n</string>
+    <string name="lvl13text8">два коня\n</string>
+    <string name="lvl13text9">слон c конём\n</string>
+    <string name="lvl13text10">два слона\n</string>
+    <string name="lvl13text11">ладья и слон\n</string>
+    <string name="lvl13text12">ферзь</string>
+    <string name="lvl13text13">две ладьи\n</string>
+    <string name="lvl13text14">ферзь с пешкой\n</string>
+
+    <string name="lvl14text1">Нептун</string>
+    <string name="lvl14text2">Уран</string>
+    <string name="lvl14text3">Сатурн</string>
+    <string name="lvl14text4">Юпитер</string>
+    <string name="lvl14text5">Марс</string>
+    <string name="lvl14text6">Земля</string>
+    <string name="lvl14text7">Венера</string>
+    <string name="lvl14text8">Меркурий</string>
+
+    <string name="lvl15text1">Лев\n</string>
+    <string name="lvl15text2">Зебра\n</string>
+    <string name="lvl15text3">Осел\n</string>
+    <string name="lvl15text4">Филин\n</string>
+    <string name="lvl15text5">Бурый медведь\n</string>
+    <string name="lvl15text6">Фламинго\n</string>
+    <string name="lvl15text7">Комодский\nваран</string>
+    <string name="lvl15text8">Гриф\n</string>
+    <string name="lvl15text9">Лошадь\n</string>
+    <string name="lvl15text10">Бегемот\n</string>
+    <string name="lvl15text11">Дельфин\n</string>
+    <string name="lvl15text12">Белая акула\n</string>
+    <string name="lvl15text13">Орангутанг\n</string>
+    <string name="lvl15text14">Шимпанзе\n</string>
+    <string name="lvl15text15">Ворон\n</string>
+    <string name="lvl15text16">Кашалот\n</string>
+    <string name="lvl15text17">Слон\n</string>
+    <string name="lvl15text18">Синий кит\n</string>
+    <string name="lvl15text19">Крокодил\n</string>
+    <string name="lvl15text20">Человек\n</string>
+    <string name="lvl15text21">Гигантская\nчерепаха</string>
+    <string name="lvl15text22">Гаттерия\n</string>
+    <string name="lvl15text23">Гренладская\nакула</string>
+
+
 </resources>

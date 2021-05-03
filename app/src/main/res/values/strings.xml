@@ -24,11 +24,11 @@
     <string name="btn10">Размер</string>
     <string name="btn11">Цена</string>
     <string name="btn12">Холод</string>
-    <string name="btn13">Высота</string>
-    <string name="btn14">Слух</string>
-    <string name="btn15">Интеллект</string>
+    <string name="btn13">Шахматы</string>
+    <string name="btn14">Планеты</string>
+    <string name="btn15">Долгожители</string>
     <string name="btn16">Великие люди</string>
-    <string name="btn17">Шахматы</string>
+    <string name="btn17">Высота</string>
     <string name="btn18">Планеты</string>
     <string name="btn19">Время появления</string>
     <string name="btn20">Калории</string>

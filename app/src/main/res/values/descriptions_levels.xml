@@ -38,4 +38,10 @@
     <string name="leveleleven2">Что дороже?</string>
     <string name="leveltwelve">Угадай</string>
     <string name="leveltwelve2">Какая столица холоднее?</string>
+    <string name="levelthirteen">Сила шахматных фигур</string>
+    <string name="levelthirteen2">Что сильнее?</string>
+    <string name="levelfourteen"></string>
+    <string name="levelfourteen2">Какая планета\nближе к Солнцу?</string>
+    <string name="levelfifteen"></string>
+    <string name="levelfifteen2">Кто живёт дольше?\n</string>
 </resources>
