@@ -56,13 +56,15 @@ public class Level5 extends AppCompatActivity {
 
         final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,
                 R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img9,
-                R.drawable.preview_img10,R.drawable.preview_img11,R.drawable.preview_img12};
+                R.drawable.preview_img10,R.drawable.preview_img11,R.drawable.preview_img12,R.drawable.preview_img13,R.drawable.preview_img14,
+                R.drawable.preview_img15,R.drawable.preview_img16};
         final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,
                 R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.levelnine,R.string.levelten,R.string.leveleleven,
-                R.string.leveltwelve};
+                R.string.leveltwelve,R.string.levelthirteen,R.string.levelfourteen,R.string.levelfifteen,R.string.levelsixteen};
         final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,
                 R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,
-                R.string.levelnine2,R.string.levelten2,R.string.leveleleven2,R.string.leveltwelve2};
+                R.string.levelnine2,R.string.levelten2,R.string.leveleleven2,R.string.leveltwelve2,R.string.levelthirteen2,R.string.levelfourteen2,
+                R.string.levelfifteen2,R.string.levelsixteen2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -102,7 +104,21 @@ public class Level5 extends AppCompatActivity {
                 {array.images12[0],array.images12[1],array.images12[2],array.images12[3],array.images12[4],array.images12[5],array.images12[6],
                         array.images12[7], array.images12[8],  array.images12[9],  array.images12[10], array.images12[11], array.images12[12],
                         array.images12[13],array.images12[14],array.images12[15],array.images12[16],array.images12[17],array.images12[18],
-                        array.images12[19]}
+                        array.images12[19]},
+                {array.images13[0],array.images13[1],array.images13[2],array.images13[3],array.images13[4],array.images13[5],array.images13[6],
+                        array.images13[7], array.images13[8],  array.images13[9],  array.images13[10], array.images13[11], array.images13[12],
+                        array.images13[13]},
+                {array.images14[0],array.images14[1],array.images14[2],array.images14[3],array.images14[4],array.images14[5],array.images14[6],
+                        array.images14[7]},
+                {array.images15[0],array.images15[1],array.images15[2],array.images15[3],array.images15[4],array.images15[5],array.images15[6],
+                        array.images15[7], array.images15[8],array.images15[9],array.images15[10],array.images15[11],array.images15[12],
+                        array.images15[13],array.images15[14],array.images15[15],array.images15[16],array.images15[17],array.images15[18],
+                        array.images15[19],array.images15[20],array.images15[21],array.images15[22]},
+                {array.images16[0],array.images16[1],array.images16[2],array.images16[3],array.images16[4],array.images16[5],array.images16[6],
+                        array.images16[7], array.images16[8],array.images16[9],array.images16[10],array.images16[11],array.images16[12],
+                        array.images16[13],array.images16[14],array.images16[15],array.images16[16],array.images16[17],array.images16[18],
+                        array.images16[19],array.images16[20],array.images16[21],array.images16[22],array.images16[23],array.images16[24],
+                        array.images16[25],array.images16[26],array.images16[27],array.images16[28]}
         };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
@@ -141,7 +157,21 @@ public class Level5 extends AppCompatActivity {
                 {array.texts12[0],array.texts12[1],array.texts12[2],array.texts12[3],array.texts12[4],array.texts12[5],array.texts12[6],
                         array.texts12[7],array.texts12[8],array.texts12[9],array.texts12[10],array.texts12[11],array.texts12[12],
                         array.texts12[13],array.texts12[14],array.texts12[15],array.texts12[16],array.texts12[17],array.texts12[18],
-                        array.texts12[19]}
+                        array.texts12[19]},
+                {array.texts13[0],array.texts13[1],array.texts13[2],array.texts13[3],array.texts13[4],array.texts13[5],array.texts13[6],
+                        array.texts13[7],array.texts13[8],array.texts13[9],array.texts13[10],array.texts13[11],array.texts13[12],
+                        array.texts13[13]},
+                {array.texts14[0],array.texts14[1],array.texts14[2],array.texts14[3],array.texts14[4],array.texts14[5],array.texts14[6],
+                        array.texts14[7]},
+                {array.texts15[0],array.texts15[1],array.texts15[2],array.texts15[3],array.texts15[4],array.texts15[5],array.texts15[6],
+                        array.texts15[7],array.texts15[8],array.texts15[9],array.texts15[10],array.texts15[11],array.texts15[12],
+                        array.texts15[13],array.texts15[14],array.texts15[15],array.texts15[16],array.texts15[17],array.texts15[18],
+                        array.texts15[19],array.texts15[20],array.texts15[21],array.texts15[22]},
+                {array.texts16[0],array.texts16[1],array.texts16[2],array.texts16[3],array.texts16[4],array.texts16[5],array.texts16[6],
+                        array.texts16[7],array.texts16[8],array.texts16[9],array.texts16[10],array.texts16[11],array.texts16[12],
+                        array.texts16[13],array.texts16[14],array.texts16[15],array.texts16[16],array.texts16[17],array.texts16[18],
+                        array.texts16[19],array.texts16[20],array.texts16[21],array.texts16[22],array.texts16[23],array.texts16[24],
+                        array.texts16[25],array.texts16[26],array.texts16[27],array.texts16[28]}
         };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -154,7 +184,7 @@ public class Level5 extends AppCompatActivity {
         final TextView text_otschet = findViewById(R.id.text_otschet); //Путь к индикатору отсчета перед игрой
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button) findViewById(R.id.button_back); //Путь к кнопке Назад
-        if (numlev == 5 || numlev == 6 || numlev == 7 || numlev == 8 || numlev == 9 || numlev == 10 || numlev == 11) {
+        if (numlev == 5 || numlev == 6 || numlev == 7 || numlev == 8 || numlev == 9 || numlev == 10 || numlev == 11 || numlev == 13 || numlev == 15|| numlev == 16) {
             text_left.setTextSize((float) (text_left.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
             text_right.setTextSize((float) (text_right.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
         }
@@ -375,7 +405,7 @@ public class Level5 extends AppCompatActivity {
         numLeft=random.nextInt(masOfImgMas[numlev-1].length); //генерируем случайное число от 0 до 9
         img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
-if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
+if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
     if (numLeft <= 3) {
         min = 0;
         max = 6;
@@ -505,7 +535,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
+                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
                             if (numLeft <= 3) {
                                 min = 0;
                                 max = 6;
@@ -642,7 +672,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
                         img_left.startAnimation(a);
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
-                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4) {
+                        if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
                             if (numLeft <= 3) {
                                 min = 0;
                                 max = 6;
