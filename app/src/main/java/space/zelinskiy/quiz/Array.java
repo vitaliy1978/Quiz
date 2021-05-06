@@ -314,7 +314,7 @@ public class Array {
             R.drawable.a18level25,              R.drawable.a18level26,          R.drawable.a18level27,           R.drawable.a18level28,
             R.drawable.a18level29,              R.drawable.a18level30,          R.drawable.a18level31,           R.drawable.a18level32,
             R.drawable.a18level33,              R.drawable.a18level34,          R.drawable.a18level35,           R.drawable.a18level36,
-            R.drawable.a18level37,              R.drawable.a18level38,          R.drawable.a18level39,
+            R.drawable.a18level37,               R.drawable.a18level38,          R.drawable.a18level39,
     };
     final int[] texts18 ={
             R.string.lvl18text1,              R.string.lvl18text2,             R.string.lvl18text3,             R.string.lvl18text4,
