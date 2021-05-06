@@ -340,4 +340,44 @@
     <string name="lvl17text22">Китайский\n</string>
     <string name="lvl17text23">Английский\n</string>
 
+    <string name="lvl18text1">Кроссворд\n</string>
+    <string name="lvl18text2">Самолет\n</string>
+    <string name="lvl18text3">Скрепка\n</string>
+    <string name="lvl18text4">Застежка-молния\n</string>
+    <string name="lvl18text5">Эскалатор\n</string>
+    <string name="lvl18text6">Пулемет\nМаксима</string>
+    <string name="lvl18text7">Телефон\n</string>
+    <string name="lvl18text8">Динамит\n</string>
+    <string name="lvl18text9">Английская\nбулавка</string>
+    <string name="lvl18text10">Велосипед\n</string>
+    <string name="lvl18text11">Спички\n</string>
+    <string name="lvl18text12">Зажигалка\n</string>
+    <string name="lvl18text13">Вакцинация\n</string>
+    <string name="lvl18text14">Воздушный шар\n</string>
+    <string name="lvl18text15">Газированная\nвода</string>
+    <string name="lvl18text16">Ртутный\nтермометр</string>
+    <string name="lvl18text17">Арифмометр\n</string>
+    <string name="lvl18text18">Микроскоп\n</string>
+    <string name="lvl18text19">Карандаш\n</string>
+    <string name="lvl18text20">Очки\n</string>
+    <string name="lvl18text21">Стеклянное\nзеркало</string>
+    <string name="lvl18text22">Вилка\n</string>
+    <string name="lvl18text23">Прялка\n</string>
+    <string name="lvl18text24">Фарфор\n</string>
+    <string name="lvl18text25">Шахматы\n</string>
+    <string name="lvl18text26">Стремена\n</string>
+    <string name="lvl18text27">Подкова\n</string>
+    <string name="lvl18text28">Бумага\n</string>
+    <string name="lvl18text29">Компас\n</string>
+    <string name="lvl18text30">Монеты\n</string>
+    <string name="lvl18text31">Алфавит\n</string>
+    <string name="lvl18text32">Мыло\n</string>
+    <string name="lvl18text33">Свечи\n</string>
+    <string name="lvl18text34">Лодка долбленка\n</string>
+    <string name="lvl18text35">Бумеранг\n</string>
+    <string name="lvl18text36">Ступка\nс пестиком</string>
+    <string name="lvl18text37">Лук\n</string>
+    <string name="lvl18text38">Флейта\n</string>
+    <string name="lvl18text39">Гарпун\n</string>
+
 </resources>

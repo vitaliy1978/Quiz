@@ -42,6 +42,7 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[15] = save.getInt("arrayRezult 15",0);
         array.rezult[16] = save.getInt("arrayRezult 16",0);
         array.rezult[17] = save.getInt("arrayRezult 17",0);
+        array.rezult[18] = save.getInt("arrayRezult 18",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -389,13 +390,32 @@ public class GameLevels extends AppCompatActivity {
             }
         });
         //кнопка для перехода 17-й уровень - Конец
+        //кнопка для перехода 18-й уровень - Начало
+        TextView textView18 = (TextView) findViewById(R.id.textView18);
+        textView18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=18){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",18);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехода 18-й уровень - Конец
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
                 R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9,R.id.textViewlock10,R.id.textViewlock11,R.id.textViewlock12,R.id.textViewlock13,
-                R.id.textViewlock14,R.id.textViewlock15,R.id.textViewlock16,R.id.textViewlock17,R.id.textViewlock18};
+                R.id.textViewlock14,R.id.textViewlock15,R.id.textViewlock16,R.id.textViewlock17,R.id.textViewlock18,R.id.textViewlock19};
         final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,
                 R.id.img_lock9,R.id.img_lock10,R.id.img_lock11,R.id.img_lock12,R.id.img_lock13,R.id.img_lock14,R.id.img_lock15,R.id.img_lock16,R.id.img_lock17,
-                R.id.img_lock18};
+                R.id.img_lock18,R.id.img_lock19};
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);
