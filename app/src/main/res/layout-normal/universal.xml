@@ -321,7 +321,6 @@
         android:id="@+id/text_otschet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
         android:gravity="bottom|center_horizontal"
         android:text=""
         android:textColor="@color/dark_blue80"

@@ -325,7 +325,7 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
                 dialog.dismiss();  //закрываем диалоговое окно
 
-                CountDownTimer myTimer = new CountDownTimer(3010, 900) {
+                CountDownTimer myTimer = new CountDownTimer(2790, 900) {
                     @Override
                     public void onTick(long millisUntilFinished)
                     {
@@ -343,11 +343,14 @@ public class Level5 extends AppCompatActivity {
                     @Override
                     public void onFinish()
                     {
+                        text_otschet.setText("");
+                        text_otschet.setVisibility(View.GONE);
                         musicotschet.stop();
                         start=1;
                         if (muzof==false) {
                             musicfon.start();
                         }
+                        text_otschet.setText("");
                         text_otschet.setVisibility(View.GONE);
                         img_left.setEnabled(true);
                         img_right.setEnabled(true);
@@ -517,7 +520,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
-                        img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);
+                      //  img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);
+                        img_left.setVisibility(View.INVISIBLE);
+                        img_right.setVisibility(View.INVISIBLE);
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
@@ -658,7 +663,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
-                        img_right.setImageResource(masOfImgMas[numlev-1][numLeft]);
+                       // img_right.setImageResource(masOfImgMas[numlev-1][numLeft]);
+                        img_left.setVisibility(View.INVISIBLE);
+                        img_right.setVisibility(View.INVISIBLE);
                         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);  //Указывает сохнаненный рекорд времени за 1 уровень
                         String arrayRezult = "arrayRezult"+" "+Integer.toString(numlev-1);
                         array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),0);
