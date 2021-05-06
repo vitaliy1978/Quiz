@@ -28,10 +28,10 @@
     <string name="btn14">Планеты</string>
     <string name="btn15">Долгожители</string>
     <string name="btn16">Страны</string>
-    <string name="btn17">Высота</string>
+    <string name="btn17">Языки</string>
     <string name="btn18">Планеты</string>
     <string name="btn19">Время появления</string>
     <string name="btn20">Калории</string>
     <string name="btn21">Великие люди</string>
-    <string name="btn22">Языки</string>
+    <string name="btn22">Высота</string>
 </resources>

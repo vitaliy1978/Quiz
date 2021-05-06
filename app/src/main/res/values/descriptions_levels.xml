@@ -46,4 +46,6 @@
     <string name="levelfifteen2">Кто живёт дольше?\n</string>
     <string name="levelsixteen">Какая страна больше?\nпо площади</string>
     <string name="levelsixteen2"></string>
+    <string name="levelseventeen">На каком языке\nговорит больше людей?</string>
+    <string name="levelseventeen2"></string>
 </resources>

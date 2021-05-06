@@ -316,4 +316,28 @@
     <string name="lvl16text28">Канада\n</string>
     <string name="lvl16text29">Россия\n</string>
 
+    <string name="lvl17text1">Тайский\n</string>
+    <string name="lvl17text2">Украинский\n</string>
+    <string name="lvl17text3">Персидский\n</string>
+    <string name="lvl17text4">Итальянский\n</string>
+    <string name="lvl17text5">Яванский\n</string>
+    <string name="lvl17text6">Корейский\n</string>
+    <string name="lvl17text7">Турецкий\n</string>
+    <string name="lvl17text8">Тамильский\n(Индия)</string>
+    <string name="lvl17text9">Маратхи\n(Индия)</string>
+    <string name="lvl17text10">Суахили\n</string>
+    <string name="lvl17text11">Японский\n</string>
+    <string name="lvl17text12">Немецкий\n</string>
+    <string name="lvl17text13">Урду\n(Пакистан)</string>
+    <string name="lvl17text14">Индонезийский\n</string>
+    <string name="lvl17text15">Португальский\n</string>
+    <string name="lvl17text16">Русский\n</string>
+    <string name="lvl17text17">Бенгальский\n</string>
+    <string name="lvl17text18">Арабский\n</string>
+    <string name="lvl17text19">Французский\n</string>
+    <string name="lvl17text20">Хинди\n(Индия)</string>
+    <string name="lvl17text21">Испанский\n</string>
+    <string name="lvl17text22">Китайский\n</string>
+    <string name="lvl17text23">Английский\n</string>
+
 </resources>
