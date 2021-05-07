@@ -45,6 +45,7 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[18] = save.getInt("arrayRezult 18",0);
         array.rezult[19] = save.getInt("arrayRezult 19",0);
         array.rezult[20] = save.getInt("arrayRezult 20",0);
+        array.rezult[21] = save.getInt("arrayRezult 21",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -449,6 +450,25 @@ public class GameLevels extends AppCompatActivity {
             }
         });
         //кнопка для перехода 20-й уровень - Конец
+        //кнопка для перехода 21-й уровень - Начало
+        TextView textView21 = (TextView) findViewById(R.id.textView21);
+        textView21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=21){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",21);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехода 21-й уровень - Конец
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
                 R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9,R.id.textViewlock10,R.id.textViewlock11,R.id.textViewlock12,R.id.textViewlock13,

@@ -450,4 +450,35 @@
     <string name="lvl20text25">Индонезия\n</string>
     <string name="lvl20text26">Япония\n</string>
 
+    <string name="lvl21text1">Статуя Христа\nв Рио-де-Жанейро</string>
+    <string name="lvl21text2">Статуя Свободы\nв Нью-Йорке</string>
+    <string name="lvl21text3">Родина-мать зовёт\nв Волгограде</string>
+    <string name="lvl21text4">Великий Будда\nв Таиланде</string>
+    <string name="lvl21text5">Гуйшань Гуаньинь\nв Китае</string>
+    <string name="lvl21text6">Статуя Будды\nв Мьянме</string>
+    <string name="lvl21text7">Статуя Единства\nв Индии</string>
+    <string name="lvl21text8">The Shard (Осколок)\nв Лондоне</string>
+    <string name="lvl21text9">Эйфелева башня\nв Париже</string>
+    <string name="lvl21text10">Башня Трампа\nв Чикаго</string>
+    <string name="lvl21text11">Бордже Милад\nв Тегеране</string>
+    <string name="lvl21text12">Kingkey 100\nв Шэньчжэнь</string>
+    <string name="lvl21text13">Эмпайр-стейт-билдинг\nв Нью-Йорке</string>
+    <string name="lvl21text14">Башни Петронас\nв Каула-Лумпур</string>
+    <string name="lvl21text15">Центр Джона Хэнкока\nв Чикаго</string>
+    <string name="lvl21text16">Лахта-центр\nв Петербурге</string>
+    <string name="lvl21text17">Восточная жемчужина\nв Шанхае</string>
+    <string name="lvl21text18">Шанхайский\nфинансовый центр</string>
+    <string name="lvl21text19">Уиллис-тауэр\nв Чикаго</string>
+    <string name="lvl21text20">Башня CITIC\nв Пекине</string>
+    <string name="lvl21text21">Финансовый центр\nв Тяньцзинь</string>
+    <string name="lvl21text22">Останкинская телебашня\nв Москве</string>
+    <string name="lvl21text23">Си-Эн Тауэр\nв Торонто</string>
+    <string name="lvl21text24">Абрадж аль-Бейт\nв Мекке</string>
+    <string name="lvl21text25">Телебашня Гуанчжоу\n</string>
+    <string name="lvl21text26">Tokyo Skytree\nтелебашня в Токио</string>
+    <string name="lvl21text27">Шанхайская башня\n</string>
+    <string name="lvl21text28">Всемирный торговый центр\nв Нью-Йорке</string>
+    <string name="lvl21text29">Lotte World Tower\nв Сеуле</string>
+    <string name="lvl21text30">Бурдж-Халифа\n</string>
+
 </resources>

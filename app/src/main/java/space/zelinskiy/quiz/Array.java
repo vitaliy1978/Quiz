@@ -377,5 +377,27 @@ public class Array {
             R.string.lvl20text25,              R.string.lvl20text26,
     };
     //Массив для двадцатого уровня - Конец
+    //Массив для ддвадцать первого уровня - начало
+    final int[] images21 = {
+            R.drawable.a21level1, R.drawable.a21level2, R.drawable.a21level3, R.drawable.a21level4,
+            R.drawable.a21level5, R.drawable.a21level6, R.drawable.a21level7, R.drawable.a21level8,
+            R.drawable.a21level9, R.drawable.a21level10, R.drawable.a21level11, R.drawable.a21level12,
+            R.drawable.a21level13, R.drawable.a21level14, R.drawable.a21level15, R.drawable.a21level16,
+            R.drawable.a21level17, R.drawable.a21level18, R.drawable.a21level19, R.drawable.a21level20,
+            R.drawable.a21level21, R.drawable.a21level22, R.drawable.a21level23, R.drawable.a21level24,
+            R.drawable.a21level25, R.drawable.a21level26, R.drawable.a21level27, R.drawable.a21level28,
+            R.drawable.a21level29, R.drawable.a21level30,
+    };
+    final int[] texts21 ={
+            R.string.lvl21text1,              R.string.lvl21text2,             R.string.lvl21text3,             R.string.lvl21text4,
+            R.string.lvl21text5,              R.string.lvl21text6,              R.string.lvl21text7,           R.string.lvl21text8,
+            R.string.lvl21text9,             R.string.lvl21text10,              R.string.lvl21text11,           R.string.lvl21text12,
+            R.string.lvl21text13,            R.string.lvl21text14,              R.string.lvl21text15,            R.string.lvl21text16,
+            R.string.lvl21text17,             R.string.lvl21text18,             R.string.lvl21text19,            R.string.lvl21text20,
+            R.string.lvl21text21,              R.string.lvl21text22,            R.string.lvl21text23,           R.string.lvl21text24,
+            R.string.lvl21text25,              R.string.lvl21text26,            R.string.lvl21text27,              R.string.lvl21text28,
+            R.string.lvl21text29,              R.string.lvl21text30,
+    };
+    //Массив для двадцать первого уровня - Конец
 
 }

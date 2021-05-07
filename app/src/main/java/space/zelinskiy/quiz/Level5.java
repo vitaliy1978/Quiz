@@ -58,15 +58,16 @@ public class Level5 extends AppCompatActivity {
                 R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img9,
                 R.drawable.preview_img10,R.drawable.preview_img11,R.drawable.preview_img12,R.drawable.preview_img13,R.drawable.preview_img14,
                 R.drawable.preview_img15,R.drawable.preview_img16,R.drawable.preview_img17,R.drawable.preview_img18,R.drawable.preview_img19,
-                R.drawable.preview_img20};
+                R.drawable.preview_img20,R.drawable.preview_img21};
         final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,
                 R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.levelnine,R.string.levelten,R.string.leveleleven,
                 R.string.leveltwelve,R.string.levelthirteen,R.string.levelfourteen,R.string.levelfifteen,R.string.levelsixteen,R.string.levelseventeen,R.string.leveleighteen,
-                R.string.levelnineteen,R.string.leveltwenty};
+                R.string.levelnineteen,R.string.leveltwenty,R.string.leveltwentyone};
         final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,
                 R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,
                 R.string.levelnine2,R.string.levelten2,R.string.leveleleven2,R.string.leveltwelve2,R.string.levelthirteen2,R.string.levelfourteen2,
-                R.string.levelfifteen2,R.string.levelsixteen2,R.string.levelseventeen2,R.string.leveleighteen2,R.string.levelnineteen2,R.string.leveltwenty2};
+                R.string.levelfifteen2,R.string.levelsixteen2,R.string.levelseventeen2,R.string.leveleighteen2,R.string.levelnineteen2,R.string.leveltwenty2,
+                R.string.leveltwentyone2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -143,7 +144,12 @@ public class Level5 extends AppCompatActivity {
                         array.images20[7], array.images20[8], array.images20[9], array.images20[10], array.images20[11], array.images20[12],
                         array.images20[13], array.images20[14], array.images20[15], array.images20[16], array.images20[17], array.images20[18],
                         array.images20[19], array.images20[20], array.images20[21], array.images20[22], array.images20[23], array.images20[24],
-                        array.images20[25]}
+                        array.images20[25]},
+                {array.images21[0], array.images21[1], array.images21[2], array.images21[3], array.images21[4], array.images21[5], array.images21[6],
+                        array.images21[7], array.images21[8], array.images21[9], array.images21[10], array.images21[11], array.images21[12],
+                        array.images21[13], array.images21[14], array.images21[15], array.images21[16], array.images21[17], array.images21[18],
+                        array.images21[19], array.images21[20], array.images21[21], array.images21[22], array.images21[23], array.images21[24],
+                        array.images21[25], array.images21[26], array.images21[27], array.images21[28], array.images21[29]},
         };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
@@ -220,7 +226,12 @@ public class Level5 extends AppCompatActivity {
                         array.texts20[7], array.texts20[8], array.texts20[9], array.texts20[10], array.texts20[11], array.texts20[12],
                         array.texts20[13], array.texts20[14], array.texts20[15], array.texts20[16], array.texts20[17], array.texts20[18],
                         array.texts20[19], array.texts20[20], array.texts20[21], array.texts20[22], array.texts20[23], array.texts20[24],
-                        array.texts20[25]}
+                        array.texts20[25]},
+                {array.texts21[0], array.texts21[1], array.texts21[2], array.texts21[3], array.texts21[4], array.texts21[5], array.texts21[6],
+                        array.texts21[7], array.texts21[8], array.texts21[9], array.texts21[10], array.texts21[11], array.texts21[12],
+                        array.texts21[13], array.texts21[14], array.texts21[15], array.texts21[16], array.texts21[17], array.texts21[18],
+                        array.texts21[19], array.texts21[20], array.texts21[21], array.texts21[22], array.texts21[23], array.texts21[24],
+                        array.texts21[25], array.texts21[26], array.texts21[27], array.texts21[28], array.texts21[29]},
         };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -234,7 +245,7 @@ public class Level5 extends AppCompatActivity {
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button) findViewById(R.id.button_back); //Путь к кнопке Назад
         if (numlev == 5 || numlev == 6 || numlev == 7 || numlev == 8 || numlev == 9 || numlev == 10 || numlev == 11 || numlev == 13 || numlev == 15 || numlev == 16
-                || numlev == 17 || numlev == 18 || numlev == 19 || numlev == 20) {
+                || numlev == 17 || numlev == 18 || numlev == 19 || numlev == 20 || numlev == 21) {
             text_left.setTextSize((float) (text_left.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
             text_right.setTextSize((float) (text_right.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
         }
@@ -459,25 +470,25 @@ public class Level5 extends AppCompatActivity {
         img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);  //достаем из массива картинку
         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
-    if (numLeft <= 4) {
+    if (numLeft <= 5) {
         min = 0;
-        max = 7;
+        max = 8;
         numRight = random.nextInt(max);
         while (numLeft == numRight) {
             numRight = random.nextInt(max);
         }
     }
-    if (numLeft >= masOfImgMas[numlev - 1].length - 4) {
-        min = masOfImgMas[numlev-1].length - 7;
+    if (numLeft >= masOfImgMas[numlev - 1].length - 5) {
+        min = masOfImgMas[numlev-1].length - 8;
         max = masOfImgMas[numlev - 1].length;
         numRight = random.nextInt(max - min)+min;
         while (numLeft == numRight) {
             numRight = random.nextInt(max);
        }
     }
-    if (numLeft > 4 && numLeft < masOfImgMas[numlev - 1].length - 4) {
-        min = numLeft - 5;
-        max = numLeft + 5;
+    if (numLeft > 5 && numLeft < masOfImgMas[numlev - 1].length - 5) {
+        min = numLeft - 6;
+        max = numLeft + 6;
         numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
         //Цикл проверяющий равенство чисел - Начало
         while (numLeft == numRight) {
@@ -591,25 +602,25 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
                         if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
-                            if (numLeft <= 4) {
+                            if (numLeft <= 5) {
                                 min = 0;
-                                max = 7;
+                                max = 8;
                                 numRight = random.nextInt(max);
                                 while (numLeft == numRight) {
                                     numRight = random.nextInt(max);
                                 }
                             }
-                            if (numLeft >= masOfImgMas[numlev - 1].length - 4) {
-                                min = masOfImgMas[numlev-1].length - 7;
+                            if (numLeft >= masOfImgMas[numlev - 1].length - 5) {
+                                min = masOfImgMas[numlev-1].length - 8;
                                 max = masOfImgMas[numlev - 1].length;
                                 numRight = random.nextInt(max - min)+min;
                                 while (numLeft == numRight) {
                                     numRight = random.nextInt(max);
                                 }
                             }
-                            if (numLeft > 4 && numLeft < masOfImgMas[numlev - 1].length - 4) {
-                                min = numLeft - 5;
-                                max = numLeft + 5;
+                            if (numLeft > 5 && numLeft < masOfImgMas[numlev - 1].length - 5) {
+                                min = numLeft - 6;
+                                max = numLeft + 6;
                                 numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
                                 //Цикл проверяющий равенство чисел - Начало
                                 while (numLeft == numRight) {
@@ -730,25 +741,25 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                         text_left.setText(masOfTextMas[numlev-1][numLeft]);  //достаем из массива текст
 
                         if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14) {
-                            if (numLeft <= 4) {
+                            if (numLeft <= 5) {
                                 min = 0;
-                                max = 7;
+                                max = 8;
                                 numRight = random.nextInt(max);
                                 while (numLeft == numRight) {
                                     numRight = random.nextInt(max);
                                 }
                             }
-                            if (numLeft >= masOfImgMas[numlev - 1].length - 4) {
-                                min = masOfImgMas[numlev-1].length - 7;
+                            if (numLeft >= masOfImgMas[numlev - 1].length - 5) {
+                                min = masOfImgMas[numlev-1].length - 8;
                                 max = masOfImgMas[numlev - 1].length;
                                 numRight = random.nextInt(max - min)+min;
                                 while (numLeft == numRight) {
                                     numRight = random.nextInt(max);
                                 }
                             }
-                            if (numLeft > 4 && numLeft < masOfImgMas[numlev - 1].length - 4) {
-                                min = numLeft - 5;
-                                max = numLeft + 5;
+                            if (numLeft > 5 && numLeft < masOfImgMas[numlev - 1].length - 5) {
+                                min = numLeft - 6;
+                                max = numLeft + 6;
                                 numRight = random.nextInt(max-min)+min; //генерируем случайное число от 0 до 9
                                 //Цикл проверяющий равенство чисел - Начало
                                 while (numLeft == numRight) {
