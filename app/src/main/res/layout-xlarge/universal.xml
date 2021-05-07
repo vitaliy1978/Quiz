@@ -275,8 +275,8 @@
                     android:text="Text Left"
                     android:textColor="@color/dark_blue"
                     android:textSize="50sp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     />
@@ -287,8 +287,8 @@
                     android:text="Text Right"
                     android:textColor="@color/dark_blue"
                     android:textSize="50sp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     />

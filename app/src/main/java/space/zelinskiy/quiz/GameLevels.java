@@ -43,6 +43,8 @@ public class GameLevels extends AppCompatActivity {
         array.rezult[16] = save.getInt("arrayRezult 16",0);
         array.rezult[17] = save.getInt("arrayRezult 17",0);
         array.rezult[18] = save.getInt("arrayRezult 18",0);
+        array.rezult[19] = save.getInt("arrayRezult 19",0);
+        array.rezult[20] = save.getInt("arrayRezult 20",0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -409,13 +411,52 @@ public class GameLevels extends AppCompatActivity {
             }
         });
         //кнопка для перехода 18-й уровень - Конец
+        //кнопка для перехода 19-й уровень - Начало
+        TextView textView19 = (TextView) findViewById(R.id.textView19);
+        textView19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=19){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",19);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехода 19-й уровень - Конец
+        //кнопка для перехода 20-й уровень - Начало
+        TextView textView20 = (TextView) findViewById(R.id.textView20);
+        textView20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (level>=20){
+                        Intent intent = new Intent(GameLevels.this,Level5.class);
+                        intent.putExtra("numlev",20);
+                        startActivity(intent);
+                        finish();}else {
+                        //пусто
+                    }
+                }catch (Exception e){
+
+                }
+            }
+        });
+        //кнопка для перехода 20-й уровень - Конец
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
                 R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9,R.id.textViewlock10,R.id.textViewlock11,R.id.textViewlock12,R.id.textViewlock13,
-                R.id.textViewlock14,R.id.textViewlock15,R.id.textViewlock16,R.id.textViewlock17,R.id.textViewlock18,R.id.textViewlock19};
+                R.id.textViewlock14,R.id.textViewlock15,R.id.textViewlock16,R.id.textViewlock17,R.id.textViewlock18,R.id.textViewlock19,
+                R.id.textViewlock20,R.id.textViewlock21,R.id.textViewlock22};
         final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,
                 R.id.img_lock9,R.id.img_lock10,R.id.img_lock11,R.id.img_lock12,R.id.img_lock13,R.id.img_lock14,R.id.img_lock15,R.id.img_lock16,R.id.img_lock17,
-                R.id.img_lock18,R.id.img_lock19};
+                R.id.img_lock18,R.id.img_lock19,R.id.img_lock20,R.id.img_lock21,R.id.img_lock22};
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);

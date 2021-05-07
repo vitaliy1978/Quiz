@@ -121,13 +121,13 @@ public class Array {
             R.drawable.a7level1,            R.drawable.a7level2,            R.drawable.a7level3,             R.drawable.a7level4,
             R.drawable.a7level5,            R.drawable.a7level6,            R.drawable.a7level7,            R.drawable.a7level8,
             R.drawable.a7level9,            R.drawable.a7level10,            R.drawable.a7level11,            R.drawable.a7level12,
-            R.drawable.a7level13,            R.drawable.a7level14,
+            R.drawable.a7level13,            R.drawable.a7level14,           R.drawable.a7level15,
     };
     final int[] texts7 ={
             R.string.lvl7text1,            R.string.lvl7text2,            R.string.lvl7text3,            R.string.lvl7text4,
             R.string.lvl7text5,            R.string.lvl7text6,            R.string.lvl7text7,            R.string.lvl7text8,
             R.string.lvl7text9,            R.string.lvl7text10,            R.string.lvl7text11,            R.string.lvl7text12,
-            R.string.lvl7text13,            R.string.lvl7text14,
+            R.string.lvl7text13,            R.string.lvl7text14,      R.string.lvl7text15,
     };
     //Массив для седьмого уровня - Конец
 
@@ -329,5 +329,53 @@ public class Array {
             R.string.lvl18text37,              R.string.lvl18text38,            R.string.lvl18text39,
     };
     //Массив для восемнадцатого уровня - Конец
+    //Массив для девятнадцатого уровня - начало
+    final int[] images19 = {
+            R.drawable.a19level1,            R.drawable.a19level2,            R.drawable.a19level3,            R.drawable.a19level4,
+            R.drawable.a19level5,            R.drawable.a19level6,            R.drawable.a19level7,            R.drawable.a19level8,
+            R.drawable.a19level9,            R.drawable.a19level10,            R.drawable.a19level11,            R.drawable.a19level12,
+            R.drawable.a19level13,            R.drawable.a19level14,            R.drawable.a19level15,            R.drawable.a19level16,
+            R.drawable.a19level17,            R.drawable.a19level18,            R.drawable.a19level19,            R.drawable.a19level20,
+            R.drawable.a19level21,              R.drawable.a19level22,          R.drawable.a19level23,           R.drawable.a19level24,
+            R.drawable.a19level25,              R.drawable.a19level26,          R.drawable.a19level27,           R.drawable.a19level28,
+            R.drawable.a19level29,              R.drawable.a19level30,          R.drawable.a19level31,           R.drawable.a19level32,
+            R.drawable.a19level33,              R.drawable.a19level34,          R.drawable.a19level35,           R.drawable.a19level36,
+            R.drawable.a19level37,               R.drawable.a19level38,          R.drawable.a19level39,          R.drawable.a19level40,
+            R.drawable.a19level41,
+    };
+    final int[] texts19 ={
+            R.string.lvl19text1,              R.string.lvl19text2,             R.string.lvl19text3,             R.string.lvl19text4,
+            R.string.lvl19text5,              R.string.lvl19text6,              R.string.lvl19text7,           R.string.lvl19text8,
+            R.string.lvl19text9,             R.string.lvl19text10,              R.string.lvl19text11,           R.string.lvl19text12,
+            R.string.lvl19text13,            R.string.lvl19text14,              R.string.lvl19text15,            R.string.lvl19text16,
+            R.string.lvl19text17,             R.string.lvl19text18,             R.string.lvl19text19,            R.string.lvl19text20,
+            R.string.lvl19text21,              R.string.lvl19text22,            R.string.lvl19text23,           R.string.lvl19text24,
+            R.string.lvl19text25,              R.string.lvl19text26,            R.string.lvl19text27,           R.string.lvl19text28,
+            R.string.lvl19text29,              R.string.lvl19text30,            R.string.lvl19text31,           R.string.lvl19text32,
+            R.string.lvl19text33,              R.string.lvl19text34,            R.string.lvl19text35,           R.string.lvl19text36,
+            R.string.lvl19text37,              R.string.lvl19text38,            R.string.lvl19text39,           R.string.lvl19text40,
+            R.string.lvl19text41,
+    };
+    //Массив для девятнадцатого уровня - Конец
+    //Массив для ддвадцатого уровня - начало
+    final int[] images20 = {
+            R.drawable.a20level1, R.drawable.a20level2, R.drawable.a20level3, R.drawable.a20level4,
+            R.drawable.a20level5, R.drawable.a20level6, R.drawable.a20level7, R.drawable.a20level8,
+            R.drawable.a20level9, R.drawable.a20level10, R.drawable.a20level11, R.drawable.a20level12,
+            R.drawable.a20level13, R.drawable.a20level14, R.drawable.a20level15, R.drawable.a20level16,
+            R.drawable.a20level17, R.drawable.a20level18, R.drawable.a20level19, R.drawable.a20level20,
+            R.drawable.a20level21, R.drawable.a20level22, R.drawable.a20level23, R.drawable.a20level24,
+            R.drawable.a20level25, R.drawable.a20level26,
+    };
+    final int[] texts20 ={
+            R.string.lvl20text1,              R.string.lvl20text2,             R.string.lvl20text3,             R.string.lvl20text4,
+            R.string.lvl20text5,              R.string.lvl20text6,              R.string.lvl20text7,           R.string.lvl20text8,
+            R.string.lvl20text9,             R.string.lvl20text10,              R.string.lvl20text11,           R.string.lvl20text12,
+            R.string.lvl20text13,            R.string.lvl20text14,              R.string.lvl20text15,            R.string.lvl20text16,
+            R.string.lvl20text17,             R.string.lvl20text18,             R.string.lvl20text19,            R.string.lvl20text20,
+            R.string.lvl20text21,              R.string.lvl20text22,            R.string.lvl20text23,           R.string.lvl20text24,
+            R.string.lvl20text25,              R.string.lvl20text26,
+    };
+    //Массив для двадцатого уровня - Конец
 
 }

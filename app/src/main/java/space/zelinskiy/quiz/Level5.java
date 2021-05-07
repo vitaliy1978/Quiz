@@ -57,14 +57,16 @@ public class Level5 extends AppCompatActivity {
         final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,
                 R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img9,
                 R.drawable.preview_img10,R.drawable.preview_img11,R.drawable.preview_img12,R.drawable.preview_img13,R.drawable.preview_img14,
-                R.drawable.preview_img15,R.drawable.preview_img16,R.drawable.preview_img17,R.drawable.preview_img18};
+                R.drawable.preview_img15,R.drawable.preview_img16,R.drawable.preview_img17,R.drawable.preview_img18,R.drawable.preview_img19,
+                R.drawable.preview_img20};
         final int[] descrip1={R.string.levelone,R.string.leveltwo,R.string.levelthree,R.string.levelfour,
                 R.string.levelfive,R.string.levelsix,R.string.levelseven,R.string.leveleight,R.string.levelnine,R.string.levelten,R.string.leveleleven,
-                R.string.leveltwelve,R.string.levelthirteen,R.string.levelfourteen,R.string.levelfifteen,R.string.levelsixteen,R.string.levelseventeen,R.string.leveleighteen};
+                R.string.leveltwelve,R.string.levelthirteen,R.string.levelfourteen,R.string.levelfifteen,R.string.levelsixteen,R.string.levelseventeen,R.string.leveleighteen,
+                R.string.levelnineteen,R.string.leveltwenty};
         final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,
                 R.string.levelfour2,R.string.levelfive2,R.string.levelsix2,R.string.levelseven2,R.string.leveleight2,
                 R.string.levelnine2,R.string.levelten2,R.string.leveleleven2,R.string.leveltwelve2,R.string.levelthirteen2,R.string.levelfourteen2,
-                R.string.levelfifteen2,R.string.levelsixteen2,R.string.levelseventeen2,R.string.leveleighteen2};
+                R.string.levelfifteen2,R.string.levelsixteen2,R.string.levelseventeen2,R.string.leveleighteen2,R.string.levelnineteen2,R.string.leveltwenty2};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                 {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
@@ -85,7 +87,7 @@ public class Level5 extends AppCompatActivity {
                         array.images6[19], array.images6[20]},
                 {array.images7[0],array.images7[1],array.images7[2],array.images7[3],array.images7[4],array.images7[5],array.images7[6],
                         array.images7[7], array.images7[8],  array.images7[9],  array.images7[10], array.images7[11], array.images7[12],
-                        array.images7[13]},
+                        array.images7[13],array.images7[14]},
                 {array.images8[0],array.images8[1],array.images8[2],array.images8[3],array.images8[4],array.images8[5],array.images8[6],
                         array.images8[7], array.images8[8],  array.images8[9],  array.images8[10], array.images8[11], array.images8[12],
                         array.images8[13],array.images8[14],array.images8[15],array.images8[16],array.images8[17],array.images8[18],
@@ -129,7 +131,19 @@ public class Level5 extends AppCompatActivity {
                         array.images18[19],array.images18[20],array.images18[21],array.images18[22],array.images18[23],array.images18[24],
                         array.images18[25],array.images18[26],array.images18[27],array.images18[28],array.images18[29],array.images18[30],
                         array.images18[31],array.images18[32],array.images18[33],array.images18[34],array.images18[35],array.images18[36],
-                        array.images18[37],array.images18[38]}
+                        array.images18[37],array.images18[38]},
+                {array.images19[0], array.images19[1], array.images19[2], array.images19[3], array.images19[4], array.images19[5], array.images19[6],
+                        array.images19[7], array.images19[8], array.images19[9], array.images19[10], array.images19[11], array.images19[12],
+                        array.images19[13], array.images19[14], array.images19[15], array.images19[16], array.images19[17], array.images19[18],
+                        array.images19[19], array.images19[20], array.images19[21], array.images19[22], array.images19[23], array.images19[24],
+                        array.images19[25], array.images19[26], array.images19[27], array.images19[28], array.images19[29], array.images19[30],
+                        array.images19[31], array.images19[32], array.images19[33], array.images19[34], array.images19[35], array.images19[36],
+                        array.images19[37], array.images19[38], array.images19[39], array.images19[40]},
+                {array.images20[0], array.images20[1], array.images20[2], array.images20[3], array.images20[4], array.images20[5], array.images20[6],
+                        array.images20[7], array.images20[8], array.images20[9], array.images20[10], array.images20[11], array.images20[12],
+                        array.images20[13], array.images20[14], array.images20[15], array.images20[16], array.images20[17], array.images20[18],
+                        array.images20[19], array.images20[20], array.images20[21], array.images20[22], array.images20[23], array.images20[24],
+                        array.images20[25]}
         };
         final int[][] masOfTextMas ={{array.texts1[0],array.texts1[1],array.texts1[2],array.texts1[3],array.texts1[4],array.texts1[5],
                 array.texts1[6],array.texts1[7],array.texts1[8],array.texts1[9]},
@@ -149,7 +163,8 @@ public class Level5 extends AppCompatActivity {
                         array.texts6[7],array.texts6[8],array.texts6[9],array.texts6[10],array.texts6[11],array.texts6[12],array.texts6[13],
                         array.texts6[14],array.texts6[15],array.texts6[16],array.texts6[17],array.texts6[18],array.texts6[19],array.texts6[20]},
                 {array.texts7[0],array.texts7[1],array.texts7[2],array.texts7[3],array.texts7[4],array.texts7[5],array.texts7[6],
-                        array.texts7[7],array.texts7[8],array.texts7[9],array.texts7[10],array.texts7[11],array.texts7[12],array.texts7[13]},
+                        array.texts7[7],array.texts7[8],array.texts7[9],array.texts7[10],array.texts7[11],array.texts7[12],array.texts7[13],
+                        array.texts7[14]},
                 {array.texts8[0],array.texts8[1],array.texts8[2],array.texts8[3],array.texts8[4],array.texts8[5],array.texts8[6],
                         array.texts8[7],array.texts8[8],array.texts8[9],array.texts8[10],array.texts8[11],array.texts8[12],
                         array.texts8[13],array.texts8[14],array.texts8[15],array.texts8[16],array.texts8[17],array.texts8[18],
@@ -193,7 +208,19 @@ public class Level5 extends AppCompatActivity {
                         array.texts18[19],array.texts18[20],array.texts18[21],array.texts18[22],array.texts18[23],array.texts18[24],
                         array.texts18[25],array.texts18[26],array.texts18[27],array.texts18[28],array.texts18[29],array.texts18[30],
                         array.texts18[31],array.texts18[32],array.texts18[33],array.texts18[34],array.texts18[35],array.texts18[36],
-                        array.texts18[37],array.texts18[38]}
+                        array.texts18[37],array.texts18[38]},
+                {array.texts19[0], array.texts19[1], array.texts19[2], array.texts19[3], array.texts19[4], array.texts19[5], array.texts19[6],
+                        array.texts19[7], array.texts19[8], array.texts19[9], array.texts19[10], array.texts19[11], array.texts19[12],
+                        array.texts19[13], array.texts19[14], array.texts19[15], array.texts19[16], array.texts19[17], array.texts19[18],
+                        array.texts19[19], array.texts19[20], array.texts19[21], array.texts19[22], array.texts19[23], array.texts19[24],
+                        array.texts19[25], array.texts19[26], array.texts19[27], array.texts19[28], array.texts19[29], array.texts19[30],
+                        array.texts19[31], array.texts19[32], array.texts19[33], array.texts19[34], array.texts19[35], array.texts19[36],
+                        array.texts19[37], array.texts19[38], array.texts19[39], array.texts19[40]},
+                {array.texts20[0], array.texts20[1], array.texts20[2], array.texts20[3], array.texts20[4], array.texts20[5], array.texts20[6],
+                        array.texts20[7], array.texts20[8], array.texts20[9], array.texts20[10], array.texts20[11], array.texts20[12],
+                        array.texts20[13], array.texts20[14], array.texts20[15], array.texts20[16], array.texts20[17], array.texts20[18],
+                        array.texts20[19], array.texts20[20], array.texts20[21], array.texts20[22], array.texts20[23], array.texts20[24],
+                        array.texts20[25]}
         };
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
@@ -207,7 +234,7 @@ public class Level5 extends AppCompatActivity {
         final TextView text_time = findViewById(R.id.text_time); //Путь к индикатору секунд в игре
         final Button button_back = (Button) findViewById(R.id.button_back); //Путь к кнопке Назад
         if (numlev == 5 || numlev == 6 || numlev == 7 || numlev == 8 || numlev == 9 || numlev == 10 || numlev == 11 || numlev == 13 || numlev == 15 || numlev == 16
-                || numlev == 17 || numlev == 18) {
+                || numlev == 17 || numlev == 18 || numlev == 19 || numlev == 20) {
             text_left.setTextSize((float) (text_left.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
             text_right.setTextSize((float) (text_right.getTextSize() * 0.28));  //Уменьшаем шрифт подписей картинок
         }
