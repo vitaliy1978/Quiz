@@ -56,4 +56,6 @@
     <string name="leveltwenty2"></string>
     <string name="leveltwentyone"></string>
     <string name="leveltwentyone2">Что выше?</string>
+    <string name="leveltwentytwo"></string>
+    <string name="leveltwentytwo2">Кто из них родился раньше?</string>
 </resources>

@@ -399,5 +399,31 @@ public class Array {
             R.string.lvl21text29,              R.string.lvl21text30,
     };
     //Массив для двадцать первого уровня - Конец
+    //Массив для ддвадцать второгоуровня - начало
+    final int[] images22 = {
+            R.drawable.a22level1, R.drawable.a22level2, R.drawable.a22level3, R.drawable.a22level4,
+            R.drawable.a22level5, R.drawable.a22level6, R.drawable.a22level7, R.drawable.a22level8,
+            R.drawable.a22level9, R.drawable.a22level10, R.drawable.a22level11, R.drawable.a22level12,
+            R.drawable.a22level13, R.drawable.a22level14, R.drawable.a22level15, R.drawable.a22level16,
+            R.drawable.a22level17, R.drawable.a22level18, R.drawable.a22level19, R.drawable.a22level20,
+            R.drawable.a22level21, R.drawable.a22level22, R.drawable.a22level23, R.drawable.a22level24,
+            R.drawable.a22level25, R.drawable.a22level26, R.drawable.a22level27, R.drawable.a22level28,
+            R.drawable.a22level29, R.drawable.a22level30, R.drawable.a22level31, R.drawable.a22level32,
+            R.drawable.a22level33, R.drawable.a22level34, R.drawable.a22level35, R.drawable.a22level36,
+            R.drawable.a22level37, R.drawable.a22level38, R.drawable.a22level39, R.drawable.a22level40,
+    };
+    final int[] texts22 ={
+            R.string.lvl22text1,              R.string.lvl22text2,             R.string.lvl22text3,             R.string.lvl22text4,
+            R.string.lvl22text5,              R.string.lvl22text6,              R.string.lvl22text7,           R.string.lvl22text8,
+            R.string.lvl22text9,             R.string.lvl22text10,              R.string.lvl22text11,           R.string.lvl22text12,
+            R.string.lvl22text13,            R.string.lvl22text14,              R.string.lvl22text15,            R.string.lvl22text16,
+            R.string.lvl22text17,             R.string.lvl22text18,             R.string.lvl22text19,            R.string.lvl22text20,
+            R.string.lvl22text21,              R.string.lvl22text22,            R.string.lvl22text23,           R.string.lvl22text24,
+            R.string.lvl22text25,              R.string.lvl22text26,            R.string.lvl22text27,              R.string.lvl22text28,
+            R.string.lvl22text29,              R.string.lvl22text30,            R.string.lvl22text31,              R.string.lvl22text32,
+            R.string.lvl22text33,              R.string.lvl22text34,            R.string.lvl22text35,              R.string.lvl22text36,
+            R.string.lvl22text37,              R.string.lvl22text38,            R.string.lvl22text39,              R.string.lvl22text40,
+    };
+    //Массив для двадцать второго уровня - Конец
 
 }
