@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Locale;
+
 public class OptionHelp extends AppCompatActivity {
 
     boolean muzof =false;
@@ -99,9 +101,15 @@ public class OptionHelp extends AppCompatActivity {
             }
         });
 
-//        if (switchMuz != null) {
-//            switchMuz.setOnCheckedChangeListener(this);
-//        }
+        final TextView texOptliders = (TextView) findViewById(R.id.texOpt_liders);
+
+        texOptliders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String country = Locale.getDefault().getCountry();
+                texOptliders.setText(country.toString());
+            }
+        });
 
 
     }

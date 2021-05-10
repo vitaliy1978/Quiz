@@ -64,7 +64,6 @@ public class Array {
             R.string.lvl3textZ,
     };
     //Массив для третьего уровня - Конец
-
     //Массив для четвертого уровня - Начало
     final int[] images4 = {
             R.drawable.level4_clok1,            R.drawable.level4_clok2,            R.drawable.level4_clok3,            R.drawable.level4_clok4,
