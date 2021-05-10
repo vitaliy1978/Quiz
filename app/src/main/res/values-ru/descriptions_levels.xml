@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="option_head">"Quick choice"</string>
-    <string name="option_head2">"Version 1.1"</string>
-    <string name="option_description">Test of knowledge and reaction speed</string>
-    <string name="option_description2">For the correct answer +1 point.\nFor wrong -2 points.</string>
-    <string name="option_description3">Time is limited to two minutes.</string>
-    <string name="swithMusic">Disable music</string>
-    <string name="swithMusic2">Enable music</string>
-    <string name="swithVoice">Disable sounds</string>
-    <string name="swithVoice2">Enable sounds</string>
-    <string name="option_liders">Go to the leaderboard</string>
-    <string name="option_mark">Rate the game</string>
-    <string name="option_share">Share the game</string>
-    <string name="levelEnd">Time is up.\nTry again.\nIt should be done in 2 minutes.</string>
-    <string name="leveloneEnd">"Congratulations! \nLevel passed."</string>
+    <string name="option_head">"Быстрый выбор"</string>
+    <string name="option_head2">"Версия 1.1"</string>
+    <string name="option_description">Проверка знаний и скорости реакции.</string>
+    <string name="option_description2">За правильный ответ +1 балл.\nЗа неправильный -2 балла.</string>
+    <string name="option_description3">Время ограничено двумя минутами.</string>
+    <string name="swithMusic">Отключить музыку</string>
+    <string name="swithMusic2">Включить музыку</string>
+    <string name="swithVoice">Отключить звуки</string>
+    <string name="swithVoice2">Включить звуки</string>
+    <string name="option_liders">Перейти к списоку лидеров</string>
+    <string name="option_mark">Поставить оценку игре</string>
+    <string name="option_share">Поделиться игрой</string>
+    <string name="levelEnd">Время истекло.\nПопробуйте еще раз.\nНужно уложится в 2 минуты.</string>
+    <string name="leveloneEnd">"Поздравляю! \nУровень пройден."</string>
     <string name="levelone">"Лёгкая разминка на скорость."</string>
     <string name="levelone2">"Выбери цифру, которая больше.\nВопросы могут повторяться,\nпока не наберется 20 очков."</string>
     <string name="leveltwo">Выбери римскую цифру,\nкоторая больше.</string>

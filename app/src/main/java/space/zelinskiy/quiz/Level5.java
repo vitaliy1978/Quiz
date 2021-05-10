@@ -37,6 +37,9 @@ public class Level5 extends AppCompatActivity {
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
     public int numlev, start=0;
     int min=0, max=0;  //для диапазона в котором будет генерироваться случайное число.
+    public int middleResult=0, formiddle=0;  //среднее время за все уровни
+
+
 
 
     @Override
@@ -46,13 +49,45 @@ public class Level5 extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
-        final boolean voiceof = save.getBoolean("voiceof", false);  //юерем данные о включенности звуков
+        final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
 
         Intent intent =getIntent();  //получить intent
         numlev  = intent.getIntExtra("numlev",1);  //метод getStringExtra читает строку
+//        Intent intent2 =getIntent();  //получить intent
+//        formiddle  = intent2.getIntExtra("formiddle",1);  //метод getStringExtra читает строку
+
+       // final int last = save.getInt("lastStr",0);
+        final int last =0;
 
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
         text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
+      //  text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(last));
+
+        final int level = save.getInt("Level", 1);
+
+        array.rezult[0] = save.getInt("arrayRezult 0",0);
+        array.rezult[1] = save.getInt("arrayRezult 1",0);
+        array.rezult[2] = save.getInt("arrayRezult 2",0);
+        array.rezult[3] = save.getInt("arrayRezult 3",0);
+        array.rezult[4] = save.getInt("arrayRezult 4",0);
+        array.rezult[5] = save.getInt("arrayRezult 5",0);
+        array.rezult[6] = save.getInt("arrayRezult 6",0);
+        array.rezult[7] = save.getInt("arrayRezult 7",0);
+        array.rezult[8] = save.getInt("arrayRezult 8",0);
+        array.rezult[9] = save.getInt("arrayRezult 9",0);
+        array.rezult[10] = save.getInt("arrayRezult 10",0);
+        array.rezult[11] = save.getInt("arrayRezult 11",0);
+        array.rezult[12] = save.getInt("arrayRezult 12",0);
+        array.rezult[13] = save.getInt("arrayRezult 13",0);
+        array.rezult[14] = save.getInt("arrayRezult 14",0);
+        array.rezult[15] = save.getInt("arrayRezult 15",0);
+        array.rezult[16] = save.getInt("arrayRezult 16",0);
+        array.rezult[17] = save.getInt("arrayRezult 17",0);
+        array.rezult[18] = save.getInt("arrayRezult 18",0);
+        array.rezult[19] = save.getInt("arrayRezult 19",0);
+        array.rezult[20] = save.getInt("arrayRezult 20",0);
+        array.rezult[21] = save.getInt("arrayRezult 21",0);
+        array.rezult[22] = save.getInt("arrayRezult 22",0);
 
         final int[] prevImg={R.drawable.preview_img_one,R.drawable.preview_img_two,R.drawable.preview_img_three,R.drawable.preview_img4,
                 R.drawable.preview_img5,R.drawable.preview_img6,R.drawable.preview_img7,R.drawable.preview_img8,R.drawable.preview_img9,
@@ -360,14 +395,27 @@ public class Level5 extends AppCompatActivity {
         btn_continue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Intent intent =new Intent(Level5.this,Level5.class);
-                    intent.putExtra("numlev",numlev+1);
-                    startActivity(intent);
-                    finish();
-                }catch (Exception e){
+                if (numlev<22) {
+                    try {
+                        Intent intent = new Intent(Level5.this, Level5.class);
+                        intent.putExtra("numlev", numlev + 1);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception e) {
 
+                    }
+               }
+                else{
+                    try {
+                        Intent intent = new Intent(Level5.this, GameLevels.class);
+                        intent.putExtra("numlev", numlev);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception e) {
+
+                    }
                 }
+
                 dialogEnd.dismiss();  //закрываем диалоговое окно
             }
         });
@@ -587,13 +635,68 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                             if (voiceof==false) {
                                 fanfary1.start();
                             }
-                            textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                            if (numlev<22 || last==1){
+                               // textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                           }
+                            if (numlev>=22 && last==0){
+                                btn_continue2.setVisibility(View.INVISIBLE);
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                                SharedPreferences.Editor editor3 = save.edit();
+                                editor3.putInt("lastStr".toString(), 1);
+                                editor3.commit();
+                            }
                         }else{
                             if (voiceof==false) {
                                 fanfary2.start();
                             }
                             array.rezult[numlev-1]=sek;
-                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
+                            if (numlev<22 || last==1) {
+                              //  textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100)) + "\nЭто новый рекорд!");
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                            }
+                            if (numlev>=22 && last==0){
+                                btn_continue2.setVisibility(View.INVISIBLE);
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))+"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                                SharedPreferences.Editor editor3 = save.edit();
+                                editor3.putInt("lastStr".toString(), 1);
+                                editor3.commit();
+                            }
 
                             array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),1);
                             SharedPreferences.Editor editor4 = save.edit();
@@ -607,7 +710,8 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                         final int level = save.getInt("Level", 1);
                         if (level>numlev){
                             //пусто
-                        }else {
+                        }
+                        if (level<=numlev && numlev<22){
                             SharedPreferences.Editor editor = save.edit();
                             editor.putInt("Level", numlev+1);
                             editor.commit();
@@ -730,13 +834,69 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                             if (voiceof==false) {
                                 fanfary1.start();
                             }
-                            textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                            if (numlev<22 || last==1){
+                             //   textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                            }
+                            if (numlev>=22 && last==0){
+                                btn_continue2.setVisibility(View.INVISIBLE);
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                                SharedPreferences.Editor editor3 = save.edit();
+                                editor3.putInt("lastStr".toString(), 1);
+                                editor3.commit();
+                            }
                         }else{
                             if (voiceof==false) {
                                 fanfary2.start();
                             }
                             array.rezult[numlev-1]=sek;
-                            textdescribtionEnd.setText("Поздравляю!\nВы справились за "+String.format("%d.%02d", array.rezult[numlev-1] / 100, (array.rezult[numlev-1] % 100))+"\nЭто новый рекорд!");
+                            if (numlev<22 || last==1) {
+                             //   textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100)) + "\nЭто новый рекорд!");
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                            }
+                            if (numlev>=22 && last==0){
+                                btn_continue2.setVisibility(View.INVISIBLE);
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\nДобро пожаловать в список лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\nВы можете пройти любой уровень ещё раз и улучшить ваш результат.");
+                                SharedPreferences.Editor editor3 = save.edit();
+                                editor3.putInt("lastStr".toString(), 1);
+                                editor3.commit();
+                            }
 
                             array.rezult[numlev-1] = save.getInt(arrayRezult.toString(),1);
                             SharedPreferences.Editor editor4 = save.edit();
@@ -750,7 +910,8 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                         final int level = save.getInt("Level", 1);
                         if (level>numlev){
                             //пусто
-                        }else {
+                        }
+                        if (level<=numlev && numlev<22){
                             SharedPreferences.Editor editor = save.edit();
                             editor.putInt("Level", numlev+1);
                             editor.commit();

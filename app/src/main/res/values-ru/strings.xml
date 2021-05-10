@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Быстрый выбор</string>
+    <string name="start">Играть</string>
+    <string name="back">Назад</string>
+    <string name="head_name">БЫСТРЫЙ</string>
+    <string name="head_name2">ВЫБОР</string>
+    <string name="wordlevel">Уровень:</string>
+    <string name="level1">Уровень 1</string>
+    <string name="level2">Уровень 2</string>
+    <string name="level3">Уровень 3</string>
+    <string name="level4">Уровень 4</string>
+    <string name="level5">Уровень 5</string>
+    <string name="text_continue">Начать игру</string>
+    <string name="text_continue_next">Cледующий уровень</string>
+    <string name="btn1">Цифры</string>
+    <string name="btn2">Римские цифры</string>
+    <string name="btn3">Буквы</string>
+    <string name="btn4">Часы</string>
+    <string name="btn5">Цвет</string>
+    <string name="btn6">Вес</string>
+    <string name="btn7">Грузоподъёмность</string>
+    <string name="btn8">Скорость</string>
+    <string name="btn9">Звук</string>
+    <string name="btn10">Размер</string>
+    <string name="btn11">Цена</string>
+    <string name="btn12">Холод</string>
+    <string name="btn13">Шахматы</string>
+    <string name="btn14">Планеты</string>
+    <string name="btn15">Долгожители</string>
+    <string name="btn16">Страны</string>
+    <string name="btn17">Языки</string>
+    <string name="btn18">Изобретения</string>
+    <string name="btn19">Калории</string>
+    <string name="btn20">Города</string>
+    <string name="btn21">Высота</string>
+    <string name="btn22">Великие люди</string>
+</resources>

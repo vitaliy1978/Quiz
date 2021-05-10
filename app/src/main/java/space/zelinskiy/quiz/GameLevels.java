@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class GameLevels extends AppCompatActivity {
 
     Array array = new Array(); //Создали новый оъект из класса Array
+  //  public int formiddle=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,9 @@ public class GameLevels extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
+      // final int level = 21;
+
+       // int last = save.getInt("lastStr",0);
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -74,7 +78,12 @@ public class GameLevels extends AppCompatActivity {
                         Intent intent = new Intent(GameLevels.this,Level5.class);
                         intent.putExtra("numlev",1 );
                     startActivity(intent);
-                    finish();}else {
+                    finish();
+//                        Intent intent2 = new Intent(GameLevels.this,Level5.class);
+//                        intent2.putExtra("formiddle", formiddle);
+//                        startActivity(intent2);
+//                        finish();
+                    }else {
                         //пусто
                     }
                 }catch (Exception e){
@@ -94,7 +103,12 @@ public class GameLevels extends AppCompatActivity {
                         Intent intent = new Intent(GameLevels.this,Level5.class);
                         intent.putExtra("numlev",2);
                     startActivity(intent);
-                    finish();}else {
+                    finish();
+//                        Intent intent2 = new Intent(GameLevels.this,Level5.class);
+//                        intent2.putExtra("formiddle", formiddle);
+//                        startActivity(intent2);
+//                        finish();
+                    }else {
                         //пусто
                     }
                 }catch (Exception e){
@@ -510,6 +524,9 @@ public class GameLevels extends AppCompatActivity {
             }
             im.setVisibility(View.GONE);
         }
+//        for (int i=0;i<level;i++){
+//            formiddle=formiddle+array.rezult[i];
+//        }
       //  TextView textViewlock1 =findViewById(R.id.textViewlock1);
       //  textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
     }
