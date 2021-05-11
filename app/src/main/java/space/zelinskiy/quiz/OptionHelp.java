@@ -103,13 +103,13 @@ public class OptionHelp extends AppCompatActivity {
 
         final TextView texOptliders = (TextView) findViewById(R.id.texOpt_liders);
 
-        texOptliders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String country = Locale.getDefault().getCountry();
-                texOptliders.setText(country.toString());
-            }
-        });
+//        texOptliders.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String country = Locale.getDefault().getCountry();
+//                texOptliders.setText(country.toString());
+//            }
+//        });
 
 
     }
