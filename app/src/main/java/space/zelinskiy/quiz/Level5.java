@@ -548,9 +548,9 @@ public class Level5 extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()){
-                    interstitialAd.show();  //показать рекламу
-                }else {
+            //    if (interstitialAd.isLoaded()){
+             //       interstitialAd.show();  //показать рекламу
+             //   }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -564,7 +564,7 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-                }
+             //   }
             }
         });
         //Кнопка Назад - Конец
@@ -619,7 +619,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
         final ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                liderToast = Toast.makeText(getBaseContext(),"Таблица лидеров",Toast.LENGTH_SHORT);
+                liderToast = Toast.makeText(getBaseContext(),getString(R.string.level_last4),Toast.LENGTH_SHORT);
                 liderToast.show();
             }
 
@@ -694,7 +694,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                         if (array.rezult[numlev-1]>0 && array.rezult[numlev-1]<sek)
                         {
                               if (numlev<22 || last==1){
-                                textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
 //                                for (int i = 0; i < level; i++) {
 //                                    middleResult = middleResult + array.rezult[i];
 //                                    if (array.rezult[i]>0){
@@ -719,9 +719,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
+                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\n"+getString(R.string.level_last6);
                                 SpannableString boldtext = new SpannableString(text);
                                 boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 textdescribtionEnd.setText(boldtext);
@@ -737,7 +737,8 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                             }
                             array.rezult[numlev-1]=sek;
                             if (numlev<22 || last==1) {
-                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100)) + "\nЭто новый рекорд!");
+                                textdescribtionEnd.setText(getString(R.string.level_end_rec1)+"\n"+getString(R.string.level_end_rec2)+ String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100))
+                                        + "\n"+getString(R.string.level_end_rec3));
 //                                for (int i = 0; i < level; i++) {
 //                                    middleResult = middleResult + array.rezult[i];
 //                                    if (array.rezult[i]>0){
@@ -762,9 +763,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
+                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\n"+getString(R.string.level_last6);
                                 SpannableString boldtext = new SpannableString(text);
                                 boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 textdescribtionEnd.setText(boldtext);
@@ -914,7 +915,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                                 fanfary1.start();
                             }
                             if (numlev<22 || last==1){
-                                  textdescribtionEnd.setText("Уровень пройден.\nВы справились за "+String.format("%d.%02d", sek / 100, (sek % 100))+"\nЧуть-чуть не хватило до рекорда");
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
 //                                for (int i = 0; i < level; i++) {
 //                                    middleResult = middleResult + array.rezult[i];
 //                                    if (array.rezult[i]>0){
@@ -940,9 +941,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
+                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\n"+getString(R.string.level_last6);
                                 SpannableString boldtext = new SpannableString(text);
                                 boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 textdescribtionEnd.setText(boldtext);
@@ -958,7 +959,8 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                             }
                             array.rezult[numlev-1]=sek;
                             if (numlev<22 || last==1) {
-                                textdescribtionEnd.setText("Поздравляю!\nВы справились за " + String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100)) + "\nЭто новый рекорд!");
+                                textdescribtionEnd.setText(getString(R.string.level_end_rec1)+"\n"+getString(R.string.level_end_rec2)+ String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100))
+                                        + "\n"+getString(R.string.level_end_rec3));
 //                                for (int i = 0; i < level; i++) {
 //                                    middleResult = middleResult + array.rezult[i];
 //                                    if (array.rezult[i]>0){
@@ -983,9 +985,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
+                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
+                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+                                        +"\n"+getString(R.string.level_last6);
                                 SpannableString boldtext = new SpannableString(text);
                                 boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 textdescribtionEnd.setText(boldtext);

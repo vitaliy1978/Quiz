@@ -14,7 +14,7 @@
     <string name="option_share">Поделиться игрой</string>
     <string name="levelEnd">Время истекло.\nПопробуйте еще раз.\nНужно уложится в 2 минуты.</string>
     <string name="leveloneEnd">"Поздравляю!\nУровень пройден."</string>
-    <string name="levelone">"Лёгкая разминка на скорость.\nВыбери цифру, которая больше."</string>
+    <string name="levelone">"Лёгкая разминка.\nВыбери цифру, которая больше."</string>
     <string name="levelone2">""</string>
     <string name="leveltwo">Выбери римскую цифру,\nкоторая больше.</string>
     <string name="leveltwo2">За правильный ответ\n+1 балл,\nза неправильный ответ\n-2 балла.</string>
@@ -44,7 +44,7 @@
     <string name="levelfourteen2">ближе к Солнцу?</string>
     <string name="levelfifteen"></string>
     <string name="levelfifteen2">Кто живёт дольше?</string>
-    <string name="levelsixteen">Какая страна больше?\nпо площади</string>
+    <string name="levelsixteen">Какая страна имеет\nбольшую площадь?</string>
     <string name="levelsixteen2"></string>
     <string name="levelseventeen">На каком языке\nговорит больше людей?</string>
     <string name="levelseventeen2"></string>

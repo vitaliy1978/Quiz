@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mainImg.startAnimation(a);
         head2.startAnimation(a);
         final Animation a3 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alphamove2);
-        a3.setStartOffset(320);
+        a3.setStartOffset(460);
        // head1.startAnimation(a3);
         head2.startAnimation(a3);
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         } else{
-            backToast = Toast.makeText(getBaseContext(),"Нажмите еще раз чтобы выйти",Toast.LENGTH_SHORT);
+            backToast = Toast.makeText(getBaseContext(),getString(R.string.btnBacktwice),Toast.LENGTH_SHORT);
             backToast.show();
         }
         backPressedTime=System.currentTimeMillis();
