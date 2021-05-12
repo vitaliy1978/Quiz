@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Quick choice</string>
+    <string name="link_game">Link Game</string>
+    <string name="chuserTitle">Select to whom to send\nthe link to the game</string>
     <string name="start">Play</string>
     <string name="back">Back</string>
     <string name="head_name">Quick</string>

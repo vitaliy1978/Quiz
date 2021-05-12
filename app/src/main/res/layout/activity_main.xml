@@ -41,43 +41,60 @@
             android:id="@+id/main_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="0dp"
-            android:layout_weight="20"
             android:layout_marginBottom="0dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_weight="11"
             android:src="@drawable/main_img" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:layout_marginTop="50dp"
+            android:layout_weight="40"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
-        <ImageView
-                android:id="@+id/imageHead1"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-            android:layout_weight="11"
-                android:src="@drawable/head_1" />
-            <ImageView
-                android:id="@+id/imageHead2"
+                android:layout_weight="11">
+                <ImageView
+                    android:id="@+id/imageHead1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/head_1" />
+                <ImageView
+                    android:id="@+id/imageHead1light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/head_1light" />
+            </FrameLayout>
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
                 android:layout_weight="10"
-                android:layout_gravity="end"
-                android:src="@drawable/head_2" />
+                >
+                <ImageView
+                    android:id="@+id/imageHead2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="end"
+                    android:src="@drawable/head_2" />
+            </FrameLayout>
+
 
             <View
                 android:id="@+id/view"
-                android:layout_weight="50"
+                android:layout_weight="40"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

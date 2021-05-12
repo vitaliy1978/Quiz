@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Быстрый выбор</string>
+    <string name="link_game">Ссылка на игру</string>
+    <string name="chuserTitle">Выберите кому отправить\nссылку на игру</string>
     <string name="start">Играть</string>
     <string name="back">Назад</string>
     <string name="head_name">БЫСТРЫЙ</string>

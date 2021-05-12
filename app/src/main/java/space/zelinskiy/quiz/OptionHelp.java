@@ -38,8 +38,18 @@ public class OptionHelp extends AppCompatActivity {
         switchVoice.setChecked(save.getBoolean("statusVoice", false));  //берем данные о положении выключателя
         muzofStr = save.getString("muzofStr", muzofStr);
         voiceofStr = save.getString("voiceofStr", voiceofStr);
-        switchMuz.setText(muzofStr.toString());
-        switchVoice.setText(voiceofStr.toString());
+       // switchMuz.setText(muzofStr.toString());
+      //  switchVoice.setText(voiceofStr.toString());
+        if (switchMuz.isChecked()){
+            switchMuz.setText(R.string.swithMusic);
+        }else{
+            switchMuz.setText(R.string.swithMusic2);
+        }
+        if (switchVoice.isChecked()){
+            switchVoice.setText(R.string.swithVoice);
+        }else{
+            switchVoice.setText(R.string.swithVoice2);
+        }
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -102,6 +112,7 @@ public class OptionHelp extends AppCompatActivity {
         });
 
         final TextView texOptliders = (TextView) findViewById(R.id.texOpt_liders);
+        final TextView texOptShare = (TextView) findViewById(R.id.textOpt_share);
 
 //        texOptliders.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -110,6 +121,17 @@ public class OptionHelp extends AppCompatActivity {
 //                texOptliders.setText(country.toString());
 //            }
 //        });
+               texOptShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = getString(R.string.link_game);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT,message);
+                Intent chosenIntent = Intent.createChooser(intent,getString(R.string.chuserTitle));
+                startActivity(chosenIntent);
+            }
+        });
 
 
     }
