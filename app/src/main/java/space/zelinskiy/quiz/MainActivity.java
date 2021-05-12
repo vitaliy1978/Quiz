@@ -3,11 +3,15 @@ package space.zelinskiy.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ImageView mainImg = (ImageView)findViewById(R.id.main_img);
+        final ImageView head2 = (ImageView)findViewById(R.id.imageHead2);
+        final ImageView head1 = (ImageView)findViewById(R.id.imageHead1);
+
+        final Animation a = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alpha3);
+        final Animation a2 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alphamove1);
+        head1.startAnimation(a2);
+        mainImg.startAnimation(a);
+        head2.startAnimation(a);
+        final Animation a3 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alphamove2);
+        a3.setStartOffset(320);
+       // head1.startAnimation(a3);
+        head2.startAnimation(a3);
 
         Button buttonStart = (Button)findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
