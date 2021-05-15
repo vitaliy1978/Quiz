@@ -55,8 +55,8 @@ public class Level4 extends AppCompatActivity {
         final int[] descrip2={R.string.levelone2,R.string.leveltwo2,R.string.levelthree2,R.string.levelfour2,R.string.levelfive2,};
         final int[][] masOfImgMas ={{array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
                 array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
-                {array.images2[0],array.images2[1],array.images2[2],array.images2[3],array.images2[4],array.images2[5],
-                        array.images2[6],array.images2[7],array.images2[8],array.images2[9]},
+                {array.images1[0],array.images1[1],array.images1[2],array.images1[3],array.images1[4],array.images1[5],
+                        array.images1[6],array.images1[7],array.images1[8],array.images1[9]},
                {array.images3[0],array.images3[1],array.images3[2],array.images3[3],array.images3[4],array.images3[5],
                         array.images3[6],array.images3[7],array.images3[8],array.images3[9],array.images3[10],array.images3[11],array.images3[12],
                         array.images3[13],array.images3[14],array.images3[15],array.images3[16],array.images3[17],array.images3[18],array.images3[19],
