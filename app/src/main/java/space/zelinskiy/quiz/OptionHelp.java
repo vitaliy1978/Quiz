@@ -112,7 +112,12 @@ public class OptionHelp extends AppCompatActivity {
         });
 
         final TextView texOptliders = (TextView) findViewById(R.id.texOpt_liders);
+        final TextView texOptMark = (TextView) findViewById(R.id.textOpt_mark);
         final TextView texOptShare = (TextView) findViewById(R.id.textOpt_share);
+
+        texOptliders.setVisibility(View.INVISIBLE);
+        texOptMark.setVisibility(View.INVISIBLE);
+        texOptShare.setVisibility(View.INVISIBLE);
 
 //        texOptliders.setOnClickListener(new View.OnClickListener() {
 //            @Override

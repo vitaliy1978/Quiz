@@ -56,7 +56,7 @@ public class Level5 extends AppCompatActivity {
     final int last =0;
     public String text="";
     Toast liderToast;
-    public InterstitialAd interstitialAd; //реклама
+//    public InterstitialAd interstitialAd; //реклама
     public int transition=0;
 
     @Override
@@ -64,36 +64,36 @@ public class Level5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
-        //Реклама - Начало
-        MobileAds.initialize(this,"ca-app-pub-1705626811473073~7057538148");  //идентификатор приложения
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //идентификатор рекламного блока - пока тестовый
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        // Реклама - Конец
-
-        //Закрытие рекламы на крестик
-        interstitialAd.setAdListener(new AdListener(){
-            @Override
-            public void onAdClosed() {
-                try{
-                    switch(transition){
-                        case 0: break;
-                        case 1:Intent intent = new Intent(Level5.this,Level5.class);
-                        intent.putExtra("numlev", numlev + 1);
-                        startActivity(intent);
-                        finish(); break;
-                        case 2:Intent intent1 = new Intent(Level5.this,GameLevels.class);
-                            startActivity(intent1);finish(); break;
-                        default:break;
-                    }
-
-                }catch (Exception e){
-                    //пусто
-                }
-            }
-        });
-        //Закрытие рекламы на крестик
+//        //Реклама - Начало
+//        MobileAds.initialize(this,"ca-app-pub-1705626811473073~7057538148");  //идентификатор приложения
+//        interstitialAd = new InterstitialAd(this);
+//        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //идентификатор рекламного блока - пока тестовый
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        interstitialAd.loadAd(adRequest);
+//        // Реклама - Конец
+//
+//        //Закрытие рекламы на крестик
+//        interstitialAd.setAdListener(new AdListener(){
+//            @Override
+//            public void onAdClosed() {
+//                try{
+//                    switch(transition){
+//                        case 0: break;
+//                        case 1:Intent intent = new Intent(Level5.this,Level5.class);
+//                        intent.putExtra("numlev", numlev + 1);
+//                        startActivity(intent);
+//                        finish(); break;
+//                        case 2:Intent intent1 = new Intent(Level5.this,GameLevels.class);
+//                            startActivity(intent1);finish(); break;
+//                        default:break;
+//                    }
+//
+//                }catch (Exception e){
+//                    //пусто
+//                }
+//            }
+//        });
+//        //Закрытие рекламы на крестик
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
@@ -425,10 +425,10 @@ public class Level5 extends AppCompatActivity {
         button_close2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {   //если реклама загружена
-                    transition = 2;
-                    interstitialAd.show();    //показать рекламу
-                } else {
+//                if (interstitialAd.isLoaded()) {   //если реклама загружена
+//                    transition = 2;
+//                    interstitialAd.show();    //показать рекламу
+//                } else {
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
                         startActivity(intent);
@@ -438,7 +438,7 @@ public class Level5 extends AppCompatActivity {
                     }
                     dialog.dismiss();  //закрываем диалоговое окно
                 }
-            }
+//            }
         });
         // Кнопка которая закрывает диалоговое окно - Конец
 
@@ -449,10 +449,10 @@ public class Level5 extends AppCompatActivity {
         btn_continue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()){   //если реклама загружена
-                    transition=1;
-                    interstitialAd.show();    //показать рекламу
-                } else {
+//                if (interstitialAd.isLoaded()){   //если реклама загружена
+//                    transition=1;
+//                    interstitialAd.show();    //показать рекламу
+//                } else {
                     if (numlev < 22) {
                         try {
                             Intent intent = new Intent(Level5.this, Level5.class);
@@ -474,7 +474,7 @@ public class Level5 extends AppCompatActivity {
                     }
 
                     dialogEnd.dismiss();  //закрываем диалоговое окно
-                }
+//                }
             }
         });
         //Кнопка Продолжить - Конец
@@ -567,10 +567,10 @@ public class Level5 extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitialAd.isLoaded()){   //если реклама загружена
-                    transition=2;
-                    interstitialAd.show();    //показать рекламу
-                }else {
+//                if (interstitialAd.isLoaded()){   //если реклама загружена
+//                    transition=2;
+//                    interstitialAd.show();    //показать рекламу
+//                }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -584,7 +584,7 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-                }
+//                }
             }
         });
         //Кнопка Назад - Конец
@@ -1094,10 +1094,10 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
-        if (interstitialAd.isLoaded()){   //если реклама загружена
-            transition=2;
-            interstitialAd.show();    //показать рекламу
-        }else {
+//        if (interstitialAd.isLoaded()){   //если реклама загружена
+//            transition=2;
+//            interstitialAd.show();    //показать рекламу
+//        }else {
 
             if (!musicotschet.isPlaying()) {
                 try {
@@ -1114,7 +1114,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
 
                 }
             }
-        }
+//        }
     }
     //системная кнопка Назад - конец
     @Override
