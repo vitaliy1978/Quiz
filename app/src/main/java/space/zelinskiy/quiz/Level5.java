@@ -57,6 +57,7 @@ public class Level5 extends AppCompatActivity {
     public String text="";
     Toast liderToast;
     public InterstitialAd interstitialAd; //реклама
+    public int transition=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +77,17 @@ public class Level5 extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 try{
-                    Intent intent = new Intent(Level5.this,GameLevels.class);
-                    startActivity(intent);finish();
+                    switch(transition){
+                        case 0: break;
+                        case 1:Intent intent = new Intent(Level5.this,Level5.class);
+                        intent.putExtra("numlev", numlev + 1);
+                        startActivity(intent);
+                        finish(); break;
+                        case 2:Intent intent1 = new Intent(Level5.this,GameLevels.class);
+                            startActivity(intent1);finish(); break;
+                        default:break;
+                    }
+
                 }catch (Exception e){
                     //пусто
                 }
@@ -415,14 +425,19 @@ public class Level5 extends AppCompatActivity {
         button_close2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(Level5.this,GameLevels.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e) {
+                if (interstitialAd.isLoaded()) {   //если реклама загружена
+                    transition = 2;
+                    interstitialAd.show();    //показать рекламу
+                } else {
+                    try {
+                        Intent intent = new Intent(Level5.this, GameLevels.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception e) {
 
+                    }
+                    dialog.dismiss();  //закрываем диалоговое окно
                 }
-                dialog.dismiss();  //закрываем диалоговое окно
             }
         });
         // Кнопка которая закрывает диалоговое окно - Конец
@@ -434,28 +449,32 @@ public class Level5 extends AppCompatActivity {
         btn_continue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (numlev<22) {
-                    try {
-                        Intent intent = new Intent(Level5.this, Level5.class);
-                        intent.putExtra("numlev", numlev + 1);
-                        startActivity(intent);
-                        finish();
-                    } catch (Exception e) {
+                if (interstitialAd.isLoaded()){   //если реклама загружена
+                    transition=1;
+                    interstitialAd.show();    //показать рекламу
+                } else {
+                    if (numlev < 22) {
+                        try {
+                            Intent intent = new Intent(Level5.this, Level5.class);
+                            intent.putExtra("numlev", numlev + 1);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e) {
 
-                    }
-               }
-                else{
-                    try {
-                        Intent intent = new Intent(Level5.this, GameLevels.class);
-                        intent.putExtra("numlev", numlev);
-                        startActivity(intent);
-                        finish();
-                    } catch (Exception e) {
+                        }
+                    } else {
+                        try {
+                            Intent intent = new Intent(Level5.this, GameLevels.class);
+                            intent.putExtra("numlev", numlev);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e) {
 
+                        }
                     }
+
+                    dialogEnd.dismiss();  //закрываем диалоговое окно
                 }
-
-                dialogEnd.dismiss();  //закрываем диалоговое окно
             }
         });
         //Кнопка Продолжить - Конец
@@ -548,9 +567,10 @@ public class Level5 extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //    if (interstitialAd.isLoaded()){
-             //       interstitialAd.show();  //показать рекламу
-             //   }else {
+                if (interstitialAd.isLoaded()){   //если реклама загружена
+                    transition=2;
+                    interstitialAd.show();    //показать рекламу
+                }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -564,7 +584,7 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-             //   }
+                }
             }
         });
         //Кнопка Назад - Конец
@@ -1074,19 +1094,25 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=13 && numlev!=14
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
-        if (!musicotschet.isPlaying()) {
-            try {
-                musicfon.stop();
-                fanfary1.stop();
-                fanfary2.stop();
-                timeend.stop();
-                start=0;
-                sekost=50001;
-                Intent intent = new Intent(Level5.this, GameLevels.class);
-                startActivity(intent);
-                finish();
-            } catch (Exception e) {
+        if (interstitialAd.isLoaded()){   //если реклама загружена
+            transition=2;
+            interstitialAd.show();    //показать рекламу
+        }else {
 
+            if (!musicotschet.isPlaying()) {
+                try {
+                    musicfon.stop();
+                    fanfary1.stop();
+                    fanfary2.stop();
+                    timeend.stop();
+                    start = 0;
+                    sekost = 50001;
+                    Intent intent = new Intent(Level5.this, GameLevels.class);
+                    startActivity(intent);
+                    finish();
+                } catch (Exception e) {
+
+                }
             }
         }
     }

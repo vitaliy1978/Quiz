@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private long backPressedTime;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         final Animation aIntro12 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alphamove_intro12);
 
         head1light.setVisibility(View.INVISIBLE);
+
 
         imageIntro1.setVisibility(View.VISIBLE);
         imageIntro1.startAnimation(aIntro1);
