@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="space.zelinskiy.quiz"
+    android:versionCode="2"
+    android:versionName="2.0"
 
     tools:ignore="LockedOrientationActivity">
 
