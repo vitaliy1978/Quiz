@@ -51,13 +51,13 @@ public class Level5 extends AppCompatActivity {
     public int count =0;  //Счетчик правильных ответов
     MediaPlayer musicfon, musicotschet, fanfary1, fanfary2, timeend;
     public int sek=0, sekost=0;  //подсчет секунд и подсчет секунд для остановки после превышения
-    public int numlev, start=0;
+    public int numlev, start=0, twomin=0;
     int min=0, max=0;  //для диапазона в котором будет генерироваться случайное число.
     public int middleResult=0, formiddle=0;  //среднее время за все уровни
     final int last =0;
     public String text="";
-    Toast liderToast;
-//    public InterstitialAd interstitialAd; //реклама
+    //Toast liderToast;
+   // public InterstitialAd interstitialAd; //реклама
     public int transition=0;
 
     @Override
@@ -65,36 +65,54 @@ public class Level5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
-//        //Реклама - Начало
+        //Реклама - Начало
 //        MobileAds.initialize(this,"ca-app-pub-1705626811473073~7057538148");  //идентификатор приложения
 //        interstitialAd = new InterstitialAd(this);
 //        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //идентификатор рекламного блока - пока тестовый
 //        AdRequest adRequest = new AdRequest.Builder().build();
 //        interstitialAd.loadAd(adRequest);
-//        // Реклама - Конец
-//
-//        //Закрытие рекламы на крестик
+        // Реклама - Конец
+
+        //Закрытие рекламы на крестик
 //        interstitialAd.setAdListener(new AdListener(){
 //            @Override
-//            public void onAdClosed() {
-//                try{
-//                    switch(transition){
-//                        case 0: break;
-//                        case 1:Intent intent = new Intent(Level5.this,Level5.class);
-//                        intent.putExtra("numlev", numlev + 1);
-//                        startActivity(intent);
-//                        finish(); break;
-//                        case 2:Intent intent1 = new Intent(Level5.this,GameLevels.class);
-//                            startActivity(intent1);finish(); break;
-//                        default:break;
+ //           public void onAdClosed() {
+ //               try{
+ //                   switch(transition){
+ //                       case 0: break;
+//                        case 1:
+ //                           if (numlev<21){
+//                                Intent intent = new Intent(Level5.this,Level5.class);
+//                                intent.putExtra("numlev", numlev + 1);
+ //                               startActivity(intent);
+//                                finish(); break;
+ //                           }else{
+//                                Intent intent = new Intent(Level5.this,Finish.class);
+//                                startActivity(intent);
+ //                               finish(); break;
+//                            }
+//
+//                        case 2:
+//                            if (numlev<21){
+ //                               Intent intent1 = new Intent(Level5.this,GameLevels.class);
+ //                               startActivity(intent1);finish(); break;
+//                            }else{
+ //                               Intent intent1 = new Intent(Level5.this,Finish.class);
+ //                               startActivity(intent1);finish(); break;
+ //                           }
+//                        case 3:
+ //                               Intent intent1 = new Intent(Level5.this,GameLevels.class);
+ //                               startActivity(intent1);finish(); break;
+//
+ //                       default:break;
 //                    }
 //
-//                }catch (Exception e){
+//              }catch (Exception e){
 //                    //пусто
 //                }
 //            }
 //        });
-//        //Закрытие рекламы на крестик
+        //Закрытие рекламы на крестик
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
@@ -372,6 +390,7 @@ public class Level5 extends AppCompatActivity {
         dialog.setCancelable(false);  //окно нельзя открыть кнопкой назад
 
         final String country = Locale.getDefault().getCountry();
+        twomin=0;
 
         if ((country=="RU") && (numlev==2)){
             //Устанавливаем картинку в диалоговое окно - Начало
@@ -432,10 +451,11 @@ public class Level5 extends AppCompatActivity {
         button_close2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (interstitialAd.isLoaded()) {   //если реклама загружена
+//                if ((interstitialAd.isLoaded() && (twomin==0))) {   //если реклама загружена
 //                    transition = 2;
 //                    interstitialAd.show();    //показать рекламу
 //                } else {
+                if (numlev<21){
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
                         startActivity(intent);
@@ -443,9 +463,19 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-                    dialog.dismiss();  //закрываем диалоговое окно
+                }else{
+                    try {
+                        Intent intent = new Intent(Level5.this, Finish.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception e) {
+
+                    }
                 }
-//            }
+
+                    dialog.dismiss();  //закрываем диалоговое окно
+//                }
+            }
         });
         // Кнопка которая закрывает диалоговое окно - Конец
 
@@ -458,7 +488,7 @@ public class Level5 extends AppCompatActivity {
             public void onClick(View v) {
 //                if (interstitialAd.isLoaded()){   //если реклама загружена
 //                    transition=1;
-//                    interstitialAd.show();    //показать рекламу
+ //                   interstitialAd.show();    //показать рекламу
 //                } else {
                     if (numlev < 21) {
                         try {
@@ -471,7 +501,7 @@ public class Level5 extends AppCompatActivity {
                         }
                     } else {
                         try {
-                            Intent intent = new Intent(Level5.this, GameLevels.class);
+                            Intent intent = new Intent(Level5.this, Finish.class);
                             intent.putExtra("numlev", numlev);
                             startActivity(intent);
                             finish();
@@ -545,6 +575,7 @@ public class Level5 extends AppCompatActivity {
                                                 timeend.start();
                                             }
                                             start=0;
+                                            twomin=1;
                                             preview_img_viktory.setVisibility(View.GONE);  //Прячем радостный смайлик
                                             main_img_lose.setVisibility(View.VISIBLE);  //Выводим грустный смайлик
                                             textdescribtionEnd.setText(R.string.levelEnd);
@@ -574,10 +605,10 @@ public class Level5 extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (interstitialAd.isLoaded()){   //если реклама загружена
-//                    transition=2;
+ //               if (interstitialAd.isLoaded()){   //если реклама загружена
+ //                   transition=3;
 //                    interstitialAd.show();    //показать рекламу
-//                }else {
+ //               }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -664,19 +695,19 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
             text_right.setText(masOfTextMas[numlev-1][numRight]);  //достаем из массива текст
         }
 
-        final ClickableSpan clickableSpan1 = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                liderToast = Toast.makeText(getBaseContext(),getString(R.string.level_last4),Toast.LENGTH_SHORT);
-                liderToast.show();
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(Color.BLUE);
-            }
-        };
+//        final ClickableSpan clickableSpan1 = new ClickableSpan() {
+//            @Override
+//            public void onClick(@NonNull View widget) {
+//                liderToast = Toast.makeText(getBaseContext(),getString(R.string.level_last4),Toast.LENGTH_SHORT);
+//                liderToast.show();
+//            }
+//
+//            @Override
+//            public void updateDrawState(@NonNull TextPaint ds) {
+//                super.updateDrawState(ds);
+//                ds.setColor(Color.BLUE);
+//            }
+//        };
 
         //Обрабатываем нажатие на левую картинку - Начало
         img_left.setOnTouchListener(new View.OnTouchListener() {
@@ -743,20 +774,17 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                         {
                               if (numlev<21 || last==1){
                                 textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
-//                                for (int i = 0; i < level; i++) {
-//                                    middleResult = middleResult + array.rezult[i];
-//                                    if (array.rezult[i]>0){
-//                                        formiddle++;
-//                                    }
-//                                }
-//                                middleResult = middleResult / formiddle;
-//                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-//                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-//                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
-//                                SpannableString boldtext = new SpannableString(text);
-//                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                                textdescribtionEnd.setText(boldtext);
-//                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                  for (int i = 0; i < level; i++) {
+                                      middleResult = middleResult + array.rezult[i];
+                                      if (array.rezult[i]>0){
+                                          formiddle++;
+                                      }
+                                  }
+                                  middleResult = middleResult / formiddle;
+
+                                  SharedPreferences.Editor editor2 = save.edit();
+                                  editor2.putInt("middleResult".toString(), middleResult);
+                                  editor2.commit();
                            }
                             if (numlev>=21 && last==0){
                                 btn_continue2.setVisibility(View.INVISIBLE);
@@ -767,13 +795,11 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\n"+getString(R.string.level_last6);
-                                SpannableString boldtext = new SpannableString(text);
-                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                textdescribtionEnd.setText(boldtext);
-                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -787,20 +813,17 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                             if (numlev<21 || last==1) {
                                 textdescribtionEnd.setText(getString(R.string.level_end_rec1)+"\n"+getString(R.string.level_end_rec2)+ String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100))
                                         + "\n"+getString(R.string.level_end_rec3));
-//                                for (int i = 0; i < level; i++) {
-//                                    middleResult = middleResult + array.rezult[i];
-//                                    if (array.rezult[i]>0){
-//                                        formiddle++;
-//                                    }
-//                                }
-//                                middleResult = middleResult / formiddle;
-//                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-//                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-//                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
-//                                SpannableString boldtext = new SpannableString(text);
-//                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                                textdescribtionEnd.setText(boldtext);
-//                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
                             }
                             if (numlev>=21 && last==0){
                                 btn_continue2.setVisibility(View.INVISIBLE);
@@ -811,13 +834,11 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\n"+getString(R.string.level_last6);
-                                SpannableString boldtext = new SpannableString(text);
-                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                textdescribtionEnd.setText(boldtext);
-                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -989,20 +1010,17 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                             }
                             if (numlev<21 || last==1){
                                 textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
-//                                for (int i = 0; i < level; i++) {
-//                                    middleResult = middleResult + array.rezult[i];
-//                                    if (array.rezult[i]>0){
-//                                        formiddle++;
-//                                    }
-//                                }
-//                                middleResult = middleResult / formiddle;
-//                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-//                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-//                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
-//                                SpannableString boldtext = new SpannableString(text);
-//                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                                textdescribtionEnd.setText(boldtext);
-//                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
 
                             }
                             if (numlev>=21 && last==0){
@@ -1014,13 +1032,11 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\n"+getString(R.string.level_last6);
-                                SpannableString boldtext = new SpannableString(text);
-                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                textdescribtionEnd.setText(boldtext);
-                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1034,20 +1050,17 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                             if (numlev<21 || last==1) {
                                 textdescribtionEnd.setText(getString(R.string.level_end_rec1)+"\n"+getString(R.string.level_end_rec2)+ String.format("%d.%02d", array.rezult[numlev - 1] / 100, (array.rezult[numlev - 1] % 100))
                                         + "\n"+getString(R.string.level_end_rec3));
-//                                for (int i = 0; i < level; i++) {
-//                                    middleResult = middleResult + array.rezult[i];
-//                                    if (array.rezult[i]>0){
-//                                        formiddle++;
-//                                    }
-//                                }
-//                                middleResult = middleResult / formiddle;
-//                                text ="Поздравляю!\nВы справились за " + String.format("%d.%02d", sek / 100, (sek % 100))
-//                                        +"\nДобро пожаловать в "+"\nсписок лидеров."+"\nВаше среднее время за все уровни: "+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-//                                        +"\nВы можете пройти любой уровень ещё раз и улучшить свой результат.";
-//                                SpannableString boldtext = new SpannableString(text);
-//                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//                                textdescribtionEnd.setText(boldtext);
-//                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                for (int i = 0; i < level; i++) {
+                                    middleResult = middleResult + array.rezult[i];
+                                    if (array.rezult[i]>0){
+                                        formiddle++;
+                                    }
+                                }
+                                middleResult = middleResult / formiddle;
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
                             }
                             if (numlev>=21 && last==0){
                                 btn_continue2.setVisibility(View.INVISIBLE);
@@ -1058,13 +1071,11 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                     }
                                 }
                                 middleResult = middleResult / formiddle;
-                                text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last2) + String.format("%d.%02d", sek / 100, (sek % 100))
-                                        +"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
-                                        +"\n"+getString(R.string.level_last6);
-                                SpannableString boldtext = new SpannableString(text);
-                                boldtext.setSpan(clickableSpan1, 54, 69, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                textdescribtionEnd.setText(boldtext);
-                                textdescribtionEnd.setMovementMethod(LinkMovementMethod.getInstance());
+                                textdescribtionEnd.setText(getString(R.string.level_end1)+"\n"+getString(R.string.level_end2)+String.format("%d.%02d", sek / 100, (sek % 100))+"\n"+getString(R.string.level_end3));
+
+                                SharedPreferences.Editor editor2 = save.edit();
+                                editor2.putInt("middleResult".toString(), middleResult);
+                                editor2.commit();
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1171,9 +1182,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
-//        if (interstitialAd.isLoaded()){   //если реклама загружена
-//            transition=2;
-//            interstitialAd.show();    //показать рекламу
+ //       if (interstitialAd.isLoaded()){   //если реклама загружена
+ //           transition=3;
+ //           interstitialAd.show();    //показать рекламу
 //        }else {
 
             if (!musicotschet.isPlaying()) {
@@ -1191,7 +1202,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
 
                 }
             }
-//        }
+ //       }
     }
     //системная кнопка Назад - конец
     @Override
