@@ -48,32 +48,35 @@ public class Finish extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finish);
 
+
+
         final String country = Locale.getDefault().getCountry();
 
         manager = ReviewManagerFactory.create(Finish.this);
-        Task<ReviewInfo> request = manager.requestReviewFlow();
-        request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
-            @Override
-            public void onComplete(@NonNull Task<ReviewInfo> task) {
-                if (task.isSuccessful()){
-                    reviewInfo = task.getResult();
-                    Task<Void> flow = manager.launchReviewFlow(Finish.this,reviewInfo);
+        final Task<ReviewInfo> request = manager.requestReviewFlow();
+//        request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
+//            @Override
+//            public void onComplete(@NonNull Task<ReviewInfo> task) {
+//                if (task.isSuccessful()){
+//                    reviewInfo = task.getResult();
+//                    Task<Void> flow = manager.launchReviewFlow(Finish.this,reviewInfo);
+//
+//                    flow.addOnSuccessListener(new OnSuccessListener<Void>() {
+//                        @Override
+//                        public void onSuccess(Void result) {
+//                         Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                }else{
+//                    //временный Тоаст для тестирования
+//                   // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
-                    flow.addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void result) {
-
-                        }
-                    });
-                }else{
-                    //временный Тоаст для тестирования
-                    Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    TextView back_game = (TextView) findViewById(R.id.button_close);
+    final TextView back_game = (TextView) findViewById(R.id.button_close);
     TextView textdescription = (TextView) findViewById(R.id.text_description_final);
+    TextView textOptMark =(TextView)findViewById(R.id.textOpt_mark);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
@@ -91,33 +94,62 @@ public class Finish extends AppCompatActivity {
             }
         });
 
+        textOptMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
+            @Override
+            public void onComplete(@NonNull Task<ReviewInfo> task) {
+                if (task.isSuccessful()){
+                    reviewInfo = task.getResult();
+                    Task<Void> flow = manager.launchReviewFlow(Finish.this,reviewInfo);
+
+                    flow.addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void result) {
+                         //Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    //временный Тоаст для тестирования
+                   // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+            }
+        });
+
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        final ClickableSpan clickableSpan1 = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                liderToast = Toast.makeText(getBaseContext(),getString(R.string.level_last4),Toast.LENGTH_SHORT);
-                liderToast.show();
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(Color.BLUE);
-            }
-        };
-
-        text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last3)+"\n"+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
+//        final ClickableSpan clickableSpan1 = new ClickableSpan() {
+//            @Override
+//            public void onClick(@NonNull View widget) {
+//                liderToast = Toast.makeText(getBaseContext(),getString(R.string.level_last4),Toast.LENGTH_SHORT);
+//                liderToast.show();
+//            }
+//
+//            @Override
+//            public void updateDrawState(@NonNull TextPaint ds) {
+//                super.updateDrawState(ds);
+//                ds.setColor(Color.BLUE);
+//            }
+//        };
+//
+        text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last3)+" "+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
                 +"\n"+getString(R.string.level_last6);
-        SpannableString boldtext = new SpannableString(text);
-        if (country=="RU"){
-            boldtext.setSpan(clickableSpan1, 32, 47, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }else{
-            boldtext.setSpan(clickableSpan1, 28, 40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        textdescription.setText(boldtext);
-        textdescription.setMovementMethod(LinkMovementMethod.getInstance());
+        textdescription.setText(text);
+//        SpannableString boldtext = new SpannableString(text);
+//        if (country=="RU"){
+//            boldtext.setSpan(clickableSpan1, 32, 47, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        }else{
+//            boldtext.setSpan(clickableSpan1, 28, 40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        }
+//        textdescription.setText(boldtext);
+//        textdescription.setMovementMethod(LinkMovementMethod.getInstance());
 
     }
     //системная кнопка Назад - начало

@@ -11,9 +11,18 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.OnCompleteListener;
+import com.google.android.play.core.tasks.OnSuccessListener;
+import com.google.android.play.core.tasks.Task;
+
 import java.util.Locale;
+import java.util.logging.Level;
 
 public class OptionHelp extends AppCompatActivity {
 
@@ -21,6 +30,8 @@ public class OptionHelp extends AppCompatActivity {
     boolean voiceof =false;
     String muzofStr ="";
     String voiceofStr ="";
+    ReviewManager manager;
+    ReviewInfo reviewInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +45,7 @@ public class OptionHelp extends AppCompatActivity {
         final Switch switchVoice = findViewById(R.id.switchVoice);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        final int level = save.getInt("Level", 1);
         switchMuz.setChecked(save.getBoolean("statusMuz", false));   //берем данные о положении выключателя
         switchVoice.setChecked(save.getBoolean("statusVoice", false));  //берем данные о положении выключателя
         muzofStr = save.getString("muzofStr", muzofStr);
@@ -111,13 +123,51 @@ public class OptionHelp extends AppCompatActivity {
             }
         });
 
-        final TextView texOptliders = (TextView) findViewById(R.id.texOpt_liders);
-        final TextView texOptMark = (TextView) findViewById(R.id.textOpt_mark);
-        final TextView texOptShare = (TextView) findViewById(R.id.textOpt_share);
+        final TextView textOptliders = (TextView) findViewById(R.id.texOpt_liders);
+        final TextView textOptMark = (TextView) findViewById(R.id.textOpt_mark);
+        final TextView textOptShare = (TextView) findViewById(R.id.textOpt_share);
 
-        texOptliders.setVisibility(View.INVISIBLE);
-        texOptMark.setVisibility(View.INVISIBLE);
-        texOptShare.setVisibility(View.INVISIBLE);
+        manager = ReviewManagerFactory.create(OptionHelp.this);
+        final Task<ReviewInfo> request = manager.requestReviewFlow();
+
+        textOptMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
+                    @Override
+                    public void onComplete(@NonNull Task<ReviewInfo> task) {
+                        if (task.isSuccessful()){
+                            reviewInfo = task.getResult();
+                            Task<Void> flow = manager.launchReviewFlow(OptionHelp.this,reviewInfo);
+
+                            flow.addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void result) {
+                                    //Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else{
+                            //временный Тоаст для тестирования
+                            // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            }
+        });
+
+
+       // texOptliders.setVisibility(View.INVISIBLE);
+       // texOptShare.setVisibility(View.INVISIBLE);
+
+        if (level<=2){
+            textOptMark.setVisibility(View.INVISIBLE);
+        }
+
+        if (level>2){
+            textOptMark.setVisibility(View.VISIBLE);
+        }
 
 //        texOptliders.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -126,7 +176,7 @@ public class OptionHelp extends AppCompatActivity {
 //                texOptliders.setText(country.toString());
 //            }
 //        });
-               texOptShare.setOnClickListener(new View.OnClickListener() {
+               textOptShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String message = getString(R.string.link_game);

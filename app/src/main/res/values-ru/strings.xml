@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Быстрый выбор</string>
-    <string name="link_game">Ссылка на игру</string>
-    <string name="chuserTitle">Выберите кому отправить\nссылку на игру</string>
+    <string name="link_game">https://play.google.com/store/apps/details?id=space.zelinskiy.quiz</string>
+    <string name="chuserTitle">Отправить ссылку на игру</string>
     <string name="start">Играть</string>
     <string name="back">Назад</string>
     <string name="head_name">БЫСТРЫЙ</string>
@@ -23,7 +23,7 @@
     <string name="level_last1">Поздравляю!"</string>
     <string name="level_last2">Вы справились за "</string>
     <string name="level_last3">Добро пожаловать в "</string>
-    <string name="level_last4">Список лидеров."</string>
+    <string name="level_last4">список лидеров."</string>
     <string name="level_last5">Ваше среднее время за все уровни: "</string>
     <string name="level_last6">Вы можете пройти любой уровень ещё раз и улучшить свой результат."</string>
     <string name="btnBacktwice">Нажмите еще раз чтобы выйти</string>
