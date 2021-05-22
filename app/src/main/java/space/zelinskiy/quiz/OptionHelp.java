@@ -3,6 +3,7 @@ package space.zelinskiy.quiz;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -46,8 +47,8 @@ public class OptionHelp extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
-        switchMuz.setChecked(save.getBoolean("statusMuz", false));   //берем данные о положении выключателя
-        switchVoice.setChecked(save.getBoolean("statusVoice", false));  //берем данные о положении выключателя
+        switchMuz.setChecked(save.getBoolean("statusMuz", true));   //берем данные о положении выключателя
+        switchVoice.setChecked(save.getBoolean("statusVoice", true));  //берем данные о положении выключателя
         muzofStr = save.getString("muzofStr", muzofStr);
         voiceofStr = save.getString("voiceofStr", voiceofStr);
        // switchMuz.setText(muzofStr.toString());
@@ -130,10 +131,11 @@ public class OptionHelp extends AppCompatActivity {
         manager = ReviewManagerFactory.create(OptionHelp.this);
         final Task<ReviewInfo> request = manager.requestReviewFlow();
 
+
+
         textOptMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
                     @Override
                     public void onComplete(@NonNull Task<ReviewInfo> task) {
@@ -176,9 +178,36 @@ public class OptionHelp extends AppCompatActivity {
 //                texOptliders.setText(country.toString());
 //            }
 //        });
-               textOptShare.setOnClickListener(new View.OnClickListener() {
+//        textOptliders.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction()==MotionEvent.ACTION_DOWN){
+//                    textOptliders.setElevation(3);
+//                }
+//                if(event.getAction()==MotionEvent.ACTION_UP){
+//                    textOptliders.setElevation(12);
+//                }
+//                return true;
+//            }
+//        });
+
+            textOptShare.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction()==MotionEvent.ACTION_DOWN){
+                        textOptShare.setElevation(3);
+                    }
+                    if(event.getAction()==MotionEvent.ACTION_UP){
+                        textOptShare.setElevation(50);
+                    }
+                    return false;
+                    }
+            });
+
+            textOptShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textOptShare.setElevation(2);
                 String message = getString(R.string.link_game);
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");

@@ -132,7 +132,8 @@
                             android:layout_margin="6dp"
                             android:layout_weight="1"
                             android:background="@drawable/button_gamelevels"
-                            android:elevation="2dp"
+                            android:elevation="4dp"
+                            android:theme="@style/Your.Button"
                             android:gravity="center_vertical"
                             android:paddingLeft="15dp"
                             android:paddingRight="10dp"
@@ -183,6 +184,7 @@
                             android:layout_margin="6dp"
                             android:fontFamily="@font/roboto"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textColor="@color/dark_blue"
                             android:textSize="21sp" />
 
@@ -228,7 +230,8 @@
                             android:textColor="@color/dark_blue"
                             android:fontFamily="@font/roboto"
                             android:layout_margin="6dp"
-                            android:elevation="2dp"
+                            android:elevation="4dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock3"
@@ -272,6 +275,7 @@
                             android:fontFamily="@font/roboto"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock4"
@@ -317,6 +321,7 @@
                             android:fontFamily="@font/roboto"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/imglock5"
@@ -356,6 +361,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/button_gamelevels"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:gravity="center_vertical"
                             android:fontFamily="@font/roboto"
                             android:paddingLeft="15dp"
@@ -407,6 +413,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock7"
@@ -452,6 +459,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock8"
@@ -497,6 +505,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock9"
@@ -542,6 +551,7 @@
                             android:layout_margin="6dp"
                             android:fontFamily="@font/roboto"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock10"
@@ -587,6 +597,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock11"
@@ -632,6 +643,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock12"
@@ -677,6 +689,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock13"
@@ -722,6 +735,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock14"
@@ -767,6 +781,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock15"
@@ -812,6 +827,7 @@
                             android:layout_margin="6dp"
                             android:fontFamily="@font/roboto"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock16"
@@ -857,6 +873,7 @@
                             android:layout_margin="6dp"
                             android:fontFamily="@font/roboto"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock17"
@@ -901,6 +918,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock18"
@@ -946,6 +964,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock19"
@@ -991,6 +1010,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock20"
@@ -1037,6 +1057,7 @@
                             android:textColor="@color/dark_blue"
                             android:layout_margin="6dp"
                             android:elevation="2dp"
+                            android:theme="@style/Your.Button"
                             android:textSize="21sp"/>
                         <ImageView
                             android:id="@+id/img_lock21"

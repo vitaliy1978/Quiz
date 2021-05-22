@@ -14,4 +14,10 @@
         <!--    <item name="android:colorForeground">@color/colorAccent</item> -->
     </style>
 
+    <style name="Your.Button" parent="android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/button_gamelevels
+        </item>
+    </style>
+
+
 </resources>

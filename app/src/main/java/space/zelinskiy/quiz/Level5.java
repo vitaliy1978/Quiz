@@ -1,11 +1,13 @@
 package space.zelinskiy.quiz;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -59,6 +61,7 @@ public class Level5 extends AppCompatActivity {
     //Toast liderToast;
    // public InterstitialAd interstitialAd; //реклама
     public int transition=0;
+    AudioManager audio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +120,8 @@ public class Level5 extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
         final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
+
+        audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE); //для регулирования громкости
 
         Intent intent =getIntent();  //получить intent
         numlev  = intent.getIntExtra("numlev",1);  //метод getStringExtra читает строку
@@ -1214,5 +1219,18 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
         timeend.stop();
         start=0;
         sekost=50001;
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);   //выключаем гроскость при сворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);    //возвращаем гроскость при разворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, false);
     }
 }
