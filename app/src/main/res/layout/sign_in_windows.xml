@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/emailField"
             android:hint="@string/login_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:text=""
             android:textColor="@color/dark_blue"
             android:textColorHint="@color/blue"

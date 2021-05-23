@@ -56,7 +56,7 @@ public class Finish extends AppCompatActivity {
     private long backPressedTime;
     private Toast backToast;
     MediaPlayer headfly;
-    String text;
+    String text, login;
     Toast liderToast;
     final int middleResult=0;
     FirebaseAuth auth;
@@ -199,7 +199,7 @@ public class Finish extends AppCompatActivity {
                     Snackbar.make(finishLayout,R.string.password_registration, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                auth.signInWithEmailAndPassword(email.getText().toString()+"@mail.ru", password.getText().toString())
                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -236,31 +236,36 @@ public class Finish extends AppCompatActivity {
         dialod.setPositiveButton(R.string.ok_registration, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                if (TextUtils.isEmpty(email.getText().toString())){
-                    Snackbar.make(finishLayout,R.string.name_registration, Snackbar.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email.getText().toString())) {
+                    Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if (password.getText().toString().length()<5){
-                    Snackbar.make(finishLayout,R.string.password_registration, Snackbar.LENGTH_SHORT).show();
+                if (password.getText().toString().length() < 5) {
+                    Snackbar.make(finishLayout, R.string.password_registration, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
 
                 //регистрация пользователя
-                auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                auth.createUserWithEmailAndPassword(email.getText().toString() + "@mail.ru", password.getText().toString())
                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 User user = new User();
-                                user.setName(email.getText().toString());
+                                user.setName(email.getText().toString() + "@mail.ru");
                                 user.setPass(password.getText().toString());
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                              Snackbar.make(finishLayout,R.string.add_registration, Snackbar.LENGTH_SHORT).show();
+                                                Snackbar.make(finishLayout, R.string.add_registration, Snackbar.LENGTH_SHORT).show();
                                             }
-                                        });
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Snackbar.make(finishLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                    }
+                                });
                             }
                         });
             }
