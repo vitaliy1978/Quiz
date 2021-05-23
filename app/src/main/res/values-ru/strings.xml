@@ -12,6 +12,16 @@
     <string name="level3">Уровень 3</string>
     <string name="level4">Уровень 4</string>
     <string name="level5">Уровень 5</string>
+    <string name="login_hint">Имя</string>
+    <string name="password_hint">Пароль</string>
+    <string name="title_registration">Зарегистрироваться</string>
+    <string name="head_registration">Введите данные для регистрации</string>
+    <string name="back_registration">Отмена</string>
+    <string name="ok_registration">ОК</string>
+    <string name="name_registration">Введите ваше имя</string>
+    <string name="password_registration">Введите пароль более 5 символов</string>
+    <string name="add_registration">Пользователь добавлен</string>
+    <string name="error_registration">Ошибка авторизации </string>
     <string name="text_continue">Начать игру</string>
     <string name="text_continue_next">Cледующий уровень</string>
     <string name="level_end1">Уровень пройден."</string>

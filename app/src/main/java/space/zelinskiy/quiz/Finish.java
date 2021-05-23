@@ -1,5 +1,6 @@
 package space.zelinskiy.quiz;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,8 +9,10 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,20 +20,34 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseUser;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Locale;
+import java.util.Map;
+
+import space.zelinskiy.quiz.Models.User;
 
 public class Finish extends AppCompatActivity {
 
@@ -42,41 +59,28 @@ public class Finish extends AppCompatActivity {
     String text;
     Toast liderToast;
     final int middleResult=0;
+    FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference users;
+    RelativeLayout finishLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finish);
 
-
-
         final String country = Locale.getDefault().getCountry();
 
         manager = ReviewManagerFactory.create(Finish.this);
         final Task<ReviewInfo> request = manager.requestReviewFlow();
-//        request.addOnCompleteListener(new OnCompleteListener<ReviewInfo>() {
-//            @Override
-//            public void onComplete(@NonNull Task<ReviewInfo> task) {
-//                if (task.isSuccessful()){
-//                    reviewInfo = task.getResult();
-//                    Task<Void> flow = manager.launchReviewFlow(Finish.this,reviewInfo);
-//
-//                    flow.addOnSuccessListener(new OnSuccessListener<Void>() {
-//                        @Override
-//                        public void onSuccess(Void result) {
-//                         Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//                }else{
-//                    //временный Тоаст для тестирования
-//                   // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
 
     final TextView back_game = (TextView) findViewById(R.id.button_close);
     TextView textdescription = (TextView) findViewById(R.id.text_description_final);
     TextView textOptMark =(TextView)findViewById(R.id.textOpt_mark);
+    TextView textOptLiders = findViewById(R.id.textOpt_liders);
+    finishLayout = findViewById(R.id.finish_layout);
+    ImageView image = findViewById(R.id.main_cup);
+
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
@@ -91,6 +95,24 @@ public class Finish extends AppCompatActivity {
                 }catch (Exception e){
 
                 }
+            }
+        });
+
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        users = db.getReference("users");
+
+        textOptLiders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRegisterWindows();
+            }
+        });
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSignInWindows();
             }
         });
 
@@ -121,8 +143,7 @@ public class Finish extends AppCompatActivity {
             }
         });
 
-
-        Window w = getWindow();
+       Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 //        final ClickableSpan clickableSpan1 = new ClickableSpan() {
@@ -152,6 +173,103 @@ public class Finish extends AppCompatActivity {
 //        textdescription.setMovementMethod(LinkMovementMethod.getInstance());
 
     }
+
+    private void showSignInWindows() {
+        AlertDialog.Builder dialod = new AlertDialog.Builder(this);
+        dialod.setTitle(R.string.title_registration);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View sign_in_windows = layoutInflater.inflate(R.layout.sign_in_windows, null);
+        dialod.setView(sign_in_windows);
+        MaterialEditText email = sign_in_windows.findViewById(R.id.emailField);
+        MaterialEditText password = sign_in_windows.findViewById(R.id.passField);
+        dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                dialogInterface.dismiss();
+            }
+        });
+        dialod.setPositiveButton(R.string.ok_registration, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                if (TextUtils.isEmpty(email.getText().toString())){
+                    Snackbar.make(finishLayout,R.string.name_registration, Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.getText().toString().length()<5){
+                    Snackbar.make(finishLayout,R.string.password_registration, Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                        .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                startActivity(new Intent(Finish.this, MapActivity.class));
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Snackbar.make(finishLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
+        dialod.show();
+    }
+
+    private void showRegisterWindows() {
+        AlertDialog.Builder dialod = new AlertDialog.Builder(this);
+        dialod.setTitle(R.string.title_registration);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View register_windows = layoutInflater.inflate(R.layout.register_windows, null);
+        dialod.setView(register_windows);
+        MaterialEditText email = register_windows.findViewById(R.id.emailField);
+        MaterialEditText password = register_windows.findViewById(R.id.passField);
+        dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                dialogInterface.dismiss();
+            }
+        });
+        dialod.setPositiveButton(R.string.ok_registration, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                if (TextUtils.isEmpty(email.getText().toString())){
+                    Snackbar.make(finishLayout,R.string.name_registration, Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.getText().toString().length()<5){
+                    Snackbar.make(finishLayout,R.string.password_registration, Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //регистрация пользователя
+                auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                        .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                User user = new User();
+                                user.setName(email.getText().toString());
+                                user.setPass(password.getText().toString());
+                                users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user)
+                                        .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                              Snackbar.make(finishLayout,R.string.add_registration, Snackbar.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
+                        });
+            }
+        });
+
+        dialod.show();
+    }
+
+
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed() {
