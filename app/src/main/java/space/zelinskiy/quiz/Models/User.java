@@ -1,7 +1,7 @@
 package space.zelinskiy.quiz.Models;
 
 public class User {
-    private String name, pass;
+    private String name, pass, key;
     private int level, middleResult, number;
 
     public User() {
@@ -14,10 +14,11 @@ public class User {
         this.middleResult = middleResult;
     }
 
-    public User(String name, int level, int middleResult) {
+    public User(String name, int level, int middleResult, String key) {
         this.name = name;
         this.level = level;
         this.middleResult = middleResult;
+        this.key = key;
     }
 
 
@@ -41,6 +42,14 @@ public class User {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public int getLevel() {
