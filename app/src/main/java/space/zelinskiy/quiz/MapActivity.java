@@ -14,7 +14,7 @@ import space.zelinskiy.quiz.Models.User;
 public class MapActivity extends AppCompatActivity {
 
     private RecyclerView numbersList;
-    private List<User> result;
+   // private List<User> result;
     private  NumbersAdapter numbersAdapter;
 
 
@@ -23,7 +23,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        result = new ArrayList<>();
+      //  result = new ArrayList<>();
 
         numbersList = findViewById(R.id.toplist);
         numbersList.setHasFixedSize(true);
@@ -31,15 +31,15 @@ public class MapActivity extends AppCompatActivity {
         numbersList.setLayoutManager(linearLayoutManager);
        // linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        createResult();
+    //    createResult();
 
-        numbersAdapter = new NumbersAdapter(result);  //количество элементов списка
+        numbersAdapter = new NumbersAdapter(100);  //количество элементов списка
         numbersList.setAdapter(numbersAdapter );
 
         }
-        private void createResult(){
-            for(int i=0;i<10;i++){
-                result.add(new User("name",5,5));
-            }
-    }
+//        private void createResult(){
+//            for(int i=0;i<10;i++){
+//                result.add(new User("name",5,5));
+//            }
+//    }
 }

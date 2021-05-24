@@ -12,11 +12,11 @@ import space.zelinskiy.quiz.Models.User;
 
 public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberViewHolder> {
 
-    private List<User> list;
+  //  private List<User> list;
 
-    public NumbersAdapter(List<User> list) {
-        this.list = list;
-    }
+  //  public NumbersAdapter(List<User> list) {
+ //       this.list = list;
+  //  }
 
     private static int viewHolderCount;
     private int numberItems;
@@ -29,55 +29,47 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 //     @NonNull
     @Override
     public NumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new NumberViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.number_list_item,parent,false));
-//        Context context = parent.getContext();
-//        int layoutIdForListItem = R.layout.number_list_item;
-//        LayoutInflater layoutInflater = LayoutInflater.from(context);
-//        View view = layoutInflater.inflate(layoutIdForListItem, parent, false);
-//
-//        NumberViewHolder viewHolder = new NumberViewHolder(view);
-//        viewHolder.viewHolderIndex.setText("ViewHolder index: "+viewHolderCount);
-//
-//        viewHolderCount++;
-//
-//        return viewHolder;
+
+        Context context = parent.getContext();
+        int layoutIdForListItem = R.layout.number_list_item;
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        View view = layoutInflater.inflate(layoutIdForListItem, parent, false);
+
+        NumberViewHolder viewHolder = new NumberViewHolder(view);
+        viewHolder.viewHolderIndex.setText("ViewHolder index: "+viewHolderCount);
+
+        viewHolderCount++;
+
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
-        int i=0;
-        User user = list.get(position);
-//        holder.listItemNmberView.setText(i);
-
-        holder.viewHolderIndex.setText(user.getName());
-        holder.viewLevelIndex.setText(user.getLevel());
-        holder.viewAverageIndex.setText(user.getMiddleResult());
-    //    holder.bind(position);
-        i++;
+        holder.bind(position);
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return numberItems;
     }
 
     class  NumberViewHolder extends RecyclerView.ViewHolder{
 
-        TextView listItemNmberView;
+        TextView listItemNumberView;
         TextView viewHolderIndex;
         TextView viewLevelIndex;
         TextView viewAverageIndex;
 
         public NumberViewHolder(@NonNull View itemView) {
             super(itemView);
-            listItemNmberView = itemView.findViewById(R.id.tv_number_item);
+            listItemNumberView = itemView.findViewById(R.id.tv_number_item);
             viewHolderIndex = itemView.findViewById(R.id.tv_holder_item);
             viewLevelIndex = itemView.findViewById(R.id.tv_level_item);
             viewAverageIndex = itemView.findViewById(R.id.tv_average_item);
         }
-//        void bind(int listIndex){
-//            listItemNmberView.setText(String.valueOf(listIndex));
-//        }
+        void bind(int listIndex){
+            listItemNumberView.setText(String.valueOf(listIndex));
+        }
     }
 
 }
