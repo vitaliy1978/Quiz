@@ -58,7 +58,7 @@ public class Finish extends AppCompatActivity {
     MediaPlayer headfly;
     String text, login;
     Toast liderToast;
-    final int middleResult=0;
+    final int middleResult=0, level=1;
     FirebaseAuth auth;
     FirebaseDatabase db;
     DatabaseReference users;
@@ -227,6 +227,11 @@ public class Finish extends AppCompatActivity {
         dialod.setView(register_windows);
         MaterialEditText email = register_windows.findViewById(R.id.emailField);
         MaterialEditText password = register_windows.findViewById(R.id.passField);
+
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        final int middleResult = save.getInt("middleResult", 0);
+        final int level = save.getInt("Level", 1);
+
         dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
@@ -250,9 +255,11 @@ public class Finish extends AppCompatActivity {
                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                User user = new User();
+                                User user = new User("a","a",2,2);
                                 user.setName(email.getText().toString() + "@mail.ru");
                                 user.setPass(password.getText().toString());
+                                user.setLevel(level);
+                                user.setMiddleResult(middleResult);
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<Void>() {

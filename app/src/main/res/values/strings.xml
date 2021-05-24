@@ -37,6 +37,7 @@
     <string name="level_last5">Your average time for all levels: "</string>
     <string name="level_last6">You can pass any level again and improve your result."</string>
     <string name="btnBacktwice">Click again to exit</string>
+    <string name="head_liders">Top players"</string>
     <string name="btn1">The numbers</string>
     <string name="btn2">Roman numerals</string>
     <string name="btn3">Letters</string>

@@ -37,6 +37,7 @@
     <string name="level_last5">Ваше среднее время за все уровни: "</string>
     <string name="level_last6">Вы можете пройти любой уровень ещё раз и улучшить свой результат."</string>
     <string name="btnBacktwice">Нажмите еще раз чтобы выйти</string>
+    <string name="head_liders">Лучшие игроки"</string>
     <string name="btn1">Цифры</string>
     <string name="btn2">Римские цифры</string>
     <string name="btn3">Буквы</string>

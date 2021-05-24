@@ -21,6 +21,8 @@ import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Locale;
 import java.util.logging.Level;
@@ -171,13 +173,13 @@ public class OptionHelp extends AppCompatActivity {
             textOptMark.setVisibility(View.VISIBLE);
         }
 
-//        texOptliders.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String country = Locale.getDefault().getCountry();
-//                texOptliders.setText(country.toString());
-//            }
-//        });
+        textOptliders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OptionHelp.this, MapActivity.class));
+                finish();
+            }
+        });
 //        textOptliders.setOnTouchListener(new View.OnTouchListener() {
 //            @Override
 //            public boolean onTouch(View v, MotionEvent event) {
@@ -191,18 +193,18 @@ public class OptionHelp extends AppCompatActivity {
 //            }
 //        });
 
-            textOptShare.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction()==MotionEvent.ACTION_DOWN){
-                        textOptShare.setElevation(3);
-                    }
-                    if(event.getAction()==MotionEvent.ACTION_UP){
-                        textOptShare.setElevation(50);
-                    }
-                    return false;
-                    }
-            });
+//            textOptShare.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    if (event.getAction()==MotionEvent.ACTION_DOWN){
+//                        textOptShare.setElevation(3);
+//                    }
+//                    if(event.getAction()==MotionEvent.ACTION_UP){
+//                        textOptShare.setElevation(50);
+//                    }
+//                    return false;
+//                    }
+//            });
 
             textOptShare.setOnClickListener(new View.OnClickListener() {
             @Override
