@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background3"
+    android:id="@+id/mapActivity"
     tools:context=".MapActivity">
 
     <LinearLayout
@@ -39,7 +40,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/toplist"
+                android:id="@+id/recycleview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -59,7 +60,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonStart"
+                android:id="@+id/buttonReg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
-import space.zelinskiy.quiz.Models.User;
 
 public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberViewHolder> {
 
@@ -29,7 +29,6 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 //     @NonNull
     @Override
     public NumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-   //     return new NumberViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.number_list_item,parent,false));
 
         Context context = parent.getContext();
         int layoutIdForListItem = R.layout.number_list_item;
@@ -39,19 +38,24 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
         NumberViewHolder viewHolder = new NumberViewHolder(view);
         viewHolder.viewHolderIndex.setText("ViewHolder index: "+viewHolderCount);
 
-       viewHolderCount++;
+        viewHolderCount++;
 
         return viewHolder;
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
-        User user = list.get(position);
-        holder.viewHolderIndex.setText(user.getName());
-        holder.viewLevelIndex.setText(user.getLevel());
-        holder.viewAverageIndex.setText(user.getMiddleResult());
-
-        holder.bind(position);
+     //   User user = list.get(position);
+        User user = new User();
+        user.setName("qwer");
+        user.setLevel(21);
+        user.setMiddleResult(123);
+//        holder.bind(position);
+//        holder.viewHolderIndex.setText(user.getName());
+//        holder.viewLevelIndex.setText(user.getLevel()+"");
+//        holder.viewAverageIndex.setText(user.getMiddleResult()+"");
     }
 
     @Override
@@ -66,7 +70,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
         TextView viewLevelIndex;
         TextView viewAverageIndex;
 
-        public NumberViewHolder( View itemView) {
+        public NumberViewHolder(@NonNull View itemView) {
             super(itemView);
             listItemNumberView = itemView.findViewById(R.id.tv_number_item);
             viewHolderIndex = itemView.findViewById(R.id.tv_holder_item);

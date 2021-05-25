@@ -19,7 +19,7 @@
     <string name="back_registration">Cancel</string>
     <string name="ok_registration">ОК</string>
     <string name="name_registration">Enter your name</string>
-    <string name="password_registration">Enter a password more than 5 characters</string>
+    <string name="password_registration">Enter a password of at least 6 characters</string>
     <string name="add_registration">User added</string>
     <string name="error_registration">Authorization error </string>
     <string name="text_continue">Start the game</string>

@@ -126,7 +126,7 @@ public class OptionHelp extends AppCompatActivity {
             }
         });
 
-        final TextView textOptliders = (TextView) findViewById(R.id.texOpt_liders);
+        final TextView textOptliders = (TextView) findViewById(R.id.textOpt_liders);
         final TextView textOptMark = (TextView) findViewById(R.id.textOpt_mark);
         final TextView textOptShare = (TextView) findViewById(R.id.textOpt_share);
 

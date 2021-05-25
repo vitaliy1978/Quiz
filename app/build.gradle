@@ -42,6 +42,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
     implementation 'com.google.firebase:firebase-database:19.3.0'
@@ -50,7 +51,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
-    implementation 'com.hereshem.lib:awesomelib:2.0.1'
+    implementation 'com.firebaseui:firebase-ui:0.6.2'
 
     // Declare the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies

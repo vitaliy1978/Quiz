@@ -3,22 +3,13 @@ package space.zelinskiy.quiz;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.play.core.review.ReviewInfo;
@@ -40,14 +30,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.auth.FirebaseUser;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Locale;
-import java.util.Map;
-
-import space.zelinskiy.quiz.Models.User;
 
 public class Finish extends AppCompatActivity {
 
@@ -81,7 +66,6 @@ public class Finish extends AppCompatActivity {
     finishLayout = findViewById(R.id.finish_layout);
     ImageView image = findViewById(R.id.main_cup);
 
-
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
@@ -106,6 +90,8 @@ public class Finish extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showRegisterWindows();
+               // startActivity(new Intent(Finish.this, MapActivity.class));
+              //  finish();
             }
         });
 
@@ -219,7 +205,7 @@ public class Finish extends AppCompatActivity {
         dialod.show();
     }
 
-    private void showRegisterWindows() {
+    public void showRegisterWindows() {
         AlertDialog.Builder dialod = new AlertDialog.Builder(this);
         dialod.setTitle(R.string.title_registration);
         LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -245,7 +231,7 @@ public class Finish extends AppCompatActivity {
                     Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if (password.getText().toString().length() < 5) {
+                if (password.getText().toString().length() < 6) {
                     Snackbar.make(finishLayout, R.string.password_registration, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
@@ -255,7 +241,7 @@ public class Finish extends AppCompatActivity {
                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                User user = new User("a","a",2,2);
+                                User user = new User();
                                 user.setName(email.getText().toString() + "@mail.ru");
                                 user.setPass(password.getText().toString());
                                 user.setLevel(level);
@@ -265,7 +251,9 @@ public class Finish extends AppCompatActivity {
                                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Snackbar.make(finishLayout, R.string.add_registration, Snackbar.LENGTH_SHORT).show();
+                                             //   Snackbar.make(finishLayout, R.string.add_registration, Snackbar.LENGTH_SHORT).show();
+                                                backToast = Toast.makeText(getBaseContext(),getString(R.string.add_registration),Toast.LENGTH_SHORT);
+                                                backToast.show();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
