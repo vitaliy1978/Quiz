@@ -189,7 +189,7 @@ public class Finish extends AppCompatActivity {
                         .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                startActivity(new Intent(Finish.this, MapActivity.class));
+                                startActivity(new Intent(Finish.this, userlist.class));
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {

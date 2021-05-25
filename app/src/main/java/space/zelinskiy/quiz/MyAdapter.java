@@ -31,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = list.get(position);
-        holder.name.setText(user.getName());
+        holder.name.setText(user.getName().substring(0,user.getName().length()-8));
         holder.level.setText(user.getLevel()+"");
         holder.average.setText(user.getMiddleResult()+"");
     }
@@ -53,5 +53,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             average = itemView.findViewById(R.id.tvaverage);
         }
     }
+
 
 }

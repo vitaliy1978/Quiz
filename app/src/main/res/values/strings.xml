@@ -14,7 +14,7 @@
     <string name="level5">Level 5</string>
     <string name="login_hint">Login</string>
     <string name="password_hint">Password</string>
-    <string name="title_registration">Register</string>
+    <string name="title_registration">Add your name</string>
     <string name="head_registration">Enter your registration data</string>
     <string name="back_registration">Cancel</string>
     <string name="ok_registration">ОК</string>
@@ -22,6 +22,8 @@
     <string name="password_registration">Enter a password of at least 6 characters</string>
     <string name="add_registration">User added</string>
     <string name="error_registration">Authorization error </string>
+    <string name="levels">Levels"</string>
+    <string name="average">Average time"</string>
     <string name="text_continue">Start the game</string>
     <string name="text_continue_next">Next level</string>
     <string name="level_end1">Level complete."</string>

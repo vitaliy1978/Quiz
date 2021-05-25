@@ -20,7 +20,6 @@ public class User {
         this.middleResult = middleResult;
     }
 
-
 //    public int getNumber() { return number; }
 //
     public String getName() {
