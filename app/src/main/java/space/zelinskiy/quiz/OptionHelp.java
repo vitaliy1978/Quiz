@@ -176,7 +176,7 @@ public class OptionHelp extends AppCompatActivity {
         textOptliders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OptionHelp.this, MapActivity.class));
+                startActivity(new Intent(OptionHelp.this, userlist.class));
                 finish();
             }
         });
