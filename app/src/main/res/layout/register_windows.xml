@@ -26,7 +26,8 @@
             app:met_floatingLabel="highlight"
             app:met_singleLineEllipsis="true"
             app:met_minCharacters="1"
-            app:met_maxCharacters="30"
+            app:met_maxCharacters="15"
+            android:maxLength="15"
             />
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:fontFamily="@font/roboto"
             app:met_floatingLabel="highlight"
             app:met_singleLineEllipsis="true"
-            app:met_minCharacters="1"
+            app:met_minCharacters="6"
             app:met_maxCharacters="30"
             />
 

@@ -43,12 +43,16 @@ public class OptionHelp extends AppCompatActivity {
 
 //        Window w = getWindow();
 //        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final Switch switchMuz = findViewById(R.id.switchMuz);
         final Switch switchVoice = findViewById(R.id.switchVoice);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
+    //    final int alreadyReg = save.getInt("alreadyReg", userlist.alreadyre);
+
         switchMuz.setChecked(save.getBoolean("statusMuz", true));   //берем данные о положении выключателя
         switchVoice.setChecked(save.getBoolean("statusVoice", true));  //берем данные о положении выключателя
         muzofStr = save.getString("muzofStr", muzofStr);
@@ -65,9 +69,6 @@ public class OptionHelp extends AppCompatActivity {
         }else{
             switchVoice.setText(R.string.swithVoice2);
         }
-
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // Кнопка которая закрывает диалоговое окно - Начало
         TextView button_close = (TextView) findViewById(R.id.button_close_from_option);

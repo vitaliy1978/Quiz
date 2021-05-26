@@ -871,7 +871,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                         dialogEnd.show();
                     }else {
                         if ((country=="RU") && (numlev==2)){
-                            numLeft=random.nextInt(33); //генерируем случайное число от 0 до 9
+                            numLeft=random.nextInt(33); //генерируем случайное число от 0 до 33
                             img_left.setImageResource(array.images2ru[numLeft]);  //достаем из массива картинку
                             img_left.startAnimation(a);
                             text_left.setText(array.texts2ru[numLeft]);  //достаем из массива текст

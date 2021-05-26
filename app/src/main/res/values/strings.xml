@@ -22,8 +22,8 @@
     <string name="password_registration">Enter a password of at least 6 characters</string>
     <string name="add_registration">User added</string>
     <string name="error_registration">Authorization error </string>
-    <string name="levels">Levels"</string>
-    <string name="average">Average time"</string>
+    <string name="levels">levels"</string>
+    <string name="average">average time"</string>
     <string name="text_continue">Start the game</string>
     <string name="text_continue_next">Next level</string>
     <string name="level_end1">Level complete."</string>

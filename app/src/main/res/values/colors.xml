@@ -22,8 +22,13 @@
     <color name="dark_orange">#a67c18</color>
     <color name="dark_red">#a62e18</color>
 
+    <color name="gold">#FFF59D</color>
+    <color name="silver">#E9D8E5EC</color>
+    <color name="bronse">#D0F1CA7C</color>
+    <color name="dark_silver">#FA7F95A3</color>
     <color name="main_background3">#eaf5fb</color>
     <color name="dark_blue">#1c517d</color>
+    <color name="midle_blue">#BE1C517D</color>
     <color name="grey_blue">#4c85a3</color>
     <color name="worm_white">#fffaed</color>
     <color name="grey">#adbfc8</color>
