@@ -1,6 +1,8 @@
 package space.zelinskiy.quiz;
 
-public class User {
+import java.util.Comparator;
+
+public class User implements Comparable<User> {  // Добавили в заголовок implements Comparable<User> для того чтобы можно было испольовать метод сортировки
     public String name, pass;
     public int level, middleResult, number, key;
 
@@ -65,4 +67,28 @@ public class User {
     public void setKey(int key) {
         this.key = key;
     }
+
+    @Override
+    public int compareTo(User o) {
+        return this.level - o.getLevel();
+    }
+
+    //Сравнение по уровням - начало
+    public static Comparator<User> levelSort = new Comparator<User>() {
+        @Override
+        public int compare(User o1, User o2) {
+            return o2.getLevel() - o1.getLevel();
+        }
+    };
+    //равнение по уровням - конец
+
+    //Сравнение по среднему времени - начало
+    public static Comparator<User> AverageSort = new Comparator<User>() {
+        @Override
+        public int compare(User o1, User o2) {
+            return o1.getMiddleResult() - o2.getMiddleResult();
+        }
+    };
+    //равнение по среднему времени - конец
+
 }

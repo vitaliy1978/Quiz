@@ -54,6 +54,8 @@ public class userlist extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
+
+
         myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
@@ -69,7 +71,10 @@ public class userlist extends AppCompatActivity {
                     User user = dataSnapshot.getValue(User.class);
                     list.add(user);
 
+                    Collections.sort(list,User.levelSort);
+                    Collections.sort(list,User.AverageSort);
                 }
+
 
                 myAdapter.notifyDataSetChanged();
             }
@@ -86,6 +91,7 @@ public class userlist extends AppCompatActivity {
                 showRegisterWindows();
             }
         });
+
     }
 
         public void showRegisterWindows() {
