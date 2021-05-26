@@ -48,7 +48,7 @@ public class userlist extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase db;
     Button buttonReg;
-    TextView textTop;
+    TextView textTop, button_close_from_userlist;
     public static int alreadyre;
 
     @Override
@@ -67,6 +67,7 @@ public class userlist extends AppCompatActivity {
         editor3.commit();
 
         textTop = findViewById(R.id.textTop);
+        button_close_from_userlist = findViewById(R.id.button_close_from_userlist);
 
         buttonReg = findViewById(R.id.buttonReg);
         recyclerView = findViewById(R.id.userList);
@@ -109,6 +110,10 @@ public class userlist extends AppCompatActivity {
             }
         });
 
+        if (alreadyReg==1){
+            buttonReg.setVisibility(View.INVISIBLE);
+        }
+
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +123,19 @@ public class userlist extends AppCompatActivity {
                 }
 //                Collections.sort(list,User.levelSort);
                 myAdapter.notifyDataSetChanged();
+            }
+        });
+
+        button_close_from_userlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(userlist.this,OptionHelp.class);
+                    startActivity(intent);
+                    finish();
+                }catch (Exception e){
+
+                }
             }
         });
 
