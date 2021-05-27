@@ -5,24 +5,24 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Switch;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
 
     Context context;
     ArrayList<User> list;
-
     ArrayList<User> listFull;
 
     public MyAdapter(Context context, ArrayList<User> list) {
         this.context = context;
-        this.list = list;
+        this.listFull = list;
+        this.list = new ArrayList(listFull);
     }
 
     @NonNull
@@ -38,7 +38,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.number.setText(position+1+"");
         holder.name.setText(user.getName().substring(0,user.getName().length()-8));
         holder.level.setText(user.getLevel()+"");
-     //   holder.average.setText(user.getMiddleResult()+"");
         holder.average.setText(String.format("%d.%02d", user.getMiddleResult() / 100, (user.getMiddleResult() % 100)));
 
         switch (position){
@@ -51,7 +50,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             default: holder.itemView.setBackgroundResource(R.drawable.white_shape);
                 break;
         }
-
     }
 
     @Override
@@ -69,6 +67,39 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return list.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return userFilter;
+    }
+
+    private final Filter userFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<User> filteredUserList = new ArrayList<>();
+            if (constraint==null || constraint.length()==0){
+                filteredUserList.addAll(listFull);
+            } else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for(User user:listFull){
+                    if (user.name.toLowerCase().contains(filterPattern))
+                    {filteredUserList.add(user);}
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredUserList;
+            results.count = filteredUserList.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            list.clear();
+            list.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
+
     public static class MyViewHolder extends RecyclerView.ViewHolder   {
 
         TextView name, level, average, number;
@@ -81,6 +112,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             average = itemView.findViewById(R.id.tvaverage);
         }
     }
-
-
 }

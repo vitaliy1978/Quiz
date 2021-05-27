@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class userlist extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     MyAdapter myAdapter;
-    ArrayList<User> list;
+    ArrayList<User> list, listFull;
     private Toast backToast;
     FirebaseAuth auth;
     FirebaseDatabase db;
@@ -57,14 +58,10 @@ public class userlist extends AppCompatActivity {
         setContentView(R.layout.activity_userlist);
 
         Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         final int alreadyReg = save.getInt("alreadyReg", 0);
-
-        SharedPreferences.Editor editor3 = save.edit();
-        editor3.putInt("lastStr".toString(), 1);
-        editor3.commit();
 
         textTop = findViewById(R.id.textTop);
         button_close_from_userlist = findViewById(R.id.button_close_from_userlist);
@@ -75,9 +72,9 @@ public class userlist extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
+        listFull = new ArrayList<>();
 
-
-        myAdapter = new MyAdapter(this,list);
+        myAdapter = new MyAdapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
         auth = FirebaseAuth.getInstance();
@@ -87,21 +84,16 @@ public class userlist extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                list.clear();
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                listFull.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
                     User user = dataSnapshot.getValue(User.class);
-                    list.add(user);
+                    listFull.add(user);
 
-                  //  myAdapter.notifyDataSetChanged();
-
-                    Collections.sort(list,User.levelSort);
-                //    Collections.sort(list,User.AverageSort);
+                    Collections.sort(list, User.levelSort);
 
                 }
-
                 myAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -110,21 +102,26 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-        if (alreadyReg==1){
+        myAdapter = new MyAdapter(this, listFull);
+        recyclerView.setAdapter(myAdapter);
+
+        myAdapter.getFilter().filter("qqq");
+
+
+        if (alreadyReg == 1) {
             buttonReg.setVisibility(View.INVISIBLE);
         }
-
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (alreadyReg==0 && alreadyre==0){
-                    showRegisterWindows();
+                if (alreadyReg == 0 && alreadyre == 0) {
+                    showRegisterWindows();  //доавить в таблице своё имя (используется один раз)
                 }
-//                Collections.sort(list,User.levelSort);
                 myAdapter.notifyDataSetChanged();
             }
         });
+
 
         button_close_from_userlist.setOnClickListener(new View.OnClickListener() {
             @Override

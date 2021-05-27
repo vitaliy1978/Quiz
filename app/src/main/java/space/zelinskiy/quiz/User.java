@@ -9,27 +9,17 @@ public class User implements Comparable<User> {  // Добавили в заго
 
     public User() {
     }
-
      public User(String name, String pass, int level, int middleResult) {
         this.name = name;
         this.pass = pass;
         this.level = level;
         this.middleResult = middleResult;
     }
-
     public User(String name, int level, int middleResult) {
         this.name = name;
         this.level = level;
         this.middleResult = middleResult;
     }
-
-//    public int getNumber() {
-//        return number;
-//    }
-//
-//    public void setNumber(int number) {
-//        this.number = number;
-//    }
 
     public String getName() {
         return name;
@@ -42,7 +32,6 @@ public class User implements Comparable<User> {  // Добавили в заго
     public String getPass() {
         return pass;
     }
-
 
 
     public void setPass(String pass) {
@@ -91,6 +80,7 @@ public class User implements Comparable<User> {  // Добавили в заго
         }
     };
     //Сравнение по уровням а затем по времени - конец
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,5 +93,4 @@ public class User implements Comparable<User> {  // Добавили в заго
     public int hashCode() {
         return Objects.hash(name);
     }
-
 }
