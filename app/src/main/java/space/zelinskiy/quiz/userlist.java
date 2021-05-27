@@ -106,10 +106,10 @@ public class userlist extends AppCompatActivity {
                     User user = dataSnapshot.getValue(User.class);
                     list.add(user);
 
-                  //  myAdapter.notifyDataSetChanged();
+                    //  myAdapter.notifyDataSetChanged();
 
                     Collections.sort(list,User.levelSort);
-                //    Collections.sort(list,User.AverageSort);
+                    //    Collections.sort(list,User.AverageSort);
 
                 }
 
@@ -123,13 +123,12 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-        if (alreadyReg==1){
+        if (alreadyReg==1 || middleResult<=1){
             buttonReg.setVisibility(View.INVISIBLE);
-          //  database.child(uid).child("middleResult").setValue(middleResult);
-         //   database.child(uid).child("level").setValue(level);
         }
 
-        if (alreadyReg==0) {
+        if (alreadyReg==0 && middleResult>1) {
+            buttonReg.setVisibility(View.VISIBLE);
             //определяем UID текущего юзера
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
@@ -147,7 +146,7 @@ public class userlist extends AppCompatActivity {
 
                 if (alreadyReg==0 && alreadyre==0){
                     showRegisterWindows();
-                   }
+                }
 //                Collections.sort(list,User.levelSort);
                 myAdapter.notifyDataSetChanged();
             }
@@ -166,45 +165,8 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-//        FirebaseListAdapter<User> searchAdapter = new FirebaseListAdapter<User>(getActivity(), User.class, R.layout.activity_userlist, mRef) {
-//            @Override
-//            protected void populateView(View v, User model, int position) {
-//                // If you really need to set the UID here
-//                // model.setUID = getRef(position).getKey();
-//                // Otherwise, I would just set a String field as shown
-//                //and pass it with the intent to get the UID
-//                //in the profile Activity
-//                UID = getRef(position).getKey
-//                        ((TextView) v.findViewById(R.id.text1)).setText(model.getName());
-//                ((TextView) v.findViewById(R.id.text2)).setText(model.getEmail());
-//                v.setOnClickListener(MainActivity.this);
-//            }
-//        };
-
-       // database.child(String.valueOf(uid)).child("middleResult").setValue(15);
-      //  ref = database.child(String.valueOf(uid)).toString();
-
- //       User user = new User();
-   //     ref = database.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser())).child(auth.getUid()).toString();
-
- //        database.child("Users").child("йф@mail.ru");
-//        ValueEventListener eventListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if(dataSnapshot.exists()) {
-//                    String name = dataSnapshot.child("йф@mail.ru").getValue(String.class);
-//                 //   String lastName = dataSnapshot.child("lastname").getValue(String.class);
-//                    Log.d("TAG", name);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {}
-//        };
-//        database.addListenerForSingleValueEvent(eventListener);
-
     }
-        public void showRegisterWindows() {
+    public void showRegisterWindows() {
         AlertDialog.Builder dialod = new AlertDialog.Builder(this);
         dialod.setTitle(R.string.title_registration);
         LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -227,13 +189,13 @@ public class userlist extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(email.getText().toString())) {
-                  //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
+                    //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
                     backToast = Toast.makeText(getBaseContext(),getString(R.string.name_registration),Toast.LENGTH_SHORT);
                     backToast.show();
                     return;
                 }
                 if (password.getText().toString().length() < 6) {
-                 //   Snackbar.make(finishLayout, R.string.password_registration, Snackbar.LENGTH_SHORT).show();
+                    //   Snackbar.make(finishLayout, R.string.password_registration, Snackbar.LENGTH_SHORT).show();
                     backToast = Toast.makeText(getBaseContext(),getString(R.string.password_registration),Toast.LENGTH_SHORT);
                     backToast.show();
                     return;
@@ -262,14 +224,15 @@ public class userlist extends AppCompatActivity {
                                                 editor.putInt("alreadyReg", 1);
                                                 editor.commit();
                                                 alreadyre = 1;
-                                                database.child(uid).child("middleResult").setValue(middleResult);
-                                                database.child(uid).child("level").setValue(level);
+                                                buttonReg.setVisibility(View.INVISIBLE);
+                                                //  database.child(uid).child("middleResult").setValue(middleResult);
+                                                //  database.child(uid).child("level").setValue(level);
 
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                    //    Snackbar.make(finishLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                        //    Snackbar.make(finishLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
                                         backToast = Toast.makeText(getBaseContext(),getString(R.string.error_registration),Toast.LENGTH_SHORT);
                                         backToast.show();
                                     }
@@ -280,7 +243,7 @@ public class userlist extends AppCompatActivity {
         });
 
         dialod.show();
-        }
+    }
 
     //системная кнопка Назад - начало
     @Override

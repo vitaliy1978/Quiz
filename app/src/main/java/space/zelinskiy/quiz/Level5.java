@@ -66,7 +66,6 @@ public class Level5 extends AppCompatActivity {
    // public InterstitialAd interstitialAd; //реклама
     public int transition=0;
     AudioManager audio;
-    //DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -797,7 +796,6 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                   SharedPreferences.Editor editor2 = save.edit();
                                   editor2.putInt("middleResult".toString(), middleResult);
                                   editor2.commit();
-                             //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
                            }
                             if (numlev>=21 && last==0){
                                 btn_continue2.setVisibility(View.INVISIBLE);
@@ -813,7 +811,6 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
-                           //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1035,7 +1032,6 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
-                           //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                             }
                             if (numlev>=21 && last==0){
@@ -1052,7 +1048,6 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
-                             //   database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1221,14 +1216,16 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
  //       }
     }
 
-      public void send(){
-        DatabaseReference database;
-        FirebaseDatabase db;
-        FirebaseAuth auth;
-        auth = FirebaseAuth.getInstance();
-        db = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    public void send(){
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        final int alreadyReg = save.getInt("alreadyReg", 0);
+        if (alreadyReg==1) {
+            DatabaseReference database;
+            FirebaseDatabase db;
+            FirebaseAuth auth;
+            auth = FirebaseAuth.getInstance();
+            db = FirebaseDatabase.getInstance();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             final int middleResult = save.getInt("middleResult", 0);
             final int level = save.getInt("Level", 1);
             String uid = save.getString("uid", "");
@@ -1238,11 +1235,11 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                 editor.putString("uid", String.valueOf(uid));
                 editor.commit();
             }
-        database = FirebaseDatabase.getInstance().getReference("users");
-        database.child(uid).child("middleResult").setValue(middleResult);
-        database.child(uid).child("level").setValue(level);
+            database = FirebaseDatabase.getInstance().getReference("users");
+            database.child(uid).child("middleResult").setValue(middleResult);
+            database.child(uid).child("level").setValue(level);
+        }
     }
-
     //системная кнопка Назад - конец
     @Override
     protected void onDestroy() {

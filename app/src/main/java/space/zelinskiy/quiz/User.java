@@ -23,13 +23,12 @@ public class User implements Comparable<User> {  // Добавили в заго
         this.middleResult = middleResult;
     }
 
-//    public int getNumber() {
-//        return number;
-//    }
-//
-//    public void setNumber(int number) {
-//        this.number = number;
-//    }
+    public String getUID() {
+        return UID;
+    }
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
 
     public String getUID() {
         return UID;
