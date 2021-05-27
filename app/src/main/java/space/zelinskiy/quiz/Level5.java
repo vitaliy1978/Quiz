@@ -37,6 +37,10 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Locale;
 import java.util.Random;
@@ -62,6 +66,7 @@ public class Level5 extends AppCompatActivity {
    // public InterstitialAd interstitialAd; //реклама
     public int transition=0;
     AudioManager audio;
+    //DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -460,6 +465,7 @@ public class Level5 extends AppCompatActivity {
 //                    transition = 2;
 //                    interstitialAd.show();    //показать рекламу
 //                } else {
+                send();
                 if (numlev<21){
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
@@ -495,6 +501,7 @@ public class Level5 extends AppCompatActivity {
 //                    transition=1;
  //                   interstitialAd.show();    //показать рекламу
 //                } else {
+                send();
                     if (numlev < 21) {
                         try {
                             Intent intent = new Intent(Level5.this, Level5.class);
@@ -790,6 +797,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                   SharedPreferences.Editor editor2 = save.edit();
                                   editor2.putInt("middleResult".toString(), middleResult);
                                   editor2.commit();
+                             //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
                            }
                             if (numlev>=21 && last==0){
                                 btn_continue2.setVisibility(View.INVISIBLE);
@@ -805,6 +813,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
+                           //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1026,6 +1035,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
+                           //     database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                             }
                             if (numlev>=21 && last==0){
@@ -1042,6 +1052,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                                 SharedPreferences.Editor editor2 = save.edit();
                                 editor2.putInt("middleResult".toString(), middleResult);
                                 editor2.commit();
+                             //   database.child(userlist.uid).child("middleResult").setValue(middleResult);
 
                                 SharedPreferences.Editor editor3 = save.edit();
                                 editor3.putInt("lastStr".toString(), 1);
@@ -1209,6 +1220,29 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
             }
  //       }
     }
+
+      public void send(){
+        DatabaseReference database;
+        FirebaseDatabase db;
+        FirebaseAuth auth;
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+            final int middleResult = save.getInt("middleResult", 0);
+            final int level = save.getInt("Level", 1);
+            String uid = save.getString("uid", "");
+            if (user != null) {
+                uid = user.getUid();
+                SharedPreferences.Editor editor = save.edit();
+                editor.putString("uid", String.valueOf(uid));
+                editor.commit();
+            }
+        database = FirebaseDatabase.getInstance().getReference("users");
+        database.child(uid).child("middleResult").setValue(middleResult);
+        database.child(uid).child("level").setValue(level);
+    }
+
     //системная кнопка Назад - конец
     @Override
     protected void onDestroy() {
@@ -1219,6 +1253,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
         timeend.stop();
         start=0;
         sekost=50001;
+        send();
     }
     @Override
     protected void onStop() {

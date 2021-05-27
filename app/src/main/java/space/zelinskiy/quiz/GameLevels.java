@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class GameLevels extends AppCompatActivity {
 
     Array array = new Array(); //Создали новый оъект из класса Array
@@ -24,6 +29,7 @@ public class GameLevels extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
+
       // final int level = 20;
 
        // int last = save.getInt("lastStr",0);
@@ -511,6 +517,22 @@ public class GameLevels extends AppCompatActivity {
       //  TextView textViewlock1 =findViewById(R.id.textViewlock1);
       //  textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
     }
+
+//    public void send(){
+//        DatabaseReference database;
+//        FirebaseDatabase db;
+//        FirebaseAuth auth;
+//        auth = FirebaseAuth.getInstance();
+//        db = FirebaseDatabase.getInstance();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+//        final int middleResult = save.getInt("middleResult", 0);
+//        final int level = save.getInt("Level", 1);
+//        database = FirebaseDatabase.getInstance().getReference("users");
+//        database.child(userlist.uid).child("middleResult").setValue(middleResult);
+//        database.child(userlist.uid).child("level").setValue(level);
+//    }
+
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){

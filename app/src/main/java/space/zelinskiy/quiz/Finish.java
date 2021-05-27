@@ -62,7 +62,7 @@ public class Finish extends AppCompatActivity {
     final TextView back_game = (TextView) findViewById(R.id.button_close);
     TextView textdescription = (TextView) findViewById(R.id.text_description_final);
     TextView textOptMark =(TextView)findViewById(R.id.textOpt_mark);
-    TextView textOptLiders = findViewById(R.id.textOpt_liders);
+    TextView textOptLiders_from_end = findViewById(R.id.textOpt_liders_from_end);
     finishLayout = findViewById(R.id.finish_layout);
     ImageView image = findViewById(R.id.main_cup);
 
@@ -86,12 +86,11 @@ public class Finish extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         users = db.getReference("users");
 
-        textOptLiders.setOnClickListener(new View.OnClickListener() {
+        textOptLiders_from_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showRegisterWindows();
-               // startActivity(new Intent(Finish.this, MapActivity.class));
-              //  finish();
+                startActivity(new Intent(Finish.this, userlist.class));
+                finish();
             }
         });
 

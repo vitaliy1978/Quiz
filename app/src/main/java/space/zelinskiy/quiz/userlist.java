@@ -9,23 +9,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.browse.MediaBrowser;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.common.net.InternetDomainName;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,13 +49,14 @@ public class userlist extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     MyAdapter myAdapter;
-    ArrayList<User> list, listFull;
+    ArrayList<User> list;
     private Toast backToast;
     FirebaseAuth auth;
     FirebaseDatabase db;
     Button buttonReg;
     TextView textTop, button_close_from_userlist;
-    public static int alreadyre;
+    int alreadyre;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +64,20 @@ public class userlist extends AppCompatActivity {
         setContentView(R.layout.activity_userlist);
 
         Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+
+
+        final int middleResult = save.getInt("middleResult", 0);
+        final int level = save.getInt("Level", 1);
         final int alreadyReg = save.getInt("alreadyReg", 0);
+        String uid = save.getString("uid", "");
+
+        alreadyre=0;
+//        SharedPreferences.Editor editor3 = save.edit();
+//        editor3.putInt("lastStr".toString(), 1);
+//        editor3.commit();
 
         textTop = findViewById(R.id.textTop);
         button_close_from_userlist = findViewById(R.id.button_close_from_userlist);
@@ -72,9 +88,9 @@ public class userlist extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
-        listFull = new ArrayList<>();
 
-        myAdapter = new MyAdapter(this, list);
+
+        myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
         auth = FirebaseAuth.getInstance();
@@ -84,16 +100,21 @@ public class userlist extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                listFull.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                list.clear();
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
 
                     User user = dataSnapshot.getValue(User.class);
-                    listFull.add(user);
+                    list.add(user);
 
-                    Collections.sort(list, User.levelSort);
+                  //  myAdapter.notifyDataSetChanged();
+
+                    Collections.sort(list,User.levelSort);
+                //    Collections.sort(list,User.AverageSort);
 
                 }
+
                 myAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -102,26 +123,35 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-        myAdapter = new MyAdapter(this, listFull);
-        recyclerView.setAdapter(myAdapter);
-
-        myAdapter.getFilter().filter("qqq");
-
-
-        if (alreadyReg == 1) {
+        if (alreadyReg==1){
             buttonReg.setVisibility(View.INVISIBLE);
+          //  database.child(uid).child("middleResult").setValue(middleResult);
+         //   database.child(uid).child("level").setValue(level);
         }
+
+        if (alreadyReg==0) {
+            //определяем UID текущего юзера
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                uid = user.getUid();
+                SharedPreferences.Editor editor = save.edit();
+                editor.putString("uid", String.valueOf(uid));
+                editor.commit();
+            }
+            //определяем UID текущего юзера
+        }
+
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (alreadyReg == 0 && alreadyre == 0) {
-                    showRegisterWindows();  //доавить в таблице своё имя (используется один раз)
-                }
+                if (alreadyReg==0 && alreadyre==0){
+                    showRegisterWindows();
+                   }
+//                Collections.sort(list,User.levelSort);
                 myAdapter.notifyDataSetChanged();
             }
         });
-
 
         button_close_from_userlist.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +165,43 @@ public class userlist extends AppCompatActivity {
                 }
             }
         });
+
+//        FirebaseListAdapter<User> searchAdapter = new FirebaseListAdapter<User>(getActivity(), User.class, R.layout.activity_userlist, mRef) {
+//            @Override
+//            protected void populateView(View v, User model, int position) {
+//                // If you really need to set the UID here
+//                // model.setUID = getRef(position).getKey();
+//                // Otherwise, I would just set a String field as shown
+//                //and pass it with the intent to get the UID
+//                //in the profile Activity
+//                UID = getRef(position).getKey
+//                        ((TextView) v.findViewById(R.id.text1)).setText(model.getName());
+//                ((TextView) v.findViewById(R.id.text2)).setText(model.getEmail());
+//                v.setOnClickListener(MainActivity.this);
+//            }
+//        };
+
+       // database.child(String.valueOf(uid)).child("middleResult").setValue(15);
+      //  ref = database.child(String.valueOf(uid)).toString();
+
+ //       User user = new User();
+   //     ref = database.child(String.valueOf(FirebaseAuth.getInstance().getCurrentUser())).child(auth.getUid()).toString();
+
+ //        database.child("Users").child("йф@mail.ru");
+//        ValueEventListener eventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()) {
+//                    String name = dataSnapshot.child("йф@mail.ru").getValue(String.class);
+//                 //   String lastName = dataSnapshot.child("lastname").getValue(String.class);
+//                    Log.d("TAG", name);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {}
+//        };
+//        database.addListenerForSingleValueEvent(eventListener);
 
     }
         public void showRegisterWindows() {
@@ -195,6 +262,9 @@ public class userlist extends AppCompatActivity {
                                                 editor.putInt("alreadyReg", 1);
                                                 editor.commit();
                                                 alreadyre = 1;
+                                                database.child(uid).child("middleResult").setValue(middleResult);
+                                                database.child(uid).child("level").setValue(level);
+
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -210,7 +280,7 @@ public class userlist extends AppCompatActivity {
         });
 
         dialod.show();
-    }
+        }
 
     //системная кнопка Назад - начало
     @Override

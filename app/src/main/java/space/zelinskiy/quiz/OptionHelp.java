@@ -166,11 +166,11 @@ public class OptionHelp extends AppCompatActivity {
        // texOptliders.setVisibility(View.INVISIBLE);
        // texOptShare.setVisibility(View.INVISIBLE);
 
-        if (level<=2){
+        if (level<=5){
             textOptMark.setVisibility(View.INVISIBLE);
         }
 
-        if (level>2){
+        if (level>5){
             textOptMark.setVisibility(View.VISIBLE);
         }
 
