@@ -1,8 +1,10 @@
 package space.zelinskiy.quiz;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -48,11 +50,14 @@ public class Finish extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference users;
     RelativeLayout finishLayout;
+    MediaPlayer fanfary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finish);
+
+        headfly = MediaPlayer.create(this,R.raw.fanfary);
 
         final String country = Locale.getDefault().getCountry();
 
@@ -69,10 +74,17 @@ public class Finish extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
+        final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
+
+        fanfary = MediaPlayer.create(this,R.raw.fanfary);
+        if (muzof==false) {
+            fanfary.start();
+        }
 
         back_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fanfary.stop();
                 try {
                     Intent intent = new Intent(Finish.this,GameLevels.class);
                     startActivity(intent);
@@ -89,15 +101,9 @@ public class Finish extends AppCompatActivity {
         textOptLiders_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fanfary.stop();
                 startActivity(new Intent(Finish.this, userlist.class));
                 finish();
-            }
-        });
-
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSignInWindows();
             }
         });
 
@@ -272,6 +278,7 @@ public class Finish extends AppCompatActivity {
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed() {
+        fanfary.stop();
         Intent intent = new Intent(Finish.this,GameLevels.class);
         startActivity(intent);
     }
@@ -279,6 +286,20 @@ public class Finish extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-
+        fanfary.stop();
      }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);   //выключаем гроскость при сворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);    //возвращаем гроскость при разворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, false);
+    }
 }

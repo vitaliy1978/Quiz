@@ -13,16 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<User> list;
+
     ArrayList<User> listFull;
 
     public MyAdapter(Context context, ArrayList<User> list) {
         this.context = context;
-        this.listFull = list;
-        this.list = new ArrayList(listFull);
+        this.list = list;
     }
 
     @NonNull
@@ -38,11 +38,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         holder.number.setText(position+1+"");
         holder.name.setText(user.getName().substring(0,user.getName().length()-8));
         holder.level.setText(user.getLevel()+"");
+        //   holder.average.setText(user.getMiddleResult()+"");
         holder.average.setText(String.format("%d.%02d", user.getMiddleResult() / 100, (user.getMiddleResult() % 100)));
 
         switch (position){
             case 0: holder.itemView.setBackgroundResource(R.drawable.gold_shape);
-                    break;
+                break;
             case 1: holder.itemView.setBackgroundResource(R.drawable.silver_shape);
                 break;
             case 2: holder.itemView.setBackgroundResource(R.drawable.bronse_shape);
@@ -66,39 +67,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     public int getItemCount() {
         return list.size();
     }
-
-    @Override
-    public Filter getFilter() {
-        return userFilter;
-    }
-
-    private final Filter userFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<User> filteredUserList = new ArrayList<>();
-            if (constraint==null || constraint.length()==0){
-                filteredUserList.addAll(listFull);
-            } else{
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for(User user:listFull){
-                    if (user.name.toLowerCase().contains(filterPattern))
-                    {filteredUserList.add(user);}
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredUserList;
-            results.count = filteredUserList.size();
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            list.clear();
-            list.addAll((ArrayList)results.values);
-            notifyDataSetChanged();
-        }
-    };
 
     public static class MyViewHolder extends RecyclerView.ViewHolder   {
 

@@ -7,6 +7,7 @@ public class User implements Comparable<User> {  // Добавили в заго
     public String name, pass;
     public int level, middleResult, number, key;
     private String UID;
+
     public User() {
     }
 
@@ -23,16 +24,8 @@ public class User implements Comparable<User> {  // Добавили в заго
         this.middleResult = middleResult;
     }
 
-    public String getUID() {
-        return UID;
-    }
-    public void setUID(String UID) {
-        this.UID = UID;
-    }
+    public String getUID() { return UID;  }
 
-    public String getUID() {
-        return UID;
-    }
     public void setUID(String UID) {
         this.UID = UID;
     }

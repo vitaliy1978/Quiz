@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.browse.MediaBrowser;
 import android.net.Uri;
 import android.os.Bundle;
@@ -57,6 +60,7 @@ public class userlist extends AppCompatActivity {
     TextView textTop, button_close_from_userlist;
     int alreadyre;
     String uid;
+    MediaPlayer topleaders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,12 @@ public class userlist extends AppCompatActivity {
         final int level = save.getInt("Level", 1);
         final int alreadyReg = save.getInt("alreadyReg", 0);
         String uid = save.getString("uid", "");
+        final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
+        topleaders = MediaPlayer.create(this,R.raw.topliders);
+
+        if (muzof==false) {
+            topleaders.start();
+        }
 
         alreadyre=0;
 //        SharedPreferences.Editor editor3 = save.edit();
@@ -155,6 +165,7 @@ public class userlist extends AppCompatActivity {
         button_close_from_userlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                topleaders.stop();
                 try {
                     Intent intent = new Intent(userlist.this,OptionHelp.class);
                     startActivity(intent);
@@ -248,6 +259,7 @@ public class userlist extends AppCompatActivity {
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
+        topleaders.stop();
         try {
             Intent intent = new Intent(userlist.this,OptionHelp.class);
             startActivity(intent);
@@ -257,4 +269,23 @@ public class userlist extends AppCompatActivity {
         }
     }
     //системная кнопка Назад - конец
+
+    protected void onDestroy() {
+        super.onDestroy();
+        topleaders.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);   //выключаем гроскость при сворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);    //возвращаем гроскость при разворачивании
+        am.setStreamMute(AudioManager.STREAM_MUSIC, false);
+    }
 }
