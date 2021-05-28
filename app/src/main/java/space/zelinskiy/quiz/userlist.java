@@ -239,14 +239,14 @@ public class userlist extends AppCompatActivity {
                 Matcher ms = ps.matcher(email.getText().toString());
                 boolean bs = ms.matches();
                 if (bs == false) {
-                    backToast = Toast.makeText(getBaseContext(),"недопустимые символы\n\nиспользуйте только буквы и цифры",Toast.LENGTH_SHORT);
+                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
                     backToast.show();
                     return;
                 }
                 Matcher ms2 = ps.matcher(pasfield.getText().toString());
                 boolean bs2 = ms.matches();
                 if (bs2 == false) {
-                    backToast = Toast.makeText(getBaseContext(),"недопустимые символы\n\nиспользуйте только буквы и цифры",Toast.LENGTH_SHORT);
+                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
                     backToast.show();
                     return;
                 }

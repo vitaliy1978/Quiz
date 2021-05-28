@@ -22,6 +22,7 @@
     <string name="password_registration">Введите пароль не меньше 6 символов</string>
     <string name="add_registration">Пользователь добавлен</string>
     <string name="error_registration">Ошибка авторизации </string>
+    <string name="error_symbols">недопустимые символы\nиспользуйте только буквы и цифры</string>
     <string name="levels">уровни"</string>
     <string name="average">среднее время"</string>
     <string name="text_continue">Начать игру</string>

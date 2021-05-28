@@ -77,8 +77,8 @@ public class Level5 extends AppCompatActivity {
         //Реклама - Начало
         MobileAds.initialize(this,"ca-app-pub-1705626811473073~7057538148");  //идентификатор приложения
         interstitialAd = new InterstitialAd(this);
-       // interstitialAd.setAdUnitId("ca-app-pub-1705626811473073/4459117354");  //идентификатор рекламного блока - боевой
-        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //идентификатор рекламного блока - пока тестовый
+        interstitialAd.setAdUnitId("ca-app-pub-1705626811473073/4459117354");  //идентификатор рекламного блока - боевой
+       // interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //идентификатор рекламного блока - пока тестовый
         AdRequest adRequest = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest);
         // Реклама - Конец
@@ -1275,12 +1275,6 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                 return;
             }
             if (regulatorRek == 2) {
-                SharedPreferences.Editor editor = save.edit();
-                editor.putInt("regulatorRek", 3);
-                editor.commit();
-                return;
-            }
-            if (regulatorRek == 3) {
                 SharedPreferences.Editor editor = save.edit();
                 editor.putInt("regulatorRek", 0);
                 editor.commit();
