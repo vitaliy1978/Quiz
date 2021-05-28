@@ -26,6 +26,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class userlist extends AppCompatActivity {
@@ -64,6 +66,8 @@ public class userlist extends AppCompatActivity {
     int alreadyre;
     String uid, username;
     MediaPlayer topleaders;
+    RelativeLayout userlistLayout;
+    MaterialEditText emailfield, pasfield;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +92,6 @@ public class userlist extends AppCompatActivity {
         }
 
         alreadyre=0;
-//        SharedPreferences.Editor editor3 = save.edit();
-//        editor3.putInt("lastStr".toString(), 1);
-//        editor3.commit();
 
         textTop = findViewById(R.id.textTop);
         tvlevel = findViewById(R.id.tvlevel);
@@ -98,6 +99,9 @@ public class userlist extends AppCompatActivity {
         button_close_from_userlist = findViewById(R.id.button_close_from_userlist);
         buttonReg = findViewById(R.id.buttonReg);
         recyclerView = findViewById(R.id.userList);
+        userlistLayout = findViewById(R.id.userlist_layout);
+        emailfield = findViewById(R.id.emailField);
+        pasfield = findViewById(R.id.passField);
 
         final Animation a = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha3);
         final Animation a1 = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha5);
@@ -217,7 +221,6 @@ public class userlist extends AppCompatActivity {
         dialod.setView(register_windows);
         MaterialEditText email = register_windows.findViewById(R.id.emailField);
         MaterialEditText password = register_windows.findViewById(R.id.passField);
-
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
@@ -231,6 +234,23 @@ public class userlist extends AppCompatActivity {
         dialod.setPositiveButton(R.string.ok_registration, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
+
+                Pattern ps = Pattern.compile("^[a-zA-Z0-9а-яА-Я]+$");
+                Matcher ms = ps.matcher(email.getText().toString());
+                boolean bs = ms.matches();
+                if (bs == false) {
+                    backToast = Toast.makeText(getBaseContext(),"недопустимые символы\n\nиспользуйте только буквы и цифры",Toast.LENGTH_SHORT);
+                    backToast.show();
+                    return;
+                }
+                Matcher ms2 = ps.matcher(pasfield.getText().toString());
+                boolean bs2 = ms.matches();
+                if (bs2 == false) {
+                    backToast = Toast.makeText(getBaseContext(),"недопустимые символы\n\nиспользуйте только буквы и цифры",Toast.LENGTH_SHORT);
+                    backToast.show();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
                     backToast = Toast.makeText(getBaseContext(),getString(R.string.name_registration),Toast.LENGTH_SHORT);
@@ -275,7 +295,7 @@ public class userlist extends AppCompatActivity {
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Snackbar.make(recyclerView,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                        Snackbar.make(userlistLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
                                      //   backToast = Toast.makeText(getBaseContext(),getString(R.string.error_registration)+e.getMessage(),Toast.LENGTH_SHORT);
                                      //   backToast.show();
                                     }
