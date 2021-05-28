@@ -33,8 +33,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.common.net.InternetDomainName;
 import com.google.firebase.auth.AuthResult;
@@ -224,7 +226,7 @@ public class userlist extends AppCompatActivity {
         dialod.setView(register_windows);
         MaterialEditText email = register_windows.findViewById(R.id.emailField);
         MaterialEditText password = register_windows.findViewById(R.id.passField);
-        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
 
@@ -232,10 +234,10 @@ public class userlist extends AppCompatActivity {
             @Override
             public CharSequence filter(CharSequence source, int start,
                                        int end, Spanned dest, int dstart, int dend) {
-                if(source.equals("")){ // for backspace
+                if (source.equals("")) { // for backspace
                     return source;
                 }
-                if(source.toString().matches("[a-zA-Zа-яА-Я0-9]+")){
+                if (source.toString().matches("[a-zA-Zа-яА-Я0-9]+")) {
                     return source;
                 }
                 return "";
@@ -246,13 +248,13 @@ public class userlist extends AppCompatActivity {
             @Override
             public CharSequence filter(CharSequence source, int start,
                                        int end, Spanned dest, int dstart, int dend) {
-                 if(source.length()<=15){
+                if (source.length() <= 15) {
                     return source;
                 }
-                 return "";
+                return "";
             }
         };
-        email.setFilters(new InputFilter[] {customFilter, new InputFilter.LengthFilter(15)});
+        email.setFilters(new InputFilter[]{customFilter, new InputFilter.LengthFilter(15)});
 
 
         dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {
@@ -283,58 +285,53 @@ public class userlist extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
-                    backToast = Toast.makeText(getBaseContext(),getString(R.string.name_registration),Toast.LENGTH_SHORT);
+                    backToast = Toast.makeText(getBaseContext(), getString(R.string.name_registration), Toast.LENGTH_SHORT);
                     backToast.show();
                     return;
                 }
                 if (password.getText().toString().length() < 6) {
                     //   Snackbar.make(finishLayout, R.string.password_registration, Snackbar.LENGTH_SHORT).show();
-                    backToast = Toast.makeText(getBaseContext(),getString(R.string.password_registration),Toast.LENGTH_SHORT);
+                    backToast = Toast.makeText(getBaseContext(), getString(R.string.password_registration), Toast.LENGTH_LONG);
                     backToast.show();
                     return;
                 }
 
-                //регистрация пользователя
-                auth.createUserWithEmailAndPassword(email.getText().toString() + "@mail.ru", password.getText().toString())
-                        .addOnSuccessListener(new com.google.android.gms.tasks.OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                User user = new User();
-                                user.setName(email.getText().toString() + "@mail.ru");
-                                user.setPass(password.getText().toString());
-                                user.setLevel(level);
-                                user.setMiddleResult(middleResult);
+                if (!TextUtils.isEmpty(email.getText().toString())) {
+                    //регистрация пользователя
+                    auth.createUserWithEmailAndPassword(email.getText().toString() + "@mail.ru", password.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        User user = new User();
+                                        user.setName(email.getText().toString() + "@mail.ru");
+                                        user.setPass(password.getText().toString());
+                                        user.setLevel(level);
+                                        user.setMiddleResult(middleResult);
 
-                                database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                //   Snackbar.make(finishLayout, R.string.add_registration, Snackbar.LENGTH_SHORT).show();
-                                                backToast = Toast.makeText(getBaseContext(),getString(R.string.add_registration),Toast.LENGTH_SHORT);
-                                                backToast.show();
-                                                SharedPreferences.Editor editor = save.edit();
-                                                editor.putInt("alreadyReg", 1);
-                                                editor.commit();
-                                                alreadyre = 1;
-                                                buttonReg.setVisibility(View.INVISIBLE);
-                                                //  database.child(uid).child("middleResult").setValue(middleResult);
-                                                //  database.child(uid).child("level").setValue(level);
-
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Snackbar.make(userlistLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
-                                     //   backToast = Toast.makeText(getBaseContext(),getString(R.string.error_registration)+e.getMessage(),Toast.LENGTH_SHORT);
-                                     //   backToast.show();
+                                        database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(user)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        SharedPreferences.Editor editor = save.edit();
+                                                        editor.putInt("alreadyReg", 1);
+                                                        editor.commit();
+                                                        alreadyre = 1;
+                                                        buttonReg.setVisibility(View.INVISIBLE);
+                                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
+                                                        backToast.show();
+                                                    }
+                                                });
+                                    } else {
+                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
+                                        backToast.show();
                                     }
-                                });
-                            }
-                        });
-            }
+                                }
+                            });
+                }
+                }
         });
-
         dialod.show();
     }
 
