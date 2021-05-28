@@ -15,6 +15,8 @@ import android.media.MediaPlayer;
 import android.media.browse.MediaBrowser;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -213,6 +215,7 @@ public class userlist extends AppCompatActivity {
         });
 
     }
+
     public void showRegisterWindows() {
         AlertDialog.Builder dialod = new AlertDialog.Builder(this);
         dialod.setTitle(R.string.title_registration);
@@ -225,6 +228,33 @@ public class userlist extends AppCompatActivity {
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
 
+        InputFilter customFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start,
+                                       int end, Spanned dest, int dstart, int dend) {
+                if(source.equals("")){ // for backspace
+                    return source;
+                }
+                if(source.toString().matches("[a-zA-Zа-яА-Я0-9]+")){
+                    return source;
+                }
+                return "";
+            }
+        };
+
+        InputFilter lenthFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start,
+                                       int end, Spanned dest, int dstart, int dend) {
+                 if(source.length()<=15){
+                    return source;
+                }
+                 return "";
+            }
+        };
+        email.setFilters(new InputFilter[] {customFilter, new InputFilter.LengthFilter(15)});
+
+
         dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
@@ -235,21 +265,21 @@ public class userlist extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
 
-                Pattern ps = Pattern.compile("^[a-zA-Z0-9а-яА-Я]+$");
-                Matcher ms = ps.matcher(email.getText().toString());
-                boolean bs = ms.matches();
-                if (bs == false) {
-                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
-                    backToast.show();
-                    return;
-                }
-                Matcher ms2 = ps.matcher(pasfield.getText().toString());
-                boolean bs2 = ms.matches();
-                if (bs2 == false) {
-                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
-                    backToast.show();
-                    return;
-                }
+//                Pattern ps = Pattern.compile("^[a-zA-Z0-9а-яА-Я]+$");
+//                Matcher ms = ps.matcher(email.getText().toString());
+//                boolean bs = ms.matches();
+//                if (bs == false) {
+//                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
+//                    backToast.show();
+//                    return;
+//                }
+//                Matcher ms2 = ps.matcher(pasfield.getText().toString());
+//                boolean bs2 = ms.matches();
+//                if (bs2 == false) {
+//                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
+//                    backToast.show();
+//                    return;
+//                }
 
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
