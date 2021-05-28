@@ -62,7 +62,7 @@ public class userlist extends AppCompatActivity {
     Button buttonReg;
     TextView textTop, button_close_from_userlist, tvlevel, tvaverage;
     int alreadyre;
-    String uid;
+    String uid, username;
     MediaPlayer topleaders;
 
     @Override
@@ -275,9 +275,9 @@ public class userlist extends AppCompatActivity {
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        //    Snackbar.make(finishLayout,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
-                                        backToast = Toast.makeText(getBaseContext(),getString(R.string.error_registration),Toast.LENGTH_SHORT);
-                                        backToast.show();
+                                        Snackbar.make(recyclerView,R.string.error_registration+e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                     //   backToast = Toast.makeText(getBaseContext(),getString(R.string.error_registration)+e.getMessage(),Toast.LENGTH_SHORT);
+                                     //   backToast.show();
                                     }
                                 });
                             }
