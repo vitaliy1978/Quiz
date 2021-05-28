@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -69,12 +71,44 @@ public class Finish extends AppCompatActivity {
     TextView textOptMark =(TextView)findViewById(R.id.textOpt_mark);
     TextView textOptLiders_end = findViewById(R.id.textOpt_liders_end);
     finishLayout = findViewById(R.id.finish_layout);
-    ImageView image = findViewById(R.id.main_cup);
+    ImageView main_cup = findViewById(R.id.main_cup);
+
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
+
+        final Animation a1 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+        final Animation a2 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+        final Animation a3 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+        final Animation a4 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+        final Animation a5 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+
+        a1.setStartOffset(500);
+        textOptMark.setVisibility(View.INVISIBLE);
+        textOptMark.startAnimation(a1);
+        textOptMark.setVisibility(View.VISIBLE);
+
+        a2.setStartOffset(900);
+        textOptLiders_end.setVisibility(View.INVISIBLE);
+        textOptLiders_end.startAnimation(a2);
+        textOptLiders_end.setVisibility(View.VISIBLE);
+
+        a3.setStartOffset(1300);
+        textdescription.setVisibility(View.INVISIBLE);
+        textdescription.startAnimation(a3);
+        textdescription.setVisibility(View.VISIBLE);
+
+        a4.setStartOffset(1700);
+        main_cup.setVisibility(View.INVISIBLE);
+        main_cup.startAnimation(a4);
+        main_cup.setVisibility(View.VISIBLE);
+
+        a5.setStartOffset(2100);
+        back_game.setVisibility(View.INVISIBLE);
+        back_game.startAnimation(a5);
+        back_game.setVisibility(View.VISIBLE);
 
         fanfary = MediaPlayer.create(this,R.raw.fanfary);
         if (muzof==false) {

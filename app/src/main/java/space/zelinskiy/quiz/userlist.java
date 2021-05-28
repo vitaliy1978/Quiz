@@ -22,7 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +60,7 @@ public class userlist extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase db;
     Button buttonReg;
-    TextView textTop, button_close_from_userlist;
+    TextView textTop, button_close_from_userlist, tvlevel, tvaverage;
     int alreadyre;
     String uid;
     MediaPlayer topleaders;
@@ -90,10 +93,37 @@ public class userlist extends AppCompatActivity {
 //        editor3.commit();
 
         textTop = findViewById(R.id.textTop);
+        tvlevel = findViewById(R.id.tvlevel);
+        tvaverage = findViewById(R.id.tvaverage);
         button_close_from_userlist = findViewById(R.id.button_close_from_userlist);
-
         buttonReg = findViewById(R.id.buttonReg);
         recyclerView = findViewById(R.id.userList);
+
+        final Animation a = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha3);
+        final Animation a1 = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha5);
+        //a.setStartOffset(1300);
+        textTop.setVisibility(View.INVISIBLE);
+        textTop.startAnimation(a1);
+        textTop.setVisibility(View.VISIBLE);
+
+        tvaverage.setVisibility(View.INVISIBLE);
+        tvaverage.startAnimation(a1);
+        tvaverage.setVisibility(View.VISIBLE);
+
+        tvlevel.setVisibility(View.INVISIBLE);
+        tvlevel.startAnimation(a1);
+        tvlevel.setVisibility(View.VISIBLE);
+
+        button_close_from_userlist.setVisibility(View.INVISIBLE);
+        button_close_from_userlist.startAnimation(a1);
+        button_close_from_userlist.setVisibility(View.VISIBLE);
+
+        a.setStartOffset(1400);
+        recyclerView.setVisibility(View.INVISIBLE);
+        recyclerView.startAnimation(a);
+        recyclerView.setVisibility(View.VISIBLE);
+
+
         database = FirebaseDatabase.getInstance().getReference("users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -138,6 +168,8 @@ public class userlist extends AppCompatActivity {
         }
 
         if (alreadyReg==0 && middleResult>1) {
+            buttonReg.setVisibility(View.INVISIBLE);
+            buttonReg.startAnimation(a);
             buttonReg.setVisibility(View.VISIBLE);
             //определяем UID текущего юзера
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
