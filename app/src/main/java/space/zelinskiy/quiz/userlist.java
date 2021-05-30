@@ -267,22 +267,6 @@ public class userlist extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
 
-//                Pattern ps = Pattern.compile("^[a-zA-Z0-9а-яА-Я]+$");
-//                Matcher ms = ps.matcher(email.getText().toString());
-//                boolean bs = ms.matches();
-//                if (bs == false) {
-//                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
-//                    backToast.show();
-//                    return;
-//                }
-//                Matcher ms2 = ps.matcher(pasfield.getText().toString());
-//                boolean bs2 = ms.matches();
-//                if (bs2 == false) {
-//                    backToast = Toast.makeText(getBaseContext(),getString(R.string.error_symbols),Toast.LENGTH_SHORT);
-//                    backToast.show();
-//                    return;
-//                }
-
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     //  Snackbar.make(finishLayout, R.string.name_registration, Snackbar.LENGTH_SHORT).show();
                     backToast = Toast.makeText(getBaseContext(), getString(R.string.name_registration), Toast.LENGTH_SHORT);

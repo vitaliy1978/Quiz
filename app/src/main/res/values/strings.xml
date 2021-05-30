@@ -23,7 +23,7 @@
     <string name="add_registration">User added</string>
     <string name="error_registration">This name already exists</string>
     <string name="error_symbols">invalid characters\nuse only letters and numbers</string>
-    <string name="levels">levels"</string>
+    <string name="levels">level"</string>
     <string name="average">average time"</string>
     <string name="text_continue">Start the game</string>
     <string name="text_continue_next">Next level</string>
