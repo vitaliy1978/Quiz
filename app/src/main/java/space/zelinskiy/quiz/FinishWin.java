@@ -1,14 +1,11 @@
 package space.zelinskiy.quiz;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,27 +15,23 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Locale;
 
-public class Finish extends AppCompatActivity {
+public class FinishWin extends AppCompatActivity {
 
     ReviewManager manager;
     ReviewInfo reviewInfo;
@@ -63,7 +56,7 @@ public class Finish extends AppCompatActivity {
 
         final String country = Locale.getDefault().getCountry();
 
-        manager = ReviewManagerFactory.create(Finish.this);
+        manager = ReviewManagerFactory.create(FinishWin.this);
         final Task<ReviewInfo> request = manager.requestReviewFlow();
 
     final TextView back_game = (TextView) findViewById(R.id.button_close);
@@ -79,11 +72,11 @@ public class Finish extends AppCompatActivity {
         final int level = save.getInt("Level", 1);
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
 
-        final Animation a1 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
-        final Animation a2 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
-        final Animation a3 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
-        final Animation a4 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
-        final Animation a5 = AnimationUtils.loadAnimation(Finish.this,R.anim.alpha3);
+        final Animation a1 = AnimationUtils.loadAnimation(FinishWin.this,R.anim.alpha3);
+        final Animation a2 = AnimationUtils.loadAnimation(FinishWin.this,R.anim.alpha3);
+        final Animation a3 = AnimationUtils.loadAnimation(FinishWin.this,R.anim.alpha3);
+        final Animation a4 = AnimationUtils.loadAnimation(FinishWin.this,R.anim.alpha3);
+        final Animation a5 = AnimationUtils.loadAnimation(FinishWin.this,R.anim.alpha3);
 
         a1.setStartOffset(500);
         textOptMark.setVisibility(View.INVISIBLE);
@@ -120,7 +113,7 @@ public class Finish extends AppCompatActivity {
             public void onClick(View v) {
                 fanfary.stop();
                 try {
-                    Intent intent = new Intent(Finish.this,GameLevels.class);
+                    Intent intent = new Intent(FinishWin.this,GameLevels.class);
                     startActivity(intent);
                 }catch (Exception e){
 
@@ -136,7 +129,7 @@ public class Finish extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fanfary.stop();
-                startActivity(new Intent(Finish.this, userlist.class));
+                startActivity(new Intent(FinishWin.this, userlist.class));
                 finish();
             }
         });
@@ -150,17 +143,17 @@ public class Finish extends AppCompatActivity {
             public void onComplete(@NonNull Task<ReviewInfo> task) {
                 if (task.isSuccessful()){
                     reviewInfo = task.getResult();
-                    Task<Void> flow = manager.launchReviewFlow(Finish.this,reviewInfo);
+                    Task<Void> flow = manager.launchReviewFlow(FinishWin.this,reviewInfo);
 
                     flow.addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void result) {
-                         //Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                         //Toast.makeText(FinishWin.this,"Error",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else{
                     //временный Тоаст для тестирования
-                   // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(FinishWin.this,"Error",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -181,7 +174,7 @@ public class Finish extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         fanfary.stop();
-        Intent intent = new Intent(Finish.this,GameLevels.class);
+        Intent intent = new Intent(FinishWin.this,GameLevels.class);
         startActivity(intent);
     }
     //системная кнопка Назад - конец

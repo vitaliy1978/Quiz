@@ -1,44 +1,35 @@
 package space.zelinskiy.quiz;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.browse.MediaBrowser;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseListAdapter;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.common.net.InternetDomainName;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,9 +42,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class userlist extends AppCompatActivity {
@@ -82,7 +70,6 @@ public class userlist extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
-
 
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
@@ -230,6 +217,7 @@ public class userlist extends AppCompatActivity {
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
 
+        //фильмтр символов в поле имя- Начало
         InputFilter customFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start,
@@ -255,6 +243,36 @@ public class userlist extends AppCompatActivity {
             }
         };
         email.setFilters(new InputFilter[]{customFilter, new InputFilter.LengthFilter(15)});
+        //фильмтр символов в поле имя - Конец
+
+        //фильмтр символов в поле пароль - Начало
+        InputFilter customFilterPas = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start,
+                                       int end, Spanned dest, int dstart, int dend) {
+                if (source.equals("")) { // for backspace
+                    return source;
+                }
+                if (source.toString().matches("[a-zA-Zа-яА-Я0-9.]+")) {
+                    return source;
+                }
+                return "";
+            }
+        };
+
+        InputFilter lenthFilterPas = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start,
+                                       int end, Spanned dest, int dstart, int dend) {
+                if (source.length() <= 15) {
+                    return source;
+                }
+                return "";
+            }
+        };
+        password.setFilters(new InputFilter[]{customFilterPas, new InputFilter.LengthFilter(15)});
+        //фильмтр символов в поле пароль - Конец
+
 
 
         dialod.setNegativeButton(R.string.back_registration, new DialogInterface.OnClickListener() {

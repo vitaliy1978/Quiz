@@ -3,12 +3,9 @@ package space.zelinskiy.quiz;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -21,11 +18,6 @@ import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Locale;
-import java.util.logging.Level;
 
 public class OptionHelp extends AppCompatActivity {
 
@@ -41,8 +33,6 @@ public class OptionHelp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.option_help);
 
-//        Window w = getWindow();
-//        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -51,14 +41,11 @@ public class OptionHelp extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
-    //    final int alreadyReg = save.getInt("alreadyReg", userlist.alreadyre);
 
         switchMuz.setChecked(save.getBoolean("statusMuz", true));   //берем данные о положении выключателя
         switchVoice.setChecked(save.getBoolean("statusVoice", true));  //берем данные о положении выключателя
         muzofStr = save.getString("muzofStr", muzofStr);
         voiceofStr = save.getString("voiceofStr", voiceofStr);
-       // switchMuz.setText(muzofStr.toString());
-      //  switchVoice.setText(voiceofStr.toString());
         if (switchMuz.isChecked()){
             switchMuz.setText(R.string.swithMusic);
         }else{
@@ -149,22 +136,17 @@ public class OptionHelp extends AppCompatActivity {
                             flow.addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void result) {
-                                    //Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(FinishWin.this,"Error",Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else{
-                            //временный Тоаст для тестирования
-                            // Toast.makeText(Finish.this,"Error",Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
 
             }
         });
-
-
-       // texOptliders.setVisibility(View.INVISIBLE);
-       // texOptShare.setVisibility(View.INVISIBLE);
 
         if (level<=5){
             textOptMark.setVisibility(View.INVISIBLE);
@@ -181,32 +163,6 @@ public class OptionHelp extends AppCompatActivity {
                 finish();
             }
         });
-//        textOptliders.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getAction()==MotionEvent.ACTION_DOWN){
-//                    textOptliders.setElevation(3);
-//                }
-//                if(event.getAction()==MotionEvent.ACTION_UP){
-//                    textOptliders.setElevation(12);
-//                }
-//                return true;
-//            }
-//        });
-
-//            textOptShare.setOnTouchListener(new View.OnTouchListener() {
-//                @Override
-//                public boolean onTouch(View v, MotionEvent event) {
-//                    if (event.getAction()==MotionEvent.ACTION_DOWN){
-//                        textOptShare.setElevation(3);
-//                    }
-//                    if(event.getAction()==MotionEvent.ACTION_UP){
-//                        textOptShare.setElevation(50);
-//                    }
-//                    return false;
-//                    }
-//            });
-
             textOptShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

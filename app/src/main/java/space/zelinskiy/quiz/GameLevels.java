@@ -12,15 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class GameLevels extends AppCompatActivity {
 
     Array array = new Array(); //Создали новый оъект из класса Array
-  //  public int formiddle=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +25,6 @@ public class GameLevels extends AppCompatActivity {
         final int level = save.getInt("Level", 1);
 
       // final int level = 21;
-
-       // int last = save.getInt("lastStr",0);
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -84,10 +76,6 @@ public class GameLevels extends AppCompatActivity {
                         intent.putExtra("numlev",1 );
                     startActivity(intent);
                     finish();
-//                        Intent intent2 = new Intent(GameLevels.this,Level5.class);
-//                        intent2.putExtra("formiddle", formiddle);
-//                        startActivity(intent2);
-//                        finish();
                     }else {
                         //пусто
                     }
@@ -109,10 +97,6 @@ public class GameLevels extends AppCompatActivity {
                         intent.putExtra("numlev",2);
                     startActivity(intent);
                     finish();
-//                        Intent intent2 = new Intent(GameLevels.this,Level5.class);
-//                        intent2.putExtra("formiddle", formiddle);
-//                        startActivity(intent2);
-//                        finish();
                     }else {
                         //пусто
                     }
@@ -511,27 +495,7 @@ public class GameLevels extends AppCompatActivity {
             }
             im.setVisibility(View.GONE);
         }
-//        for (int i=0;i<level;i++){
-//            formiddle=formiddle+array.rezult[i];
-//        }
-      //  TextView textViewlock1 =findViewById(R.id.textViewlock1);
-      //  textViewlock1.setText(String.format("%d.%02d", array.rezult[0] / 100, (array.rezult[0] % 100)));
     }
-
-//    public void send(){
-//        DatabaseReference database;
-//        FirebaseDatabase db;
-//        FirebaseAuth auth;
-//        auth = FirebaseAuth.getInstance();
-//        db = FirebaseDatabase.getInstance();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
-//        final int middleResult = save.getInt("middleResult", 0);
-//        final int level = save.getInt("Level", 1);
-//        database = FirebaseDatabase.getInstance().getReference("users");
-//        database.child(userlist.uid).child("middleResult").setValue(middleResult);
-//        database.child(userlist.uid).child("level").setValue(level);
-//    }
 
     //системная кнопка Назад - начало
     @Override

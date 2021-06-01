@@ -5,19 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.StyleSpan;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -27,10 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdListener;
@@ -62,7 +51,7 @@ public class Level5 extends AppCompatActivity {
     public int middleResult=0, formiddle=0;  //среднее время за все уровни
     final int last =0;
     public String text="";
-    Toast liderToast;
+    //Toast liderToast;
     public InterstitialAd interstitialAd; //реклама
     public int transition=0;
     AudioManager audio;
@@ -97,7 +86,7 @@ public class Level5 extends AppCompatActivity {
                                 startActivity(intent);
                                 finish(); break;
                             }else{
-                                Intent intent = new Intent(Level5.this,Finish.class);
+                                Intent intent = new Intent(Level5.this,FinishWin.class);
                                 startActivity(intent);
                                 finish(); break;
                             }
@@ -107,7 +96,7 @@ public class Level5 extends AppCompatActivity {
                                 Intent intent1 = new Intent(Level5.this,GameLevels.class);
                                 startActivity(intent1);finish(); break;
                             }else{
-                                Intent intent1 = new Intent(Level5.this,Finish.class);
+                                Intent intent1 = new Intent(Level5.this,FinishWin.class);
                                 startActivity(intent1);finish(); break;
                             }
                         case 3:
@@ -480,7 +469,7 @@ public class Level5 extends AppCompatActivity {
                     }
                 }else{
                     try {
-                        Intent intent = new Intent(Level5.this, Finish.class);
+                        Intent intent = new Intent(Level5.this, FinishWin.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -518,7 +507,7 @@ public class Level5 extends AppCompatActivity {
                         }
                     } else {
                         try {
-                            Intent intent = new Intent(Level5.this, Finish.class);
+                            Intent intent = new Intent(Level5.this, FinishWin.class);
                             intent.putExtra("numlev", numlev);
                             startActivity(intent);
                             finish();

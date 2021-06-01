@@ -1,14 +1,9 @@
 package space.zelinskiy.quiz;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.AnimationDrawable;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -184,8 +179,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (backPressedTime+2000>System.currentTimeMillis()){
             backToast.cancel();
-            super.onBackPressed();
             headfly.stop();
+            super.onBackPressed();
             return;
         } else{
             backToast = Toast.makeText(getBaseContext(),getString(R.string.btnBacktwice),Toast.LENGTH_SHORT);
