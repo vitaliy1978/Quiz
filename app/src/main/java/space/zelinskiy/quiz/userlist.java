@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -22,15 +23,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,6 +65,7 @@ public class userlist extends AppCompatActivity {
     ArrayList<User> list;
     private Toast backToast;
     FirebaseAuth auth;
+   // FirebaseAuth.AuthStateListener authStateListener;
     FirebaseDatabase db;
     Button buttonReg;
     TextView textTop, button_close_from_userlist, tvlevel, tvaverage;
@@ -60,11 +74,61 @@ public class userlist extends AppCompatActivity {
     MediaPlayer topleaders;
     RelativeLayout userlistLayout;
     MaterialEditText emailfield, pasfield;
+//    LoginButton loginFacebook;
+//    CallbackManager callbackManager;
+//    private static final String TAG = "FacebookAuthetification";
+//    private AccessTokenTracker accessTokenTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
+
+//        //проверка активности приложения в фейсбуке - начало
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
+//        //проверка активности приложения в фейсбуке - конец
+
+//        callbackManager = CallbackManager.Factory.create();
+//        //  auth = FirebaseAuth.getInstance();
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Log.d(TAG,"OnSucces"+loginResult);
+//                handleFaceBookToken(loginResult.getAccessToken());
+//            }
+//            @Override
+//            public void onCancel() {
+//                Log.d(TAG,"OnCancel");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Log.d(TAG,"OnError"+error);
+//            }
+//        });
+
+//        authStateListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = auth.getCurrentUser();
+//                if (user !=null){
+//                    updateUI(user);
+//                } else{
+//                    updateUI(null);
+//                }
+//            }
+//        };
+//
+//        accessTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                if (currentAccessToken==null){
+//                    auth.signOut();
+//                }
+//            }
+//        };
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -93,6 +157,8 @@ public class userlist extends AppCompatActivity {
         userlistLayout = findViewById(R.id.userlist_layout);
         emailfield = findViewById(R.id.emailField);
         pasfield = findViewById(R.id.passField);
+//        loginFacebook = findViewById(R.id.login_button);
+//        loginFacebook.setReadPermissions("email","public_profile");
 
         final Animation a = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha3);
         final Animation a1 = AnimationUtils.loadAnimation(userlist.this,R.anim.alpha5);
@@ -112,6 +178,10 @@ public class userlist extends AppCompatActivity {
         button_close_from_userlist.setVisibility(View.INVISIBLE);
         button_close_from_userlist.startAnimation(a1);
         button_close_from_userlist.setVisibility(View.VISIBLE);
+
+//        loginFacebook.setVisibility(View.INVISIBLE);
+//        loginFacebook.startAnimation(a1);
+//        loginFacebook.setVisibility(View.VISIBLE);
 
         a.setStartOffset(1400);
         recyclerView.setVisibility(View.INVISIBLE);
@@ -140,26 +210,23 @@ public class userlist extends AppCompatActivity {
 
                     User user = dataSnapshot.getValue(User.class);
                     list.add(user);
-
                     //  myAdapter.notifyDataSetChanged();
 
                     Collections.sort(list,User.levelSort);
                     //    Collections.sort(list,User.AverageSort);
-
                 }
-
                 myAdapter.notifyDataSetChanged();
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
-        if (alreadyReg==1 || middleResult<=1){
+        if (alreadyReg==1){
             buttonReg.setVisibility(View.INVISIBLE);
+            buttonReg.startAnimation(a);
+            buttonReg.setVisibility(View.VISIBLE);
         }
 
         if (alreadyReg==0 && middleResult>1) {
@@ -175,6 +242,8 @@ public class userlist extends AppCompatActivity {
                 editor.commit();
             }
             //определяем UID текущего юзера
+
+
         }
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -205,6 +274,40 @@ public class userlist extends AppCompatActivity {
 
     }
 
+//    private void handleFaceBookToken(AccessToken accessToken) {
+//        Log.d(TAG,"handleFacebookToken"+accessToken);
+//        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+//        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()){
+//                    Log.d(TAG,"sing in with credential is succesful");
+//                    FirebaseUser user = auth.getCurrentUser();
+//                    updateUI(user);
+//                }else{
+//                    Log.d(TAG,"sing in with credential is failure", task.getException());
+//                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
+//                    backToast.show();
+//                    updateUI(null);
+//                }
+//            }
+//        });
+//    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        callbackManager.onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
+//
+//    private void updateUI(FirebaseUser user) {
+//        if (user !=null){
+//            textTop.setText(user.getDisplayName());
+//        } else{
+//            textTop.setText("");
+//        }
+//    }
+
     public void showRegisterWindows() {
         AlertDialog.Builder dialod = new AlertDialog.Builder(this);
         dialod.setTitle(R.string.title_registration);
@@ -217,7 +320,7 @@ public class userlist extends AppCompatActivity {
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
 
-        //фильмтр символов в поле имя- Начало
+        //фильтр символов в поле имя- Начало
         InputFilter customFilter = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start,
@@ -243,9 +346,9 @@ public class userlist extends AppCompatActivity {
             }
         };
         email.setFilters(new InputFilter[]{customFilter, new InputFilter.LengthFilter(15)});
-        //фильмтр символов в поле имя - Конец
+        //фильтр символов в поле имя - Конец
 
-        //фильмтр символов в поле пароль - Начало
+        //фильтр символов в поле пароль - Начало
         InputFilter customFilterPas = new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start,
@@ -271,7 +374,7 @@ public class userlist extends AppCompatActivity {
             }
         };
         password.setFilters(new InputFilter[]{customFilterPas, new InputFilter.LengthFilter(15)});
-        //фильмтр символов в поле пароль - Конец
+        //фильтр символов в поле пароль - Конец
 
 
 
@@ -361,12 +464,16 @@ public class userlist extends AppCompatActivity {
         super.onStop();
         AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);   //выключаем гроскость при сворачивании
         am.setStreamMute(AudioManager.STREAM_MUSIC, true);
+//        if (authStateListener !=null){
+//            auth.addAuthStateListener(authStateListener);
+//        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);    //возвращаем гроскость при разворачивании
-        am.setStreamMute(AudioManager.STREAM_MUSIC, false);
+//        am.setStreamMute(AudioManager.STREAM_MUSIC, false);
+//        auth.addAuthStateListener(authStateListener);
     }
 }

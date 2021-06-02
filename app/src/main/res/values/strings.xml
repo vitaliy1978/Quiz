@@ -63,4 +63,10 @@
     <string name="btn20">Cities</string>
     <string name="btn21">Height</string>
     <string name="btn22">Great people</string>
+    <string name="facebook_app_id" translatable="false">327199932177295</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb327199932177295</string>
+<!--    <string name="facebook_app_id" translatable="false">388522402430069</string>-->
+<!--    <string name="fb_login_protocol_scheme" translatable="false">fb388522402430069</string>-->
+
+
 </resources>

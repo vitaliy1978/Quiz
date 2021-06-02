@@ -1,9 +1,16 @@
 package space.zelinskiy.quiz;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,7 +21,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,10 +55,35 @@ public class MainActivity extends AppCompatActivity {
     private Toast backToast;
     MediaPlayer headfly;
 
+    TextView buttonOption;
+
+    FirebaseAuth auth;
+    FirebaseAuth.AuthStateListener authStateListener;
+    LoginButton loginFacebook;
+    CallbackManager callbackManager;
+    private static final String TAG = "FacebookAuthetification";
+    private AccessTokenTracker accessTokenTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "{space.zelinskiy.quiz}",                  //Insert your own package name.
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
@@ -140,6 +198,70 @@ public class MainActivity extends AppCompatActivity {
             headfly.start();
         }
 
+        buttonOption = findViewById(R.id.buttonOption);
+
+        loginFacebook = findViewById(R.id.login_button);
+        loginFacebook.setReadPermissions("email","public_profile");
+        //проверка активности приложения в фейсбуке - начало
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+        //проверка активности приложения в фейсбуке - конец
+        callbackManager = CallbackManager.Factory.create();
+        auth = FirebaseAuth.getInstance();
+        loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG,"OnSucces"+loginResult);
+                backToast = Toast.makeText(getBaseContext(),"OnSucces",Toast.LENGTH_SHORT);
+                backToast.show();
+                handleFaceBookToken(loginResult.getAccessToken());
+            }
+            @Override
+            public void onCancel() {
+                Log.d(TAG,"OnCancel");
+                backToast = Toast.makeText(getBaseContext(),"OnCancel",Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                backToast = Toast.makeText(getBaseContext(),"OnError",Toast.LENGTH_SHORT);
+                backToast.show();
+                Log.d(TAG,"OnError"+error);
+            }
+        });
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = auth.getCurrentUser();
+                if (user !=null){
+                    updateUI(user);
+                } else{
+                    updateUI(null);
+                }
+            }
+        };
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                currentAccessToken = AccessToken.getCurrentAccessToken();
+                if (currentAccessToken==null){
+                    auth.signOut();
+//                    new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
+//                            .Callback() {
+//                        @Override
+//                        public void onCompleted(GraphResponse graphResponse) {
+//                            LoginManager.getInstance().logOut();
+//
+//                        }
+//                    }).executeAsync();
+                }
+
+            }
+        };
+
+
+
         Button buttonStart = (Button)findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +296,41 @@ public class MainActivity extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
     }
+
+    private void handleFaceBookToken(AccessToken accessToken) {
+        Log.d(TAG,"handleFacebookToken"+accessToken);
+        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Log.d(TAG,"sing in with credential is succesful");
+                    FirebaseUser user = auth.getCurrentUser();
+                    updateUI(user);
+                }else{
+                    Log.d(TAG,"sing in with credential is failure", task.getException());
+                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
+                    backToast.show();
+                    updateUI(null);
+                }
+            }
+        });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user !=null){
+            buttonOption.setText(user.getDisplayName());
+        } else{
+            buttonOption.setText("");
+        }
+    }
+
+
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed() {
@@ -194,4 +351,16 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         headfly.stop();
      }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (authStateListener !=null){
+            auth.addAuthStateListener(authStateListener);
+        }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authStateListener);
+    }
 }
