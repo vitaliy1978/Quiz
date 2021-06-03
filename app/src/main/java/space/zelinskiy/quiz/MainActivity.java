@@ -8,7 +8,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +50,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer headfly;
 
     TextView buttonOption;
+    Button buttonStart;
 
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authStateListener;
@@ -199,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         buttonOption = findViewById(R.id.buttonOption);
+        buttonStart = findViewById(R.id.buttonStart);
 
         loginFacebook = findViewById(R.id.login_button);
         loginFacebook.setReadPermissions("email","public_profile");
@@ -247,20 +252,18 @@ public class MainActivity extends AppCompatActivity {
                 currentAccessToken = AccessToken.getCurrentAccessToken();
                 if (currentAccessToken==null){
                     auth.signOut();
-//                    new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
-//                            .Callback() {
-//                        @Override
-//                        public void onCompleted(GraphResponse graphResponse) {
-//                            LoginManager.getInstance().logOut();
-//
-//                        }
-//                    }).executeAsync();
-                }
+                    new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
+                            .Callback() {
+                        @Override
+                        public void onCompleted(GraphResponse graphResponse) {
 
+                            LoginManager.getInstance().logOut();
+
+                        }
+                    }).executeAsync();
+                }
             }
         };
-
-
 
         Button buttonStart = (Button)findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
@@ -325,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user !=null){
             buttonOption.setText(user.getDisplayName());
+            buttonStart.setText(user.getEmail());
         } else{
             buttonOption.setText("");
         }
@@ -347,9 +351,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //системная кнопка Назад - конец
 
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         headfly.stop();
+      // accessTokenTracker.stopTracking();
      }
     @Override
     protected void onStop() {
