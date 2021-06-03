@@ -25,6 +25,7 @@
     <string name="error_symbols">недопустимые символы\nиспользуйте только буквы и цифры</string>
     <string name="levels">уровень"</string>
     <string name="average">среднее время"</string>
+    <string name="not_internet">Нет соединения с интернетом"</string>
     <string name="text_continue">Начать игру</string>
     <string name="text_continue_next">Cледующий уровень</string>
     <string name="level_end1">Уровень пройден."</string>

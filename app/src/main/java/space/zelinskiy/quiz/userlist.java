@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -50,6 +52,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -74,61 +77,12 @@ public class userlist extends AppCompatActivity {
     MediaPlayer topleaders;
     RelativeLayout userlistLayout;
     MaterialEditText emailfield, pasfield;
-//    LoginButton loginFacebook;
-//    CallbackManager callbackManager;
-//    private static final String TAG = "FacebookAuthetification";
-//    private AccessTokenTracker accessTokenTracker;
+    private static final String TAG = "FacebookAuthetification";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
-
-//        //проверка активности приложения в фейсбуке - начало
-//        FacebookSdk.sdkInitialize(getApplicationContext());
-//        AppEventsLogger.activateApp(this);
-//        //проверка активности приложения в фейсбуке - конец
-
-//        callbackManager = CallbackManager.Factory.create();
-//        //  auth = FirebaseAuth.getInstance();
-//        FacebookSdk.sdkInitialize(getApplicationContext());
-//        loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                Log.d(TAG,"OnSucces"+loginResult);
-//                handleFaceBookToken(loginResult.getAccessToken());
-//            }
-//            @Override
-//            public void onCancel() {
-//                Log.d(TAG,"OnCancel");
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//                Log.d(TAG,"OnError"+error);
-//            }
-//        });
-
-//        authStateListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = auth.getCurrentUser();
-//                if (user !=null){
-//                    updateUI(user);
-//                } else{
-//                    updateUI(null);
-//                }
-//            }
-//        };
-//
-//        accessTokenTracker = new AccessTokenTracker() {
-//            @Override
-//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-//                if (currentAccessToken==null){
-//                    auth.signOut();
-//                }
-//            }
-//        };
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -138,9 +92,13 @@ public class userlist extends AppCompatActivity {
         final int middleResult = save.getInt("middleResult", 0);
         final int level = save.getInt("Level", 1);
         final int alreadyReg = save.getInt("alreadyReg", 0);
+        final int facebookLoged = save.getInt("facebookLoged", 0);
         String uid = save.getString("uid", "");
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
         topleaders = MediaPlayer.create(this,R.raw.topliders);
+
+        backToast = Toast.makeText(getBaseContext(), facebookLoged+"", Toast.LENGTH_SHORT);
+        backToast.show();
 
         if (muzof==false) {
             topleaders.start();
@@ -188,7 +146,6 @@ public class userlist extends AppCompatActivity {
         recyclerView.startAnimation(a);
         recyclerView.setVisibility(View.VISIBLE);
 
-
         database = FirebaseDatabase.getInstance().getReference("users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -223,16 +180,15 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-        if (alreadyReg==1){
-            buttonReg.setVisibility(View.INVISIBLE);
-            buttonReg.startAnimation(a);
-            buttonReg.setVisibility(View.VISIBLE);
-        }
-
         if (alreadyReg==0 && middleResult>1) {
-            buttonReg.setVisibility(View.INVISIBLE);
-            buttonReg.startAnimation(a);
-            buttonReg.setVisibility(View.VISIBLE);
+            if (isOnlineInternet(this)) {
+                buttonReg.setVisibility(View.INVISIBLE);
+                buttonReg.startAnimation(a1);
+                buttonReg.setVisibility(View.VISIBLE);
+            } else{
+                backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
             //определяем UID текущего юзера
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
@@ -401,44 +357,112 @@ public class userlist extends AppCompatActivity {
                     return;
                 }
 
-                if (!TextUtils.isEmpty(email.getText().toString())) {
-                    //регистрация пользователя
-                    auth.createUserWithEmailAndPassword(email.getText().toString() + "@mail.ru", password.getText().toString())
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        User user = new User();
-                                        user.setName(email.getText().toString() + "@mail.ru");
-                                        user.setPass(password.getText().toString());
-                                        user.setLevel(level);
-                                        user.setMiddleResult(middleResult);
+                final int facebookLoged = save.getInt("facebookLoged", 0);
 
-                                        database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                .setValue(user)
-                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void aVoid) {
-                                                        SharedPreferences.Editor editor = save.edit();
-                                                        editor.putInt("alreadyReg", 1);
-                                                        editor.commit();
-                                                        alreadyre = 1;
-                                                        buttonReg.setVisibility(View.INVISIBLE);
-                                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
-                                                        backToast.show();
-                                                    }
-                                                });
-                                    } else {
-                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
-                                        backToast.show();
+                if (facebookLoged==1){ //если юзер залогинен через фейсбук
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    String uid = save.getString("uid", "");
+                    if (user != null) {
+                        uid = user.getUid();
+                        SharedPreferences.Editor editor = save.edit();
+                        editor.putString("uid", String.valueOf(uid));
+                        editor.commit();
+                    }
+                    database = FirebaseDatabase.getInstance().getReference("users");
+                    Query query = database
+                            .orderByChild("name")
+                            .equalTo(email.getText().toString() + "@mail.ru");
+                    String finalUid = uid;
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.getChildrenCount()>0) {
+                                //username found
+                                backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
+                                backToast.show();
+                            }else{
+                                // username not found
+                                database.child(finalUid).child("name").setValue(email.getText().toString() + "@mail.ru");
+                                database.child(finalUid).child("middleResult").setValue(middleResult);
+                                database.child(finalUid).child("level").setValue(level);
+                                database.child(finalUid).child("pass").setValue(password.getText().toString());
+                                database.child(finalUid).child("key").setValue(0);
+                                database.child(finalUid).child("number").setValue(0);
+                                SharedPreferences.Editor editor = save.edit();
+                                editor.putInt("alreadyReg", 1);
+                                editor.commit();
+                                alreadyre = 1;
+                                backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
+                                backToast.show();
+                            }
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
+                    });
+                    if (user != null) {
+                        uid = user.getUid();
+                        SharedPreferences.Editor editor = save.edit();
+                        editor.putString("uid", String.valueOf(uid));
+                        editor.commit();
+                    }
+                }
+
+                if (facebookLoged==0) {   //если юзер не залогинен через фейсбук
+                    if (!TextUtils.isEmpty(email.getText().toString())) {
+                        //регистрация пользователя - начало
+                        auth.createUserWithEmailAndPassword(email.getText().toString() + "@mail.ru", password.getText().toString())
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            User user = new User();
+                                            user.setName(email.getText().toString() + "@mail.ru");
+                                            user.setPass(password.getText().toString());
+                                            user.setLevel(level);
+                                            user.setMiddleResult(middleResult);
+
+                                            database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .setValue(user)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            SharedPreferences.Editor editor = save.edit();
+                                                            editor.putInt("alreadyReg", 1);
+                                                            editor.commit();
+                                                            alreadyre = 1;
+                                                            buttonReg.setVisibility(View.INVISIBLE);
+                                                            backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
+                                                            backToast.show();
+                                                        }
+                                                    });
+                                        } else {
+                                            backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
+                                            backToast.show();
+                                        }
                                     }
-                                }
-                            });
+                                });
+                        //регистрация пользователя - конец
+                    }
                 }
-                }
+            }
         });
         dialod.show();
     }
+
+    //есть ли соединение с интернетом - Начало
+    public static boolean isOnlineInternet(Context context)
+    {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting())
+        {
+            return true;
+        }
+        return false;
+    }
+    //есть ли соединение с интернетом - Конец
 
     //системная кнопка Назад - начало
     @Override

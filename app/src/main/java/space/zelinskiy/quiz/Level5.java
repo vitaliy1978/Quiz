@@ -19,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -458,7 +459,7 @@ public class Level5 extends AppCompatActivity {
                     transition = 2;
                     interstitialAd.show();    //показать рекламу
                 } else {
-                send();
+               // send();
                 if (numlev<21){
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
@@ -495,7 +496,7 @@ public class Level5 extends AppCompatActivity {
                     transition=1;
                     interstitialAd.show();    //показать рекламу
                 } else {
-                send();
+              //  send();
                     if (numlev < 21) {
                         try {
                             Intent intent = new Intent(Level5.this, Level5.class);
@@ -767,6 +768,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
+                        send();
                       //  img_left.setImageResource(masOfImgMas[numlev-1][numLeft]);
                         img_left.setVisibility(View.INVISIBLE);
                         img_right.setVisibility(View.INVISIBLE);
@@ -1001,6 +1003,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                     if (count==20){  //Выход из уровня
                         musicfon.stop();
                         start=0;
+                        send();
                        // img_right.setImageResource(masOfImgMas[numlev-1][numLeft]);
                         img_left.setVisibility(View.INVISIBLE);
                         img_right.setVisibility(View.INVISIBLE);
@@ -1234,8 +1237,19 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
                 editor.commit();
             }
             database = FirebaseDatabase.getInstance().getReference("users");
-            database.child(uid).child("middleResult").setValue(middleResult);
-            database.child(uid).child("level").setValue(level);
+           // if (database.child(uid).child("name").get().toString().contains("@mail.ru")) {
+           //   if (database.child(uid).child("pass").get().toString().length()>0) {
+                database.child(uid).child("middleResult").setValue(middleResult);
+                database.child(uid).child("level").setValue(level);
+
+//            database.child(uid).child("name").setValue(email.getText().toString() + "@mail.ru");
+//            database.child(uid).child("middleResult").setValue(middleResult);
+//            database.child(uid).child("level").setValue(level);
+//            database.child(uid).child("pass").setValue(password.getText().toString());
+//            database.child(uid).child("key").setValue(0);
+//            database.child(uid).child("number").setValue(0);
+
+         //   }
         }
     }
 
@@ -1282,7 +1296,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
         timeend.stop();
         start=0;
         sekost=50001;
-        send();
+       send();
     }
     @Override
     protected void onStop() {

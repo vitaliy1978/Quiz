@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.se.omapi.Session;
@@ -213,57 +215,68 @@ public class MainActivity extends AppCompatActivity {
         //проверка активности приложения в фейсбуке - конец
         callbackManager = CallbackManager.Factory.create();
         auth = FirebaseAuth.getInstance();
-        loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG,"OnSucces"+loginResult);
-                backToast = Toast.makeText(getBaseContext(),"OnSucces",Toast.LENGTH_SHORT);
-                backToast.show();
-                handleFaceBookToken(loginResult.getAccessToken());
-            }
-            @Override
-            public void onCancel() {
-                Log.d(TAG,"OnCancel");
-                backToast = Toast.makeText(getBaseContext(),"OnCancel",Toast.LENGTH_SHORT);
-                backToast.show();
-            }
 
-            @Override
-            public void onError(FacebookException error) {
-                backToast = Toast.makeText(getBaseContext(),"OnError",Toast.LENGTH_SHORT);
-                backToast.show();
-                Log.d(TAG,"OnError"+error);
-            }
-        });
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = auth.getCurrentUser();
-                if (user !=null){
-                    updateUI(user);
-                } else{
-                    updateUI(null);
+        if (isOnlineInternet(this) || isAppInstalled()) {
+            loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+                    Log.d(TAG, "OnSucces" + loginResult);
+                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
+                    backToast.show();
+                    handleFaceBookToken(loginResult.getAccessToken());
                 }
-            }
-        };
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                currentAccessToken = AccessToken.getCurrentAccessToken();
-                if (currentAccessToken==null){
-                    auth.signOut();
-                    new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
-                            .Callback() {
-                        @Override
-                        public void onCompleted(GraphResponse graphResponse) {
 
-                            LoginManager.getInstance().logOut();
-
-                        }
-                    }).executeAsync();
+                @Override
+                public void onCancel() {
+                    Log.d(TAG, "OnCancel");
+                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
+                    backToast.show();
                 }
-            }
-        };
+
+                @Override
+                public void onError(FacebookException error) {
+                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
+                    backToast.show();
+                    Log.d(TAG, "OnError" + error);
+                }
+            });
+        }else{
+            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+            backToast.show();
+            loginFacebook.setVisibility(View.INVISIBLE);
+        }
+
+            authStateListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = auth.getCurrentUser();
+                    if (user != null) {
+                        updateUI(user);
+                    } else {
+                        updateUI(null);
+                    }
+                }
+            };
+
+            accessTokenTracker = new AccessTokenTracker() {
+                @Override
+                protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                    currentAccessToken = AccessToken.getCurrentAccessToken();
+                    if (currentAccessToken == null) {
+                        auth.signOut();
+                        new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
+                                .Callback() {
+                            @Override
+                            public void onCompleted(GraphResponse graphResponse) {
+
+                                LoginManager.getInstance().logOut();
+
+                            }
+                        }).executeAsync();
+                    }
+                }
+            };
+
 
         Button buttonStart = (Button)findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
@@ -306,15 +319,22 @@ public class MainActivity extends AppCompatActivity {
         auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                 if (task.isSuccessful()){
                     Log.d(TAG,"sing in with credential is succesful");
                     FirebaseUser user = auth.getCurrentUser();
                     updateUI(user);
+                    SharedPreferences.Editor editor = save.edit();
+                    editor.putInt("facebookLoged", 1);
+                    editor.commit();
                 }else{
                     Log.d(TAG,"sing in with credential is failure", task.getException());
                     backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
                     backToast.show();
                     updateUI(null);
+                    SharedPreferences.Editor editor = save.edit();
+                    editor.putInt("facebookLoged", 0);
+                    editor.commit();
                 }
             }
         });
@@ -334,6 +354,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public boolean isAppInstalled() {
+        try {
+            getApplicationContext().getPackageManager().getApplicationInfo("com.facebook.katana", 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    //есть ли соединение с интернетом - Начало
+    public static boolean isOnlineInternet(Context context)
+    {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting())
+        {
+            return true;
+        }
+        return false;
+    }
+     //есть ли соединение с интернетом - Конец
 
     //системная кнопка Назад - начало
     @Override
