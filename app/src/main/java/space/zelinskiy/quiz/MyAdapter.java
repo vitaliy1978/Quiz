@@ -45,10 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         //   holder.average.setText(user.getMiddleResult()+"");
         holder.average.setText(String.format("%d.%02d", user.getMiddleResult() / 100, (user.getMiddleResult() % 100)));
 
-//        if (list.get(position).getLevel()==2){
-//            holder.itemView.setBackgroundResource(R.drawable.gold_shape);
-//        }
-        switch (position){
+          switch (position){
             case 0: holder.itemView.setBackgroundResource(R.drawable.gold_shape);
                 break;
             case 1: holder.itemView.setBackgroundResource(R.drawable.silver_shape);

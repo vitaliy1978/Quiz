@@ -20,24 +20,63 @@
         android:gravity="top"
         android:padding="0dp"
         android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+             android:padding="0dp"
+            android:orientation="vertical">
         <TextView
-            android:id="@+id/buttonOption"
+            android:id="@+id/buttonTop"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
             android:background="@drawable/button_stroke_black95_press_white"
-            android:text="?"
             android:textStyle="bold"
             android:fontFamily="@font/roboto"
             android:textSize="21sp"
             android:gravity="center"
             android:textColor="@color/dark_blue"
+            android:drawableTop="@drawable/medal"
+            android:padding="4dp"
             android:elevation="2dp"
             android:stateListAnimator="@null"
-            android:layout_gravity="right"
+            android:layout_gravity="center_vertical|left"
             />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/buttonOption"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_stroke_black95_press_white"
+            android:text="?"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto"
+            android:textSize="23sp"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:textColor="@color/dark_blue"
+            android:elevation="2dp"
+            android:stateListAnimator="@null"
+            />
+        </LinearLayout>
+    </LinearLayout>
 
         <ImageView
             android:id="@+id/main_img"
@@ -49,7 +88,19 @@
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="0dp"
             android:layout_weight="2"
-            android:src="@drawable/main_img" />
+            android:src="@drawable/main_img_right" />
+        <ImageView
+            android:id="@+id/main_img2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:visibility="gone"
+            android:src="@drawable/main_img_left" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -284,6 +335,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="horizontal">
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/login_button"
@@ -293,7 +345,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="12dp"
                 android:visibility="visible"/>
         </LinearLayout>
 

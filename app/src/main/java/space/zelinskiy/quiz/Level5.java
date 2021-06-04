@@ -1297,6 +1297,9 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
         start=0;
         sekost=50001;
        send();
+        dialog.dismiss();
+        dialogEnd.dismiss();
+
     }
     @Override
     protected void onStop() {

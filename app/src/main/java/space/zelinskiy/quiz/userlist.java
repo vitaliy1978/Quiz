@@ -97,8 +97,8 @@ public class userlist extends AppCompatActivity {
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
         topleaders = MediaPlayer.create(this,R.raw.topliders);
 
-        backToast = Toast.makeText(getBaseContext(), facebookLoged+"", Toast.LENGTH_SHORT);
-        backToast.show();
+//        backToast = Toast.makeText(getBaseContext(), facebookLoged+"", Toast.LENGTH_SHORT);
+//        backToast.show();
 
         if (muzof==false) {
             topleaders.start();
@@ -186,7 +186,7 @@ public class userlist extends AppCompatActivity {
                 buttonReg.startAnimation(a1);
                 buttonReg.setVisibility(View.VISIBLE);
             } else{
-                backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+                backToast = Toast.makeText(getBaseContext(), getString(R.string.not_internet), Toast.LENGTH_SHORT);
                 backToast.show();
             }
             //определяем UID текущего юзера
@@ -219,7 +219,7 @@ public class userlist extends AppCompatActivity {
             public void onClick(View v) {
                 topleaders.stop();
                 try {
-                    Intent intent = new Intent(userlist.this,OptionHelp.class);
+                    Intent intent = new Intent(userlist.this,MainActivity.class);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -229,40 +229,6 @@ public class userlist extends AppCompatActivity {
         });
 
     }
-
-//    private void handleFaceBookToken(AccessToken accessToken) {
-//        Log.d(TAG,"handleFacebookToken"+accessToken);
-//        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
-//        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()){
-//                    Log.d(TAG,"sing in with credential is succesful");
-//                    FirebaseUser user = auth.getCurrentUser();
-//                    updateUI(user);
-//                }else{
-//                    Log.d(TAG,"sing in with credential is failure", task.getException());
-//                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
-//                    backToast.show();
-//                    updateUI(null);
-//                }
-//            }
-//        });
-//    }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        callbackManager.onActivityResult(requestCode, resultCode, data);
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
-//
-//    private void updateUI(FirebaseUser user) {
-//        if (user !=null){
-//            textTop.setText(user.getDisplayName());
-//        } else{
-//            textTop.setText("");
-//        }
-//    }
 
     public void showRegisterWindows() {
         AlertDialog.Builder dialod = new AlertDialog.Builder(this);
@@ -392,6 +358,7 @@ public class userlist extends AppCompatActivity {
                                 editor.putInt("alreadyReg", 1);
                                 editor.commit();
                                 alreadyre = 1;
+                                buttonReg.setVisibility(View.INVISIBLE);
                                 backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
                                 backToast.show();
                             }
@@ -415,31 +382,55 @@ public class userlist extends AppCompatActivity {
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            User user = new User();
-                                            user.setName(email.getText().toString() + "@mail.ru");
-                                            user.setPass(password.getText().toString());
-                                            user.setLevel(level);
-                                            user.setMiddleResult(middleResult);
 
-                                            database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                    .setValue(user)
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            SharedPreferences.Editor editor = save.edit();
-                                                            editor.putInt("alreadyReg", 1);
-                                                            editor.commit();
-                                                            alreadyre = 1;
-                                                            buttonReg.setVisibility(View.INVISIBLE);
-                                                            backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
-                                                            backToast.show();
-                                                        }
-                                                    });
-                                        } else {
-                                            backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
-                                            backToast.show();
-                                        }
+                                        database = FirebaseDatabase.getInstance().getReference("users");
+                                        Query query = database
+                                                .orderByChild("name")
+                                                .equalTo(email.getText().toString() + "@mail.ru");
+                                        String finalUid = uid;
+                                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if(dataSnapshot.getChildrenCount()>0) {
+                                                    //username found
+                                                    backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
+                                                    backToast.show();
+                                                }else{
+                                                    // username not found
+
+                                                    if (task.isSuccessful()) {
+                                                        User user = new User();
+                                                        user.setName(email.getText().toString() + "@mail.ru");
+                                                        user.setPass(password.getText().toString());
+                                                        user.setLevel(level);
+                                                        user.setMiddleResult(middleResult);
+
+                                                        database.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                                .setValue(user)
+                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void aVoid) {
+                                                                        SharedPreferences.Editor editor = save.edit();
+                                                                        editor.putInt("alreadyReg", 1);
+                                                                        editor.commit();
+                                                                        alreadyre = 1;
+                                                                        buttonReg.setVisibility(View.INVISIBLE);
+                                                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.add_registration), Toast.LENGTH_LONG);
+                                                                        backToast.show();
+                                                                    }
+                                                                });
+                                                    } else {
+                                                        backToast = Toast.makeText(getBaseContext(), getString(R.string.error_registration), Toast.LENGTH_LONG);
+                                                        backToast.show();
+                                                    }
+                                                }
+                                            }
+                                            @Override
+                                            public void onCancelled(DatabaseError databaseError) {
+                                            }
+                                        });
+
+
                                     }
                                 });
                         //регистрация пользователя - конец
@@ -469,7 +460,7 @@ public class userlist extends AppCompatActivity {
     public void onBackPressed(){
         topleaders.stop();
         try {
-            Intent intent = new Intent(userlist.this,OptionHelp.class);
+            Intent intent = new Intent(userlist.this,MainActivity.class);
             startActivity(intent);
             finish();
         }catch (Exception e){

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private Toast backToast;
     MediaPlayer headfly;
 
-    TextView buttonOption;
+    TextView buttonOption, buttonTop;
     Button buttonStart;
 
     FirebaseAuth auth;
@@ -93,8 +93,31 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
+        final int facebookLoged = save.getInt("facebookLoged", 0);
+
+        final int level = save.getInt("Level", 1);
+        final int alreadyReg = save.getInt("alreadyReg", 0);
 
         final ImageView mainImg = (ImageView)findViewById(R.id.main_img);
+        final ImageView mainImg2 = (ImageView)findViewById(R.id.main_img2);
+        TextView buttonTop = (TextView) findViewById(R.id.buttonTop);
+
+        if (level<2){
+            buttonTop.setVisibility(View.INVISIBLE);
+            mainImg2.setVisibility(View.GONE);
+            mainImg.setVisibility(View.VISIBLE);
+        }
+        if (level>=2 && level % 2==0){
+            buttonTop.setVisibility(View.VISIBLE);
+            mainImg.setVisibility(View.GONE);
+            mainImg2.setVisibility(View.VISIBLE);
+        }
+        if (level>=2 && level % 2==1){
+          //  buttonTop.setVisibility(View.VISIBLE);
+            mainImg2.setVisibility(View.GONE);
+            mainImg.setVisibility(View.VISIBLE);
+        }
+
         final ImageView head2 = (ImageView)findViewById(R.id.imageHead2);
         final ImageView head1 = (ImageView)findViewById(R.id.imageHead1);
         final ImageView head1light = (ImageView)findViewById(R.id.imageHead1light);
@@ -195,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         head1.startAnimation(a2);
         head1light.startAnimation(a4);
         head1light.setVisibility(View.INVISIBLE);
-        mainImg.startAnimation(a);
+       // mainImg.startAnimation(a);
         final Animation a3 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.alphamove2);
         a3.setStartOffset(6970);
         head2.startAnimation(a3);
@@ -216,33 +239,37 @@ public class MainActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         auth = FirebaseAuth.getInstance();
 
-        if (isOnlineInternet(this) || isAppInstalled()) {
+        if (facebookLoged==0 && isOnlineInternet(this) && isAppInstalled()){
+            loginFacebook.performClick();
+        }
+
+        if (isOnlineInternet(this) && isAppInstalled()) {
             loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
                     Log.d(TAG, "OnSucces" + loginResult);
-                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     handleFaceBookToken(loginResult.getAccessToken());
                 }
 
                 @Override
                 public void onCancel() {
                     Log.d(TAG, "OnCancel");
-                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
+//                    backToast.show();
                 }
 
                 @Override
                 public void onError(FacebookException error) {
-                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     Log.d(TAG, "OnError" + error);
                 }
             });
         }else{
-            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
-            backToast.show();
+//            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+//            backToast.show();
             loginFacebook.setVisibility(View.INVISIBLE);
         }
 
@@ -308,6 +335,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, userlist.class));
+                finish();
+            }
+        });
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -329,8 +364,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.commit();
                 }else{
                     Log.d(TAG,"sing in with credential is failure", task.getException());
-                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     updateUI(null);
                     SharedPreferences.Editor editor = save.edit();
                     editor.putInt("facebookLoged", 0);
@@ -347,10 +382,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user !=null){
-            buttonOption.setText(user.getDisplayName());
-            buttonStart.setText(user.getEmail());
+//            buttonOption.setText(user.getDisplayName());
+//            buttonStart.setText(user.getEmail());
         } else{
-            buttonOption.setText("");
+//            buttonOption.setText("");
         }
     }
 
@@ -409,6 +444,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        auth.addAuthStateListener(authStateListener);
+       auth.addAuthStateListener(authStateListener);
     }
 }
