@@ -220,6 +220,7 @@ public class userlist extends AppCompatActivity {
                 topleaders.stop();
                 try {
                     Intent intent = new Intent(userlist.this,MainActivity.class);
+                    intent.putExtra("wasTried",1);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -461,6 +462,7 @@ public class userlist extends AppCompatActivity {
         topleaders.stop();
         try {
             Intent intent = new Intent(userlist.this,MainActivity.class);
+            intent.putExtra("wasTried",1);
             startActivity(intent);
             finish();
         }catch (Exception e){

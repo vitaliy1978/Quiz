@@ -24,7 +24,7 @@ public class GameLevels extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
 
-      // final int level = 21;
+     //  final int level = 21;
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -58,6 +58,7 @@ public class GameLevels extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(GameLevels.this,MainActivity.class);
+                    intent.putExtra("wasTried",1);
                     startActivity(intent);
                     finish();
                 }catch (Exception e){
@@ -502,6 +503,7 @@ public class GameLevels extends AppCompatActivity {
     public void onBackPressed(){
         try {
             Intent intent = new Intent(GameLevels.this,MainActivity.class);
+            intent.putExtra("wasTried",1);
             startActivity(intent);
             finish();
         }catch (Exception e){

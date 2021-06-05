@@ -64,6 +64,7 @@ public class OptionHelp extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(OptionHelp.this,MainActivity.class);
+                    intent.putExtra("wasTried",1);
                     startActivity(intent);
                     finish();
                 } catch (Exception e) {
@@ -183,6 +184,7 @@ public class OptionHelp extends AppCompatActivity {
     public void onBackPressed(){
         try {
             Intent intent = new Intent(OptionHelp.this,MainActivity.class);
+            intent.putExtra("wasTried",1);
             startActivity(intent);
             finish();
         }catch (Exception e){

@@ -54,11 +54,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private long backPressedTime;
     private Toast backToast;
     MediaPlayer headfly;
+    public int wasTried=0;
 
     TextView buttonOption, buttonTop;
     Button buttonStart;
@@ -90,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
 
         }
+
+        Intent intent =getIntent();  //получить intent
+        wasTried  = intent.getIntExtra("wasTried",0);  //метод getStringExtra читает была ли попытка подключения к Facebook
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
@@ -239,37 +244,39 @@ public class MainActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         auth = FirebaseAuth.getInstance();
 
-        if (facebookLoged==0 && isOnlineInternet(this) && isAppInstalled()){
+        if (facebookLoged==0 && isOnlineInternet(this) && isAppInstalled() && wasTried==0){
             loginFacebook.performClick();
         }
 
-        if (isOnlineInternet(this) && isAppInstalled()) {
+        if (isOnlineInternet(this) && isAppInstalled() && wasTried==0) {
             loginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
                     Log.d(TAG, "OnSucces" + loginResult);
-//                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
-//                    backToast.show();
+                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
+                    backToast.show();
                     handleFaceBookToken(loginResult.getAccessToken());
                 }
 
                 @Override
                 public void onCancel() {
                     Log.d(TAG, "OnCancel");
-//                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
-//                    backToast.show();
+                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
+                    backToast.show();
+                    wasTried=1;
                 }
 
                 @Override
                 public void onError(FacebookException error) {
-//                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
-//                    backToast.show();
+                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
+                    backToast.show();
                     Log.d(TAG, "OnError" + error);
+                    wasTried=1;
                 }
             });
         }else{
-//            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
-//            backToast.show();
+            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+            backToast.show();
             loginFacebook.setVisibility(View.INVISIBLE);
         }
 
@@ -309,6 +316,7 @@ public class MainActivity extends AppCompatActivity {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wasTried=1;
                 try {
                     headfly.stop();
                     Intent intent = new Intent(MainActivity.this,GameLevels.class);
@@ -324,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
         buttonOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wasTried=1;
                 try {
                     headfly.stop();
                     Intent intent = new Intent(MainActivity.this,OptionHelp.class);
@@ -338,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
         buttonTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wasTried=1;
                 startActivity(new Intent(MainActivity.this, userlist.class));
                 finish();
             }
@@ -348,6 +358,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void handleFaceBookToken(AccessToken accessToken) {
         Log.d(TAG,"handleFacebookToken"+accessToken);
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
@@ -357,6 +368,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                 if (task.isSuccessful()){
                     Log.d(TAG,"sing in with credential is succesful");
+                      backToast = Toast.makeText(getBaseContext(), "autentification succes", Toast.LENGTH_SHORT);
+                    backToast.show();
                     FirebaseUser user = auth.getCurrentUser();
                     updateUI(user);
                     SharedPreferences.Editor editor = save.edit();
@@ -364,8 +377,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.commit();
                 }else{
                     Log.d(TAG,"sing in with credential is failure", task.getException());
-//                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
-//                    backToast.show();
+                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
+                    backToast.show();
                     updateUI(null);
                     SharedPreferences.Editor editor = save.edit();
                     editor.putInt("facebookLoged", 0);
@@ -374,6 +387,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
