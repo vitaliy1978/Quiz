@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     private static final String TAG = "FacebookAuthetification";
     private AccessTokenTracker accessTokenTracker;
+    private static final String CONSENT = "consent";
+    boolean consent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         Appodeal.disableLocationPermissionCheck();
         Appodeal.disableWriteExternalStoragePermissionCheck();
 
-        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL);
+        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
