@@ -59,6 +59,9 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
    // implementation 'com.facebook.android:facebook-login:[8.1)'
 
+    implementation 'com.appodeal.ads.sdk:core:2.10.0'
+    implementation 'com.appodeal.ads.sdk.networks:admob:2.10.0.11'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -29,6 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.appodeal.ads.Appodeal;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -77,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+
+        Appodeal.disableLocationPermissionCheck();
+        Appodeal.disableWriteExternalStoragePermissionCheck();
+
+        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL);
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
@@ -253,30 +259,30 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
                     Log.d(TAG, "OnSucces" + loginResult);
-                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnSucces", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     handleFaceBookToken(loginResult.getAccessToken());
                 }
 
                 @Override
                 public void onCancel() {
                     Log.d(TAG, "OnCancel");
-                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnCancel", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     wasTried=1;
                 }
 
                 @Override
                 public void onError(FacebookException error) {
-                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "OnError", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     Log.d(TAG, "OnError" + error);
                     wasTried=1;
                 }
             });
         }else{
-            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
-            backToast.show();
+//            backToast = Toast.makeText(getBaseContext(), "Нет соединения с интернетом", Toast.LENGTH_SHORT);
+//            backToast.show();
             loginFacebook.setVisibility(View.INVISIBLE);
         }
 
@@ -368,8 +374,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
                 if (task.isSuccessful()){
                     Log.d(TAG,"sing in with credential is succesful");
-                      backToast = Toast.makeText(getBaseContext(), "autentification succes", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                      backToast = Toast.makeText(getBaseContext(), "autentification succes", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     FirebaseUser user = auth.getCurrentUser();
                     updateUI(user);
                     SharedPreferences.Editor editor = save.edit();
@@ -377,8 +383,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.commit();
                 }else{
                     Log.d(TAG,"sing in with credential is failure", task.getException());
-                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
-                    backToast.show();
+//                    backToast = Toast.makeText(getBaseContext(), "autentification failed", Toast.LENGTH_SHORT);
+//                    backToast.show();
                     updateUI(null);
                     SharedPreferences.Editor editor = save.edit();
                     editor.putInt("facebookLoged", 0);
