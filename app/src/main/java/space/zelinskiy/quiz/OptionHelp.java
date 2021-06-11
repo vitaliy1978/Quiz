@@ -3,6 +3,7 @@ package space.zelinskiy.quiz;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -38,6 +39,23 @@ public class OptionHelp extends AppCompatActivity {
 
         final Switch switchMuz = findViewById(R.id.switchMuz);
         final Switch switchVoice = findViewById(R.id.switchVoice);
+
+        TextView text_opt_head = findViewById(R.id.text_opt_head);
+        TextView text_opt_description = findViewById(R.id.text_opt_description);
+        TextView text_opt_description2 = findViewById(R.id.text_opt_description2);
+        TextView text_opt_description3 = findViewById(R.id.text_opt_description3);
+        final TextView textOptliders = (TextView) findViewById(R.id.textOpt_liders);
+        final TextView textOptMark = (TextView) findViewById(R.id.textOpt_mark);
+        final TextView textOptShare = (TextView) findViewById(R.id.textOpt_share);
+        text_opt_head.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*12);
+        text_opt_description.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        text_opt_description2.setTextSize(TypedValue.COMPLEX_UNIT_PX, MainActivity.he*9);
+        text_opt_description3.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textOptliders.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textOptShare.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        switchMuz.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        switchVoice.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
@@ -94,6 +112,7 @@ public class OptionHelp extends AppCompatActivity {
                 editor.commit();
             }
         });
+
         switchVoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,10 +133,6 @@ public class OptionHelp extends AppCompatActivity {
                 editor.commit();
             }
         });
-
-        final TextView textOptliders = (TextView) findViewById(R.id.textOpt_liders);
-        final TextView textOptMark = (TextView) findViewById(R.id.textOpt_mark);
-        final TextView textOptShare = (TextView) findViewById(R.id.textOpt_share);
 
         manager = ReviewManagerFactory.create(OptionHelp.this);
         final Task<ReviewInfo> request = manager.requestReviewFlow();

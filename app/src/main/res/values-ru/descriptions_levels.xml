@@ -9,7 +9,7 @@
     <string name="swithMusic2">Включить музыку</string>
     <string name="swithVoice">Отключить звуки</string>
     <string name="swithVoice2">Включить звуки</string>
-    <string name="option_liders">Перейти к списоку лидеров</string>
+    <string name="option_liders">Перейти к списку лидеров</string>
     <string name="option_mark">Поставить оценку игре</string>
     <string name="option_share">Поделиться игрой</string>
     <string name="levelEnd">Время истекло.\nПопробуйте еще раз.\nНужно уложится в 2 минуты.</string>

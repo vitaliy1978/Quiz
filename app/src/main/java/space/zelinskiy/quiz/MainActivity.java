@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Point;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
@@ -14,7 +15,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.se.omapi.Session;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +33,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.InterstitialCallbacks;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -74,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
     private AccessTokenTracker accessTokenTracker;
     private static final String CONSENT = "consent";
     boolean consent;
+    int widthScreen, heightScreen;
+    public static float wd, he;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +87,65 @@ public class MainActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
 
+        Display display = getWindowManager().getDefaultDisplay();
+//        DisplayMetrics outMetrics = new DisplayMetrics ();
+//        display.getMetrics(outMetrics);
+//        float density = getResources().getDisplayMetrics().density;
+//        float he = outMetrics.heightPixels / density;
+//        float wd = outMetrics.widthPixels / density;
+
+        Point size = new Point();                                   //определение размеров экрана
+        display.getSize(size);                                      //определение размеров экрана
+        widthScreen = size.x;                                       //определение размеров экрана
+        heightScreen = size.y;                                      //определение размеров экрана
+        wd = (float) widthScreen / 300;
+        he = (float) heightScreen / 300;
+
         Appodeal.disableLocationPermissionCheck();
         Appodeal.disableWriteExternalStoragePermissionCheck();
 
-        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
+
+        //Реклама Апподил - начало
+        Appodeal.initialize(MainActivity.this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
+        Appodeal.cache(MainActivity.this, Appodeal.INTERSTITIAL);
+        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+            public void onInterstitialLoaded(boolean isPrecache) {
+                Log.d("Appodeal", "onInterstitialLoaded");
+                backToast = Toast.makeText(getBaseContext(), "Loaded", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+            public void onInterstitialFailedToLoad() {
+                Log.d("Appodeal", "FailedToLoad");
+                backToast = Toast.makeText(getBaseContext(), "FailedToLoad", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+            public void onInterstitialShown() {
+                backToast = Toast.makeText(getBaseContext(), "Shown", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+
+            @Override
+            public void onInterstitialShowFailed() {
+                backToast = Toast.makeText(getBaseContext(), "ShowFailed", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+
+            public void onInterstitialClicked() {
+                backToast = Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+            public void onInterstitialClosed() {
+                backToast = Toast.makeText(getBaseContext(), "Closed", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+
+            @Override
+            public void onInterstitialExpired() {
+                backToast = Toast.makeText(getBaseContext(), "Expired", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+        });
+        //Реклама Апподил - конец
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
@@ -325,6 +386,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 wasTried=1;
+                if (Appodeal.isLoaded(Appodeal.INTERSTITIAL)) {   //если реклама загружена
+                                     Appodeal.show(MainActivity.this, Appodeal.INTERSTITIAL); //показать рекламу
+                }
                 try {
                     headfly.stop();
                     Intent intent = new Intent(MainActivity.this,GameLevels.class);

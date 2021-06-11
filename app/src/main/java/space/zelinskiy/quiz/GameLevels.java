@@ -3,6 +3,7 @@ package space.zelinskiy.quiz;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,7 +25,7 @@ public class GameLevels extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
         final int level = save.getInt("Level", 1);
 
-     //  final int level = 21;
+//       final int level = 21;
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -475,6 +476,29 @@ public class GameLevels extends AppCompatActivity {
         });
         //кнопка для перехода 21-й уровень - Конец
 
+        int size = 10;
+        textView1.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView2.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView3.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView4.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView5.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView6.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView7.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView8.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView9.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView10.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView11.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView12.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView13.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView14.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView15.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView16.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView17.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView18.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView19.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView20.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        textView21.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+        button_back.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
 
         final int[] count={R.id.textViewlock1,R.id.textViewlock2,R.id.textViewlock3,R.id.textViewlock4,R.id.textViewlock5,R.id.textViewlock6,
                 R.id.textViewlock7,R.id.textViewlock8,R.id.textViewlock9,R.id.textViewlock10,R.id.textViewlock11,R.id.textViewlock12,R.id.textViewlock13,
@@ -483,12 +507,15 @@ public class GameLevels extends AppCompatActivity {
         final int[] lock={R.id.imglock1,R.id.imglock2,R.id.imglock3,R.id.imglock4,R.id.imglock5,R.id.img_lock6,R.id.img_lock7,R.id.img_lock8,
                 R.id.img_lock9,R.id.img_lock10,R.id.img_lock11,R.id.img_lock12,R.id.img_lock13,R.id.img_lock14,R.id.img_lock15,R.id.img_lock16,R.id.img_lock17,
                 R.id.img_lock18,R.id.img_lock19,R.id.img_lock20,R.id.img_lock21};
+
+
         for (int i=0;i<level;i++){
             TextView tv = findViewById(count[i]);
             ImageView im = findViewById(lock[i]);
            // tv.setText(""+(i+1));
             tv.setVisibility(View.VISIBLE);
-           // tv.setText(sek[i]);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
+            // tv.setText(sek[i]);
             if (array.rezult[i]<=0){
                 tv.setText("");
             }else {
@@ -496,6 +523,7 @@ public class GameLevels extends AppCompatActivity {
             }
             im.setVisibility(View.GONE);
         }
+
     }
 
     //системная кнопка Назад - начало

@@ -13,6 +13,7 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -198,9 +199,12 @@ public class userlist extends AppCompatActivity {
                 editor.commit();
             }
             //определяем UID текущего юзера
-
-
         }
+
+        textTop.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*14);
+        tvaverage.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        tvlevel.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        buttonReg.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override

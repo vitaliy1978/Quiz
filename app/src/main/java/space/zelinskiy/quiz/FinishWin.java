@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -168,6 +169,12 @@ public class FinishWin extends AppCompatActivity {
         text =getString(R.string.level_last1)+"\n"+getString(R.string.level_last3)+" "+getString(R.string.level_last4)+"\n"+getString(R.string.level_last5)+String.format("%d.%02d", middleResult / 100, (middleResult % 100))
                 +"\n"+getString(R.string.level_last6);
         textdescription.setText(text);
+
+        textdescription.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textOptLiders_end.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        back_game.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+
     }
 
     //системная кнопка Назад - начало
