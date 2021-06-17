@@ -201,10 +201,10 @@ public class userlist extends AppCompatActivity {
             //определяем UID текущего юзера
         }
 
-        textTop.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*14);
-        tvaverage.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        tvlevel.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        buttonReg.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textTop.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*35);
+        tvaverage.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
+        tvlevel.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
+        buttonReg.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override

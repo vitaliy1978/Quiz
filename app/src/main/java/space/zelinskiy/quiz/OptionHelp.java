@@ -47,15 +47,15 @@ public class OptionHelp extends AppCompatActivity {
         final TextView textOptliders = (TextView) findViewById(R.id.textOpt_liders);
         final TextView textOptMark = (TextView) findViewById(R.id.textOpt_mark);
         final TextView textOptShare = (TextView) findViewById(R.id.textOpt_share);
-        text_opt_head.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*12);
-        text_opt_description.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        text_opt_description2.setTextSize(TypedValue.COMPLEX_UNIT_PX, MainActivity.he*9);
-        text_opt_description3.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        textOptliders.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        textOptShare.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        switchMuz.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        switchVoice.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        text_opt_head.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*30);
+        text_opt_description.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        text_opt_description2.setTextSize(TypedValue.COMPLEX_UNIT_PX, MainActivity.he*24);
+        text_opt_description3.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        textOptliders.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        textOptShare.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        switchMuz.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
+        switchVoice.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*24);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);

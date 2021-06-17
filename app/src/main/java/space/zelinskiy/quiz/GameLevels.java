@@ -23,9 +23,9 @@ public class GameLevels extends AppCompatActivity {
         setContentView(R.layout.gamelevels);
 
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные по количеству пройденных уровней
-        final int level = save.getInt("Level", 1);
+   //     final int level = save.getInt("Level", 1);
 
-//       final int level = 21;
+       final int level = 21;
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -476,7 +476,7 @@ public class GameLevels extends AppCompatActivity {
         });
         //кнопка для перехода 21-й уровень - Конец
 
-        int size = 10;
+        int size = 25;
         textView1.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
         textView2.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);
         textView3.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*size);

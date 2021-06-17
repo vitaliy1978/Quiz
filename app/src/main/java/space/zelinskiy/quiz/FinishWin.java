@@ -170,10 +170,10 @@ public class FinishWin extends AppCompatActivity {
                 +"\n"+getString(R.string.level_last6);
         textdescription.setText(text);
 
-        textdescription.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        textOptLiders_end.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
-        back_game.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*9);
+        textdescription.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*23);
+        textOptLiders_end.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*23);
+        textOptMark.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*23);
+        back_game.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*23);
 
     }
 

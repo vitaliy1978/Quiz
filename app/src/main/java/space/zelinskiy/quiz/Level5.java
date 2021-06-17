@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -24,12 +25,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.appodeal.ads.Appodeal;
-import com.appodeal.ads.InterstitialCallbacks;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
+//import com.appodeal.ads.Appodeal;               //appodeal
+//import com.appodeal.ads.InterstitialCallbacks;  //appodeal
+//import com.google.android.gms.ads.AdListener;  //appodeal
+//import com.google.android.gms.ads.AdRequest;  //appodeal
 //import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+//import com.google.android.gms.ads.MobileAds;  //appodeal
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -71,44 +72,44 @@ public class Level5 extends AppCompatActivity {
         regulatorReklam();
 
         //Реклама Апподил - начало
-        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
-        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
-            public void onInterstitialLoaded(boolean isPrecache) {
-                Log.d("Appodeal", "onInterstitialLoaded");
-                backToast = Toast.makeText(getBaseContext(), "Loaded", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-            public void onInterstitialFailedToLoad() {
-                   Log.d("Appodeal", "FailedToLoad");
-                   backToast = Toast.makeText(getBaseContext(), "FailedToLoad", Toast.LENGTH_SHORT);
-                   backToast.show();
-            }
-            public void onInterstitialShown() {
-                backToast = Toast.makeText(getBaseContext(), "Shown", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-
-            @Override
-            public void onInterstitialShowFailed() {
-                backToast = Toast.makeText(getBaseContext(), "ShowFailed", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-
-            public void onInterstitialClicked() {
-                backToast = Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-            public void onInterstitialClosed() {
-                backToast = Toast.makeText(getBaseContext(), "Closed", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-
-            @Override
-            public void onInterstitialExpired() {
-                backToast = Toast.makeText(getBaseContext(), "Expired", Toast.LENGTH_SHORT);
-                backToast.show();
-            }
-        });
+//        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
+//        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+//            public void onInterstitialLoaded(boolean isPrecache) {
+//                Log.d("Appodeal", "onInterstitialLoaded");
+//                backToast = Toast.makeText(getBaseContext(), "Loaded", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//            public void onInterstitialFailedToLoad() {
+//                   Log.d("Appodeal", "FailedToLoad");
+//                   backToast = Toast.makeText(getBaseContext(), "FailedToLoad", Toast.LENGTH_SHORT);
+//                   backToast.show();
+//            }
+//            public void onInterstitialShown() {
+//                backToast = Toast.makeText(getBaseContext(), "Shown", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//
+//            @Override
+//            public void onInterstitialShowFailed() {
+//                backToast = Toast.makeText(getBaseContext(), "ShowFailed", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//
+//            public void onInterstitialClicked() {
+//                backToast = Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//            public void onInterstitialClosed() {
+//                backToast = Toast.makeText(getBaseContext(), "Closed", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//
+//            @Override
+//            public void onInterstitialExpired() {
+//                backToast = Toast.makeText(getBaseContext(), "Expired", Toast.LENGTH_SHORT);
+//                backToast.show();
+//            }
+//        });
         //Реклама Апподил - конец
 
         //Реклама - Начало
@@ -497,16 +498,19 @@ public class Level5 extends AppCompatActivity {
         final ImageView preview_img_viktory = (ImageView)dialogEnd.findViewById(R.id.preview_img_viktory);
         final ImageView main_img_lose = (ImageView)dialogEnd.findViewById(R.id.main_img_lose);
 
+        text_description.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*27);
+        text_description2.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*27);
+        textdescribtionEnd.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*27);
 
         // Кнопка которая закрывает диалоговое окно - Начало
         TextView button_close2 = (TextView) dialogEnd.findViewById(R.id.button_close);
         button_close2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-                    transition = 2;
-                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-                } else {
+//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+//                    transition = 2;
+//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+//                } else {
                 if (numlev<21){
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
@@ -526,7 +530,7 @@ public class Level5 extends AppCompatActivity {
                 }
 
                     dialog.dismiss();  //закрываем диалоговое окно
-                }
+//                }
             }
         });
         // Кнопка которая закрывает диалоговое окно - Конец
@@ -544,10 +548,10 @@ public class Level5 extends AppCompatActivity {
 //                    interstitialAd.show();    //показать рекламу
 //                } else {
 
-                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-                    transition = 2;
-                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-                }else {
+//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+//                    transition = 2;
+//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+//                }else {
                     if (numlev < 21) {
                         try {
                             Intent intent = new Intent(Level5.this, Level5.class);
@@ -569,7 +573,7 @@ public class Level5 extends AppCompatActivity {
                     }
 
                     dialogEnd.dismiss();  //закрываем диалоговое окно
-                }
+//                }
             }
         });
         //Кнопка Продолжить - Конец
@@ -667,10 +671,10 @@ public class Level5 extends AppCompatActivity {
 //                    transition=3;
 //                    interstitialAd.show();    //показать рекламу
 //                }else {
-                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-                    transition = 2;
-                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-                }else {
+//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+//                    transition = 2;
+//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+//                }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -684,7 +688,7 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-                }
+//                }
             }
         });
         //Кнопка Назад - Конец
@@ -1242,6 +1246,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
             }
         });
         //Обрабатываем нажатие на правую картинку - Конец
+
     }
     //системная кнопка Назад - начало
     @Override
@@ -1253,10 +1258,10 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
 //            transition=3;
 //            interstitialAd.show();    //показать рекламу
 //        }else {
-        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-            transition = 2;
-            Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-        }else {
+//        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+//            transition = 2;
+//            Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+//        }else {
             if (!musicotschet.isPlaying()) {
                 try {
                     musicfon.stop();
@@ -1272,7 +1277,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
 
                 }
             }
-        }
+//        }
     }
 
     public void send(){

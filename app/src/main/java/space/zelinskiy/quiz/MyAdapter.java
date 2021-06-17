@@ -46,10 +46,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         //   holder.average.setText(user.getMiddleResult()+"");
         holder.average.setText(String.format("%d.%02d", user.getMiddleResult() / 100, (user.getMiddleResult() % 100)));
 
-        holder.number.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*10);
-        holder.name.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*10);
-        holder.level.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*10);
-        holder.average.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*10);
+        holder.number.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*25);
+        holder.name.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*25);
+        holder.level.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*25);
+        holder.average.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*25);
 
           switch (position){
             case 0: holder.itemView.setBackgroundResource(R.drawable.gold_shape);
