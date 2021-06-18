@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     boolean consent;
     int widthScreen, heightScreen;
     public static float wd, he;
+    float density;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         Display display = getWindowManager().getDefaultDisplay();
 //        DisplayMetrics outMetrics = new DisplayMetrics ();
 //        display.getMetrics(outMetrics);
-//        float density = getResources().getDisplayMetrics().density;
+        density = getResources().getDisplayMetrics().density;
 //        float he = outMetrics.heightPixels / density;
 //        float wd = outMetrics.widthPixels / density;
 
@@ -98,8 +99,13 @@ public class MainActivity extends AppCompatActivity {
         display.getSize(size);                                      //определение размеров экрана
         widthScreen = size.x;                                       //определение размеров экрана
         heightScreen = size.y;                                      //определение размеров экрана
-        wd = (float) widthScreen / 800;
-        he = (float) heightScreen / 800;
+        if (density<=2) {
+            wd = (float) widthScreen / 780;
+            he = (float) heightScreen / 780;
+        } else{
+            wd = (float) widthScreen / 880;
+            he = (float) heightScreen / 880;
+        }
 
 //        Appodeal.disableLocationPermissionCheck();                //appodeal
 //        Appodeal.disableWriteExternalStoragePermissionCheck();   //appodeal
