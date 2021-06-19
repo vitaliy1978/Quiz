@@ -56,6 +56,6 @@
     <string name="leveltwenty2">do more people live?</string>
     <string name="leveltwentyone"></string>
     <string name="leveltwentyone2">What is higher?</string>
-    <string name="leveltwentytwo"></string>
-    <string name="leveltwentytwo2">Which one was born earlier?</string>
+    <string name="leveltwentytwo">Which one was born earlier?</string>
+    <string name="leveltwentytwo2"></string>
 </resources>

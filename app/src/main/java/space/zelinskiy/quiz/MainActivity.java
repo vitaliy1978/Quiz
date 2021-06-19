@@ -32,8 +32,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.appodeal.ads.Appodeal;    //appodeal
-//import com.appodeal.ads.InterstitialCallbacks;   //appodeal
+import com.appodeal.ads.Appodeal;    //appodeal
+import com.appodeal.ads.InterstitialCallbacks;   //appodeal
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -107,50 +107,50 @@ public class MainActivity extends AppCompatActivity {
             he = (float) heightScreen / 880;
         }
 
-//        Appodeal.disableLocationPermissionCheck();                //appodeal
-//        Appodeal.disableWriteExternalStoragePermissionCheck();   //appodeal
+        Appodeal.disableLocationPermissionCheck();                //appodeal
+        Appodeal.disableWriteExternalStoragePermissionCheck();   //appodeal
 
 
         //Реклама Апподил - начало
-//        Appodeal.initialize(MainActivity.this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
-//        Appodeal.cache(MainActivity.this, Appodeal.INTERSTITIAL);
-//        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
-//            public void onInterstitialLoaded(boolean isPrecache) {
-//                Log.d("Appodeal", "onInterstitialLoaded");
+        Appodeal.initialize(MainActivity.this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
+        Appodeal.cache(MainActivity.this, Appodeal.INTERSTITIAL);
+        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+            public void onInterstitialLoaded(boolean isPrecache) {
+                Log.d("Appodeal", "onInterstitialLoaded");
 //                backToast = Toast.makeText(getBaseContext(), "Loaded", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//            public void onInterstitialFailedToLoad() {
-//                Log.d("Appodeal", "FailedToLoad");
+            }
+            public void onInterstitialFailedToLoad() {
+                Log.d("Appodeal", "FailedToLoad");
 //                backToast = Toast.makeText(getBaseContext(), "FailedToLoad", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//            public void onInterstitialShown() {
+            }
+            public void onInterstitialShown() {
 //                backToast = Toast.makeText(getBaseContext(), "Shown", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            @Override
-//            public void onInterstitialShowFailed() {
+            }
+
+            @Override
+            public void onInterstitialShowFailed() {
 //                backToast = Toast.makeText(getBaseContext(), "ShowFailed", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            public void onInterstitialClicked() {
+            }
+
+            public void onInterstitialClicked() {
 //                backToast = Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//            public void onInterstitialClosed() {
+            }
+            public void onInterstitialClosed() {
 //                backToast = Toast.makeText(getBaseContext(), "Closed", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            @Override
-//            public void onInterstitialExpired() {
+            }
+
+            @Override
+            public void onInterstitialExpired() {
 //                backToast = Toast.makeText(getBaseContext(), "Expired", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//        });
+            }
+        });
         //Реклама Апподил - конец
 
         try {

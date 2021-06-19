@@ -8,8 +8,8 @@ android {
         applicationId "space.zelinskiy.quiz"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 7
-        versionName "2.5"
+        versionCode 9
+        versionName "2.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,8 +59,9 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
    // implementation 'com.facebook.android:facebook-login:[8.1)'
 
-//    implementation 'androidx.multidex:multidex:2.0.1'  //appodeal
-//    implementation 'com.appodeal.ads:sdk:2.10.1+'  //appodeal
+    implementation 'androidx.multidex:multidex:2.0.1'  //appodeal
+    implementation 'com.appodeal.ads:sdk:2.10.1+'  //appodeal
+
 
 }
 

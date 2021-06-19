@@ -202,8 +202,8 @@ public class userlist extends AppCompatActivity {
         }
 
         textTop.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*35);
-        tvaverage.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
-        tvlevel.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
+        tvaverage.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*20);
+        tvlevel.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*20);
         buttonReg.setTextSize(TypedValue.COMPLEX_UNIT_PX,MainActivity.he*22);
 
         buttonReg.setOnClickListener(new View.OnClickListener() {

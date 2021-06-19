@@ -25,12 +25,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.appodeal.ads.Appodeal;               //appodeal
-//import com.appodeal.ads.InterstitialCallbacks;  //appodeal
-//import com.google.android.gms.ads.AdListener;  //appodeal
-//import com.google.android.gms.ads.AdRequest;  //appodeal
+import com.appodeal.ads.Appodeal;               //appodeal
+import com.appodeal.ads.InterstitialCallbacks;  //appodeal
+import com.google.android.gms.ads.AdListener;  //appodeal
+import com.google.android.gms.ads.AdRequest;  //appodeal
 //import com.google.android.gms.ads.InterstitialAd;
-//import com.google.android.gms.ads.MobileAds;  //appodeal
+import com.google.android.gms.ads.MobileAds;  //appodeal
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -69,47 +69,83 @@ public class Level5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
 
+        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
+        final int level = save.getInt("Level", 1);
         regulatorReklam();
 
         //Реклама Апподил - начало
-//        Appodeal.initialize(this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
-//        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
-//            public void onInterstitialLoaded(boolean isPrecache) {
-//                Log.d("Appodeal", "onInterstitialLoaded");
+        Appodeal.initialize(Level5.this, "a974c5ba4cff40feeb011cd509020d30098be772998f97fc", Appodeal.INTERSTITIAL, true);
+        Appodeal.cache(Level5.this, Appodeal.INTERSTITIAL);
+        Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+            public void onInterstitialLoaded(boolean isPrecache) {
+                Log.d("Appodeal", "onInterstitialLoaded");
 //                backToast = Toast.makeText(getBaseContext(), "Loaded", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//            public void onInterstitialFailedToLoad() {
-//                   Log.d("Appodeal", "FailedToLoad");
+            }
+            public void onInterstitialFailedToLoad() {
+                   Log.d("Appodeal", "FailedToLoad");
 //                   backToast = Toast.makeText(getBaseContext(), "FailedToLoad", Toast.LENGTH_SHORT);
 //                   backToast.show();
-//            }
-//            public void onInterstitialShown() {
+            }
+            public void onInterstitialShown() {
 //                backToast = Toast.makeText(getBaseContext(), "Shown", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            @Override
-//            public void onInterstitialShowFailed() {
+            }
+
+            @Override
+            public void onInterstitialShowFailed() {
 //                backToast = Toast.makeText(getBaseContext(), "ShowFailed", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            public void onInterstitialClicked() {
+            }
+
+            public void onInterstitialClicked() {
 //                backToast = Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//            public void onInterstitialClosed() {
+            }
+            public void onInterstitialClosed() {
 //                backToast = Toast.makeText(getBaseContext(), "Closed", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//
-//            @Override
-//            public void onInterstitialExpired() {
+                try{
+                    switch(transition){
+                        case 0: break;
+                        case 1:
+                            if (numlev<21){
+                                Intent intent = new Intent(Level5.this,Level5.class);
+                                intent.putExtra("numlev", numlev + 1);
+                                startActivity(intent);
+                                finish(); break;
+                            }else{
+                                Intent intent = new Intent(Level5.this,FinishWin.class);
+                                startActivity(intent);
+                                finish(); break;
+                            }
+
+                        case 2:
+                            if (numlev<21){
+                                Intent intent1 = new Intent(Level5.this,GameLevels.class);
+                                startActivity(intent1);finish(); break;
+                            }else{
+                                Intent intent1 = new Intent(Level5.this,FinishWin.class);
+                                startActivity(intent1);finish(); break;
+                            }
+                        case 3:
+                            Intent intent1 = new Intent(Level5.this,GameLevels.class);
+                            startActivity(intent1);finish(); break;
+
+                        default:break;
+                    }
+
+                }catch (Exception e){
+                    //пусто
+                }
+            }
+
+            @Override
+            public void onInterstitialExpired() {
 //                backToast = Toast.makeText(getBaseContext(), "Expired", Toast.LENGTH_SHORT);
 //                backToast.show();
-//            }
-//        });
+            }
+        });
         //Реклама Апподил - конец
 
         //Реклама - Начало
@@ -162,10 +198,9 @@ public class Level5 extends AppCompatActivity {
 //        });
         //Закрытие рекламы на крестик
 
-        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE); //Указываем сохраненные данные
         final boolean muzof = save.getBoolean("muzof", false);  //берем данные о вкдюченности музыки
         final boolean voiceof = save.getBoolean("voiceof", false);  //берем данные о включенности звуков
-        final int regulatorRek = save.getInt("regulatorRek", 0);
+        int regulatorRek = save.getInt("regulatorRek", 0);
 
         audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE); //для регулирования громкости
 
@@ -180,9 +215,8 @@ public class Level5 extends AppCompatActivity {
 
         TextView text_levels = (TextView)findViewById(R.id.text_levels);
         text_levels.setText(getString(R.string.wordlevel)+" "+Integer.toString(numlev));
-      //  text_levels.setText(regulatorRek+"");
+//        text_levels.setText(regulatorRek+"");
 
-        final int level = save.getInt("Level", 1);
 
         array.rezult[0] = save.getInt("arrayRezult 0",0);
         array.rezult[1] = save.getInt("arrayRezult 1",0);
@@ -507,10 +541,10 @@ public class Level5 extends AppCompatActivity {
         button_close2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-//                    transition = 2;
-//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-//                } else {
+                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+                    transition = 2;
+                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+                } else {
                 if (numlev<21){
                     try {
                         Intent intent = new Intent(Level5.this, GameLevels.class);
@@ -530,7 +564,7 @@ public class Level5 extends AppCompatActivity {
                 }
 
                     dialog.dismiss();  //закрываем диалоговое окно
-//                }
+                }
             }
         });
         // Кнопка которая закрывает диалоговое окно - Конец
@@ -548,10 +582,10 @@ public class Level5 extends AppCompatActivity {
 //                    interstitialAd.show();    //показать рекламу
 //                } else {
 
-//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-//                    transition = 2;
-//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-//                }else {
+                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+                    transition = 1;
+                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+                }else {
                     if (numlev < 21) {
                         try {
                             Intent intent = new Intent(Level5.this, Level5.class);
@@ -573,7 +607,7 @@ public class Level5 extends AppCompatActivity {
                     }
 
                     dialogEnd.dismiss();  //закрываем диалоговое окно
-//                }
+                }
             }
         });
         //Кнопка Продолжить - Конец
@@ -671,10 +705,10 @@ public class Level5 extends AppCompatActivity {
 //                    transition=3;
 //                    interstitialAd.show();    //показать рекламу
 //                }else {
-//                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-//                    transition = 2;
-//                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-//                }else {
+                if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+                    transition = 3;
+                    Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+                }else {
                     try {
                         musicfon.stop();
                         fanfary1.stop();
@@ -688,7 +722,7 @@ public class Level5 extends AppCompatActivity {
                     } catch (Exception e) {
 
                     }
-//                }
+                }
             }
         });
         //Кнопка Назад - Конец
@@ -1258,10 +1292,10 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
 //            transition=3;
 //            interstitialAd.show();    //показать рекламу
 //        }else {
-//        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
-//            transition = 2;
-//            Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-//        }else {
+        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+            transition = 3;
+            Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+        }else {
             if (!musicotschet.isPlaying()) {
                 try {
                     musicfon.stop();
@@ -1277,7 +1311,7 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
 
                 }
             }
-//        }
+        }
     }
 
     public void send(){
@@ -1321,13 +1355,19 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
         final int regulatorRek = save.getInt("regulatorRek", 0);
         final int level = save.getInt("Level", 1);
 
-        if (level<3){
+        if (level<=2){
             SharedPreferences.Editor editor = save.edit();
             editor.putInt("regulatorRek", 3);
             editor.commit();
             return;
         }
-        if (level>=3) {
+        if (level>2) {
+            if (regulatorRek == 3) {
+                SharedPreferences.Editor editor = save.edit();
+                editor.putInt("regulatorRek", 2);
+                editor.commit();
+                return;
+            }
             if (regulatorRek == 0) {
                 SharedPreferences.Editor editor = save.edit();
                 editor.putInt("regulatorRek", 1);
