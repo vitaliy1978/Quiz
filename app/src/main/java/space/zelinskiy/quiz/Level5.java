@@ -56,6 +56,7 @@ public class Level5 extends AppCompatActivity {
     public int middleResult=0, formiddle=0;  //среднее время за все уровни
     final int last =0;
     public String text="";
+    public int enable_all=0;
     //Toast liderToast;
   //  public InterstitialAd interstitialAd; //реклама
     public int transition=0;
@@ -462,6 +463,7 @@ public class Level5 extends AppCompatActivity {
         img_left.setEnabled(false);
         img_right.setEnabled(false);
         button_back.setEnabled(false);
+        enable_all = 0;
 
         //Развернуть игру на весь экран - Начало
         Window w = getWindow();
@@ -649,6 +651,7 @@ public class Level5 extends AppCompatActivity {
                         img_left.setEnabled(true);
                         img_right.setEnabled(true);
                         button_back.setEnabled(true);
+                        enable_all=1;
                     }
                 };
                 myTimer.start();
@@ -708,6 +711,12 @@ public class Level5 extends AppCompatActivity {
                 if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
                     transition = 3;
                     Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
+                    musicfon.stop();
+                    fanfary1.stop();
+                    fanfary2.stop();
+                    timeend.stop();
+                    start = 0;
+                    sekost = 50001;
                 }else {
                     try {
                         musicfon.stop();
@@ -1284,18 +1293,25 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
     }
     //системная кнопка Назад - начало
     @Override
-    public void onBackPressed(){
-        SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
+    public void onBackPressed() {
+        if (enable_all == 1){
+            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         final int regulatorRek = save.getInt("regulatorRek", 0);
 //        if (interstitialAd.isLoaded() && (regulatorRek==0)){   //если реклама загружена
 //            musicfon.stop();
 //            transition=3;
 //            interstitialAd.show();    //показать рекламу
 //        }else {
-        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin==0) && (regulatorRek==0))) {   //если реклама загружена
+        if ((Appodeal.isLoaded(Appodeal.INTERSTITIAL) && (twomin == 0) && (regulatorRek == 0))) {   //если реклама загружена
             transition = 3;
             Appodeal.show(Level5.this, Appodeal.INTERSTITIAL); //показать рекламу
-        }else {
+            musicfon.stop();
+            fanfary1.stop();
+            fanfary2.stop();
+            timeend.stop();
+            start = 0;
+            sekost = 50001;
+        } else {
             if (!musicotschet.isPlaying()) {
                 try {
                     musicfon.stop();
@@ -1313,8 +1329,10 @@ if (numlev!=1 && numlev!=2 && numlev!=3 && numlev!=4 && numlev!=12 && numlev!=13
             }
         }
     }
+    }
 
     public void send(){
+
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int alreadyReg = save.getInt("alreadyReg", 0);
         if (alreadyReg==1) {
