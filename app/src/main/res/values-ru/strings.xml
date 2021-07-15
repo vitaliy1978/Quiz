@@ -64,4 +64,6 @@
     <string name="btn20">Города</string>
     <string name="btn21">Высота</string>
     <string name="btn22">Великие люди</string>
+    <string name="PolCon">Политика конфиденциальности</string>
+    <string name="PolSogl">Условия и положения</string>
 </resources>

@@ -68,6 +68,8 @@
 <!--    <string name="fb_login_protocol_scheme" translatable="false">fb327199932177295</string>-->
     <string name="facebook_app_id" translatable="false">838960067024036</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb838960067024036</string>
+    <string name="PolCon">Privacy Policy</string>
+    <string name="PolSogl">Terms &amp; Conditions</string>
 
 
 </resources>

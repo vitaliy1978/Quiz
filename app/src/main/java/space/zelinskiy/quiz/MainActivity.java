@@ -538,4 +538,5 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
        auth.addAuthStateListener(authStateListener);
     }
+
 }

@@ -2,13 +2,18 @@ package space.zelinskiy.quiz;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +25,7 @@ import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
 
-public class OptionHelp extends AppCompatActivity {
+public class OptionHelp extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     boolean muzof =false;
     boolean voiceof =false;
@@ -192,8 +197,40 @@ public class OptionHelp extends AppCompatActivity {
             }
         });
 
-
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        menu.add(0,0,0,"Политика конфиденциальности");
+//        menu.add(0,1,0,"Пользовательское соглашение");
+//        return super.onCreateOptionsMenu(menu);
+//    }
+
+    public void showPopup(View v){
+        PopupMenu popup = new PopupMenu(this, v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.item1:
+                Intent browserIntent = new
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://quick-choice.flycricket.io/privacy.html"));
+                startActivity(browserIntent);
+                return true;
+            case R.id.item2:
+                Intent browserIntent2 = new
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://quick-choice.flycricket.io/terms.html"));
+                startActivity(browserIntent2);
+                return true;
+            default: return false;
+        }
+    }
+
     //системная кнопка Назад - начало
     @Override
     public void onBackPressed(){
